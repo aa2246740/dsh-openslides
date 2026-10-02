@@ -1,0 +1,36 @@
+{
+  "rejectedTextSave": {
+    "commands": [
+      "select",
+      "select",
+      "select",
+      "select",
+      "setRichText"
+    ],
+    "pageIndex": 0,
+    "pageErrors": []
+  },
+  "rejectedNotesSave": {
+    "commands": [
+      "notes",
+      "setNotes",
+      "setNotes",
+      "goToPage",
+      "goToPage"
+    ],
+    "pageAfterFirst": 0,
+    "pageAfterSecond": 1,
+    "pageOneNotes": "UNSAVED_NOTES_SENTINEL",
+    "pageErrors": []
+  },
+  "pendingNavigationWrongTarget": {
+    "commands": [
+      "notes",
+      "goToPage",
+      "setNotes",
+      "goToPage"
+    ],
+    "pageTwoNotes": "",
+    "pageOneNotes": "PENDING_NAV_SENTINEL"
+  }
+}

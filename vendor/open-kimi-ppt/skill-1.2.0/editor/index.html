@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="一个可打开、编辑并保存本地 PPTD 项目的 neo-ppt 第三方宿主。"
+    />
+    <title>NeoDeck Local</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="NeoDeck Local">
+          <span class="brand-mark">N</span>
+          <span class="brand-copy">
+            <strong>NeoDeck</strong>
+            <small>LOCAL</small>
+          </span>
+        </div>
+
+        <div class="toolbar" aria-label="文件工具栏">
+          <button class="button button-primary" id="open-folder" type="button">
+            <span class="button-icon" aria-hidden="true">＋</span>
+            打开 PPTD 文件夹
+          </button>
+          <button class="button" id="open-demo" type="button">示例</button>
+          <button class="icon-button" id="reload-deck" type="button" title="重新载入当前文稿" disabled>
+            ↻
+          </button>
+        </div>
+
+        <div class="document-meta" aria-live="polite">
+          <div class="document-title" id="document-title">等待编辑器连接</div>
+          <div class="document-path" id="document-path">当前使用演示文稿</div>
+        </div>
+
+        <div class="topbar-actions">
+          <span class="status-pill status-connecting" id="connection-status">
+            <span class="status-dot"></span>
+            <span id="connection-label">连接中</span>
+          </span>
+          <span class="save-state" id="save-state">未保存到本地</span>
+          <button class="icon-button" id="toggle-activity" type="button" title="打开活动记录">☰</button>
+        </div>
+      </header>
+
+      <main class="editor-stage">
+        <iframe
+          id="editor"
+          title="neo-ppt 编辑器"
+          allow="fullscreen; clipboard-read; clipboard-write"
+        ></iframe>
+
+        <section class="loading-card" id="loading-card" aria-live="polite">
+          <span class="loading-orbit" aria-hidden="true"></span>
+          <h1 id="loading-title">正在连接 neo-ppt</h1>
+          <p id="loading-message">编辑器就绪后会自动载入示例文稿。</p>
+        </section>
+
+        <aside class="activity-panel" id="activity-panel" aria-hidden="true">
+          <div class="activity-header">
+            <div>
+              <strong>活动记录</strong>
+              <small>连接、加载与保存状态</small>
+            </div>
+            <button class="icon-button" id="close-activity" type="button" aria-label="关闭活动记录">×</button>
+          </div>
+          <ol class="activity-list" id="activity-list"></ol>
+          <div class="activity-footer">
+            文件只会在你授权的项目文件夹内读写；远程编辑器不会获得任意磁盘访问权限。
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <dialog class="open-dialog" id="open-dialog" aria-labelledby="open-dialog-title">
+      <div class="open-dialog-shell">
+        <div class="open-dialog-header">
+          <div class="dialog-heading">
+            <span class="dialog-mark">P</span>
+            <div>
+              <h2 id="open-dialog-title">打开 PPTD 项目文件夹</h2>
+              <p>请选择或拖入包含完整项目结构的文件夹</p>
+            </div>
+          </div>
+          <button class="icon-button" id="close-open-dialog" type="button" aria-label="关闭打开文稿弹窗">×</button>
+        </div>
+
+        <button class="upload-dropzone" id="upload-dropzone" type="button">
+          <span class="upload-illustration" aria-hidden="true">
+            <span class="upload-file">P</span>
+            <span class="upload-arrow">↑</span>
+          </span>
+          <strong>拖动 PPTD 项目文件夹到这里</strong>
+          <span>仅接受一个完整文件夹，不支持单独的 .pptd 文件</span>
+          <em>点击上传完整文件夹（只读）</em>
+        </button>
+
+        <div class="open-choice-row">
+          <button class="open-choice open-choice-primary" id="choose-writable-folder" type="button">
+            <span class="choice-icon" aria-hidden="true">▣</span>
+            <span>
+              <strong>选择项目文件夹</strong>
+              <small>授权后支持自动保存</small>
+            </span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <button class="open-choice" id="upload-folder" type="button">
+            <span class="choice-icon choice-icon-muted" aria-hidden="true">↑</span>
+            <span>
+              <strong>上传项目文件夹</strong>
+              <small>兼容模式，只读打开</small>
+            </span>
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <div class="open-dialog-note">
+          <span aria-hidden="true">ⓘ</span>
+          <span>PPTD 项目由 .pptd 清单、pages 页面目录和 media 素材目录组成，必须上传整个文件夹。若提示含系统文件，请移除 .DS_Store。</span>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="deck-dialog" id="deck-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <span class="dialog-mark">P</span>
+          <div>
+            <h2>选择 PPTD 文稿</h2>
+            <p>这个文件夹里发现了多个 .pptd 清单，请选择一个。</p>
+          </div>
+        </div>
+        <div class="deck-options" id="deck-options"></div>
+        <div class="dialog-actions">
+          <button class="button" value="cancel">取消</button>
+        </div>
+      </form>
+    </dialog>
+
+    <input id="folder-fallback" type="file" webkitdirectory multiple hidden />
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

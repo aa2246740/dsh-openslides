@@ -1,0 +1,389 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t9
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 161–177 / 177
+      style: $body
+  - elementId: sh-flowChartTerminator
+    elementType: shape
+    shapeName: flowChartTerminator
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-flowChartTerminator
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: flowChartTerminator
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartConnector
+    elementType: shape
+    shapeName: flowChartConnector
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-flowChartConnector
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: flowChartConnector
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartOffpageConnector
+    elementType: shape
+    shapeName: flowChartOffpageConnector
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-flowChartOffpageConnector
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: flowChartOffpageConnector
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartPunchedCard
+    elementType: shape
+    shapeName: flowChartPunchedCard
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-flowChartPunchedCard
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: flowChartPunchedCard
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartPunchedTape
+    elementType: shape
+    shapeName: flowChartPunchedTape
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-flowChartPunchedTape
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: flowChartPunchedTape
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartCollate
+    elementType: shape
+    shapeName: flowChartCollate
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-flowChartCollate
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartCollate
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartSort
+    elementType: shape
+    shapeName: flowChartSort
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-flowChartSort
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartSort
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartExtract
+    elementType: shape
+    shapeName: flowChartExtract
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-flowChartExtract
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartExtract
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartMerge
+    elementType: shape
+    shapeName: flowChartMerge
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-flowChartMerge
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartMerge
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartOr
+    elementType: shape
+    shapeName: flowChartOr
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-flowChartOr
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartOr
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartSummingJunction
+    elementType: shape
+    shapeName: flowChartSummingJunction
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-flowChartSummingJunction
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartSummingJunction
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartOnlineStorage
+    elementType: shape
+    shapeName: flowChartOnlineStorage
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-flowChartOnlineStorage
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartOnlineStorage
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartMagneticDisk
+    elementType: shape
+    shapeName: flowChartMagneticDisk
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-flowChartMagneticDisk
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartMagneticDisk
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartMagneticDrum
+    elementType: shape
+    shapeName: flowChartMagneticDrum
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-flowChartMagneticDrum
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartMagneticDrum
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartMagneticTape
+    elementType: shape
+    shapeName: flowChartMagneticTape
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-flowChartMagneticTape
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartMagneticTape
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartOfflineStorage
+    elementType: shape
+    shapeName: flowChartOfflineStorage
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-flowChartOfflineStorage
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartOfflineStorage
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartDisplay
+    elementType: shape
+    shapeName: flowChartDisplay
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-flowChartDisplay
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartDisplay
+      style: $body
+      fontSize: 10

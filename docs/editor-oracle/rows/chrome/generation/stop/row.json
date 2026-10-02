@@ -1,0 +1,47 @@
+{
+  "id": "chrome.generation.stop",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "停止当前生成并等待空闲",
+  "description": "Stop the live generation session, wait for idle, then keep the same session for continue or model switch.",
+  "kimiUi": {
+    "controlLabel": "停止生成",
+    "location": "editor generation header",
+    "appearsWhen": "live generation is busy"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": { "kind": "none" }
+  },
+  "action": {
+    "type": "button",
+    "steps": [
+      "Click stop generation",
+      "Wait until /slides/state reports idle",
+      "Do not send a continue turn until idle"
+    ]
+  },
+  "evidence": {
+    "screenshots": { "before": "", "after": "" },
+    "pptd": { "summary": "same session remains; no homepage recovery banner" }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "operatorStop"
+  },
+  "test": {
+    "id": "EO-CHROME-GENERATION-STOP",
+    "automated": true,
+    "selfTestChecklist": [
+      "stop posts /slides/sessions/:id/stop then waits for idle"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-14T00:00:00.000Z",
+    "agent": "native-1-1"
+  },
+  "updatedAt": "2026-09-14T00:00:00.000Z"
+}

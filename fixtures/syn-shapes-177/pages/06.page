@@ -1,0 +1,558 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t6
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 101–120 / 177
+      style: $body
+  - elementId: sh-borderCallout2
+    elementType: shape
+    shapeName: borderCallout2
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 112500
+      - -46667
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-borderCallout2
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: borderCallout2
+      style: $body
+      fontSize: 10
+  - elementId: sh-borderCallout3
+    elementType: shape
+    shapeName: borderCallout3
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 100000
+      - -16667
+      - 112963
+      - -8333
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-borderCallout3
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: borderCallout3
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentCallout1
+    elementType: shape
+    shapeName: accentCallout1
+    adjustments:
+      - 18750
+      - -8333
+      - 112500
+      - -38333
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-accentCallout1
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: accentCallout1
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentCallout2
+    elementType: shape
+    shapeName: accentCallout2
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 112500
+      - -46667
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-accentCallout2
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: accentCallout2
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentCallout3
+    elementType: shape
+    shapeName: accentCallout3
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 100000
+      - -16667
+      - 112963
+      - -8333
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-accentCallout3
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: accentCallout3
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentBorderCallout1
+    elementType: shape
+    shapeName: accentBorderCallout1
+    adjustments:
+      - 18750
+      - -8333
+      - 112500
+      - -38333
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-accentBorderCallout1
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: accentBorderCallout1
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentBorderCallout2
+    elementType: shape
+    shapeName: accentBorderCallout2
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 112500
+      - -46667
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-accentBorderCallout2
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: accentBorderCallout2
+      style: $body
+      fontSize: 10
+  - elementId: sh-accentBorderCallout3
+    elementType: shape
+    shapeName: accentBorderCallout3
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 100000
+      - -16667
+      - 112963
+      - -8333
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-accentBorderCallout3
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: accentBorderCallout3
+      style: $body
+      fontSize: 10
+  - elementId: sh-callout1
+    elementType: shape
+    shapeName: callout1
+    adjustments:
+      - 18750
+      - -8333
+      - 112500
+      - -38333
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-callout1
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: callout1
+      style: $body
+      fontSize: 10
+  - elementId: sh-callout2
+    elementType: shape
+    shapeName: callout2
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 112500
+      - -46667
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-callout2
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: callout2
+      style: $body
+      fontSize: 10
+  - elementId: sh-callout3
+    elementType: shape
+    shapeName: callout3
+    adjustments:
+      - 18750
+      - -8333
+      - 18750
+      - -16667
+      - 100000
+      - -16667
+      - 112963
+      - -8333
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-callout3
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: callout3
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftBrace
+    elementType: shape
+    shapeName: leftBrace
+    adjustments:
+      - 8333
+      - 50000
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-leftBrace
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftBrace
+      style: $body
+      fontSize: 10
+  - elementId: sh-rightBrace
+    elementType: shape
+    shapeName: rightBrace
+    adjustments:
+      - 8333
+      - 50000
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-rightBrace
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: rightBrace
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftBracket
+    elementType: shape
+    shapeName: leftBracket
+    adjustments:
+      - 8333
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-leftBracket
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftBracket
+      style: $body
+      fontSize: 10
+  - elementId: sh-rightBracket
+    elementType: shape
+    shapeName: rightBracket
+    adjustments:
+      - 8333
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-rightBracket
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: rightBracket
+      style: $body
+      fontSize: 10
+  - elementId: sh-bracePair
+    elementType: shape
+    shapeName: bracePair
+    adjustments:
+      - 8333
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-bracePair
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: bracePair
+      style: $body
+      fontSize: 10
+  - elementId: sh-bracketPair
+    elementType: shape
+    shapeName: bracketPair
+    adjustments:
+      - 16667
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-bracketPair
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: bracketPair
+      style: $body
+      fontSize: 10
+  - elementId: sh-ribbon
+    elementType: shape
+    shapeName: ribbon
+    adjustments:
+      - 16667
+      - 50000
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-ribbon
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: ribbon
+      style: $body
+      fontSize: 10
+  - elementId: sh-ribbon2
+    elementType: shape
+    shapeName: ribbon2
+    adjustments:
+      - 16667
+      - 50000
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-ribbon2
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: ribbon2
+      style: $body
+      fontSize: 10
+  - elementId: sh-ellipseRibbon
+    elementType: shape
+    shapeName: ellipseRibbon
+    adjustments:
+      - 25000
+      - 50000
+      - 12500
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-ellipseRibbon
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: ellipseRibbon
+      style: $body
+      fontSize: 10

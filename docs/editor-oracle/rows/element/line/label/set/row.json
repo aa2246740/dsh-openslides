@@ -1,0 +1,50 @@
+{
+  "id": "element.line.label.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.line",
+  "title": "连接线 / SmartArt 边标签",
+  "kimiUi": {
+    "controlLabel": "连接线标签",
+    "location": "selection context toolbar · line popover",
+    "appearsWhen": "line or SmartArt connector selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "line"
+    }
+  },
+  "action": {
+    "type": "type-text",
+    "steps": [
+      "Select a SmartArt connector",
+      "Open 线条 popover and set 连接线标签"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "writes line.label; paints italic edge caption (frame 14)"
+    }
+  },
+  "test": {
+    "id": "EO-LINE-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "setLineLabel writes label and persists",
+      "null clears the label"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T04:35:00.000Z",
+    "agent": "editor-1-1-smartart"
+  },
+  "updatedAt": "2026-08-15T04:35:00.000Z"
+}

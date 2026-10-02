@@ -1,0 +1,55 @@
+{
+  "id": "chrome.export.embedfonts",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.export",
+  "title": "导出时嵌入字体",
+  "description": "Export-dialog checkbox (default on) that embeds the editor's vendored fonts as subsetted TrueType fntdata parts in the PPTX, so PowerPoint/WPS on machines without the fonts render the same faces.",
+  "kimiUi": {
+    "controlLabel": "嵌入字体",
+    "location": "export dialog",
+    "appearsWhen": "export dialog open"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "dialog",
+    "steps": [
+      "打开导出",
+      "勾选 嵌入字体（PowerPoint/WPS）",
+      "选择 PPT",
+      "下载"
+    ]
+  },
+  "evidence": {
+    "pptd": {
+      "summary": "no document change"
+    },
+    "export": {
+      "notes": "POST /api/export {format:pptx, embedFonts:true} returns a zip with ppt/fonts/fontN.fntdata (TTF magic), p:embeddedFontLst before p:defaultTextStyle, embedTrueTypeFonts=\"1\", and application/x-fontdata content type. X-Export-Report carries embeddedFonts/skippedFonts; dialog shows 已嵌入字体 names. embedFonts:false keeps the baseline zip. Covered by packages/exporter-native/src/export-pptd.fonts.test.ts."
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "POST /api/export {format:\"pptx\", embedFonts:true}"
+  },
+  "test": {
+    "id": "EO-EXPORT-005",
+    "automated": true,
+    "selfTestChecklist": [
+      "POST /api/export with embedFonts:true returns PK zip containing ppt/fonts/font1.fntdata starting with 00 01 00 00 or OTTO",
+      "ppt/presentation.xml has embedTrueTypeFonts=\"1\" and p:embeddedFontLst before p:defaultTextStyle",
+      "X-Export-Report.embeddedFonts lists the embedded typefaces"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "font-embed-pptx-2026-09-21"
+  },
+  "updatedAt": "2026-09-21T00:00:00.000Z"
+}

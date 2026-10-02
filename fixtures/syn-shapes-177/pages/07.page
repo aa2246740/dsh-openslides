@@ -1,0 +1,484 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t7
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 121–140 / 177
+      style: $body
+  - elementId: sh-ellipseRibbon2
+    elementType: shape
+    shapeName: ellipseRibbon2
+    adjustments:
+      - 25000
+      - 50000
+      - 12500
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-ellipseRibbon2
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: ellipseRibbon2
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftRightRibbon
+    elementType: shape
+    shapeName: leftRightRibbon
+    adjustments:
+      - 50000
+      - 50000
+      - 16667
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-leftRightRibbon
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: leftRightRibbon
+      style: $body
+      fontSize: 10
+  - elementId: sh-horizontalScroll
+    elementType: shape
+    shapeName: horizontalScroll
+    adjustments:
+      - 12500
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-horizontalScroll
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: horizontalScroll
+      style: $body
+      fontSize: 10
+  - elementId: sh-verticalScroll
+    elementType: shape
+    shapeName: verticalScroll
+    adjustments:
+      - 12500
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-verticalScroll
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: verticalScroll
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathPlus
+    elementType: shape
+    shapeName: mathPlus
+    adjustments:
+      - 23520
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-mathPlus
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: mathPlus
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathMinus
+    elementType: shape
+    shapeName: mathMinus
+    adjustments:
+      - 23520
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-mathMinus
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: mathMinus
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathMultiply
+    elementType: shape
+    shapeName: mathMultiply
+    adjustments:
+      - 23520
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-mathMultiply
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: mathMultiply
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathDivide
+    elementType: shape
+    shapeName: mathDivide
+    adjustments:
+      - 23520
+      - 5880
+      - 11760
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-mathDivide
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: mathDivide
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathEqual
+    elementType: shape
+    shapeName: mathEqual
+    adjustments:
+      - 23520
+      - 11760
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-mathEqual
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: mathEqual
+      style: $body
+      fontSize: 10
+  - elementId: sh-mathNotEqual
+    elementType: shape
+    shapeName: mathNotEqual
+    adjustments:
+      - 23520
+      - 6600000
+      - 11760
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-mathNotEqual
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: mathNotEqual
+      style: $body
+      fontSize: 10
+  - elementId: sh-chartPlus
+    elementType: shape
+    shapeName: chartPlus
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-chartPlus
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: chartPlus
+      style: $body
+      fontSize: 10
+  - elementId: sh-chartStar
+    elementType: shape
+    shapeName: chartStar
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-chartStar
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: chartStar
+      style: $body
+      fontSize: 10
+  - elementId: sh-chartX
+    elementType: shape
+    shapeName: chartX
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-chartX
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: chartX
+      style: $body
+      fontSize: 10
+  - elementId: sh-cornerTabs
+    elementType: shape
+    shapeName: cornerTabs
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-cornerTabs
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: cornerTabs
+      style: $body
+      fontSize: 10
+  - elementId: sh-squareTabs
+    elementType: shape
+    shapeName: squareTabs
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-squareTabs
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: squareTabs
+      style: $body
+      fontSize: 10
+  - elementId: sh-plaqueTabs
+    elementType: shape
+    shapeName: plaqueTabs
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-plaqueTabs
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: plaqueTabs
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonBackPrevious
+    elementType: shape
+    shapeName: actionButtonBackPrevious
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-actionButtonBackPrevious
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: actionButtonBackPrevious
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonBeginning
+    elementType: shape
+    shapeName: actionButtonBeginning
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-actionButtonBeginning
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: actionButtonBeginning
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonBlank
+    elementType: shape
+    shapeName: actionButtonBlank
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-actionButtonBlank
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: actionButtonBlank
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonDocument
+    elementType: shape
+    shapeName: actionButtonDocument
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-actionButtonDocument
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: actionButtonDocument
+      style: $body
+      fontSize: 10

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click the control in official neo-ppt iframe"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "UI chrome; document change only if mustChangeDocument"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "insert.image",
+  "status": "verified",
+  "surface": "insert",
+  "title": "插入图片",
+  "kimiUi": {
+    "controlLabel": "图片",
+    "location": "bottom insert pill",
+    "appearsWhen": "always"
+  },
+  "test": {
+    "id": "EO-INSERT-003"
+  }
+}

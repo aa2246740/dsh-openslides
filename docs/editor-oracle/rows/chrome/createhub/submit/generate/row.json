@@ -1,0 +1,58 @@
+{
+  "id": "chrome.createhub.submit.generate",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "Submit Create Hub generate (send)",
+  "description": "WebBridge: .send-button-container. Unauthenticated session opens login wall — cannot complete dual-channel without login.",
+  "kimiUi": {
+    "controlLabel": "发送 / 向上箭头",
+    "location": "bottom-right of Create Hub composer",
+    "appearsWhen": "topic non-empty (presumed)"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "BLOCKED without login — see runs/webbridge-smoke/03-after-send.png"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Fill topic",
+      "Click .send-button-container"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "Unauthed: no PPTD; login modal only"
+    },
+    "network": "Requires authenticated Kimi session to create project"
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "runGenerateAsync",
+    "uiParityNotes": "Native offline has no login wall"
+  },
+  "test": {
+    "id": "EO-HUB-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "offline runGenerate completes without kimi.com"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-07T00:00:00.000Z",
+    "agent": "webbridge-smoke",
+    "sessionId": "native-oracle-smoke"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z",
+  "blockedReason": "After login (2026-08-07): still blocked by free-tier priority queue tip («订阅会员可进入独立的优先队列»). 快速 model leaves /slides into normal chat. Editor not reachable without membership, free queue capacity, or existing project URL."
+}

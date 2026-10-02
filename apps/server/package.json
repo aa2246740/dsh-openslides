@@ -1,0 +1,15 @@
+{
+  "name": "@open-slidestudio/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.mjs",
+    "start": "node src/index.mjs"
+  },
+  "dependencies": {
+    "@open-slidestudio/agent-core": "0.1.0",
+    "@open-slidestudio/exporter-pptx": "0.1.0",
+    "@open-slidestudio/pptd": "0.1.0"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "chrome.createhub.assistant.mode",
+  "version": 1,
+  "status": "wont-port",
+  "surface": "chrome.global",
+  "title": "已移除：协作模式选择",
+  "preconditions": {
+    "fixtureId": "deck-cf3bfd57",
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "真实隔离产品 13081/55201；OpenCode DeepSeek，同一 DSH 会话连续讨论、生成、编辑。"
+  },
+  "action": {
+    "type": "compound",
+    "steps": [
+      "首页选择先聊思路并提交简短需求",
+      "进入同一工作区，收到提纲且没有生成页面",
+      "继续提问或说开始生成"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "../../../../../../acceptance/assets/2026-09-20-collaboration/01-before-home.png",
+      "after": "../../../../../../acceptance/assets/2026-09-20-collaboration/home-after.png"
+    },
+    "pptd": {
+      "summary": "讨论保持 PPTD 不变；定向编辑仅改变指定标题。详见 docs/acceptance/2026-09-20-collaboration.md。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "conversationMode / modelSelection",
+    "uiParityNotes": "协作控件属于会话层，独立于空白画布的文档命令白名单。"
+  },
+  "test": {
+    "id": "EO-ASSISTANT-003",
+    "automated": true,
+    "selfTestChecklist": [
+      "首页选择先聊思路并提交简短需求",
+      "进入同一工作区，收到提纲且没有生成页面",
+      "继续提问或说开始生成"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T01:58:34+08:00",
+    "agent": "Codex",
+    "sessionId": "continuous-collaboration-acceptance"
+  },
+  "updatedAt": "2026-09-20T01:58:34+08:00",
+  "blockedReason": "按用户要求移除模式选择；自然语言由当前模型结合上下文判断。"
+}

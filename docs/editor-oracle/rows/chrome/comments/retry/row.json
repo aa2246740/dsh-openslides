@@ -1,0 +1,59 @@
+{
+  "id": "chrome.comments.retry",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "重新读取项目批注",
+  "description": "批注读取失败或只能显示本机缓存时，重新请求当前页的项目批注。",
+  "kimiUi": {
+    "controlLabel": "重试",
+    "location": "右侧批注面板的读取状态",
+    "appearsWhen": "当前页批注读取失败或正在显示本机缓存"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "测试环境令首次 GET /api/reviews 返回错误，随后恢复。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "打开批注面板",
+      "等待读取失败或缓存提示",
+      "点击重试"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "",
+      "after": ""
+    },
+    "pptd": {
+      "summary": "只重新读取项目批注，不修改 PPTD 文稿。"
+    },
+    "notes": "apps/native-web/src/comment-retry-dom.test.mjs 故障注入验收：首次 GET /api/reviews 返回 500 后进入本机缓存状态并渲染重试按钮，点击重试后项目权威记录替换缓存状态。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "reload current page review records",
+    "uiParityNotes": "本轮编辑器一致性设计新增的恢复入口，没有引用旧版截图。"
+  },
+  "test": {
+    "id": "EO-COMMENTS-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "读取失败或缓存状态显示重试按钮",
+      "重试期间显示加载状态",
+      "成功后以项目权威记录替换错误或缓存状态"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-06T00:00:00.000Z",
+    "agent": "ai-comment-batch"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

@@ -1,0 +1,132 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # NOTE: no paths-ignore on purpose — `oracle:validate` / `oracle:baseline`
+  # read docs/editor-oracle/**, so docs-only changes must still run the
+  # native job.
+
+jobs:
+  # Production path gate. Only native packages (packages/pptd-v2,
+  # project-store, exporter-native, canvas-session, agent-harness,
+  # dsh-slides-*, presentation-run, apps/native-web). Legacy packages must
+  # not gate this path — this job runs no legacy steps, and the legacy jobs
+  # below run in parallel without blocking it.
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Build native packages
+        run: npm run build:native
+      - name: Typecheck (native workspaces only)
+        run: >-
+          npm run typecheck --if-present
+          -w @open-slidestudio/pptd-v2
+          -w @open-slidestudio/project-store
+          -w @open-slidestudio/exporter-native
+          -w @open-slidestudio/canvas-session
+          -w @open-slidestudio/presentation-run
+          -w @open-slidestudio/agent-harness
+          -w @open-slidestudio/dsh-slides-host
+          -w @open-slidestudio/dsh-slides-client
+          -w @open-slidestudio/dsh-slides-bundle
+      - name: Unit tests (native workspaces)
+        run: npm run test:native
+      - name: Native offline smoke (generate → session → PPTX)
+        run: node scripts/native-smoke.mjs
+      - name: Editor oracle row validation
+        run: npm run oracle:validate
+      - name: Editor oracle baseline integrity
+        run: npm run oracle:baseline
+      - name: native-web export-current regression (self-spawns server)
+        run: npm run native:export-current
+      - name: Verify no fake/demo path in production graph
+        run: npm run verify:no-fake-path
+      - name: Verify no Kimi runtime in production UI
+        run: npm run verify:no-kimi-runtime
+
+  # Legacy stack — packages/pptd, design-brain, agent-core, exporter-pptx,
+  # apps/web. Non-production; kept as separate jobs so it cannot gate the
+  # native path. If branch protection is "all checks must pass", mark these
+  # jobs continue-on-error or require only the `native` job.
+  legacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Build legacy packages + web
+        run: npm run build:legacy
+      - name: Typecheck (legacy workspaces only)
+        run: >-
+          npm run typecheck --if-present
+          -w @open-slidestudio/pptd
+          -w @open-slidestudio/design-brain
+          -w @open-slidestudio/agent-core
+          -w @open-slidestudio/exporter-pptx
+          -w @open-slidestudio/web
+      - name: Unit tests (legacy workspaces)
+        run: >-
+          npm run test --if-present
+          -w @open-slidestudio/pptd
+          -w @open-slidestudio/design-brain
+          -w @open-slidestudio/agent-core
+          -w @open-slidestudio/exporter-pptx
+          -w @open-slidestudio/web
+      - name: Upload web dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-slidestudio-web-dist
+          path: apps/web/dist
+          if-no-files-found: error
+
+  smoke-legacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Build legacy packages (smoke imports their dist)
+        run: npm run build:legacy
+      - name: Offline smoke (generate → same deck → PPTX) [legacy]
+        run: npm run smoke
+
+  gate1-legacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Build legacy packages (gate1 imports their dist)
+        run: npm run build:legacy
+      - name: Gate 1 acceptance (generate → refine → PPTX) [legacy]
+        run: npm run gate1

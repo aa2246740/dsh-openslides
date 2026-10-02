@@ -1,0 +1,43 @@
+{
+  "id": "element.line.points.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.line",
+  "title": "线条控制点",
+  "kimiUi": {
+    "controlLabel": "线条控制点",
+    "location": "画布贝塞尔手柄",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "线条控制点"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-LINE-POINTS-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

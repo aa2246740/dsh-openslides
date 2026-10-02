@@ -1,0 +1,46 @@
+{
+  "id": "element.group.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "编组",
+  "kimiUi": {
+    "controlLabel": "编组",
+    "location": "上下文工具条 / 多选",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "编组"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "writes shared groupId on selected elements"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-GROUP-SET",
+    "selfTestChecklist": [
+      "groupSelected assigns groupId to 2+ elements"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T13:20:00.000Z",
+    "agent": "s3-group"
+  },
+  "updatedAt": "2026-08-15T13:20:00.000Z"
+}

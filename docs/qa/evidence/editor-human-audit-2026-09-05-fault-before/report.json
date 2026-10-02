@@ -1,0 +1,40 @@
+{
+  "rejectedTextSave": {
+    "commands": [
+      "select",
+      "select",
+      "select",
+      "select",
+      "setRichText",
+      "goToPage"
+    ],
+    "pageIndex": 1,
+    "pageErrors": [
+      "Error: INJECTED_SAVE_FAILURE"
+    ]
+  },
+  "rejectedNotesSave": {
+    "commands": [
+      "notes",
+      "setNotes",
+      "goToPage",
+      "goToPage"
+    ],
+    "pageAfterFirst": 0,
+    "pageAfterSecond": 1,
+    "pageOneNotes": "",
+    "pageErrors": [
+      "Error: INJECTED_NOTES_FAILURE"
+    ]
+  },
+  "pendingNavigationWrongTarget": {
+    "commands": [
+      "notes",
+      "goToPage",
+      "setNotes",
+      "goToPage"
+    ],
+    "pageTwoNotes": "PENDING_NAV_SENTINEL",
+    "pageOneNotes": ""
+  }
+}

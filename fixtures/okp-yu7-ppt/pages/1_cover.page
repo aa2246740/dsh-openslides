@@ -1,0 +1,126 @@
+pageType: cover
+background:
+  type: image
+  src: media/bg_cover.jpg
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 0
+      stops:
+        - position: 0
+          color: "#000000F2"
+        - position: 0.5
+          color: "#00000099"
+        - position: 1
+          color: "#00000000"
+  - elementId: meta-top
+    elementType: text
+    bounds:
+      - 60
+      - 46
+      - 500
+      - 22
+    content:
+      fontSize: 12
+      color: $w85
+      letterSpacing: 3
+      text: XIAOMI EV · 小米汽车
+  - elementId: accent-line
+    elementType: shape
+    bounds:
+      - 60
+      - 86
+      - 56
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: cover-title
+    elementType: text
+    bounds:
+      - 60
+      - 150
+      - 660
+      - 130
+    content:
+      style: $coverTitle
+      align:
+        - left
+        - middle
+      text: 小米 YU7
+  - elementId: cover-en
+    elementType: text
+    bounds:
+      - 60
+      - 282
+      - 660
+      - 34
+    content:
+      fontSize: 20
+      color: $w70
+      letterSpacing: 10
+      text: XIAOMI YU7
+  - elementId: slogan
+    elementType: text
+    bounds:
+      - 60
+      - 330
+      - 640
+      - 46
+    content:
+      fontSize: 17
+      color: $white
+      letterSpacing: 2
+      text: 御风而行 · 豪华高性能纯电 SUV
+  - elementId: desc
+    elementType: text
+    bounds:
+      - 60
+      - 380
+      - 560
+      - 44
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.7
+      text: |
+        传承家族设计 · 澎湃性能 · 越级智能 · 全维安全
+        重新定义豪华高性能 SUV 新标准
+  - elementId: bottom-meta
+    elementType: text
+    bounds:
+      - 60
+      - 488
+      - 500
+      - 20
+    content:
+      fontSize: 11
+      color: $w60
+      letterSpacing: 1
+      text: 2025.06 上市 · 小米汽车科技有限公司
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 01 / 08

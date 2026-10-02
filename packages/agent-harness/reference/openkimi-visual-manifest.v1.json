@@ -1,0 +1,357 @@
+{
+  "version": "openkimi-visual-manifest-v1",
+  "files": [
+    {
+      "sourceId": "openkimi-preview:academic/blue-line-courseware",
+      "designSystemId": "academic/blue-line-courseware",
+      "relativePath": "academic/blue-line-courseware.jpg",
+      "byteLength": 1251904,
+      "sha256": "9637f2db0856bc8d58de9354531a8afc79549e6827fd77fc60ff99989f4305ed",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:academic/deep-blue-atlas",
+      "designSystemId": "academic/deep-blue-atlas",
+      "relativePath": "academic/deep-blue-atlas.jpg",
+      "byteLength": 1198376,
+      "sha256": "8d971bcc2f91278ec7f806bb05dbd2f431a65a0d1a2bba8c66f744ce19a4fc3f",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:academic/paper-white-courseware",
+      "designSystemId": "academic/paper-white-courseware",
+      "relativePath": "academic/paper-white-courseware.jpg",
+      "byteLength": 1404819,
+      "sha256": "9bc51d231319af09727afd4c2f19bdd2cb484c849b64f8b3941e0ec3d09b5807",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:academic/pastel-derivation",
+      "designSystemId": "academic/pastel-derivation",
+      "relativePath": "academic/pastel-derivation.jpg",
+      "byteLength": 1284773,
+      "sha256": "bf36968160c246b2903f7080d24e16b2324e51d92d80304b58a4c54d6b1851dd",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:academic/teal-green-academic-defense",
+      "designSystemId": "academic/teal-green-academic-defense",
+      "relativePath": "academic/teal-green-academic-defense.jpg",
+      "byteLength": 1536998,
+      "sha256": "196dc4fd30fc1059d01a517eb09d8cf9347443a9610444dcb0737e9aa3bb5c91",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:academic/wine-red-data",
+      "designSystemId": "academic/wine-red-data",
+      "relativePath": "academic/wine-red-data.jpg",
+      "byteLength": 1357035,
+      "sha256": "2ee34bfca5b8db3ab91c5ac94e30716e491d1348d94f71e8db024eb4d90f08da",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/apricot-white-brief",
+      "designSystemId": "consulting/apricot-white-brief",
+      "relativePath": "consulting/apricot-white-brief.jpg",
+      "byteLength": 1766327,
+      "sha256": "e5d7a9d584a7b44984b3e83373c46eb361856ed2cb29590bb967c6b8a516a9d1",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/indigo-due-diligence",
+      "designSystemId": "consulting/indigo-due-diligence",
+      "relativePath": "consulting/indigo-due-diligence.jpg",
+      "byteLength": 1983136,
+      "sha256": "9aeb6c0c17c88c06a222ecbf091052ad9be3a622a9de4762b47e4d919f97e09d",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/marine-blue-research",
+      "designSystemId": "consulting/marine-blue-research",
+      "relativePath": "consulting/marine-blue-research.jpg",
+      "byteLength": 1844621,
+      "sha256": "b4f0f3494e29e781ae30923fd324f65ac58b795439a093744f9e10495f99449a",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/moss-green-transformation",
+      "designSystemId": "consulting/moss-green-transformation",
+      "relativePath": "consulting/moss-green-transformation.jpg",
+      "byteLength": 1558562,
+      "sha256": "e5e6d8815a23349fb8274cb4b83ab4337d619156cbbfd2e8399880cd190c76f7",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/pine-green-strategy",
+      "designSystemId": "consulting/pine-green-strategy",
+      "relativePath": "consulting/pine-green-strategy.jpg",
+      "byteLength": 1848290,
+      "sha256": "47338616d806e2e925208043f7b9d0d0c45799a3bda81ef4df0c5aaa455682d4",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:consulting/red-black-growth",
+      "designSystemId": "consulting/red-black-growth",
+      "relativePath": "consulting/red-black-growth.jpg",
+      "byteLength": 1618543,
+      "sha256": "b3089032ec59668bfb61a7e3dc5215726b0d59d02bd31a5c6590d9c8c3d1b6b6",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/color-stripes-documentary",
+      "designSystemId": "extra/color-stripes-documentary",
+      "relativePath": "extra/color-stripes-documentary.jpg",
+      "byteLength": 1047671,
+      "sha256": "8e51800cf1b21bda56e1981181a2abf0c09cb2dbbf250badeba042b21afcb54f",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/dark-themed-data",
+      "designSystemId": "extra/dark-themed-data",
+      "relativePath": "extra/dark-themed-data.jpg",
+      "byteLength": 1711574,
+      "sha256": "0f7a53215acf36a65e1e83e6ea40ed7948d66c8ff25dd68fe08b1b099d103e43",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/dusk-violet-consulting",
+      "designSystemId": "extra/dusk-violet-consulting",
+      "relativePath": "extra/dusk-violet-consulting.jpg",
+      "byteLength": 1186522,
+      "sha256": "7761fe3ec792d10ea2bdddcb782f05b5435aa04cf45f716ed0b98e4e692da8f4",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/fresh-brand",
+      "designSystemId": "extra/fresh-brand",
+      "relativePath": "extra/fresh-brand.jpg",
+      "byteLength": 1606874,
+      "sha256": "231932251be6c99b8cc3ddd1eaf75432ab8d9d49fe77064a2e9fd90c5dffddc4",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/gold-orange-type-journal",
+      "designSystemId": "extra/gold-orange-type-journal",
+      "relativePath": "extra/gold-orange-type-journal.jpg",
+      "byteLength": 1003338,
+      "sha256": "e891ec7eb5f6da628c5c91611016f9f566000981329305614ca4023683f67bd7",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/ink-green-market-trends",
+      "designSystemId": "extra/ink-green-market-trends",
+      "relativePath": "extra/ink-green-market-trends.jpg",
+      "byteLength": 1093020,
+      "sha256": "86c21a7d731367feabc150b60bd2d1098fcc06b43553d0b0b0fa0119745f42ff",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/lead-gray-quarterly",
+      "designSystemId": "extra/lead-gray-quarterly",
+      "relativePath": "extra/lead-gray-quarterly.jpg",
+      "byteLength": 798896,
+      "sha256": "63251c71b278f9f6c6c69e0b221dc630a016f08b02b45eb449dbbf217d493aa2",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/map-strategy",
+      "designSystemId": "extra/map-strategy",
+      "relativePath": "extra/map-strategy.jpg",
+      "byteLength": 413315,
+      "sha256": "00eab6833145d2d8e7d15ac941775d9ee18f482c6d3a374aac1d1c2477e84fd0",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/mist-blue-travelogue",
+      "designSystemId": "extra/mist-blue-travelogue",
+      "relativePath": "extra/mist-blue-travelogue.jpg",
+      "byteLength": 1110552,
+      "sha256": "49c210b03a869c3bb5be185861cb0160fbe67b60bf2c43dfc81175abb84f6152",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/orange-tech",
+      "designSystemId": "extra/orange-tech",
+      "relativePath": "extra/orange-tech.jpg",
+      "byteLength": 1391700,
+      "sha256": "df3d061ed2d7201fcf17f3cea3da510cbc3b24ded6263baac2987d2e752176b3",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/pink-purple-diagnosis",
+      "designSystemId": "extra/pink-purple-diagnosis",
+      "relativePath": "extra/pink-purple-diagnosis.jpg",
+      "byteLength": 262787,
+      "sha256": "93876da6059b714842a74f48a8d12b0b3a190cef305b5409bd73375dbd683e2e",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/red-black-business",
+      "designSystemId": "extra/red-black-business",
+      "relativePath": "extra/red-black-business.jpg",
+      "byteLength": 1562827,
+      "sha256": "11c4ae83a9b07100a2a3c2e0eba97db6d5a55d27ef1d6df990a210e5b907a2ba",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/red-white-business",
+      "designSystemId": "extra/red-white-business",
+      "relativePath": "extra/red-white-business.jpg",
+      "byteLength": 2222800,
+      "sha256": "19e38305517008806bb8e21c30021259fda43198699ebad99c1767437e3057b0",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:extra/xuan-paper-annual",
+      "designSystemId": "extra/xuan-paper-annual",
+      "relativePath": "extra/xuan-paper-annual.jpg",
+      "byteLength": 1283173,
+      "sha256": "795065dde5e617fc31d3f4e2c19a18b2a662028150f264df034868f12b027d01",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/black-gold-ledger",
+      "designSystemId": "finance/black-gold-ledger",
+      "relativePath": "finance/black-gold-ledger.jpg",
+      "byteLength": 1453031,
+      "sha256": "f8410fe6681d8b9b88e50ec598bb42f57ba5747121907c5eaf3c27d35b5b6d74",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/ebony-ledger",
+      "designSystemId": "finance/ebony-ledger",
+      "relativePath": "finance/ebony-ledger.jpg",
+      "byteLength": 1631584,
+      "sha256": "b17d302dccacbb72a2d0d677952a07e8f39ba1177b90343394db21c2778c186c",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/honey-orange-memo",
+      "designSystemId": "finance/honey-orange-memo",
+      "relativePath": "finance/honey-orange-memo.jpg",
+      "byteLength": 1843622,
+      "sha256": "0fd58c4413cf3208c147bf50f09cc3389520fca6e00251ad5ae9aa40eb0f9818",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/lake-blue-memo",
+      "designSystemId": "finance/lake-blue-memo",
+      "relativePath": "finance/lake-blue-memo.jpg",
+      "byteLength": 1917471,
+      "sha256": "316201850a3e6f1acc193a1ff865395b69c21e5bdbf3f5e2f6bd34afd0f56298",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/prospect-annual",
+      "designSystemId": "finance/prospect-annual",
+      "relativePath": "finance/prospect-annual.jpg",
+      "byteLength": 1751224,
+      "sha256": "1420008a15360b1d1997b9bf771868c4c20f233a95edc7a70afcab30fdd8ec8c",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:finance/rice-paper-annual",
+      "designSystemId": "finance/rice-paper-annual",
+      "relativePath": "finance/rice-paper-annual.jpg",
+      "byteLength": 1631861,
+      "sha256": "b88251ea911b1cc67d160414051a52a85eb1132f059fd32f9d8d077a34a6b868",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/aqua-charity-report",
+      "designSystemId": "promotion/aqua-charity-report",
+      "relativePath": "promotion/aqua-charity-report.jpg",
+      "byteLength": 1707836,
+      "sha256": "7b1c31c708b80b399d76792ffb1e88d47109c10a86745d0195557ae7c24cb516",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/cream-collage",
+      "designSystemId": "promotion/cream-collage",
+      "relativePath": "promotion/cream-collage.jpg",
+      "byteLength": 1429435,
+      "sha256": "99d9abc080e55e3693ee9a855fd234db7a058c34320625d48c74f87fecb95108",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/pine-soot-pictorial",
+      "designSystemId": "promotion/pine-soot-pictorial",
+      "relativePath": "promotion/pine-soot-pictorial.jpg",
+      "byteLength": 2183680,
+      "sha256": "53cade985c2dbb3a4c730a10d318b56a47666941a1ec4c1a9a1e5c1ede78a550",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/silk-yellow-magazine",
+      "designSystemId": "promotion/silk-yellow-magazine",
+      "relativePath": "promotion/silk-yellow-magazine.jpg",
+      "byteLength": 2056343,
+      "sha256": "ff7de52a36f0489fcb2146f3744d1870ebca3d854e56fbac067aaf6f9838bec9",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/silver-gray-luxury-magazine",
+      "designSystemId": "promotion/silver-gray-luxury-magazine",
+      "relativePath": "promotion/silver-gray-luxury-magazine.jpg",
+      "byteLength": 1738908,
+      "sha256": "5ac6f93e46e01b7c79fd3f7f5331aa0b000c36c8e54b41e3144bfff66301eaa6",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:promotion/travel-green-handbook",
+      "designSystemId": "promotion/travel-green-handbook",
+      "relativePath": "promotion/travel-green-handbook.jpg",
+      "byteLength": 1793108,
+      "sha256": "3562cb89fb6f3d2644b01f3bca9ee2627792482d4c9840677d1ecab0ccab1c37",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/blue-flame-brand",
+      "designSystemId": "work/blue-flame-brand",
+      "relativePath": "work/blue-flame-brand.jpg",
+      "byteLength": 1638689,
+      "sha256": "9ea5b2f03abbb9f8584468c2708a2e0bea4b0243ff00b91cfa2ac736787097df",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/electric-violet-business",
+      "designSystemId": "work/electric-violet-business",
+      "relativePath": "work/electric-violet-business.jpg",
+      "byteLength": 1305076,
+      "sha256": "e7314ef5060775cf3b987575bc27c1219c5fad0cc04d42f8d8a41f58d3ac0a48",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/moon-white-imagery",
+      "designSystemId": "work/moon-white-imagery",
+      "relativePath": "work/moon-white-imagery.jpg",
+      "byteLength": 1351344,
+      "sha256": "b0e3108684e7dea8326107457e4f6fcda485e26a84a1068e2dc8faecc2388baa",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/sky-blue-wayfinding",
+      "designSystemId": "work/sky-blue-wayfinding",
+      "relativePath": "work/sky-blue-wayfinding.jpg",
+      "byteLength": 1508273,
+      "sha256": "e91eadcc49a149ab9bf44456302388e2975ab648731b156dd5cd6c76aa9ba8e9",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/warm-clay-works",
+      "designSystemId": "work/warm-clay-works",
+      "relativePath": "work/warm-clay-works.jpg",
+      "byteLength": 1494185,
+      "sha256": "5e3b594c0d532372492675605f5a14de34ae728f1dd726fb1ee5f145a1926b06",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "sourceId": "openkimi-preview:work/warm-jade-annual-report",
+      "designSystemId": "work/warm-jade-annual-report",
+      "relativePath": "work/warm-jade-annual-report.jpg",
+      "byteLength": 1508368,
+      "sha256": "5f31718068ada221d929505d2ab3bae7b2c15a44c61c78ed0a253bc2e3436f3b",
+      "mediaType": "image/jpeg"
+    }
+  ]
+}

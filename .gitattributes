@@ -1,0 +1,2 @@
+# Preserve raw oracle text exactly as captured, including source whitespace.
+docs/editor-oracle/baselines/kimi-v1-2026-08-20/editor-live/body-text.txt -whitespace

@@ -1,0 +1,50 @@
+{
+  "id": "element.smartart.node.delete",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.smartart",
+  "title": "SmartArt 删节点",
+  "kimiUi": {
+    "controlLabel": "删节点",
+    "location": "selection context toolbar",
+    "appearsWhen": "SmartArt node or label selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "shape"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Select a SmartArt node",
+      "Click 删节点; diagram keeps at least two nodes"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "Removes node+label and relayouts remaining connectors"
+    }
+  },
+  "test": {
+    "id": "EO-SMARTART-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "deleteSmartArtNode refuses when only two nodes remain",
+      "otherwise removes the selected index and reindexes"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T03:40:00.000Z",
+    "agent": "editor-1-1-smartart"
+  },
+  "updatedAt": "2026-08-15T03:40:00.000Z"
+}

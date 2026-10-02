@@ -1,0 +1,41 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+apps/web/dist/
+coverage/
+.vite/
+.turbo/
+_reference/source-video/
+_reference/**/*.mp4
+.ultimate-design/
+.scratch/
+# large reference media (keep analysis frames if under size limits)
+_reference/source-video/
+_reference/**/*.mp4
+_reference/Kimi_Slides_Complete_PRD.docx
+_reference/Kimi_Slides_Complete_PRD.pdf
+_reference/prototype/node_modules/
+_reference/prototype/package-lock.json
+_reference/prototype/qa/
+packages/*/dist/
+apps/*/dist/
+_reference/prototype/node_modules/
+_reference/prototype/dist/
+_reference/prototype/package-lock.json
+_reference/prototype/qa/
+*.tsbuildinfo
+output/
+.dsh/
+.runtime/
+# nested git objects exceed GitHub 100MB file limit
+vendor/open-kimi-ppt/git-pre-wipe/.git/
+vendor/open-kimi-ppt/git-clone/.git/
+vendor/dsh-llm-pi-ai/node_modules/
+
+# Fixture runtime state written by the editor during QA runs
+fixtures/**/.versions/
+fixtures/**/_agent/

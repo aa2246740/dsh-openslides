@@ -1,0 +1,62 @@
+{
+  "id": "chrome.comments.resend",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "重试已发送但未完成的批注",
+  "description": "失败或停止结果留在原消息下，重试原批注，不把旧附件填回输入框，不覆盖新草稿。",
+  "kimiUi": {
+    "controlLabel": "重试",
+    "location": "左侧对话的失败消息下方",
+    "appearsWhen": "已接收的批注未完成，且尚未发起后续重试"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "请求接收后，注入范围验收失败。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "发送批注",
+      "等待原消息显示未完成",
+      "在输入框写入下一条草稿",
+      "点击原消息下的重试"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "docs/acceptance/assets/2026-09-20-comment-send-state/failed-message-retry.png",
+      "after": "docs/acceptance/assets/2026-09-20-comment-send-state/retry-complete-keeps-draft.png"
+    },
+    "pptd": {
+      "summary": "重试仍核对当前批注修订与页面范围，成功后逐条检查实际文稿差异。"
+    },
+    "notes": "20 步状态回归通过：接收前失败保留草稿；接收后失败留在原消息，刷新、重试和 375/877 宽通过。独立真实 DeepSeek 回合证明发送清空、新草稿保留、目标颜色修改、刷新及可编辑导出。详见 docs/acceptance/2026-09-20-comment-send-state.md。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "retry protected comment batch",
+    "uiParityNotes": "消息内恢复操作，单独确认重试时不消费输入框草稿。"
+  },
+  "test": {
+    "id": "EO-COMMENTS-004",
+    "automated": true,
+    "selfTestChecklist": [
+      "接收即清空提交内容",
+      "处理期间新输入保留",
+      "接收后失败留在消息内",
+      "重试不会重发下一条草稿",
+      "刷新恢复原消息结果"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T00:00:00.000Z",
+    "agent": "codex"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

@@ -1,0 +1,623 @@
+version: 1
+rows:
+  - id: element.text.content.set
+    path: rows/element/text/content/set
+    status: verified
+    testId: EO-TEXT-001
+    surface: element.text
+  - id: element.text.toolbar.bold.toggle
+    path: rows/element/text/toolbar/bold/toggle
+    status: verified
+    testId: EO-TEXT-002
+    surface: element.text
+  - id: element.bounds.set
+    path: rows/element/bounds/set
+    status: verified
+    testId: EO-SEL-001
+    surface: selection
+  - id: chrome.pages.navigate
+    path: rows/chrome/pages/navigate
+    status: verified
+    testId: EO-PAGE-001
+    surface: chrome.pages
+  - id: chrome.createhub.topic.fill
+    path: rows/chrome/createhub/topic/fill
+    status: verified
+    testId: EO-HUB-001
+    surface: chrome.global
+  - id: chrome.createhub.submit.generate
+    path: rows/chrome/createhub/submit/generate
+    status: verified
+    testId: EO-HUB-002
+    surface: chrome.global
+  - id: chrome.neodeck.connect
+    path: rows/chrome/neodeck/connect
+    status: wont-port
+    testId: EO-NEODECK-001
+    surface: chrome.global
+  - id: chrome.history.undo
+    path: rows/chrome/history/undo
+    status: verified
+    testId: EO-CHROME-001
+    surface: chrome.global
+  - id: chrome.history.redo
+    path: rows/chrome/history/redo
+    status: verified
+    testId: EO-CHROME-002
+    surface: chrome.global
+  - id: chrome.zoom.in
+    path: rows/chrome/zoom/in
+    status: verified
+    testId: EO-CHROME-003
+    surface: chrome.global
+  - id: chrome.zoom.out
+    path: rows/chrome/zoom/out
+    status: verified
+    testId: EO-CHROME-004
+    surface: chrome.global
+  - id: chrome.pages.rail.toggle
+    path: rows/chrome/pages/rail/toggle
+    status: verified
+    testId: EO-CHROME-005
+    surface: chrome.pages
+  - id: chrome.pages.add
+    path: rows/chrome/pages/add
+    status: verified
+    testId: EO-CHROME-006
+    surface: chrome.pages
+  - id: chrome.export.open
+    path: rows/chrome/export/open
+    status: verified
+    testId: EO-CHROME-007
+    surface: chrome.export
+  - id: chrome.present.play
+    path: rows/chrome/present/play
+    status: verified
+    testId: EO-CHROME-008
+    surface: chrome.global
+  - id: chrome.present.fullscreen
+    path: rows/chrome/present/fullscreen
+    status: verified
+    testId: EO-CHROME-009
+    surface: chrome.global
+  - id: chrome.notes.toggle
+    path: rows/chrome/notes/toggle
+    status: verified
+    testId: EO-CHROME-010
+    surface: notes
+  - id: chrome.pages.delete
+    path: rows/chrome/pages/delete
+    status: verified
+    testId: EO-PAGE-002
+    surface: chrome.pages
+  - id: chrome.pages.duplicate
+    path: rows/chrome/pages/duplicate
+    status: verified
+    testId: EO-PAGE-003
+    surface: chrome.pages
+  - id: chrome.pages.reorder
+    path: rows/chrome/pages/reorder
+    status: verified
+    testId: EO-PAGE-004
+    surface: chrome.pages
+  - id: chrome.zoom.percent
+    path: rows/chrome/zoom/percent
+    status: verified
+    testId: EO-CHROME-011
+    surface: chrome.global
+  - id: insert.text
+    path: rows/insert/text
+    status: verified
+    testId: EO-INSERT-001
+    surface: insert
+  - id: insert.shape
+    path: rows/insert/shape
+    status: verified
+    testId: EO-INSERT-002
+    surface: insert
+  - id: insert.image
+    path: rows/insert/image
+    status: verified
+    testId: EO-INSERT-003
+    surface: insert
+  - id: insert.table
+    path: rows/insert/table
+    status: verified
+    testId: EO-INSERT-004
+    surface: insert
+  - id: insert.chart
+    path: rows/insert/chart
+    status: verified
+    testId: EO-INSERT-005
+    surface: insert
+  - id: insert.more
+    path: rows/insert/more
+    status: wont-port
+    testId: EO-INSERT-006
+    surface: insert
+  - id: chrome.export.pptx
+    path: rows/chrome/export/pptx
+    status: verified
+    testId: EO-EXPORT-001
+    surface: chrome.export
+  - id: chrome.export.pdf
+    path: rows/chrome/export/pdf
+    status: verified
+    testId: EO-EXPORT-004
+    surface: chrome.export
+  - id: chrome.export.image
+    path: rows/chrome/export/image
+    status: verified
+    testId: EO-EXPORT-002
+    surface: chrome.export
+  - id: chrome.export.embedfonts
+    path: rows/chrome/export/embedfonts
+    status: verified
+    testId: EO-EXPORT-005
+    surface: chrome.export
+  - id: selection.clear
+    path: rows/selection/clear
+    status: verified
+    testId: EO-SELECTION-CLEAR
+    surface: selection
+  - id: element.delete
+    path: rows/element/delete
+    status: verified
+    testId: EO-ELEMENT-DELETE
+    surface: selection
+  - id: element.duplicate
+    path: rows/element/duplicate
+    status: verified
+    testId: EO-ELEMENT-DUPLICATE
+    surface: selection
+  - id: element.arrange.forward
+    path: rows/element/arrange/forward
+    status: verified
+    testId: EO-ELEMENT-ARRANGE-FORWARD
+    surface: selection
+  - id: element.arrange.backward
+    path: rows/element/arrange/backward
+    status: verified
+    testId: EO-ELEMENT-ARRANGE-BACKWARD
+    surface: selection
+  - id: element.rotate.set
+    path: rows/element/rotate/set
+    status: verified
+    testId: EO-ELEMENT-ROTATE-SET
+    surface: selection
+  - id: element.opacity.set
+    path: rows/element/opacity/set
+    status: verified
+    testId: EO-ELEMENT-OPACITY-SET
+    surface: selection
+  - id: element.text.toolbar.italic.toggle
+    path: rows/element/text/toolbar/italic/toggle
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-ITALIC-TOGGLE
+    surface: element.text
+  - id: element.text.toolbar.underline.toggle
+    path: rows/element/text/toolbar/underline/toggle
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-UNDERLINE-TOGGLE
+    surface: element.text
+  - id: element.text.toolbar.fontsize.set
+    path: rows/element/text/toolbar/fontsize/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-FONTSIZE-SET
+    surface: element.text
+  - id: element.text.toolbar.fontfamily.set
+    path: rows/element/text/toolbar/fontfamily/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-FONTFAMILY-SET
+    surface: element.text
+  - id: element.text.toolbar.color.set
+    path: rows/element/text/toolbar/color/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-COLOR-SET
+    surface: element.text
+  - id: element.text.toolbar.align.set
+    path: rows/element/text/toolbar/align/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-ALIGN-SET
+    surface: element.text
+  - id: element.shape.fill.set
+    path: rows/element/shape/fill/set
+    status: verified
+    testId: EO-ELEMENT-SHAPE-FILL-SET
+    surface: element.shape
+  - id: element.shape.kind.set
+    path: rows/element/shape/kind/set
+    status: verified
+    testId: EO-ELEMENT-SHAPE-KIND-SET
+    surface: element.shape
+  - id: element.shape.border.set
+    path: rows/element/shape/border/set
+    status: verified
+    testId: EO-ELEMENT-SHAPE-BORDER-SET
+    surface: element.shape
+  - id: insert.line
+    path: rows/insert/line
+    status: verified
+    testId: EO-INSERT-LINE
+    surface: insert
+  - id: insert.icon
+    path: rows/insert/icon
+    status: verified
+    testId: EO-INSERT-ICON
+    surface: insert
+  - id: element.image.fit.set
+    path: rows/element/image/fit/set
+    status: verified
+    testId: EO-ELEMENT-IMAGE-FIT-SET
+    surface: element.image
+  - id: element.icon.color.set
+    path: rows/element/icon/color/set
+    status: verified
+    testId: EO-ELEMENT-ICON-COLOR-SET
+    surface: element.icon
+  - id: element.table.cell.set
+    path: rows/element/table/cell/set
+    status: verified
+    testId: EO-ELEMENT-TABLE-CELL-SET
+    surface: element.table
+  - id: element.table.row.add
+    path: rows/element/table/row/add
+    status: verified
+    testId: EO-ELEMENT-TABLE-ROW-ADD
+    surface: element.table
+  - id: element.table.col.add
+    path: rows/element/table/col/add
+    status: verified
+    testId: EO-ELEMENT-TABLE-COL-ADD
+    surface: element.table
+  - id: element.table.row.delete
+    path: rows/element/table/row/delete
+    status: verified
+    testId: EO-ELEMENT-TABLE-ROW-DELETE
+    surface: element.table
+  - id: element.table.col.delete
+    path: rows/element/table/col/delete
+    status: verified
+    testId: EO-ELEMENT-TABLE-COL-DELETE
+    surface: element.table
+  - id: element.table.merge
+    path: rows/element/table/merge
+    status: verified
+    testId: EO-ELEMENT-TABLE-MERGE
+    surface: element.table
+  - id: element.table.cell.fill.set
+    path: rows/element/table/cell/fill/set
+    status: verified
+    testId: EO-ELEMENT-TABLE-CELL-FILL-SET
+    surface: element.table
+  - id: element.chart.data.set
+    path: rows/element/chart/data/set
+    status: verified
+    testId: EO-ELEMENT-CHART-DATA-SET
+    surface: element.chart
+  - id: element.chart.type.set
+    path: rows/element/chart/type/set
+    status: verified
+    testId: EO-ELEMENT-CHART-TYPE-SET
+    surface: element.chart
+  - id: element.chart.title.set
+    path: rows/element/chart/title/set
+    status: verified
+    testId: EO-ELEMENT-CHART-TITLE-SET
+    surface: element.chart
+  - id: theme.background.set
+    path: rows/theme/background/set
+    status: verified
+    testId: EO-THEME-BACKGROUND-SET
+    surface: theme.background
+  - id: notes.content.set
+    path: rows/notes/content/set
+    status: verified
+    testId: EO-NOTES-CONTENT-SET
+    surface: notes
+  - id: element.animation.set
+    path: rows/element/animation/set
+    status: wont-port
+    testId: EO-ELEMENT-ANIMATION-SET
+    surface: animation
+  - id: contextmenu.open
+    path: rows/contextmenu/open
+    status: verified
+    testId: EO-CONTEXTMENU-OPEN
+    surface: context-menu
+  - id: element.image.replace
+    path: rows/element/image/replace
+    status: verified
+    testId: EO-ELEMENT-IMAGE-REPLACE
+    surface: element.image
+  - id: element.icon.name.set
+    path: rows/element/icon/name/set
+    status: verified
+    testId: EO-ELEMENT-ICON-NAME-SET
+    surface: element.icon
+  - id: element.line.arrow.set
+    path: rows/element/line/arrow/set
+    status: verified
+    testId: EO-ELEMENT-LINE-ARROW-SET
+    surface: element.line
+  - id: element.text.toolbar.lineheight.set
+    path: rows/element/text/toolbar/lineheight/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-LINEHEIGHT-SET
+    surface: element.text
+  - id: element.text.toolbar.letterspacing.set
+    path: rows/element/text/toolbar/letterspacing/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-LETTERSPACING-SET
+    surface: element.text
+  - id: element.text.toolbar.highlight.set
+    path: rows/element/text/toolbar/highlight/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-HIGHLIGHT-SET
+    surface: element.text
+  - id: element.shape.adjust.set
+    path: rows/element/shape/adjust/set
+    status: verified
+    testId: EO-ELEMENT-SHAPE-ADJUST-SET
+    surface: element.shape
+  - id: element.image.crop.set
+    path: rows/element/image/crop/set
+    status: verified
+    testId: EO-ELEMENT-IMAGE-CROP-SET
+    surface: element.image
+  - id: element.image.mask.set
+    path: rows/element/image/mask/set
+    status: verified
+    testId: EO-ELEMENT-IMAGE-MASK-SET
+    surface: element.image
+  - id: element.line.curve.set
+    path: rows/element/line/curve/set
+    status: verified
+    testId: EO-ELEMENT-LINE-CURVE-SET
+    surface: element.line
+  - id: element.line.points.set
+    path: rows/element/line/points/set
+    status: verified
+    testId: EO-ELEMENT-LINE-POINTS-SET
+    surface: element.line
+  - id: element.animation.timeline.set
+    path: rows/element/animation/timeline/set
+    status: wont-port
+    testId: EO-ELEMENT-ANIMATION-TIMELINE-SET
+    surface: animation
+  - id: chrome.history.versions.open
+    path: rows/chrome/history/versions/open
+    status: verified
+    testId: EO-CHROME-HISTORY-VERSIONS-OPEN
+    surface: chrome.global
+  - id: chrome.history.versions.snapshot
+    path: rows/chrome/history/versions/snapshot
+    status: verified
+    testId: EO-CHROME-HISTORY-VERSIONS-SNAPSHOT
+    surface: chrome.global
+  - id: chrome.history.versions.restore
+    path: rows/chrome/history/versions/restore
+    status: verified
+    testId: EO-CHROME-HISTORY-VERSIONS-RESTORE
+    surface: chrome.global
+  - id: chrome.history.versions.preview
+    path: rows/chrome/history/versions/preview
+    status: verified
+    testId: EO-CHROME-HISTORY-VERSIONS-PREVIEW
+    surface: chrome.global
+  - id: chrome.comment.pin
+    path: rows/chrome/comment/pin
+    status: verified
+    testId: EO-CHROME-COMMENT-PIN
+    surface: chrome.global
+  - id: element.arrange.align.set
+    path: rows/element/arrange/align/set
+    status: verified
+    testId: EO-ELEMENT-ARRANGE-ALIGN-SET
+    surface: selection
+  - id: element.arrange.distribute.set
+    path: rows/element/arrange/distribute/set
+    status: verified
+    testId: EO-ELEMENT-ARRANGE-DISTRIBUTE-SET
+    surface: selection
+  - id: element.arrange.flip.set
+    path: rows/element/arrange/flip/set
+    status: verified
+    testId: EO-ELEMENT-ARRANGE-FLIP-SET
+    surface: selection
+  - id: chrome.workspace.toggle
+    path: rows/chrome/workspace/toggle
+    status: verified
+    testId: EO-WORKSPACE-001
+    surface: chrome.global
+  - id: chrome.workspace.refine
+    path: rows/chrome/workspace/refine
+    status: verified
+    testId: EO-CHROME-WORKSPACE-REFINE
+    surface: chrome.global
+  - id: chrome.generation.resume
+    path: rows/chrome/generation/resume
+    status: verified
+    testId: EO-CHROME-GENERATION-RESUME
+    surface: chrome.global
+  - id: chrome.generation.model
+    path: rows/chrome/generation/model
+    status: verified
+    testId: EO-CHROME-GENERATION-MODEL
+    surface: chrome.global
+  - id: chrome.generation.steer
+    path: rows/chrome/generation/steer
+    status: verified
+    testId: EO-CHROME-GENERATION-STEER
+    surface: chrome.global
+  - id: chrome.generation.stop
+    path: rows/chrome/generation/stop
+    status: verified
+    testId: EO-CHROME-GENERATION-STOP
+    surface: chrome.global
+  - id: element.text.toolbar.list.set
+    path: rows/element/text/toolbar/list/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-LIST-SET
+    surface: element.text
+  - id: element.text.toolbar.link.set
+    path: rows/element/text/toolbar/link/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-LINK-SET
+    surface: element.text
+  - id: element.chart.legend.set
+    path: rows/element/chart/legend/set
+    status: verified
+    testId: EO-ELEMENT-CHART-LEGEND-SET
+    surface: element.chart
+  - id: element.chart.series.color.set
+    path: rows/element/chart/series/color/set
+    status: verified
+    testId: EO-ELEMENT-CHART-SERIES-COLOR-SET
+    surface: element.chart
+  - id: theme.color.set
+    path: rows/theme/color/set
+    status: verified
+    testId: EO-THEME-COLOR-SET
+    surface: theme.background
+  - id: chrome.keyboard.help
+    path: rows/chrome/keyboard/help
+    status: verified
+    testId: EO-CHROME-KEYBOARD-HELP
+    surface: chrome.global
+  - id: element.lock.toggle
+    path: rows/element/lock/toggle
+    status: verified
+    testId: EO-ELEMENT-LOCK-TOGGLE
+    surface: selection
+  - id: element.visibility.toggle
+    path: rows/element/visibility/toggle
+    status: verified
+    testId: EO-ELEMENT-VISIBILITY-TOGGLE
+    surface: selection
+  - id: element.text.toolbar.wrap.set
+    path: rows/element/text/toolbar/wrap/set
+    status: verified
+    testId: EO-ELEMENT-TEXT-TOOLBAR-WRAP-SET
+    surface: element.text
+  - id: element.group.set
+    path: rows/element/group/set
+    status: verified
+    testId: EO-ELEMENT-GROUP-SET
+    surface: selection
+  - id: element.ungroup.set
+    path: rows/element/ungroup/set
+    status: verified
+    testId: EO-ELEMENT-UNGROUP-SET
+    surface: selection
+  - id: element.image.rebuild
+    path: rows/element/image/rebuild
+    status: verified
+    testId: EO-ELEMENT-IMAGE-REBUILD
+    surface: element.image
+  - id: element.shadow.set
+    path: rows/element/shadow/set
+    status: verified
+    testId: EO-ELEMENT-SHADOW-SET
+    surface: selection
+  - id: element.table.cell.align.set
+    path: rows/element/table/cell/align/set
+    status: verified
+    testId: EO-ELEMENT-TABLE-CELL-ALIGN-SET
+    surface: element.table
+  - id: element.chart.axis.set
+    path: rows/element/chart/axis/set
+    status: verified
+    testId: EO-ELEMENT-CHART-AXIS-SET
+    surface: element.chart
+  - id: element.chart.labels.set
+    path: rows/element/chart/labels/set
+    status: verified
+    testId: EO-ELEMENT-CHART-LABELS-SET
+    surface: element.chart
+  - id: insert.smartart
+    path: rows/insert/smartart
+    status: verified
+    testId: EO-INSERT-007
+    surface: insert
+  - id: element.smartart.node.add
+    path: rows/element/smartart/node/add
+    status: verified
+    testId: EO-SMARTART-001
+    surface: element.smartart
+  - id: element.smartart.node.delete
+    path: rows/element/smartart/node/delete
+    status: verified
+    testId: EO-SMARTART-002
+    surface: element.smartart
+  - id: element.smartart.layout.set
+    path: rows/element/smartart/layout/set
+    status: verified
+    testId: EO-SMARTART-003
+    surface: element.smartart
+  - id: selection.tab
+    path: rows/selection/tab
+    status: verified
+    testId: EO-SEL-002
+    surface: selection
+  - id: element.line.label.set
+    path: rows/element/line/label/set
+    status: verified
+    testId: EO-LINE-002
+    surface: element.line
+  - id: chrome.comments.retry
+    path: rows/chrome/comments/retry
+    status: verified
+    testId: EO-COMMENTS-001
+    surface: chrome.global
+  - id: chrome.comments.select
+    path: rows/chrome/comments/select
+    status: verified
+    testId: EO-COMMENTS-002
+    surface: chrome.global
+  - id: chrome.workspace.stop
+    path: rows/chrome/workspace/stop
+    status: verified
+    testId: EO-WORKSPACESTOP-001
+    surface: chrome.global
+  - id: chrome.workspace.assistant.mode
+    path: rows/chrome/workspace/assistant/mode
+    status: wont-port
+    testId: EO-ASSISTANT-001
+    surface: chrome.global
+  - id: chrome.workspace.assistant.model
+    path: rows/chrome/workspace/assistant/model
+    status: verified
+    testId: EO-ASSISTANT-002
+    surface: chrome.global
+  - id: chrome.createhub.assistant.mode
+    path: rows/chrome/createhub/assistant/mode
+    status: wont-port
+    testId: EO-ASSISTANT-003
+    surface: chrome.global
+  - id: chrome.comments.list
+    path: rows/chrome/comments/list
+    status: verified
+    testId: EO-COMMENTS-003
+    surface: chrome.global
+  - id: chrome.comments.resend
+    path: rows/chrome/comments/resend
+    status: verified
+    testId: EO-COMMENTS-004
+    surface: chrome.global
+
+  - id: chrome.comments.targets
+    path: rows/chrome/comments/targets
+    status: verified
+    testId: EO-COMMENTS-TARGETS-001
+    surface: chrome.global
+  - id: chrome.workspace.assistant.send
+    path: rows/chrome/workspace/assistant/send
+    status: verified
+    testId: EO-ASSISTANT-004
+    surface: chrome.global
+  - id: chrome.workspace.assistant.question
+    path: rows/chrome/workspace/assistant/question
+    status: verified
+    testId: EO-ASSISTANT-005
+    surface: chrome.global

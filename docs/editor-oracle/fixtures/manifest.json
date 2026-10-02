@@ -1,0 +1,46 @@
+{
+  "fixtures": [
+    {
+      "id": "syn-empty",
+      "kind": "synthetic",
+      "path": "fixtures/syn-empty",
+      "title": "最小空白工程",
+      "pages": 1,
+      "notes": "S0.2 empty / insert baseline"
+    },
+    {
+      "id": "syn-smoke",
+      "kind": "synthetic",
+      "path": "fixtures/syn-smoke",
+      "title": "烟测多类型页",
+      "pages": 2,
+      "notes": "text/shape/table/chart + notes; S0.3 chart+table"
+    },
+    {
+      "id": "syn-shapes",
+      "kind": "synthetic",
+      "path": "fixtures/syn-shapes",
+      "title": "对照形状样张",
+      "pages": 1,
+      "notes": "rect/roundRect/ellipse/triangle/rightArrow/callout + image crop + icon"
+    },
+    {
+      "id": "okp-yu7-ppt",
+      "kind": "open-kimi-example",
+      "path": "fixtures/okp-yu7-ppt",
+      "title": "小米 YU7 · 豪华高性能纯电 SUV",
+      "pages": 8,
+      "sourceVersion": "open-kimi-ppt-skill pre-wipe 1.1.2",
+      "notes": "Recovered from open-kimi example/yu7-ppt after npm unpublish; offline load/export regression"
+    },
+    {
+      "id": "syn-shapes-177",
+      "kind": "synthetic",
+      "path": "fixtures/syn-shapes-177",
+      "title": "OOXML 177 presets",
+      "pages": 9,
+      "notes": "All official presetShapeDefinitions names, 20 per page"
+    }
+  ],
+  "note": "Register every PPTD project used as a precondition. Prefer okp-* copies of open-kimi examples with pinned sourceVersion when available offline."
+}

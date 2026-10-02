@@ -1,0 +1,47 @@
+{
+  "id": "element.lock.toggle",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "锁定元素",
+  "kimiUi": {
+    "controlLabel": "锁",
+    "location": "上下文工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "锁定"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "element.locked true blocks delete/move"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-LOCK-TOGGLE",
+    "selfTestChecklist": [
+      "locked persists",
+      "deleteSelected throws while locked"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T13:00:00.000Z",
+    "agent": "s3-lock"
+  },
+  "updatedAt": "2026-08-15T13:00:00.000Z"
+}

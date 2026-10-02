@@ -1,0 +1,62 @@
+{
+  "id": "chrome.comments.list",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "从对话批注预览定位原处",
+  "description": "左侧直接列出每条待发送意见，点预览跳到对应页面并在目标旁打开编辑浮卡。",
+  "kimiUi": {
+    "controlLabel": "批注预览",
+    "location": "对话输入框上方",
+    "appearsWhen": "存在待发送批注"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "项目中存在当前页或其他页的待发送意见。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "查看对话上方自动恢复的意见预览",
+      "点击一条意见定位到相应页面与对象",
+      "就地修改文字，更新后浮卡收起",
+      "可连续标记，最终从左侧发送一次"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "",
+      "after": "docs/acceptance/assets/2026-09-20-comment-context/batch-ready.png"
+    },
+    "pptd": {
+      "summary": "定位、写批注和移除都不改变 PPTD；提交模型回合继续受原范围锁与版本保护。"
+    },
+    "notes": "2026-09-20：15 步批量回归通过，含两页自动恢复、跨页定位、画布/附件编号一致、最新编辑草稿一次发送、一个版本快照、已处理意见刷新不回流。原生浏览器复核用户项目的现有意见。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "goToPage, load review record, open contextual popover",
+    "uiParityNotes": "没有全部批注面板与二次勾选；预览就是本次发送内容。"
+  },
+  "test": {
+    "id": "EO-COMMENTS-003",
+    "automated": true,
+    "selfTestChecklist": [
+      "跨页意见自动恢复到对话",
+      "点击意见回到正确页面与目标",
+      "画布编号与附件编号一致",
+      "最新输入随发送提交",
+      "浮卡保持在屏幕内且不挤压画布"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-17T00:00:00.000Z",
+    "agent": "ai-comment-batch"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

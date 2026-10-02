@@ -1,0 +1,252 @@
+{
+  "capturedAt": "2026-09-21T02:21:22.816388+00:00",
+  "timezone": "Asia/Shanghai",
+  "repository": "/Users/wu/Documents/DSH-output/openslides",
+  "branch": "nativeGen",
+  "head": "1a65abfcdaff3467ee9ece0c0031200ec3843349",
+  "workingTreeBeforeHandoff": {
+    "entries": 152,
+    "trackedChanges": 59,
+    "untrackedFiles": 93,
+    "details": "git-status.txt"
+  },
+  "listeners": "COMMAND     PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\ncontainer 16819   wu   25u  IPv4 0x3095c10c8f9da3d6      0t0  TCP 127.0.0.1:8317 (LISTEN)\nnode      19850   wu  533u  IPv4 0xcb8036b64cc0e38d      0t0  TCP 127.0.0.1:43127 (LISTEN)\nnode      29866   wu   12u  IPv4 0xf39769fbbc031873      0t0  TCP 127.0.0.1:55201 (LISTEN)\nnode      40037   wu   15u  IPv4 0xd82e514af2273b78      0t0  TCP 127.0.0.1:13081 (LISTEN)\nnode      88716   wu   12u  IPv4 0xe7ec3aae1f415231      0t0  TCP 127.0.0.1:4488 (LISTEN)",
+  "processes": "16819     1    01:00:06 /opt/homebrew/Cellar/container/1.0.0_1/libexec/container-plugins/container-runtime-linux/bin/container-runtime-linux start --root /Users/wu/Library/Application Support/com.apple.container/containers/cliproxyapi-devin --uuid cliproxyapi-devin\n19850 19835 02-22:18:33 /opt/homebrew/bin/node --import tsx/esm /Users/wu/Documents/DeepSeekHarness/runtime/apps/cli/src/bin.ts web --port 43127 --no-open\n29866     1       49:10 /opt/homebrew/Cellar/node/26.7.0/bin/node apps/native-web/src/server.mjs\n40014     1       40:25 /opt/homebrew/Cellar/node/26.7.0/bin/node scripts/dsh-slides.mjs\n40037 40014       40:25 node /Users/wu/Documents/DSH-output/openslides/node_modules/.bin/dsh --profile slides --port 13081 --no-open\n88716     1    16:00:30 /opt/homebrew/bin/node /Users/wu/Desktop/dsh-zencode/gateway.mjs",
+  "activeWorkingDirectories": "p29866\nfcwd\nn/Users/wu/Documents/DSH-output/openslides\np40037\nfcwd\nn/Users/wu/Documents/DSH-output/openslides",
+  "health": {
+    "ok": true,
+    "product": "Open SlideStudio",
+    "kernel": "dsh",
+    "minimaxReady": true,
+    "generateReady": true,
+    "produceGates": {
+      "ok": true,
+      "id": "edith-twenty-five-v1",
+      "missing": [],
+      "failed": [],
+      "hashMatch": true,
+      "emptyWriteRejected": true,
+      "emptyCreateHasNoSeed": true,
+      "generateReady": true
+    },
+    "connection": {
+      "providerId": "devin-local",
+      "ready": true,
+      "method": "api_key",
+      "source": "env",
+      "model": "devin/swe-2"
+    },
+    "selection": {
+      "providerId": "devin-local",
+      "model": "devin/swe-2",
+      "ready": true
+    },
+    "capability": {
+      "research": {
+        "configured": false,
+        "via": "env"
+      },
+      "imageSearch": {
+        "configured": false,
+        "via": "env"
+      },
+      "imageGenerate": {
+        "configured": false,
+        "via": "env"
+      },
+      "vision": {
+        "mode": "main-model",
+        "via": "env",
+        "modelAcceptsImages": true
+      },
+      "runtime": {
+        "kind": "dsh"
+      },
+      "web": false,
+      "render": true,
+      "exportPptx": true,
+      "note": "Main model accepts page rasters as image parts. render_page must emit a PNG. review_page is aesthetics-only."
+    }
+  },
+  "providers": [
+    {
+      "id": "mimo-desktop",
+      "name": "Xiaomi MiMo Desktop",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "minimax-cn",
+      "name": "minimax-cn",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "opcode",
+      "name": "OpenCode Go (gateway)",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "go-chat",
+      "name": "OpenCode Go Chat (gateway)",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "zen-free",
+      "name": "OpenCode Zen Free (gateway)",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "devin-local",
+      "name": "Devin 本地代理",
+      "ready": true,
+      "keyStored": false
+    },
+    {
+      "id": "pi-xai",
+      "name": "Grok (xAI)",
+      "ready": true
+    },
+    {
+      "id": "pi-openai-codex",
+      "name": "ChatGPT Codex",
+      "ready": false
+    },
+    {
+      "id": "pi-anthropic",
+      "name": "Claude Pro/Max",
+      "ready": false
+    },
+    {
+      "id": "pi-github-copilot",
+      "name": "GitHub Copilot",
+      "ready": false
+    },
+    {
+      "id": "pi-openrouter",
+      "name": "OpenRouter",
+      "ready": false
+    },
+    {
+      "id": "pi-kimi-coding",
+      "name": "Kimi For Coding",
+      "ready": false
+    },
+    {
+      "id": "pi-zai-coding-cn",
+      "name": "智谱 GLM Coding Plan",
+      "ready": false
+    }
+  ],
+  "sessions": {
+    "original": {
+      "sessionId": "74021fe2-bdfa-4f9f-819c-d0549507698e",
+      "agentStatus": "idle",
+      "phase": {
+        "kind": "page-ready",
+        "cover": {
+          "pageId": "1_cover",
+          "revision": 7,
+          "pageSha256": "fbf41145c69a986cddb45f28ac9c038e796a35fc7343c78379c0b65487760855",
+          "rasterSha256": "80431a45b4f1d188b8b0ff1e0b62b745263236dee40314e869336516775eab2c",
+          "rasterUrl": "/slides/raster/74021fe2-bdfa-4f9f-819c-d0549507698e/1_cover",
+          "reviewVerdict": "pass",
+          "layoutStatus": "unavailable"
+        }
+      },
+      "model": {
+        "provider": "devin-local",
+        "model": "devin/swe-2"
+      },
+      "questions": [],
+      "executionStatus": {
+        "kind": "failed"
+      },
+      "executionBlockerCodes": [
+        "structural_review_needed"
+      ],
+      "executionRecoveryKind": "continue",
+      "note": "Idle and execution projection differ. Historical execution failures are not proof that the latest chat turn failed."
+    },
+    "long_qa": {
+      "sessionId": "8a06f686-44e6-4b32-b9f1-e59202c13e1c",
+      "agentStatus": "idle",
+      "phase": {
+        "kind": "page-ready",
+        "cover": {
+          "pageId": "1_cover",
+          "revision": 12,
+          "pageSha256": "22cd8acf1f5199cdc009df8f5fb9ac83e5e52e83a976539627b09c3c6a459ea3",
+          "rasterSha256": "f3a6ecf89e559a38ff8517f660fc216e136e3f9acac60d0a9497534d5239336c",
+          "rasterUrl": "/slides/raster/8a06f686-44e6-4b32-b9f1-e59202c13e1c/1_cover",
+          "reviewVerdict": "pass",
+          "layoutStatus": "unavailable"
+        }
+      },
+      "model": {
+        "provider": "minimax-cn",
+        "model": "MiniMax-M3"
+      },
+      "questions": [
+        {
+          "id": "7e18ce2a-cfc0-41e8-8d96-57d0d69c126d",
+          "status": "answered"
+        },
+        {
+          "id": "4efda82d-e84f-497f-8d1a-96ddc3253b65",
+          "status": "answered"
+        }
+      ],
+      "executionStatus": {
+        "kind": "failed"
+      },
+      "executionBlockerCodes": [
+        "structural_review_needed"
+      ],
+      "executionRecoveryKind": "continue",
+      "note": "Idle and execution projection differ. Historical execution failures are not proof that the latest chat turn failed."
+    },
+    "devin_qa": {
+      "sessionId": "baba3a10-26c2-444f-aa37-5f7a5e6d062c",
+      "agentStatus": "idle",
+      "phase": {
+        "kind": "failed",
+        "error": {
+          "code": "PI_AI_ERROR",
+          "detail": "devin upstream error (deadline_exceeded): context deadline exceeded (error ID: 4597341d76924d74aa1989de8c9c49e4) (trace ID: cd42d24007b28131ea7f67f62e963e9c)"
+        }
+      },
+      "model": {
+        "provider": "devin-local",
+        "model": "devin/swe-2"
+      },
+      "questions": [],
+      "executionStatus": {
+        "kind": "failed"
+      },
+      "executionBlockerCodes": [
+        "missing_references",
+        "missing_plan"
+      ],
+      "executionRecoveryKind": "continue",
+      "note": "Idle and execution projection differ. Historical execution failures are not proof that the latest chat turn failed."
+    }
+  },
+  "originalDocumentSha256": {
+    "deck.pptd": "ad0c12cb36ce20710640d4dd4581ddce5dc3a772205441820ff8670c81682c9d",
+    "pages/1_cover.page": "e5ddbfb1b1070f21f945a3955e0741c19ee198e24833178af8a2c3c437209ffb",
+    "pages/2_tips.page": "ae27ee5b5bf1e52b5ac8b38313b3745d695045e015b121c91efc52def480608b",
+    "_agent/assistant-conversation.v1.json": "47e54ce80bdc4dc19c4aa2e39fd5c7501354c04472f4b4bfe417b7926b353819"
+  },
+  "originalMatchesDevinAcceptance": true,
+  "handoffValidation": "Read-only process, health, catalog, session, disk and evidence checks. No new model call, build, or regression run."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "element.image.rebuild",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.image",
+  "title": "图片重建为可编辑对象",
+  "kimiUi": {
+    "controlLabel": "重建",
+    "location": "图片工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": { "kind": "none" }
+  },
+  "action": {
+    "type": "click",
+    "steps": ["重建"]
+  },
+  "evidence": {
+    "screenshots": { "before": "shots/before.png", "after": "shots/after.png" },
+    "pptd": {
+      "summary": "Replaces selected image with independently selectable text/shape/line; connectors retarget on node move. No OCR invention."
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-IMAGE-REBUILD",
+    "selfTestChecklist": [
+      "rebuildSelectedImage emits text + shape + connected line",
+      "node text is independently editable",
+      "moving a node updates line points"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-15T14:00:00.000Z",
+    "agent": "ac-11-rebuild"
+  },
+  "updatedAt": "2026-08-15T14:00:00.000Z"
+}

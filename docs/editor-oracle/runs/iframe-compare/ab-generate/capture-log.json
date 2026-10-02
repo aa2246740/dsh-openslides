@@ -1,0 +1,138 @@
+[
+  {
+    "project": "ab-consulting",
+    "page": 1,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 华北区域渠道增长复盘",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-consulting",
+      "page": 0,
+      "title": "华北区域渠道增长复盘",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-consulting",
+    "page": 4,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 华北区域渠道增长复盘",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-consulting",
+      "page": 3,
+      "title": "华北区域渠道增长复盘",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-academic",
+    "page": 1,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · Transformer 注意力机制导论",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-academic",
+      "page": 0,
+      "title": "Transformer 注意力机制导论",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-academic",
+    "page": 4,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · Transformer 注意力机制导论",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-academic",
+      "page": 3,
+      "title": "Transformer 注意力机制导论",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-promo",
+    "page": 1,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 夏季限定系列发布",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-promo",
+      "page": 0,
+      "title": "夏季限定系列发布",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-promo",
+    "page": 4,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 夏季限定系列发布",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-promo",
+      "page": 3,
+      "title": "夏季限定系列发布",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-work",
+    "page": 1,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 边缘推理平台路线图",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-work",
+      "page": 0,
+      "title": "边缘推理平台路线图",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  },
+  {
+    "project": "ab-work",
+    "page": 4,
+    "officialSource": "parent-stage",
+    "status": "官方已连接 · 边缘推理平台路线图",
+    "overlay": "",
+    "overlayHidden": true,
+    "compare": {
+      "connected": true,
+      "project": "ab-work",
+      "page": 3,
+      "title": "边缘推理平台路线图",
+      "pageCount": 5,
+      "officialError": "",
+      "remoteMethods": []
+    }
+  }
+]

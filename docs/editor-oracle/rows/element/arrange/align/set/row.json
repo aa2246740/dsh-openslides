@@ -1,0 +1,53 @@
+{
+  "id": "element.arrange.align.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "对齐选中对象",
+  "kimiUi": {
+    "controlLabel": "左齐 / 居中 / 右齐",
+    "location": "contextual toolbar",
+    "appearsWhen": "multi-select"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "multi"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Select 2+ elements",
+      "Click 左齐 / 居中 / 右齐"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "aligns bounds of selected elements"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "alignSelected"
+  },
+  "test": {
+    "id": "EO-ELEMENT-ARRANGE-ALIGN-SET",
+    "automated": true,
+    "selfTestChecklist": [
+      "left-align sets same x"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-15T00:00:00.000Z",
+    "agent": "native-1-1",
+    "sessionId": "goal-1-1-2026-08-15"
+  },
+  "updatedAt": "2026-08-15T00:00:00.000Z"
+}

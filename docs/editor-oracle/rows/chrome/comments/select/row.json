@@ -1,0 +1,61 @@
+{
+  "id": "chrome.comments.select",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "移除待发送批注与撤销",
+  "description": "新增批注自动成为对话上下文；在附件预览或浮卡中移除，支持撤销，不再要求勾选或手动解决。",
+  "kimiUi": {
+    "controlLabel": "移除批注 / 撤销",
+    "location": "对话输入框上方的批注预览、单条浮卡",
+    "appearsWhen": "存在待发送批注"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "项目中至少存在一条待发送意见。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "点击附件叉号或浮卡垃圾桶移除意见",
+      "该意见从待发送列表与画布消失",
+      "点击提示中的撤销恢复原意见及目标",
+      "从左侧发送统一提交剩余意见"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "",
+      "after": "docs/acceptance/assets/2026-09-20-comment-context/live-note.png"
+    },
+    "pptd": {
+      "summary": "移除以 review record resolved 字段保存，可撤销；更新保留文字、范围、锚点与创建时间。PPTD 页面逐字节不变。"
+    },
+    "notes": "2026-09-20：comment-selection-dom.test.mjs 真实点击验证移除、撤销、刷新恢复及元数据保留；editor-comment-batch.mjs 15 步验证跨页统一发送和失败保留。模型回合使用 stub。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "PATCH /api/reviews; composer posts /api/reviews/ai-lock/batch",
+    "uiParityNotes": "批注即待发送上下文；没有勾选、全选或解决操作。"
+  },
+  "test": {
+    "id": "EO-COMMENTS-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "添加自动进入对话，浮卡收起便于继续标记",
+      "移除可撤销，原意见和目标完整保留",
+      "刷新恢复待发送意见，已处理意见不重新出现",
+      "成功清空本批意见，失败可从同一发送入口重试"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-17T00:00:00.000Z",
+    "agent": "ai-comment-batch"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

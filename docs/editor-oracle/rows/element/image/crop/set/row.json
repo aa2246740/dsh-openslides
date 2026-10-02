@@ -1,0 +1,43 @@
+{
+  "id": "element.image.crop.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.image",
+  "title": "图片裁切",
+  "kimiUi": {
+    "controlLabel": "图片裁切",
+    "location": "图片工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "图片裁切"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "setImageCrop writes image.crop left/top/right/bottom insets; on-canvas handles mutate the same field"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-IMAGE-CROP-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

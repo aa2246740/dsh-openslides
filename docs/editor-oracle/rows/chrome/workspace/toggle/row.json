@@ -1,0 +1,56 @@
+{
+  "id": "chrome.workspace.toggle",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "打开或收起 AI 工作区",
+  "description": "底部 AI 按钮打开或收起本地工作区；工作区头部关闭按钮提供明确恢复路径。",
+  "kimiUi": {
+    "controlLabel": "AI / 收起 AI 工作区",
+    "location": "bottom insert toolbar and split workspace header",
+    "appearsWhen": "editor open"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": { "kind": "none" }
+  },
+  "action": {
+    "type": "toggle",
+    "steps": [
+      "Click the bottom AI button to open the split workspace",
+      "Verify the workspace has an accessible close control",
+      "Click the close control and verify the full editor width returns"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/ai-workspace-open.png",
+      "after": "shots/ai-workspace-closed.png"
+    },
+    "pptd": {
+      "summary": "UI-only workspace state; PPTD must not change"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "toggleWorkChat",
+    "uiParityNotes": "The local product adds an explicit close control as a recovery affordance; both triggers use the same interaction id."
+  },
+  "test": {
+    "id": "EO-WORKSPACE-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "AI button opens #work-chat",
+      "chat-close is visible and accessible",
+      "chat-close hides #work-chat and returns focus to the AI button"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-23T00:00:00.000Z",
+    "agent": "toolbar-repair",
+    "sessionId": "editor-toolbar-actions"
+  },
+  "updatedAt": "2026-08-23T00:00:00.000Z"
+}

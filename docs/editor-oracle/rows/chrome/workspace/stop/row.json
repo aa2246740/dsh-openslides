@@ -1,0 +1,60 @@
+{
+  "id": "chrome.workspace.stop",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "停止 Agent 修改并恢复",
+  "description": "停止正在执行的 Agent 修改，等待提供方确认停止，再恢复修改前版本并解除写保护。",
+  "kimiUi": {
+    "controlLabel": "停止修改",
+    "location": "Agent 工作区的实时修改状态与批注修改卡片",
+    "appearsWhen": "Agent 正在执行已授权的页面或批注修改"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "text"
+    },
+    "notes": "需要已获取写保护并保存修改前版本的活动 Agent 任务。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "等待 Agent 修改进入运行状态",
+      "点击停止修改",
+      "等待服务端确认停止",
+      "确认修改前版本已恢复且编辑重新可用"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "",
+      "after": ""
+    },
+    "pptd": {
+      "summary": "真实停止路径由 editor-ai-correction-matrix 验证页面哈希恢复；浏览器路径由 editor-agent-human-audit 验证停止、恢复与解锁。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "stop provider turn, wait for settlement, restore protected snapshot",
+    "uiParityNotes": "恢复完成前保持写保护；停止或恢复状态不确定时继续禁止编辑。"
+  },
+  "test": {
+    "id": "EO-WORKSPACESTOP-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "editor-agent-human-audit 点击真实 UI 停止按钮并验证调用一次 stop",
+      "停止确认后恢复受保护快照并重新开放输入",
+      "editor-ai-correction-matrix 验证停止与恢复后页面文件哈希无漂移"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-06T00:00:00.000Z",
+    "agent": "editor-coherent-correction"
+  },
+  "updatedAt": "2026-09-06T00:00:00.000Z"
+}

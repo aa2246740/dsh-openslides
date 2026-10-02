@@ -1,0 +1,55 @@
+{
+  "id": "element.text.toolbar.bold.toggle",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.text",
+  "title": "Toggle bold on selected text",
+  "description": "Native setSelectedBold; iframe dual-channel capture still pending for verified.",
+  "kimiUi": {
+    "controlLabel": "加粗 / Bold",
+    "location": "top contextual toolbar when text selected",
+    "appearsWhen": "single text element selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "text",
+      "elementHint": "title"
+    }
+  },
+  "action": {
+    "type": "toggle",
+    "steps": [
+      "Select text",
+      "Toggle bold"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "content.bold true/false"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "setSelectedBold"
+  },
+  "test": {
+    "id": "EO-TEXT-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "setSelectedBold updates renderModel.bold",
+      "export maps bold to PPTX"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "native-implement-spine"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "element.visibility.toggle",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "隐藏元素",
+  "kimiUi": {
+    "controlLabel": "隐",
+    "location": "上下文工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "隐藏"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "element.hidden true; canvas paints dimmed"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-VISIBILITY-TOGGLE",
+    "selfTestChecklist": [
+      "hidden persists on renderModel"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T13:00:00.000Z",
+    "agent": "s3-lock"
+  },
+  "updatedAt": "2026-08-15T13:00:00.000Z"
+}

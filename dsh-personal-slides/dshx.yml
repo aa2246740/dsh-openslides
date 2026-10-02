@@ -1,0 +1,5 @@
+id: dsh-personal-slides
+entry: src/dsh-personal-slides.ts
+marker: "[my-plugins/dsh-personal-slides] loaded"
+kind: client
+profile: web

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    {
+      "stem": "ab-consulting-p1",
+      "silhouette": 0.5608,
+      "official": "ab-consulting-p1-official.png",
+      "native": "ab-consulting-p1-native.png"
+    },
+    {
+      "stem": "ab-consulting-p4",
+      "silhouette": 0.4463,
+      "official": "ab-consulting-p4-official.png",
+      "native": "ab-consulting-p4-native.png"
+    },
+    {
+      "stem": "ab-academic-p1",
+      "silhouette": 0.5592,
+      "official": "ab-academic-p1-official.png",
+      "native": "ab-academic-p1-native.png"
+    },
+    {
+      "stem": "ab-academic-p4",
+      "silhouette": 0.4466,
+      "official": "ab-academic-p4-official.png",
+      "native": "ab-academic-p4-native.png"
+    },
+    {
+      "stem": "ab-promo-p1",
+      "silhouette": 0.5934,
+      "official": "ab-promo-p1-official.png",
+      "native": "ab-promo-p1-native.png"
+    },
+    {
+      "stem": "ab-promo-p4",
+      "silhouette": 0.6001,
+      "official": "ab-promo-p4-official.png",
+      "native": "ab-promo-p4-native.png"
+    },
+    {
+      "stem": "ab-work-p1",
+      "silhouette": 0.5613,
+      "official": "ab-work-p1-official.png",
+      "native": "ab-work-p1-native.png"
+    },
+    {
+      "stem": "ab-work-p4",
+      "silhouette": 0.4459,
+      "official": "ab-work-p4-official.png",
+      "native": "ab-work-p4-native.png"
+    }
+  ],
+  "mean": 0.5267
+}

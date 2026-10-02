@@ -1,0 +1,221 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: top
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 6
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: vrule
+    elementType: shape
+    bounds:
+      - 40
+      - 22
+      - 3
+      - 16
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: chap
+    elementType: text
+    bounds:
+      - 52
+      - 20
+      - 400
+      - 20
+    content:
+      text: 03 收束
+      wrap: true
+      fontSize: 11
+      color: "#7E7E7E"
+      bold: true
+  - elementId: title
+    elementType: text
+    bounds:
+      - 40
+      - 44
+      - 880
+      - 68
+    content:
+      text: 结论与下周动作
+      wrap: true
+      fontSize: 18
+      bold: true
+      color: "#5114F6"
+  - elementId: cbg0
+    elementType: shape
+    bounds:
+      - 40
+      - 150
+      - 280
+      - 220
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#F1F1F1"
+  - elementId: cacc0
+    elementType: shape
+    bounds:
+      - 40
+      - 150
+      - 280
+      - 4
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: cn0
+    elementType: text
+    bounds:
+      - 56
+      - 166
+      - 248
+      - 28
+    content:
+      text: "01"
+      wrap: false
+      fontSize: 20
+      bold: true
+      color: "#5114F6"
+  - elementId: cb0
+    elementType: text
+    bounds:
+      - 56
+      - 204
+      - 248
+      - 148
+    content:
+      text: 围绕「边缘推理平台路线图」先核对数据来源
+      wrap: true
+      fontSize: 14
+      color: "#333333"
+  - elementId: cbg1
+    elementType: shape
+    bounds:
+      - 340
+      - 150
+      - 280
+      - 220
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#F1F1F1"
+  - elementId: cacc1
+    elementType: shape
+    bounds:
+      - 340
+      - 150
+      - 280
+      - 4
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: cn1
+    elementType: text
+    bounds:
+      - 356
+      - 166
+      - 248
+      - 28
+    content:
+      text: "02"
+      wrap: false
+      fontSize: 20
+      bold: true
+      color: "#5114F6"
+  - elementId: cb1
+    elementType: text
+    bounds:
+      - 356
+      - 204
+      - 248
+      - 148
+    content:
+      text: 把占位图换成带单位与时间窗的真实序列
+      wrap: true
+      fontSize: 14
+      color: "#333333"
+  - elementId: cbg2
+    elementType: shape
+    bounds:
+      - 640
+      - 150
+      - 280
+      - 220
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#F1F1F1"
+  - elementId: cacc2
+    elementType: shape
+    bounds:
+      - 640
+      - 150
+      - 280
+      - 4
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: cn2
+    elementType: text
+    bounds:
+      - 656
+      - 166
+      - 248
+      - 28
+    content:
+      text: "03"
+      wrap: false
+      fontSize: 20
+      bold: true
+      color: "#5114F6"
+  - elementId: cb2
+    elementType: text
+    bounds:
+      - 656
+      - 204
+      - 248
+      - 148
+    content:
+      text: 动作项需指定负责人与截止日期后再定稿
+      wrap: true
+      fontSize: 14
+      color: "#333333"
+  - elementId: fn
+    elementType: text
+    bounds:
+      - 40
+      - 516
+      - 800
+      - 14
+    content:
+      text: ""
+      wrap: true
+      fontSize: 9
+      color: "#7E7E7E"
+  - elementId: pg
+    elementType: text
+    bounds:
+      - 880
+      - 516
+      - 40
+      - 14
+    content:
+      text: "5"
+      wrap: false
+      fontSize: 10
+      color: "#7E7E7E"
+      align:
+        - right
+        - middle

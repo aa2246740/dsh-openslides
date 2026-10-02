@@ -1,0 +1,43 @@
+{
+  "id": "element.duplicate",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "复制选中元素",
+  "kimiUi": {
+    "controlLabel": "复制选中元素",
+    "location": "⌘D / 右键复制",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "复制选中元素"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-DUPLICATE"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

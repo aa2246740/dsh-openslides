@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oracle Compare · Official iframe vs Native</title>
+    <link rel="stylesheet" href="./compare.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="brand">
+        <strong>Oracle Compare</strong>
+        <small>DEV ONLY · 官方 iframe 对照 Native</small>
+      </div>
+      <label class="field">
+        项目
+        <select id="project"></select>
+      </label>
+      <div class="pager" id="pager"></div>
+      <div class="view-toggle" role="tablist" aria-label="对照视图">
+        <button type="button" data-view="split" class="on">对照</button>
+        <button type="button" data-view="official">官方全屏</button>
+        <button type="button" data-view="native">Native</button>
+      </div>
+      <div class="status" id="status">未连接</div>
+    </header>
+    <main class="panes">
+      <section class="pane" data-side="official">
+        <h1>官方 Kimi iframe</h1>
+        <div class="stage official-stage">
+          <iframe
+            id="kimi"
+            title="neo-ppt"
+            allow="fullscreen; clipboard-read; clipboard-write"
+          ></iframe>
+          <div class="overlay" id="official-overlay">正在连接官方编辑器…</div>
+        </div>
+      </section>
+      <section class="pane" data-side="native">
+        <h1>Native 渲染</h1>
+        <div class="stage native-stage" id="native-stage">
+          <div class="slide" id="slide"></div>
+        </div>
+      </section>
+    </main>
+    <script src="./shape-paint.js"></script>
+    <script type="module" src="./compare.js"></script>
+  </body>
+</html>

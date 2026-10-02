@@ -1,0 +1,818 @@
+{
+  "academic/blue-line-courseware": {
+    "styleId": "academic/blue-line-courseware",
+    "category": "academic",
+    "slug": "blue-line-courseware",
+    "pageCount": 7,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/blue-line-courseware/0.webp",
+    "pages": [
+      "./theme-slices/academic/blue-line-courseware/0.webp",
+      "./theme-slices/academic/blue-line-courseware/1.webp",
+      "./theme-slices/academic/blue-line-courseware/2.webp",
+      "./theme-slices/academic/blue-line-courseware/3.webp",
+      "./theme-slices/academic/blue-line-courseware/4.webp",
+      "./theme-slices/academic/blue-line-courseware/5.webp",
+      "./theme-slices/academic/blue-line-courseware/6.webp"
+    ]
+  },
+  "academic/deep-blue-atlas": {
+    "styleId": "academic/deep-blue-atlas",
+    "category": "academic",
+    "slug": "deep-blue-atlas",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/deep-blue-atlas/0.webp",
+    "pages": [
+      "./theme-slices/academic/deep-blue-atlas/0.webp",
+      "./theme-slices/academic/deep-blue-atlas/1.webp",
+      "./theme-slices/academic/deep-blue-atlas/2.webp",
+      "./theme-slices/academic/deep-blue-atlas/3.webp",
+      "./theme-slices/academic/deep-blue-atlas/4.webp",
+      "./theme-slices/academic/deep-blue-atlas/5.webp",
+      "./theme-slices/academic/deep-blue-atlas/6.webp",
+      "./theme-slices/academic/deep-blue-atlas/7.webp"
+    ]
+  },
+  "academic/paper-white-courseware": {
+    "styleId": "academic/paper-white-courseware",
+    "category": "academic",
+    "slug": "paper-white-courseware",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/paper-white-courseware/0.webp",
+    "pages": [
+      "./theme-slices/academic/paper-white-courseware/0.webp",
+      "./theme-slices/academic/paper-white-courseware/1.webp",
+      "./theme-slices/academic/paper-white-courseware/2.webp",
+      "./theme-slices/academic/paper-white-courseware/3.webp",
+      "./theme-slices/academic/paper-white-courseware/4.webp",
+      "./theme-slices/academic/paper-white-courseware/5.webp",
+      "./theme-slices/academic/paper-white-courseware/6.webp",
+      "./theme-slices/academic/paper-white-courseware/7.webp"
+    ]
+  },
+  "academic/pastel-derivation": {
+    "styleId": "academic/pastel-derivation",
+    "category": "academic",
+    "slug": "pastel-derivation",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/pastel-derivation/0.webp",
+    "pages": [
+      "./theme-slices/academic/pastel-derivation/0.webp",
+      "./theme-slices/academic/pastel-derivation/1.webp",
+      "./theme-slices/academic/pastel-derivation/2.webp",
+      "./theme-slices/academic/pastel-derivation/3.webp",
+      "./theme-slices/academic/pastel-derivation/4.webp",
+      "./theme-slices/academic/pastel-derivation/5.webp",
+      "./theme-slices/academic/pastel-derivation/6.webp",
+      "./theme-slices/academic/pastel-derivation/7.webp"
+    ]
+  },
+  "academic/teal-green-academic-defense": {
+    "styleId": "academic/teal-green-academic-defense",
+    "category": "academic",
+    "slug": "teal-green-academic-defense",
+    "pageCount": 7,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/teal-green-academic-defense/0.webp",
+    "pages": [
+      "./theme-slices/academic/teal-green-academic-defense/0.webp",
+      "./theme-slices/academic/teal-green-academic-defense/1.webp",
+      "./theme-slices/academic/teal-green-academic-defense/2.webp",
+      "./theme-slices/academic/teal-green-academic-defense/3.webp",
+      "./theme-slices/academic/teal-green-academic-defense/4.webp",
+      "./theme-slices/academic/teal-green-academic-defense/5.webp",
+      "./theme-slices/academic/teal-green-academic-defense/6.webp"
+    ]
+  },
+  "academic/wine-red-data": {
+    "styleId": "academic/wine-red-data",
+    "category": "academic",
+    "slug": "wine-red-data",
+    "pageCount": 7,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/academic/wine-red-data/0.webp",
+    "pages": [
+      "./theme-slices/academic/wine-red-data/0.webp",
+      "./theme-slices/academic/wine-red-data/1.webp",
+      "./theme-slices/academic/wine-red-data/2.webp",
+      "./theme-slices/academic/wine-red-data/3.webp",
+      "./theme-slices/academic/wine-red-data/4.webp",
+      "./theme-slices/academic/wine-red-data/5.webp",
+      "./theme-slices/academic/wine-red-data/6.webp"
+    ]
+  },
+  "consulting/apricot-white-brief": {
+    "styleId": "consulting/apricot-white-brief",
+    "category": "consulting",
+    "slug": "apricot-white-brief",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/apricot-white-brief/0.webp",
+    "pages": [
+      "./theme-slices/consulting/apricot-white-brief/0.webp",
+      "./theme-slices/consulting/apricot-white-brief/1.webp",
+      "./theme-slices/consulting/apricot-white-brief/2.webp",
+      "./theme-slices/consulting/apricot-white-brief/3.webp",
+      "./theme-slices/consulting/apricot-white-brief/4.webp",
+      "./theme-slices/consulting/apricot-white-brief/5.webp",
+      "./theme-slices/consulting/apricot-white-brief/6.webp",
+      "./theme-slices/consulting/apricot-white-brief/7.webp"
+    ]
+  },
+  "consulting/indigo-due-diligence": {
+    "styleId": "consulting/indigo-due-diligence",
+    "category": "consulting",
+    "slug": "indigo-due-diligence",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/indigo-due-diligence/0.webp",
+    "pages": [
+      "./theme-slices/consulting/indigo-due-diligence/0.webp",
+      "./theme-slices/consulting/indigo-due-diligence/1.webp",
+      "./theme-slices/consulting/indigo-due-diligence/2.webp",
+      "./theme-slices/consulting/indigo-due-diligence/3.webp",
+      "./theme-slices/consulting/indigo-due-diligence/4.webp",
+      "./theme-slices/consulting/indigo-due-diligence/5.webp",
+      "./theme-slices/consulting/indigo-due-diligence/6.webp",
+      "./theme-slices/consulting/indigo-due-diligence/7.webp"
+    ]
+  },
+  "consulting/marine-blue-research": {
+    "styleId": "consulting/marine-blue-research",
+    "category": "consulting",
+    "slug": "marine-blue-research",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/marine-blue-research/0.webp",
+    "pages": [
+      "./theme-slices/consulting/marine-blue-research/0.webp",
+      "./theme-slices/consulting/marine-blue-research/1.webp",
+      "./theme-slices/consulting/marine-blue-research/2.webp",
+      "./theme-slices/consulting/marine-blue-research/3.webp",
+      "./theme-slices/consulting/marine-blue-research/4.webp",
+      "./theme-slices/consulting/marine-blue-research/5.webp",
+      "./theme-slices/consulting/marine-blue-research/6.webp",
+      "./theme-slices/consulting/marine-blue-research/7.webp"
+    ]
+  },
+  "consulting/moss-green-transformation": {
+    "styleId": "consulting/moss-green-transformation",
+    "category": "consulting",
+    "slug": "moss-green-transformation",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/moss-green-transformation/0.webp",
+    "pages": [
+      "./theme-slices/consulting/moss-green-transformation/0.webp",
+      "./theme-slices/consulting/moss-green-transformation/1.webp",
+      "./theme-slices/consulting/moss-green-transformation/2.webp",
+      "./theme-slices/consulting/moss-green-transformation/3.webp",
+      "./theme-slices/consulting/moss-green-transformation/4.webp",
+      "./theme-slices/consulting/moss-green-transformation/5.webp",
+      "./theme-slices/consulting/moss-green-transformation/6.webp",
+      "./theme-slices/consulting/moss-green-transformation/7.webp"
+    ]
+  },
+  "consulting/pine-green-strategy": {
+    "styleId": "consulting/pine-green-strategy",
+    "category": "consulting",
+    "slug": "pine-green-strategy",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/pine-green-strategy/0.webp",
+    "pages": [
+      "./theme-slices/consulting/pine-green-strategy/0.webp",
+      "./theme-slices/consulting/pine-green-strategy/1.webp",
+      "./theme-slices/consulting/pine-green-strategy/2.webp",
+      "./theme-slices/consulting/pine-green-strategy/3.webp",
+      "./theme-slices/consulting/pine-green-strategy/4.webp",
+      "./theme-slices/consulting/pine-green-strategy/5.webp",
+      "./theme-slices/consulting/pine-green-strategy/6.webp",
+      "./theme-slices/consulting/pine-green-strategy/7.webp"
+    ]
+  },
+  "consulting/red-black-growth": {
+    "styleId": "consulting/red-black-growth",
+    "category": "consulting",
+    "slug": "red-black-growth",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/consulting/red-black-growth/0.webp",
+    "pages": [
+      "./theme-slices/consulting/red-black-growth/0.webp",
+      "./theme-slices/consulting/red-black-growth/1.webp",
+      "./theme-slices/consulting/red-black-growth/2.webp",
+      "./theme-slices/consulting/red-black-growth/3.webp",
+      "./theme-slices/consulting/red-black-growth/4.webp",
+      "./theme-slices/consulting/red-black-growth/5.webp",
+      "./theme-slices/consulting/red-black-growth/6.webp",
+      "./theme-slices/consulting/red-black-growth/7.webp"
+    ]
+  },
+  "extra/color-stripes-documentary": {
+    "styleId": "extra/color-stripes-documentary",
+    "category": "extra",
+    "slug": "color-stripes-documentary",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/color-stripes-documentary/0.webp",
+    "pages": [
+      "./theme-slices/extra/color-stripes-documentary/0.webp",
+      "./theme-slices/extra/color-stripes-documentary/1.webp",
+      "./theme-slices/extra/color-stripes-documentary/2.webp",
+      "./theme-slices/extra/color-stripes-documentary/3.webp",
+      "./theme-slices/extra/color-stripes-documentary/4.webp",
+      "./theme-slices/extra/color-stripes-documentary/5.webp",
+      "./theme-slices/extra/color-stripes-documentary/6.webp",
+      "./theme-slices/extra/color-stripes-documentary/7.webp"
+    ]
+  },
+  "extra/dark-themed-data": {
+    "styleId": "extra/dark-themed-data",
+    "category": "extra",
+    "slug": "dark-themed-data",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/dark-themed-data/0.webp",
+    "pages": [
+      "./theme-slices/extra/dark-themed-data/0.webp",
+      "./theme-slices/extra/dark-themed-data/1.webp",
+      "./theme-slices/extra/dark-themed-data/2.webp",
+      "./theme-slices/extra/dark-themed-data/3.webp",
+      "./theme-slices/extra/dark-themed-data/4.webp",
+      "./theme-slices/extra/dark-themed-data/5.webp"
+    ]
+  },
+  "extra/dusk-violet-consulting": {
+    "styleId": "extra/dusk-violet-consulting",
+    "category": "extra",
+    "slug": "dusk-violet-consulting",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/dusk-violet-consulting/0.webp",
+    "pages": [
+      "./theme-slices/extra/dusk-violet-consulting/0.webp",
+      "./theme-slices/extra/dusk-violet-consulting/1.webp",
+      "./theme-slices/extra/dusk-violet-consulting/2.webp",
+      "./theme-slices/extra/dusk-violet-consulting/3.webp",
+      "./theme-slices/extra/dusk-violet-consulting/4.webp",
+      "./theme-slices/extra/dusk-violet-consulting/5.webp",
+      "./theme-slices/extra/dusk-violet-consulting/6.webp",
+      "./theme-slices/extra/dusk-violet-consulting/7.webp"
+    ]
+  },
+  "extra/fresh-brand": {
+    "styleId": "extra/fresh-brand",
+    "category": "extra",
+    "slug": "fresh-brand",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/fresh-brand/0.webp",
+    "pages": [
+      "./theme-slices/extra/fresh-brand/0.webp",
+      "./theme-slices/extra/fresh-brand/1.webp",
+      "./theme-slices/extra/fresh-brand/2.webp",
+      "./theme-slices/extra/fresh-brand/3.webp",
+      "./theme-slices/extra/fresh-brand/4.webp",
+      "./theme-slices/extra/fresh-brand/5.webp"
+    ]
+  },
+  "extra/gold-orange-type-journal": {
+    "styleId": "extra/gold-orange-type-journal",
+    "category": "extra",
+    "slug": "gold-orange-type-journal",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/gold-orange-type-journal/0.webp",
+    "pages": [
+      "./theme-slices/extra/gold-orange-type-journal/0.webp",
+      "./theme-slices/extra/gold-orange-type-journal/1.webp",
+      "./theme-slices/extra/gold-orange-type-journal/2.webp",
+      "./theme-slices/extra/gold-orange-type-journal/3.webp",
+      "./theme-slices/extra/gold-orange-type-journal/4.webp",
+      "./theme-slices/extra/gold-orange-type-journal/5.webp",
+      "./theme-slices/extra/gold-orange-type-journal/6.webp",
+      "./theme-slices/extra/gold-orange-type-journal/7.webp"
+    ]
+  },
+  "extra/ink-green-market-trends": {
+    "styleId": "extra/ink-green-market-trends",
+    "category": "extra",
+    "slug": "ink-green-market-trends",
+    "pageCount": 7,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/ink-green-market-trends/0.webp",
+    "pages": [
+      "./theme-slices/extra/ink-green-market-trends/0.webp",
+      "./theme-slices/extra/ink-green-market-trends/1.webp",
+      "./theme-slices/extra/ink-green-market-trends/2.webp",
+      "./theme-slices/extra/ink-green-market-trends/3.webp",
+      "./theme-slices/extra/ink-green-market-trends/4.webp",
+      "./theme-slices/extra/ink-green-market-trends/5.webp",
+      "./theme-slices/extra/ink-green-market-trends/6.webp"
+    ]
+  },
+  "extra/lead-gray-quarterly": {
+    "styleId": "extra/lead-gray-quarterly",
+    "category": "extra",
+    "slug": "lead-gray-quarterly",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/lead-gray-quarterly/0.webp",
+    "pages": [
+      "./theme-slices/extra/lead-gray-quarterly/0.webp",
+      "./theme-slices/extra/lead-gray-quarterly/1.webp",
+      "./theme-slices/extra/lead-gray-quarterly/2.webp",
+      "./theme-slices/extra/lead-gray-quarterly/3.webp",
+      "./theme-slices/extra/lead-gray-quarterly/4.webp",
+      "./theme-slices/extra/lead-gray-quarterly/5.webp"
+    ]
+  },
+  "extra/map-strategy": {
+    "styleId": "extra/map-strategy",
+    "category": "extra",
+    "slug": "map-strategy",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/map-strategy/0.webp",
+    "pages": [
+      "./theme-slices/extra/map-strategy/0.webp",
+      "./theme-slices/extra/map-strategy/1.webp",
+      "./theme-slices/extra/map-strategy/2.webp",
+      "./theme-slices/extra/map-strategy/3.webp",
+      "./theme-slices/extra/map-strategy/4.webp",
+      "./theme-slices/extra/map-strategy/5.webp"
+    ]
+  },
+  "extra/mist-blue-travelogue": {
+    "styleId": "extra/mist-blue-travelogue",
+    "category": "extra",
+    "slug": "mist-blue-travelogue",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/mist-blue-travelogue/0.webp",
+    "pages": [
+      "./theme-slices/extra/mist-blue-travelogue/0.webp",
+      "./theme-slices/extra/mist-blue-travelogue/1.webp",
+      "./theme-slices/extra/mist-blue-travelogue/2.webp",
+      "./theme-slices/extra/mist-blue-travelogue/3.webp",
+      "./theme-slices/extra/mist-blue-travelogue/4.webp",
+      "./theme-slices/extra/mist-blue-travelogue/5.webp",
+      "./theme-slices/extra/mist-blue-travelogue/6.webp",
+      "./theme-slices/extra/mist-blue-travelogue/7.webp"
+    ]
+  },
+  "extra/orange-tech": {
+    "styleId": "extra/orange-tech",
+    "category": "extra",
+    "slug": "orange-tech",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/orange-tech/0.webp",
+    "pages": [
+      "./theme-slices/extra/orange-tech/0.webp",
+      "./theme-slices/extra/orange-tech/1.webp",
+      "./theme-slices/extra/orange-tech/2.webp",
+      "./theme-slices/extra/orange-tech/3.webp",
+      "./theme-slices/extra/orange-tech/4.webp",
+      "./theme-slices/extra/orange-tech/5.webp"
+    ]
+  },
+  "extra/pink-purple-diagnosis": {
+    "styleId": "extra/pink-purple-diagnosis",
+    "category": "extra",
+    "slug": "pink-purple-diagnosis",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/pink-purple-diagnosis/0.webp",
+    "pages": [
+      "./theme-slices/extra/pink-purple-diagnosis/0.webp",
+      "./theme-slices/extra/pink-purple-diagnosis/1.webp",
+      "./theme-slices/extra/pink-purple-diagnosis/2.webp",
+      "./theme-slices/extra/pink-purple-diagnosis/3.webp",
+      "./theme-slices/extra/pink-purple-diagnosis/4.webp",
+      "./theme-slices/extra/pink-purple-diagnosis/5.webp"
+    ]
+  },
+  "extra/red-black-business": {
+    "styleId": "extra/red-black-business",
+    "category": "extra",
+    "slug": "red-black-business",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/red-black-business/0.webp",
+    "pages": [
+      "./theme-slices/extra/red-black-business/0.webp",
+      "./theme-slices/extra/red-black-business/1.webp",
+      "./theme-slices/extra/red-black-business/2.webp",
+      "./theme-slices/extra/red-black-business/3.webp",
+      "./theme-slices/extra/red-black-business/4.webp",
+      "./theme-slices/extra/red-black-business/5.webp"
+    ]
+  },
+  "extra/red-white-business": {
+    "styleId": "extra/red-white-business",
+    "category": "extra",
+    "slug": "red-white-business",
+    "pageCount": 6,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/red-white-business/0.webp",
+    "pages": [
+      "./theme-slices/extra/red-white-business/0.webp",
+      "./theme-slices/extra/red-white-business/1.webp",
+      "./theme-slices/extra/red-white-business/2.webp",
+      "./theme-slices/extra/red-white-business/3.webp",
+      "./theme-slices/extra/red-white-business/4.webp",
+      "./theme-slices/extra/red-white-business/5.webp"
+    ]
+  },
+  "extra/xuan-paper-annual": {
+    "styleId": "extra/xuan-paper-annual",
+    "category": "extra",
+    "slug": "xuan-paper-annual",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/extra/xuan-paper-annual/0.webp",
+    "pages": [
+      "./theme-slices/extra/xuan-paper-annual/0.webp",
+      "./theme-slices/extra/xuan-paper-annual/1.webp",
+      "./theme-slices/extra/xuan-paper-annual/2.webp",
+      "./theme-slices/extra/xuan-paper-annual/3.webp",
+      "./theme-slices/extra/xuan-paper-annual/4.webp",
+      "./theme-slices/extra/xuan-paper-annual/5.webp",
+      "./theme-slices/extra/xuan-paper-annual/6.webp",
+      "./theme-slices/extra/xuan-paper-annual/7.webp"
+    ]
+  },
+  "finance/black-gold-ledger": {
+    "styleId": "finance/black-gold-ledger",
+    "category": "finance",
+    "slug": "black-gold-ledger",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/black-gold-ledger/0.webp",
+    "pages": [
+      "./theme-slices/finance/black-gold-ledger/0.webp",
+      "./theme-slices/finance/black-gold-ledger/1.webp",
+      "./theme-slices/finance/black-gold-ledger/2.webp",
+      "./theme-slices/finance/black-gold-ledger/3.webp",
+      "./theme-slices/finance/black-gold-ledger/4.webp",
+      "./theme-slices/finance/black-gold-ledger/5.webp",
+      "./theme-slices/finance/black-gold-ledger/6.webp",
+      "./theme-slices/finance/black-gold-ledger/7.webp"
+    ]
+  },
+  "finance/ebony-ledger": {
+    "styleId": "finance/ebony-ledger",
+    "category": "finance",
+    "slug": "ebony-ledger",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/ebony-ledger/0.webp",
+    "pages": [
+      "./theme-slices/finance/ebony-ledger/0.webp",
+      "./theme-slices/finance/ebony-ledger/1.webp",
+      "./theme-slices/finance/ebony-ledger/2.webp",
+      "./theme-slices/finance/ebony-ledger/3.webp",
+      "./theme-slices/finance/ebony-ledger/4.webp",
+      "./theme-slices/finance/ebony-ledger/5.webp",
+      "./theme-slices/finance/ebony-ledger/6.webp",
+      "./theme-slices/finance/ebony-ledger/7.webp"
+    ]
+  },
+  "finance/honey-orange-memo": {
+    "styleId": "finance/honey-orange-memo",
+    "category": "finance",
+    "slug": "honey-orange-memo",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/honey-orange-memo/0.webp",
+    "pages": [
+      "./theme-slices/finance/honey-orange-memo/0.webp",
+      "./theme-slices/finance/honey-orange-memo/1.webp",
+      "./theme-slices/finance/honey-orange-memo/2.webp",
+      "./theme-slices/finance/honey-orange-memo/3.webp",
+      "./theme-slices/finance/honey-orange-memo/4.webp",
+      "./theme-slices/finance/honey-orange-memo/5.webp",
+      "./theme-slices/finance/honey-orange-memo/6.webp",
+      "./theme-slices/finance/honey-orange-memo/7.webp"
+    ]
+  },
+  "finance/lake-blue-memo": {
+    "styleId": "finance/lake-blue-memo",
+    "category": "finance",
+    "slug": "lake-blue-memo",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/lake-blue-memo/0.webp",
+    "pages": [
+      "./theme-slices/finance/lake-blue-memo/0.webp",
+      "./theme-slices/finance/lake-blue-memo/1.webp",
+      "./theme-slices/finance/lake-blue-memo/2.webp",
+      "./theme-slices/finance/lake-blue-memo/3.webp",
+      "./theme-slices/finance/lake-blue-memo/4.webp",
+      "./theme-slices/finance/lake-blue-memo/5.webp",
+      "./theme-slices/finance/lake-blue-memo/6.webp",
+      "./theme-slices/finance/lake-blue-memo/7.webp"
+    ]
+  },
+  "finance/prospect-annual": {
+    "styleId": "finance/prospect-annual",
+    "category": "finance",
+    "slug": "prospect-annual",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/prospect-annual/0.webp",
+    "pages": [
+      "./theme-slices/finance/prospect-annual/0.webp",
+      "./theme-slices/finance/prospect-annual/1.webp",
+      "./theme-slices/finance/prospect-annual/2.webp",
+      "./theme-slices/finance/prospect-annual/3.webp",
+      "./theme-slices/finance/prospect-annual/4.webp",
+      "./theme-slices/finance/prospect-annual/5.webp",
+      "./theme-slices/finance/prospect-annual/6.webp",
+      "./theme-slices/finance/prospect-annual/7.webp"
+    ]
+  },
+  "finance/rice-paper-annual": {
+    "styleId": "finance/rice-paper-annual",
+    "category": "finance",
+    "slug": "rice-paper-annual",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/finance/rice-paper-annual/0.webp",
+    "pages": [
+      "./theme-slices/finance/rice-paper-annual/0.webp",
+      "./theme-slices/finance/rice-paper-annual/1.webp",
+      "./theme-slices/finance/rice-paper-annual/2.webp",
+      "./theme-slices/finance/rice-paper-annual/3.webp",
+      "./theme-slices/finance/rice-paper-annual/4.webp",
+      "./theme-slices/finance/rice-paper-annual/5.webp",
+      "./theme-slices/finance/rice-paper-annual/6.webp",
+      "./theme-slices/finance/rice-paper-annual/7.webp"
+    ]
+  },
+  "promotion/aqua-charity-report": {
+    "styleId": "promotion/aqua-charity-report",
+    "category": "promotion",
+    "slug": "aqua-charity-report",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/aqua-charity-report/0.webp",
+    "pages": [
+      "./theme-slices/promotion/aqua-charity-report/0.webp",
+      "./theme-slices/promotion/aqua-charity-report/1.webp",
+      "./theme-slices/promotion/aqua-charity-report/2.webp",
+      "./theme-slices/promotion/aqua-charity-report/3.webp",
+      "./theme-slices/promotion/aqua-charity-report/4.webp",
+      "./theme-slices/promotion/aqua-charity-report/5.webp",
+      "./theme-slices/promotion/aqua-charity-report/6.webp",
+      "./theme-slices/promotion/aqua-charity-report/7.webp"
+    ]
+  },
+  "promotion/cream-collage": {
+    "styleId": "promotion/cream-collage",
+    "category": "promotion",
+    "slug": "cream-collage",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/cream-collage/0.webp",
+    "pages": [
+      "./theme-slices/promotion/cream-collage/0.webp",
+      "./theme-slices/promotion/cream-collage/1.webp",
+      "./theme-slices/promotion/cream-collage/2.webp",
+      "./theme-slices/promotion/cream-collage/3.webp",
+      "./theme-slices/promotion/cream-collage/4.webp",
+      "./theme-slices/promotion/cream-collage/5.webp",
+      "./theme-slices/promotion/cream-collage/6.webp",
+      "./theme-slices/promotion/cream-collage/7.webp"
+    ]
+  },
+  "promotion/pine-soot-pictorial": {
+    "styleId": "promotion/pine-soot-pictorial",
+    "category": "promotion",
+    "slug": "pine-soot-pictorial",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/pine-soot-pictorial/0.webp",
+    "pages": [
+      "./theme-slices/promotion/pine-soot-pictorial/0.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/1.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/2.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/3.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/4.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/5.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/6.webp",
+      "./theme-slices/promotion/pine-soot-pictorial/7.webp"
+    ]
+  },
+  "promotion/silk-yellow-magazine": {
+    "styleId": "promotion/silk-yellow-magazine",
+    "category": "promotion",
+    "slug": "silk-yellow-magazine",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/silk-yellow-magazine/0.webp",
+    "pages": [
+      "./theme-slices/promotion/silk-yellow-magazine/0.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/1.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/2.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/3.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/4.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/5.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/6.webp",
+      "./theme-slices/promotion/silk-yellow-magazine/7.webp"
+    ]
+  },
+  "promotion/silver-gray-luxury-magazine": {
+    "styleId": "promotion/silver-gray-luxury-magazine",
+    "category": "promotion",
+    "slug": "silver-gray-luxury-magazine",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/silver-gray-luxury-magazine/0.webp",
+    "pages": [
+      "./theme-slices/promotion/silver-gray-luxury-magazine/0.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/1.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/2.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/3.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/4.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/5.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/6.webp",
+      "./theme-slices/promotion/silver-gray-luxury-magazine/7.webp"
+    ]
+  },
+  "promotion/travel-green-handbook": {
+    "styleId": "promotion/travel-green-handbook",
+    "category": "promotion",
+    "slug": "travel-green-handbook",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/promotion/travel-green-handbook/0.webp",
+    "pages": [
+      "./theme-slices/promotion/travel-green-handbook/0.webp",
+      "./theme-slices/promotion/travel-green-handbook/1.webp",
+      "./theme-slices/promotion/travel-green-handbook/2.webp",
+      "./theme-slices/promotion/travel-green-handbook/3.webp",
+      "./theme-slices/promotion/travel-green-handbook/4.webp",
+      "./theme-slices/promotion/travel-green-handbook/5.webp",
+      "./theme-slices/promotion/travel-green-handbook/6.webp",
+      "./theme-slices/promotion/travel-green-handbook/7.webp"
+    ]
+  },
+  "work/blue-flame-brand": {
+    "styleId": "work/blue-flame-brand",
+    "category": "work",
+    "slug": "blue-flame-brand",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/blue-flame-brand/0.webp",
+    "pages": [
+      "./theme-slices/work/blue-flame-brand/0.webp",
+      "./theme-slices/work/blue-flame-brand/1.webp",
+      "./theme-slices/work/blue-flame-brand/2.webp",
+      "./theme-slices/work/blue-flame-brand/3.webp",
+      "./theme-slices/work/blue-flame-brand/4.webp",
+      "./theme-slices/work/blue-flame-brand/5.webp",
+      "./theme-slices/work/blue-flame-brand/6.webp",
+      "./theme-slices/work/blue-flame-brand/7.webp"
+    ]
+  },
+  "work/electric-violet-business": {
+    "styleId": "work/electric-violet-business",
+    "category": "work",
+    "slug": "electric-violet-business",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/electric-violet-business/0.webp",
+    "pages": [
+      "./theme-slices/work/electric-violet-business/0.webp",
+      "./theme-slices/work/electric-violet-business/1.webp",
+      "./theme-slices/work/electric-violet-business/2.webp",
+      "./theme-slices/work/electric-violet-business/3.webp",
+      "./theme-slices/work/electric-violet-business/4.webp",
+      "./theme-slices/work/electric-violet-business/5.webp",
+      "./theme-slices/work/electric-violet-business/6.webp",
+      "./theme-slices/work/electric-violet-business/7.webp"
+    ]
+  },
+  "work/moon-white-imagery": {
+    "styleId": "work/moon-white-imagery",
+    "category": "work",
+    "slug": "moon-white-imagery",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/moon-white-imagery/0.webp",
+    "pages": [
+      "./theme-slices/work/moon-white-imagery/0.webp",
+      "./theme-slices/work/moon-white-imagery/1.webp",
+      "./theme-slices/work/moon-white-imagery/2.webp",
+      "./theme-slices/work/moon-white-imagery/3.webp",
+      "./theme-slices/work/moon-white-imagery/4.webp",
+      "./theme-slices/work/moon-white-imagery/5.webp",
+      "./theme-slices/work/moon-white-imagery/6.webp",
+      "./theme-slices/work/moon-white-imagery/7.webp"
+    ]
+  },
+  "work/sky-blue-wayfinding": {
+    "styleId": "work/sky-blue-wayfinding",
+    "category": "work",
+    "slug": "sky-blue-wayfinding",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/sky-blue-wayfinding/0.webp",
+    "pages": [
+      "./theme-slices/work/sky-blue-wayfinding/0.webp",
+      "./theme-slices/work/sky-blue-wayfinding/1.webp",
+      "./theme-slices/work/sky-blue-wayfinding/2.webp",
+      "./theme-slices/work/sky-blue-wayfinding/3.webp",
+      "./theme-slices/work/sky-blue-wayfinding/4.webp",
+      "./theme-slices/work/sky-blue-wayfinding/5.webp",
+      "./theme-slices/work/sky-blue-wayfinding/6.webp",
+      "./theme-slices/work/sky-blue-wayfinding/7.webp"
+    ]
+  },
+  "work/warm-clay-works": {
+    "styleId": "work/warm-clay-works",
+    "category": "work",
+    "slug": "warm-clay-works",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/warm-clay-works/0.webp",
+    "pages": [
+      "./theme-slices/work/warm-clay-works/0.webp",
+      "./theme-slices/work/warm-clay-works/1.webp",
+      "./theme-slices/work/warm-clay-works/2.webp",
+      "./theme-slices/work/warm-clay-works/3.webp",
+      "./theme-slices/work/warm-clay-works/4.webp",
+      "./theme-slices/work/warm-clay-works/5.webp",
+      "./theme-slices/work/warm-clay-works/6.webp",
+      "./theme-slices/work/warm-clay-works/7.webp"
+    ]
+  },
+  "work/warm-jade-annual-report": {
+    "styleId": "work/warm-jade-annual-report",
+    "category": "work",
+    "slug": "warm-jade-annual-report",
+    "pageCount": 8,
+    "width": 960,
+    "height": 540,
+    "cover": "./theme-slices/work/warm-jade-annual-report/0.webp",
+    "pages": [
+      "./theme-slices/work/warm-jade-annual-report/0.webp",
+      "./theme-slices/work/warm-jade-annual-report/1.webp",
+      "./theme-slices/work/warm-jade-annual-report/2.webp",
+      "./theme-slices/work/warm-jade-annual-report/3.webp",
+      "./theme-slices/work/warm-jade-annual-report/4.webp",
+      "./theme-slices/work/warm-jade-annual-report/5.webp",
+      "./theme-slices/work/warm-jade-annual-report/6.webp",
+      "./theme-slices/work/warm-jade-annual-report/7.webp"
+    ]
+  }
+}

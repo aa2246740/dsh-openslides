@@ -1,0 +1,57 @@
+{
+  "id": "chrome.export.image",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.export",
+  "title": "导出 PNG 当前页",
+  "kimiUi": {
+    "controlLabel": "PNG",
+    "location": "export dialog",
+    "appearsWhen": "export dialog open"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "dialog",
+    "steps": [
+      "Open 导出",
+      "Choose PNG (selection only)",
+      "Download current page"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change"
+    },
+    "export": {
+      "notes": "valid PNG of declared slide size"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "exportPageToPng"
+  },
+  "test": {
+    "id": "EO-EXPORT-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "exportPageToPng starts with PNG signature",
+      "Format selection does not download; current page scope is visible; font controls are hidden"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T16:00:00.000Z",
+    "agent": "s1-s2-s4-slice"
+  },
+  "updatedAt": "2026-08-14T16:00:00.000Z"
+}

@@ -1,0 +1,455 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t8
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 141–160 / 177
+      style: $body
+  - elementId: sh-actionButtonEnd
+    elementType: shape
+    shapeName: actionButtonEnd
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-actionButtonEnd
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: actionButtonEnd
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonForwardNext
+    elementType: shape
+    shapeName: actionButtonForwardNext
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-actionButtonForwardNext
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: actionButtonForwardNext
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonHelp
+    elementType: shape
+    shapeName: actionButtonHelp
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-actionButtonHelp
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: actionButtonHelp
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonHome
+    elementType: shape
+    shapeName: actionButtonHome
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-actionButtonHome
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: actionButtonHome
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonInformation
+    elementType: shape
+    shapeName: actionButtonInformation
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-actionButtonInformation
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: actionButtonInformation
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonMovie
+    elementType: shape
+    shapeName: actionButtonMovie
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-actionButtonMovie
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: actionButtonMovie
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonReturn
+    elementType: shape
+    shapeName: actionButtonReturn
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-actionButtonReturn
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: actionButtonReturn
+      style: $body
+      fontSize: 10
+  - elementId: sh-actionButtonSound
+    elementType: shape
+    shapeName: actionButtonSound
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-actionButtonSound
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: actionButtonSound
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartProcess
+    elementType: shape
+    shapeName: flowChartProcess
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-flowChartProcess
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartProcess
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartAlternateProcess
+    elementType: shape
+    shapeName: flowChartAlternateProcess
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-flowChartAlternateProcess
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: flowChartAlternateProcess
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartDecision
+    elementType: shape
+    shapeName: flowChartDecision
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-flowChartDecision
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartDecision
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartDocument
+    elementType: shape
+    shapeName: flowChartDocument
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-flowChartDocument
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartDocument
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartMultidocument
+    elementType: shape
+    shapeName: flowChartMultidocument
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-flowChartMultidocument
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartMultidocument
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartInputOutput
+    elementType: shape
+    shapeName: flowChartInputOutput
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-flowChartInputOutput
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartInputOutput
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartPredefinedProcess
+    elementType: shape
+    shapeName: flowChartPredefinedProcess
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-flowChartPredefinedProcess
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: flowChartPredefinedProcess
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartInternalStorage
+    elementType: shape
+    shapeName: flowChartInternalStorage
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-flowChartInternalStorage
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartInternalStorage
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartManualInput
+    elementType: shape
+    shapeName: flowChartManualInput
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-flowChartManualInput
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartManualInput
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartManualOperation
+    elementType: shape
+    shapeName: flowChartManualOperation
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-flowChartManualOperation
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartManualOperation
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartPreparation
+    elementType: shape
+    shapeName: flowChartPreparation
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-flowChartPreparation
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartPreparation
+      style: $body
+      fontSize: 10
+  - elementId: sh-flowChartDelay
+    elementType: shape
+    shapeName: flowChartDelay
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-flowChartDelay
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: flowChartDelay
+      style: $body
+      fontSize: 10

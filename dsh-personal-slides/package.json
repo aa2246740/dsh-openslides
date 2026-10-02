@@ -1,0 +1,65 @@
+{
+  "name": "dsh-personal-slides",
+  "version": "0.1.0",
+  "description": "Open SlideStudio as a dsh-personal feature (演示文稿): /slides API on the Host webServer plus a personal page",
+  "type": "module",
+  "main": "lib/dsh-personal-slides.js",
+  "types": "lib/types/dsh-personal-slides.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsdown",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/types/dsh-personal-slides.d.ts",
+      "default": "./lib/dsh-personal-slides.js"
+    },
+    "./client": {
+      "types": "./lib/types/client/index.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "dsh-personal"
+      ],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.js.map",
+    "lib/types/**/*.d.ts",
+    "cordis.yml",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@open-slidestudio/dsh-slides-host": "link:../packages/dsh-slides-host"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh": ">=0.2.0-rc.1 <0.2.1",
+    "dsh-personal": ">=0.2.5 <0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "dsh-personal": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "~18.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^6.0.3"
+  }
+}

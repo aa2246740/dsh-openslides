@@ -1,0 +1,54 @@
+{
+  "name": "open-kimi-ppt-skill",
+  "version": "1.2.0",
+  "description": "Unofficial reverse-engineered Kimi Slides skill for AI coding agents with local PPTD editing and PPTX export.",
+  "license": "MIT",
+  "author": "binaryify",
+  "homepage": "https://github.com/binaryify/open-kimi-ppt-skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binaryify/open-kimi-ppt-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/binaryify/open-kimi-ppt-skill/issues"
+  },
+  "keywords": [
+    "ppt",
+    "pptx",
+    "slides",
+    "presentation",
+    "pptd",
+    "kimi",
+    "agent-skill",
+    "codex",
+    "claude-code",
+    "cursor",
+    "codebuddy"
+  ],
+  "type": "module",
+  "bin": {
+    "open-kimi-ppt-skill": "bin/open-kimi-ppt-skill.js"
+  },
+  "files": [
+    "bin/",
+    "editor/",
+    "lib/",
+    "skills/open-kimi-ppt/SKILL.md",
+    "skills/open-kimi-ppt/reference/",
+    "skills/open-kimi-ppt/scripts/export_host.html",
+    "skills/open-kimi-ppt/scripts/export_images.py",
+    "skills/open-kimi-ppt/scripts/export_pptx.py",
+    "README.md",
+    "README_EN.md",
+    "theme.md",
+    "theme_EN.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

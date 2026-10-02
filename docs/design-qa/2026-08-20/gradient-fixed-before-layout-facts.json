@@ -1,0 +1,74 @@
+{
+  "viewport": {
+    "width": 1576,
+    "height": 892,
+    "deviceScaleFactor": 1
+  },
+  "document": {
+    "scrollWidth": 1576,
+    "scrollHeight": 892
+  },
+  "boxes": {
+    "titlebar": {
+      "x": 0,
+      "y": 0,
+      "width": 1576,
+      "height": 46
+    },
+    "toolbar": {
+      "x": 0,
+      "y": 46,
+      "width": 1576,
+      "height": 42
+    },
+    "rail": {
+      "x": 0,
+      "y": 88,
+      "width": 106,
+      "height": 804
+    },
+    "firstThumb": {
+      "x": 9,
+      "y": 97,
+      "width": 87,
+      "height": 48.9
+    },
+    "stage": {
+      "x": 106,
+      "y": 88,
+      "width": 1470,
+      "height": 804
+    },
+    "slide": {
+      "x": 158.5,
+      "y": 124,
+      "width": 1365.3,
+      "height": 768
+    },
+    "insertPill": {
+      "x": 661.5,
+      "y": 813,
+      "width": 359,
+      "height": 43
+    }
+  },
+  "labels": {
+    "pageCount": "1 / 8",
+    "zoom": "142%",
+    "title": "小米 YU7 · 豪华高性能纯电 SUV"
+  },
+  "paint": {
+    "slideBackgroundImage": "url(\"http://127.0.0.1:55201/media/media/bg_cover.jpg\")",
+    "overlayFill": "url(#oss-shape-gradient-1)",
+    "imageResources": [
+      "http://127.0.0.1:55201/media/media/bg_cover.jpg",
+      "http://127.0.0.1:55201/media/media/bg_data.png",
+      "http://127.0.0.1:55201/media/media/bg_exterior.jpg",
+      "http://127.0.0.1:55201/media/media/bg_performance.jpg",
+      "http://127.0.0.1:55201/media/media/bg_had.jpg",
+      "http://127.0.0.1:55201/media/media/bg_cabin.png",
+      "http://127.0.0.1:55201/media/media/bg_safety.jpg",
+      "http://127.0.0.1:55201/media/media/bg_final.jpg"
+    ]
+  }
+}

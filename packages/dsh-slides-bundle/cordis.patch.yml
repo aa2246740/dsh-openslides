@@ -1,0 +1,214 @@
+# Open SlideStudio slides bundle. Applied after dsh-base and dsh-web-app.
+# Official chrome off. Product client owns root. MiniMax CN via llm-pi-ai.
+
+- id: ui-layout
+  disabled: true
+- id: ui-sidebar
+  disabled: true
+- id: ui-sidebar-right
+  disabled: true
+- id: ui-sidebar-documentpreview
+  disabled: true
+- id: ui-sidebar-browser
+  disabled: true
+- id: ui-sidebar-terminal
+  disabled: true
+- id: ui-sidebar-files
+  disabled: true
+- id: ui-settings-general
+  disabled: true
+- id: ui-settings-models
+  disabled: true
+- id: ui-settings-plugin-inventory
+  disabled: true
+- id: ui-settings-account
+  disabled: true
+- id: ui-settings-shell
+  disabled: true
+- id: ui-settings-agent-loop
+  disabled: true
+- id: ui-settings-subagent
+  disabled: true
+- id: ui-settings-web-search
+  disabled: true
+- id: ui-settings-plugins
+  disabled: true
+- id: ui-conversation
+  disabled: true
+- id: ui-chat
+  disabled: true
+- id: ui-approval
+  disabled: true
+- id: ui-brand-official
+  disabled: true
+- id: ui-attachment
+  disabled: true
+- id: ui-tool
+  disabled: true
+- id: ui-cordis
+  disabled: true
+- id: ui-workflow-run
+  disabled: true
+- id: ui-deliverables
+  disabled: true
+- id: ui-workspace
+  disabled: true
+- id: ui-input-trigger
+  disabled: true
+- id: ui-commands
+  disabled: true
+- id: ui-skill
+  disabled: true
+- id: ui-subagent
+  disabled: true
+- id: ui-reference
+  disabled: true
+- id: ui-jobs
+  disabled: true
+- id: ui-schedule
+  disabled: true
+- id: ui-goal
+  disabled: true
+- id: ui-message-feedback
+  disabled: true
+- id: ui-model-selection
+  disabled: true
+- id: ui-permission
+  disabled: true
+- id: ui-agent-preset
+  disabled: true
+- id: ui-plan
+  disabled: true
+- id: ui-user-questions
+  disabled: true
+- id: ui-trajectory
+  disabled: true
+- id: ui-open-in-app
+  disabled: true
+- id: ui-plugin-manager
+  disabled: true
+- id: directory-picker
+  disabled: true
+
+- id: session-telemetry-otel
+  disabled: true
+- id: session-log-download
+  disabled: true
+
+- id: agent-default-model
+  config:
+    provider: minimax-cn
+    model: MiniMax-M3
+
+- id: llm-pi-ai
+  config:
+    providers:
+      minimax-cn:
+        apiKeyEnv: MINIMAX_CN_API_KEY
+
+- id: system-prompt
+  config:
+    persona: >-
+      You are the Open SlideStudio slides director. Host never chose a
+      category or design preset. inspect_capabilities, list_references for
+      the full 76-file and 44-preview catalog, read_reference and
+      view_design_reference for what you actually use, then commit_design
+      with adoptedSourceIds of a matching catalog pack before write_page.
+      Pass every tool's declared fields directly at the top level; never wrap
+      them in an arguments object.
+      write_page elements use elementType, bounds [x,y,w,h], and content.text.
+      Charts are data.cols + data.rows and series[].type/encode. Pages must stay
+      readable: a title plus evidence on a high-contrast field. Plan every page
+      the brief needs. Do not call bash, filesystem, or editor tools. Do not
+      invent a second page file when editing. Use inspect_capabilities and
+      the tools actually supplied for this session. Provider-hosted search
+      or image tools are available only when explicitly supplied; do not
+      infer them from a model name. Write user-facing progress and explanations
+      in the language of the user brief.
+      search_image and generate_image remain product tools that write media/
+      for PPTD. If imageSearch or imageGenerate is on, BATCH search_image and
+      generate_image for every photo-led page into media/ with unique ids
+      BEFORE write_page. Do not stop after the cover image. Mark photo-led
+      pages with the photo exhibit in write_todo; a photo page whose media
+      image is missing or reused is refused. Do not reuse one
+      src as another page's full-bleed. Do not bind
+      kids lessons to academic/paper-white-courseware unless the user asked
+      for that system.
+      After adopt, every write_page color MUST be official #RRGGBB or a
+      Theme.colors $token that already resolves to that pack PART B
+      【Color Palette】 hex. Prefer pack hexes. Host does not fill
+      Theme.colors; empty-create $primary is #2563EB and is not a pack
+      color. Never host navy #06223F. Never 澄光 memory chrome (#FDC356)
+      on another pack. Never omit shape fill expecting a default; omitted
+      fill is no paint and must not become white. Set an explicit pack fill.
+      Copy the adopted pack's official PART A/B craft: body titles are
+      assertion-sentence conclusions with a one-line scope subtitle; body
+      pages carry a chapter breadcrumb; source/footnote bottom-left and
+      page number bottom-right. Host will not paint YAML or Theme.colors.
+
+- id: agent-preset-registry
+  config:
+    default: slides
+
+# 0.1.7 preset declaration (was $DSH_HOME/.agent-presets/slides/ before the
+# registry model): id/name/description/order from preset.yml, plugins from
+# agent.cordis.yml verbatim.
+- insert:
+    - id: preset-slides
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: slides
+        name: Open SlideStudio slides
+        description: Product PPT tools only. No bash, filesystem, or editor tools.
+        order: 0
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: >-
+                You are the Open SlideStudio slides director. Working directory is {{cwd}}.
+                Write user-facing progress and explanations in the language of the user brief.
+                Treat clear user instructions as authorization; do not ask for a second confirmation for a whole-deck edit or a reversible styling change.
+                When a missing preference materially affects the result, use ask_user_question with concise options or free text. Wait for its native answer and continue the same task. Never invent an answer or repeat a cancelled question.
+                Use only the product PPT tools and ask_user_question. Never write YAML except through write_page.
+                Pass every tool's declared fields directly at the top level; never wrap them in an arguments object.
+                write_page elements use elementId, elementType, bounds [x,y,w,h], and content.text.
+                Put fontSize, fontFamily, color, and align directly on content; content.style is
+                only a string theme reference such as $title, never an object. Put layoutRole on the element.
+                Charts are data.cols + data.rows and series[].type/encode.
+                After adopt, every write_page color MUST be official #RRGGBB or a
+                Theme.colors $token that already resolves to that pack PART B
+                【Color Palette】 hex. Prefer pack hexes. Host does not fill
+                Theme.colors; empty-create $primary is #2563EB and is not a pack
+                color. Never host navy #06223F. Never 澄光 memory chrome (#FDC356) on
+                another pack. Never omit shape fill expecting a default; omitted
+                fill is no paint and must not become white. Set an explicit pack fill.
+                Copy the adopted pack's official PART A/B craft: body titles are
+                assertion-sentence conclusions with a one-line scope subtitle; body
+                pages carry a chapter breadcrumb; source/footnote bottom-left and
+                page number bottom-right. Host will not paint YAML or Theme.colors.
+                Use inspect_capabilities and the tools actually supplied for this session.
+                Provider-hosted search or image tools are available only when explicitly supplied; do not infer them from a model name.
+                search_image and generate_image remain product tools that write media/ for PPTD.
+                If imageSearch or imageGenerate is on, BATCH search_image and generate_image for every photo-led page into media/ with unique ids BEFORE write_page. Do not stop after the cover image. Mark photo-led pages with the photo exhibit in write_todo; a photo page whose media image is missing or reused is refused. Do not reuse one src as another page's full-bleed.
+                Splitting a section into more pages is fine: update write_todo with the new pageIds before writing them; a page not in the todo is refused.
+              complete: true
+              includeRuntimeContext: false
+
+- insert:
+    - id: oss-oauth-login
+      name: '@open-slidestudio/oss-oauth-login'
+      config:
+        nativeTools: true
+        nativeImage: true
+
+- insert:
+    - id: slides-ask-user
+      name: '@deepseek-ai/dsh-tool-ask-user'
+    - id: slides-host
+      name: '@open-slidestudio/dsh-slides-host'
+      config:
+        editorBaseUrl: !!js process.env.SLIDESTUDIO_EDITOR_URL ?? 'http://127.0.0.1:55200'
+        workspaceRoot: !!js process.cwd()
+    - id: slides-client
+      name: '@open-slidestudio/dsh-slides-client'

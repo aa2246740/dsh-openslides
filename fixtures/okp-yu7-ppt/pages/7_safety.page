@@ -1,0 +1,284 @@
+pageType: content
+background:
+  type: image
+  src: media/bg_safety.jpg
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 90
+      stops:
+        - position: 0
+          color: "#000000E6"
+        - position: 0.35
+          color: "#0000008C"
+        - position: 0.75
+          color: "#00000059"
+        - position: 1
+          color: "#000000CC"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 60
+      - 48
+      - 520
+      - 22
+    content:
+      style: $label
+      text: SAFETY · 安全设计
+  - elementId: title
+    elementType: text
+    bounds:
+      - 60
+      - 88
+      - 700
+      - 56
+    content:
+      style: $pageTitle
+      text: 铠甲笼式防护，全面可靠
+  - elementId: lead
+    elementType: text
+    bounds:
+      - 60
+      - 148
+      - 700
+      - 44
+    content:
+      fontSize: 14
+      color: $w70
+      lineHeight: 1.7
+      text: |
+        以中欧双五星、中保研 3G+ 为设计目标，被动安全保护 720° 全面升级。
+  - elementId: a1-line
+    elementType: shape
+    bounds:
+      - 60
+      - 240
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: a2-line
+    elementType: shape
+    bounds:
+      - 270
+      - 240
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: a3-line
+    elementType: shape
+    bounds:
+      - 480
+      - 240
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: a4-line
+    elementType: shape
+    bounds:
+      - 690
+      - 240
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: s1-num
+    elementType: text
+    bounds:
+      - 60
+      - 256
+      - 180
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:40px; color:#FFFFFF;
+        font-weight:700;">2200</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> MPa</span></p>
+  - elementId: s1-label
+    elementType: text
+    bounds:
+      - 60
+      - 318
+      - 180
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 小米超强钢
+  - elementId: s1-desc
+    elementType: text
+    bounds:
+      - 60
+      - 344
+      - 180
+      - 44
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 内嵌式防滚架 · A 柱承载 +35%
+  - elementId: s2-num
+    elementType: text
+    bounds:
+      - 270
+      - 256
+      - 180
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:40px; color:#FFFFFF;
+        font-weight:700;">20</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> 项</span></p>
+  - elementId: s2-label
+    elementType: text
+    bounds:
+      - 270
+      - 318
+      - 180
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 主动安全配置
+  - elementId: s2-desc
+    elementType: text
+    bounds:
+      - 270
+      - 344
+      - 180
+      - 44
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 全系标配 · 全项低速防碰撞辅助
+  - elementId: s3-num
+    elementType: text
+    bounds:
+      - 480
+      - 256
+      - 180
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:40px; color:#FFFFFF;
+        font-weight:700;">50</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> 项+</span></p>
+  - elementId: s3-label
+    elementType: text
+    bounds:
+      - 480
+      - 318
+      - 180
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 被动安全开发测试
+  - elementId: s3-desc
+    elementType: text
+    bounds:
+      - 480
+      - 344
+      - 180
+      - 44
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 覆盖 C-NCAP / C-IASI 全工况
+  - elementId: s4-num
+    elementType: text
+    bounds:
+      - 690
+      - 256
+      - 180
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:40px; color:#FFFFFF;
+        font-weight:700;">12.1</span><span style="font-size:15px;
+        color:#FFFFFFB3;">㎡</span></p>
+  - elementId: s4-label
+    elementType: text
+    bounds:
+      - 690
+      - 318
+      - 180
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 电池气凝胶隔热
+  - elementId: s4-desc
+    elementType: text
+    bounds:
+      - 690
+      - 344
+      - 180
+      - 44
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 防弹涂层 · 18 层硬核物理防护
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 492
+      - 700
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      text: >
+        来源：<a href="https://www.xiaomiev.com/yu7">小米汽车官网</a> ·
+        数据来自小米汽车实验室，配置区分车型版本
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 07 / 08

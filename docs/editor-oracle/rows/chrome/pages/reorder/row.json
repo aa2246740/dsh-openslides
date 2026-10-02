@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "drag",
+    "steps": [
+      "Drag page thumb in official rail"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "UI chrome; document change only if mustChangeDocument"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "chrome.pages.reorder",
+  "status": "verified",
+  "surface": "chrome.pages",
+  "title": "拖拽重排页面",
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "reorderPages"
+  },
+  "test": {
+    "id": "EO-PAGE-004"
+  }
+}

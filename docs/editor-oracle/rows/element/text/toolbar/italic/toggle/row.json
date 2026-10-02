@@ -1,0 +1,43 @@
+{
+  "id": "element.text.toolbar.italic.toggle",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.text",
+  "title": "斜体",
+  "kimiUi": {
+    "controlLabel": "斜体",
+    "location": "文本工具条 I",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "斜体"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-TEXT-TOOLBAR-ITALIC-TOGGLE"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

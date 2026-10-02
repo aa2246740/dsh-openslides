@@ -1,0 +1,43 @@
+{
+  "id": "element.icon.name.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.icon",
+  "title": "选择图标",
+  "kimiUi": {
+    "controlLabel": "选择图标",
+    "location": "图标工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "选择图标"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "setIconName writes icon.iconName as fas:name / far: / fab:"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-ICON-NAME-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "element.text.toolbar.wrap.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.text",
+  "title": "自动换行",
+  "kimiUi": {
+    "controlLabel": "折",
+    "location": "文本工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "换行"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "content.wrap false disables wrap"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-TEXT-TOOLBAR-WRAP-SET",
+    "selfTestChecklist": [
+      "wrap=false appears on renderModel"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T13:00:00.000Z",
+    "agent": "s5-wrap"
+  },
+  "updatedAt": "2026-08-15T13:00:00.000Z"
+}

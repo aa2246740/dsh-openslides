@@ -1,0 +1,46 @@
+{
+  "id": "element.table.cell.align.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.table",
+  "title": "单元格对齐",
+  "kimiUi": {
+    "controlLabel": "单元格对齐",
+    "location": "表格工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "居中"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "cell.align [h,v] persists"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-TABLE-CELL-ALIGN-SET",
+    "selfTestChecklist": [
+      "setTableCellAlign writes align on cell"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T15:00:00.000Z",
+    "agent": "s10-table"
+  },
+  "updatedAt": "2026-08-15T15:00:00.000Z"
+}

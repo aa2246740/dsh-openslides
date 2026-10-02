@@ -1,0 +1,153 @@
+pageType: content
+background:
+  type: solid
+  color: "#F3E8D4"
+elements:
+  - elementId: top
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 6
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: vrule
+    elementType: shape
+    bounds:
+      - 40
+      - 22
+      - 3
+      - 16
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: chap
+    elementType: text
+    bounds:
+      - 52
+      - 20
+      - 400
+      - 20
+    content:
+      text: 01 判断
+      wrap: true
+      fontSize: 11
+      color: "#7E7E7E"
+      bold: true
+  - elementId: title
+    elementType: text
+    bounds:
+      - 40
+      - 44
+      - 880
+      - 68
+    content:
+      text: 视觉主线、渠道节奏与联名故事
+      wrap: true
+      fontSize: 18
+      bold: true
+      color: "#2657D7"
+  - elementId: n0
+    elementType: text
+    bounds:
+      - 40
+      - 148
+      - 48
+      - 24
+    content:
+      text: "01"
+      wrap: false
+      fontSize: 16
+      bold: true
+      color: "#2657D7"
+      align:
+        - left
+        - middle
+  - elementId: r0
+    elementType: shape
+    bounds:
+      - 92
+      - 159
+      - 828
+      - 2
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: b0
+    elementType: text
+    bounds:
+      - 40
+      - 180
+      - 880
+      - 96
+    content:
+      text: 视觉主线、渠道节奏与联名故事
+      wrap: true
+      fontSize: 13
+      color: "#333333"
+  - elementId: swbg
+    elementType: shape
+    bounds:
+      - 40
+      - 448
+      - 880
+      - 56
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#F1F1F1"
+  - elementId: swacc
+    elementType: shape
+    bounds:
+      - 40
+      - 448
+      - 4
+      - 56
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: sw
+    elementType: text
+    bounds:
+      - 56
+      - 456
+      - 852
+      - 40
+    content:
+      text: 以下页只放结构示意，不编造外部数据。
+      wrap: true
+      fontSize: 12
+      color: "#333333"
+  - elementId: fn
+    elementType: text
+    bounds:
+      - 40
+      - 516
+      - 800
+      - 14
+    content:
+      text: ""
+      wrap: true
+      fontSize: 9
+      color: "#7E7E7E"
+  - elementId: pg
+    elementType: text
+    bounds:
+      - 880
+      - 516
+      - 40
+      - 14
+    content:
+      text: "3"
+      wrap: false
+      fontSize: 10
+      color: "#7E7E7E"
+      align:
+        - right
+        - middle

@@ -1,0 +1,53 @@
+{
+  "id": "element.arrange.flip.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "水平 / 垂直翻转",
+  "kimiUi": {
+    "controlLabel": "水平翻转 / 垂直翻转",
+    "location": "contextual toolbar",
+    "appearsWhen": "selection"
+  },
+  "preconditions": {
+    "fixtureId": "syn-shapes",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Select a shape",
+      "Click 水平翻转"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "toggles flipH / flipV on the element"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "flipSelected"
+  },
+  "test": {
+    "id": "EO-ELEMENT-ARRANGE-FLIP-SET",
+    "automated": true,
+    "selfTestChecklist": [
+      "flipH persists on shape"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-15T00:00:00.000Z",
+    "agent": "native-1-1",
+    "sessionId": "goal-1-1-2026-08-15"
+  },
+  "updatedAt": "2026-08-15T00:00:00.000Z"
+}

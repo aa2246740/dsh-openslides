@@ -1,0 +1,44 @@
+{
+  "id": "element.animation.set",
+  "version": 1,
+  "status": "wont-port",
+  "surface": "animation",
+  "title": "进入动画",
+  "description": "Product chrome hidden. Generate/edit/report does not expose 进入动画. Session command remains.",
+  "kimiUi": {
+    "controlLabel": "进入动画",
+    "location": "右键 / 动画",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "进入动画"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-ANIMATION-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

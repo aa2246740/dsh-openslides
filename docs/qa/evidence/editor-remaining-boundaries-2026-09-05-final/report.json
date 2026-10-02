@@ -1,0 +1,86 @@
+{
+  "port": 55489,
+  "cases": [
+    {
+      "name": "page reorder duplicate delete supports three consecutive undo and redo",
+      "ok": true,
+      "durationMs": 2005,
+      "evidence": {
+        "initialCount": 8,
+        "finalCount": 8,
+        "signatures": {
+          "initial": "[\"pages/1_cover.page\",\"pages/2_overview.page\",\"pages/3_exterior.page\",\"pages/4_performance.page\",\"pages/5_cabin.page\",\"pages/6_had.page\",\"pages/7_safety.page\",\"pages/8_space_final.page\"]",
+          "reordered": "[\"pages/2_overview.page\",\"pages/1_cover.page\",\"pages/3_exterior.page\",\"pages/4_performance.page\",\"pages/5_cabin.page\",\"pages/6_had.page\",\"pages/7_safety.page\",\"pages/8_space_final.page\"]",
+          "duplicated": "[\"pages/2_overview.page\",\"pages/1_cover.page\",\"pages/1_cover_copy.page\",\"pages/3_exterior.page\",\"pages/4_performance.page\",\"pages/5_cabin.page\",\"pages/6_had.page\",\"pages/7_safety.page\",\"pages/8_space_final.page\"]",
+          "deleted": "[\"pages/2_overview.page\",\"pages/1_cover.page\",\"pages/3_exterior.page\",\"pages/4_performance.page\",\"pages/5_cabin.page\",\"pages/6_had.page\",\"pages/7_safety.page\",\"pages/8_space_final.page\"]"
+        },
+        "screenshot": "/private/tmp/oss-editor-remaining-boundaries-final7/01-page-history-final.png"
+      }
+    },
+    {
+      "name": "focused table edit is included in the version returned by snapshot response id",
+      "ok": true,
+      "durationMs": 1610,
+      "evidence": {
+        "versionId": "v2",
+        "tableId": "table-1",
+        "savedValue": "BOUNDARY_TABLE_SNAPSHOT",
+        "screenshot": "/private/tmp/oss-editor-remaining-boundaries-final7/02-table-version-snapshot.png"
+      }
+    },
+    {
+      "name": "chart last cell survives immediate close reopen and export",
+      "ok": true,
+      "durationMs": 2733,
+      "evidence": {
+        "chartId": "chart-1",
+        "before": "2",
+        "typed": "77",
+        "reopenedValue": "77",
+        "modelValue": 77,
+        "exported": {
+          "file": "/private/tmp/oss-editor-remaining-boundaries-final7/chart-immediate-close-export.pptx",
+          "bytes": 7645509,
+          "suggestedFilename": "小米_YU7_豪华高性能纯电_SUV.pptx"
+        },
+        "screenshot": "/private/tmp/oss-editor-remaining-boundaries-final7/03-chart-last-cell-reopened.png"
+      }
+    },
+    {
+      "name": "focused text edit is committed before export",
+      "ok": true,
+      "durationMs": 2191,
+      "evidence": {
+        "textId": "meta-top",
+        "persistedText": "BOUNDARY_TEXT_EXPORT",
+        "exported": {
+          "file": "/private/tmp/oss-editor-remaining-boundaries-final7/text-edit-export.pptx",
+          "bytes": 7639313,
+          "suggestedFilename": "小米_YU7_豪华高性能纯电_SUV.pptx"
+        },
+        "screenshot": "/private/tmp/oss-editor-remaining-boundaries-final7/04-text-edit-export-ready.png"
+      }
+    },
+    {
+      "name": "empty or corrupt image selection leaves the document unchanged while valid insert and replace work",
+      "ok": true,
+      "durationMs": 2197,
+      "evidence": {
+        "emptySelectionImageDelta": 0,
+        "nativePickerCancelProven": false,
+        "corruptSelectionImageDelta": 0,
+        "corruptNotice": "图片无法使用：图片已损坏或格式不受支持",
+        "validImageId": "image-1",
+        "originalSrc": "media/bg_data-1788614057883.png",
+        "replacementSrc": "media/bg_cover-1788614058190.jpg",
+        "screenshot": "/private/tmp/oss-editor-remaining-boundaries-final7/05-image-valid-replacement.png"
+      }
+    }
+  ],
+  "browserErrors": [],
+  "coverageLimits": [
+    "Playwright keyboard events do not prove macOS IME composition or physical-keyboard behavior.",
+    "Headless Playwright cannot prove cancellation inside the native macOS file-picker UI; an empty FileChooser selection is recorded separately."
+  ],
+  "ok": true
+}

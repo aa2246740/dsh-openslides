@@ -1,0 +1,54 @@
+version: v2
+title: 小米 YU7 · 豪华高性能纯电 SUV
+size:
+  - 960
+  - 540
+theme:
+  colors:
+    primary: "#FF6900"
+    white: "#FFFFFF"
+    w85: "#FFFFFFD9"
+    w70: "#FFFFFFB3"
+    w60: "#FFFFFF99"
+    w50: "#FFFFFF80"
+    w40: "#FFFFFF66"
+    dark: "#000000"
+  textStyles:
+    label:
+      fontSize: 12
+      color: $primary
+      bold: true
+      letterSpacing: 4
+    pageTitle:
+      fontSize: 42
+      color: $white
+      bold: true
+      letterSpacing: 1
+    coverTitle:
+      fontSize: 86
+      color: $white
+      bold: true
+      letterSpacing: 8
+    body:
+      fontSize: 15
+      color: $w70
+      lineHeight: 1.6
+    statNum:
+      fontSize: 38
+      color: $white
+      bold: true
+    statLabel:
+      fontSize: 14
+      color: $w85
+    note:
+      fontSize: 11
+      color: $w50
+pages:
+  - pages/1_cover.page
+  - pages/2_overview.page
+  - pages/3_exterior.page
+  - pages/4_performance.page
+  - pages/5_cabin.page
+  - pages/6_had.page
+  - pages/7_safety.page
+  - pages/8_space_final.page

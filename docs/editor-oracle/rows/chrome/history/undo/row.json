@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click the control in official neo-ppt iframe"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "UI chrome; document change only if mustChangeDocument"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "chrome.history.undo",
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "撤销",
+  "description": "Official second toolbar left of redo. Native undo stack.",
+  "kimiUi": {
+    "controlLabel": "撤销",
+    "location": "second toolbar",
+    "appearsWhen": "always; disabled when empty"
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "undo"
+  },
+  "test": {
+    "id": "EO-CHROME-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "undo restores prior PPTD snapshot"
+    ]
+  }
+}

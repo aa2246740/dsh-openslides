@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "open-slidestudio.office-editor-acceptance.v1",
+  "startedAt": "2026-09-05T13:07:38.339Z",
+  "base": "http://127.0.0.1:55488",
+  "source": "fixtures/okp-yu7-ppt",
+  "steps": [
+    {
+      "step": 1,
+      "id": "chrome-pages-history",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/01-chrome-pages-history.png"
+    },
+    {
+      "step": 2,
+      "id": "text-formatting",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/02-text-formatting.png"
+    },
+    {
+      "step": 3,
+      "id": "chart-data-edit",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/03-chart-data-edit.png"
+    },
+    {
+      "step": 4,
+      "id": "chart-formatting",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/04-chart-formatting.png"
+    },
+    {
+      "step": 5,
+      "id": "shape-line-icon-editing",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/05-shape-line-icon-editing.png"
+    },
+    {
+      "step": 6,
+      "id": "arrange-grouping",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/06-arrange-grouping.png"
+    },
+    {
+      "step": 7,
+      "id": "image-crop-mask-fit",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/07-image-crop-mask-fit.png"
+    },
+    {
+      "step": 8,
+      "id": "image-rebuild-editable",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/08-image-rebuild-editable.png"
+    },
+    {
+      "step": 9,
+      "id": "table-editing",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/09-table-editing.png"
+    },
+    {
+      "step": 10,
+      "id": "smartart-editing",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/10-smartart-editing.png"
+    },
+    {
+      "step": 11,
+      "id": "theme-editing",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/11-theme-editing.png"
+    },
+    {
+      "step": 12,
+      "id": "comment-and-notes",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/12-comment-and-notes.png"
+    },
+    {
+      "step": 13,
+      "id": "workspace-no-session-recovery",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/13-workspace-no-session-recovery.png"
+    },
+    {
+      "step": 14,
+      "id": "version-preview-readonly",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/14-version-preview-readonly.png"
+    },
+    {
+      "step": 15,
+      "id": "export-result",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/15-export-result.png"
+    }
+  ],
+  "exercisedControls": [
+    "chrome.comment.pin",
+    "chrome.export.image",
+    "chrome.export.open",
+    "chrome.export.pptx",
+    "chrome.history.redo",
+    "chrome.history.undo",
+    "chrome.history.versions.open",
+    "chrome.history.versions.preview",
+    "chrome.history.versions.restore",
+    "chrome.history.versions.snapshot",
+    "chrome.keyboard.help",
+    "chrome.notes.toggle",
+    "chrome.pages.add",
+    "chrome.pages.delete",
+    "chrome.pages.duplicate",
+    "chrome.pages.navigate",
+    "chrome.pages.rail.toggle",
+    "chrome.pages.reorder",
+    "chrome.present.fullscreen",
+    "chrome.present.play",
+    "chrome.workspace.refine",
+    "chrome.workspace.toggle",
+    "chrome.zoom.in",
+    "chrome.zoom.out",
+    "chrome.zoom.percent",
+    "contextmenu.open",
+    "element.arrange.align.set",
+    "element.arrange.backward",
+    "element.arrange.distribute.set",
+    "element.arrange.flip.set",
+    "element.arrange.forward",
+    "element.bounds.set",
+    "element.chart.axis.set",
+    "element.chart.data.set",
+    "element.chart.labels.set",
+    "element.chart.legend.set",
+    "element.chart.series.color.set",
+    "element.chart.title.set",
+    "element.chart.type.set",
+    "element.delete",
+    "element.duplicate",
+    "element.group.set",
+    "element.icon.color.set",
+    "element.icon.name.set",
+    "element.image.crop.set",
+    "element.image.fit.set",
+    "element.image.mask.set",
+    "element.image.rebuild",
+    "element.image.replace",
+    "element.line.arrow.set",
+    "element.line.curve.set",
+    "element.line.label.set",
+    "element.line.points.set",
+    "element.lock.toggle",
+    "element.opacity.set",
+    "element.rotate.set",
+    "element.shadow.set",
+    "element.shape.adjust.set",
+    "element.shape.border.set",
+    "element.shape.fill.set",
+    "element.shape.kind.set",
+    "element.smartart.layout.set",
+    "element.smartart.node.add",
+    "element.smartart.node.delete",
+    "element.table.cell.align.set",
+    "element.table.cell.fill.set",
+    "element.table.cell.set",
+    "element.table.col.add",
+    "element.table.col.delete",
+    "element.table.merge",
+    "element.table.row.add",
+    "element.table.row.delete",
+    "element.text.content.set",
+    "element.text.toolbar.align.set",
+    "element.text.toolbar.bold.toggle",
+    "element.text.toolbar.color.set",
+    "element.text.toolbar.fontfamily.set",
+    "element.text.toolbar.fontsize.set",
+    "element.text.toolbar.highlight.set",
+    "element.text.toolbar.italic.toggle",
+    "element.text.toolbar.letterspacing.set",
+    "element.text.toolbar.lineheight.set",
+    "element.text.toolbar.link.set",
+    "element.text.toolbar.list.set",
+    "element.text.toolbar.underline.toggle",
+    "element.text.toolbar.wrap.set",
+    "element.ungroup.set",
+    "element.visibility.toggle",
+    "insert.chart",
+    "insert.icon",
+    "insert.image",
+    "insert.line",
+    "insert.more",
+    "insert.shape",
+    "insert.smartart",
+    "insert.table",
+    "insert.text",
+    "notes.content.set",
+    "selection.clear",
+    "selection.tab",
+    "theme.background.set",
+    "theme.color.set"
+  ],
+  "observedControls": [
+    "chrome.comment.pin",
+    "chrome.export.image",
+    "chrome.export.open",
+    "chrome.export.pptx",
+    "chrome.history.redo",
+    "chrome.history.undo",
+    "chrome.history.versions.open",
+    "chrome.history.versions.preview",
+    "chrome.history.versions.restore",
+    "chrome.history.versions.snapshot",
+    "chrome.keyboard.help",
+    "chrome.notes.toggle",
+    "chrome.pages.rail.toggle",
+    "chrome.present.fullscreen",
+    "chrome.present.play",
+    "chrome.workspace.toggle",
+    "chrome.zoom.in",
+    "chrome.zoom.out",
+    "chrome.zoom.percent",
+    "element.arrange.align.set",
+    "element.arrange.backward",
+    "element.arrange.distribute.set",
+    "element.arrange.flip.set",
+    "element.arrange.forward",
+    "element.bounds.set",
+    "element.chart.axis.set",
+    "element.chart.data.set",
+    "element.chart.labels.set",
+    "element.chart.legend.set",
+    "element.chart.series.color.set",
+    "element.chart.title.set",
+    "element.chart.type.set",
+    "element.delete",
+    "element.duplicate",
+    "element.group.set",
+    "element.icon.color.set",
+    "element.icon.name.set",
+    "element.image.crop.set",
+    "element.image.fit.set",
+    "element.image.mask.set",
+    "element.image.rebuild",
+    "element.image.replace",
+    "element.line.arrow.set",
+    "element.line.curve.set",
+    "element.line.label.set",
+    "element.lock.toggle",
+    "element.opacity.set",
+    "element.rotate.set",
+    "element.shadow.set",
+    "element.shape.adjust.set",
+    "element.shape.border.set",
+    "element.shape.fill.set",
+    "element.shape.kind.set",
+    "element.smartart.layout.set",
+    "element.smartart.node.add",
+    "element.smartart.node.delete",
+    "element.table.cell.align.set",
+    "element.table.cell.fill.set",
+    "element.table.col.add",
+    "element.table.col.delete",
+    "element.table.merge",
+    "element.table.row.add",
+    "element.table.row.delete",
+    "element.text.toolbar.align.set",
+    "element.text.toolbar.bold.toggle",
+    "element.text.toolbar.color.set",
+    "element.text.toolbar.fontfamily.set",
+    "element.text.toolbar.fontsize.set",
+    "element.text.toolbar.highlight.set",
+    "element.text.toolbar.italic.toggle",
+    "element.text.toolbar.letterspacing.set",
+    "element.text.toolbar.lineheight.set",
+    "element.text.toolbar.link.set",
+    "element.text.toolbar.list.set",
+    "element.text.toolbar.underline.toggle",
+    "element.text.toolbar.wrap.set",
+    "element.ungroup.set",
+    "element.visibility.toggle",
+    "insert.chart",
+    "insert.icon",
+    "insert.image",
+    "insert.line",
+    "insert.more",
+    "insert.shape",
+    "insert.smartart",
+    "insert.table",
+    "insert.text",
+    "notes.content.set",
+    "theme.background.set",
+    "theme.color.set"
+  ],
+  "browserErrors": [],
+  "exports": [
+    {
+      "format": "pptx",
+      "path": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/office-editor-export.pptx",
+      "bytes": 7639362
+    },
+    {
+      "format": "png",
+      "path": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-final-verified/office-editor-export.png",
+      "bytes": 359935
+    }
+  ],
+  "limitations": [
+    "Headless Chromium cannot prove native macOS fullscreen presentation; requestFullscreen wiring is tested with a browser stub.",
+    "Google Slides export and animation authoring are declared wont-port and are not enabled editor controls."
+  ],
+  "smartArtDomOrder": [
+    {
+      "id": "shape-1",
+      "cls": "el shape"
+    },
+    {
+      "id": "text-1",
+      "cls": "el text"
+    },
+    {
+      "id": "shape-2",
+      "cls": "el shape"
+    },
+    {
+      "id": "text-2",
+      "cls": "el text"
+    },
+    {
+      "id": "shape-3",
+      "cls": "el shape"
+    },
+    {
+      "id": "text-3",
+      "cls": "el text"
+    },
+    {
+      "id": "line-1",
+      "cls": "el line"
+    },
+    {
+      "id": "line-2",
+      "cls": "el line"
+    }
+  ],
+  "smartArtConnectors": [
+    {
+      "id": "line-1",
+      "rect": {
+        "x": 625.6929931640625,
+        "y": 410.45001220703125,
+        "width": 63.4666748046875,
+        "height": 7.933319091796875
+      },
+      "style": {
+        "left": "288.096px",
+        "top": "186px",
+        "width": "64px",
+        "height": "8px"
+      },
+      "path": "M 4 4 L 60 4",
+      "stroke": "#FF6900",
+      "computed": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "lineHeight": "0px",
+        "zIndex": "auto",
+        "svgDisplay": "block"
+      },
+      "html": "<svg viewBox=\"0 0 64 8\" width=\"100%\" height=\"100%\"><defs><marker id=\"lnline-1-end\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#FF6900\"></path></marker></defs><path d=\"M 4 4 L 60 4\" fill=\"none\" stroke=\"#FF6900\" stroke-width=\"2\" stroke-linejoin=\"round\" marker-end=\"url(#lnline-1-end)\"></path></svg>",
+      "midpointStack": [
+        {
+          "tag": "path",
+          "cls": null,
+          "id": ""
+        },
+        {
+          "tag": "svg",
+          "cls": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "cls": "el line",
+          "id": "line-1"
+        },
+        {
+          "tag": "DIV",
+          "cls": "slide page-in",
+          "id": "slide"
+        },
+        {
+          "tag": "DIV",
+          "cls": "slide-card",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "cls": "stage-viewport",
+          "id": "viewport"
+        }
+      ]
+    },
+    {
+      "id": "line-2",
+      "rect": {
+        "x": 847.8262939453125,
+        "y": 410.45001220703125,
+        "width": 63.4666748046875,
+        "height": 7.933319091796875
+      },
+      "style": {
+        "left": "512.096px",
+        "top": "186px",
+        "width": "64px",
+        "height": "8px"
+      },
+      "path": "M 4 4 L 60 4",
+      "stroke": "#FF6900",
+      "computed": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "overflow": "visible",
+        "lineHeight": "0px",
+        "zIndex": "auto",
+        "svgDisplay": "block"
+      },
+      "html": "<svg viewBox=\"0 0 64 8\" width=\"100%\" height=\"100%\"><defs><marker id=\"lnline-2-end\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 Z\" fill=\"#FF6900\"></path></marker></defs><path d=\"M 4 4 L 60 4\" fill=\"none\" stroke=\"#FF6900\" stroke-width=\"2\" stroke-linejoin=\"round\" marker-end=\"url(#lnline-2-end)\"></path></svg>",
+      "midpointStack": [
+        {
+          "tag": "path",
+          "cls": null,
+          "id": ""
+        },
+        {
+          "tag": "svg",
+          "cls": null,
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "cls": "el line",
+          "id": "line-2"
+        },
+        {
+          "tag": "DIV",
+          "cls": "slide page-in",
+          "id": "slide"
+        },
+        {
+          "tag": "DIV",
+          "cls": "slide-card",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "cls": "stage-viewport",
+          "id": "viewport"
+        }
+      ]
+    }
+  ],
+  "versionHistory": {
+    "snapshotId": "v2",
+    "restoredNotes": "讲解重点：先说结论，再解释数据口径，最后明确责任人与日期。"
+  },
+  "finishedAt": "2026-09-05T13:08:28.985Z"
+}

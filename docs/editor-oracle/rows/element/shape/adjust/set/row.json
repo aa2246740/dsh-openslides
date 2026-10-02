@@ -1,0 +1,43 @@
+{
+  "id": "element.shape.adjust.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.shape",
+  "title": "形状调整点",
+  "kimiUi": {
+    "controlLabel": "形状调整点",
+    "location": "形状工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "形状调整点"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-SHAPE-ADJUST-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

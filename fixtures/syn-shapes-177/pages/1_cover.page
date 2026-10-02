@@ -1,0 +1,18 @@
+pageType: cover
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: title
+    elementType: text
+    bounds:
+      - 80
+      - 200
+      - 800
+      - 80
+    content:
+      text: OOXML 177 presets
+      style: $title
+      align:
+        - center
+        - middle

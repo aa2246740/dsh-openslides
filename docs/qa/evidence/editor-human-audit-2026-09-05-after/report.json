@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "open-slidestudio.editor-human-audit.v1",
+  "generatedAt": "2026-09-05T12:31:51.926Z",
+  "base": "http://127.0.0.1:55481",
+  "results": [
+    {
+      "name": "table edit is committed before rail navigation",
+      "ok": true,
+      "evidence": {
+        "modelPage": 1,
+        "activeDom": "1",
+        "staleTableVisible": false
+      }
+    },
+    {
+      "name": "table edit is committed before export opens",
+      "ok": true,
+      "evidence": {
+        "tableId": "table-1",
+        "modelValue": "AUDIT_TABLE_EXPORT"
+      }
+    },
+    {
+      "name": "notes autosave remains bound to the page where typing occurred",
+      "ok": true,
+      "evidence": {
+        "pageOneNotes": "AUDIT_NOTES_PAGE_ONE",
+        "pageTwoNotes": ""
+      }
+    },
+    {
+      "name": "undo after adding the last page keeps a valid current page",
+      "ok": true,
+      "evidence": {
+        "before": [
+          0,
+          8
+        ],
+        "after": [
+          0,
+          8
+        ]
+      }
+    }
+  ],
+  "browserErrors": [],
+  "serverLog": "Open SlideStudio  http://127.0.0.1:55481/\n创建 Hub 是默认首页。编辑器: http://127.0.0.1:55481/index.html\nDefault project: /Users/wu/Documents/ChatGPT/openslides/latest/fixtures/okp-yu7-ppt\nZero Kimi iframe/CDN in this shell.\n"
+}

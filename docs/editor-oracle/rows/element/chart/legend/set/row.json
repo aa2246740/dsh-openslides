@@ -1,0 +1,46 @@
+{
+  "id": "element.chart.legend.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.chart",
+  "title": "图例开关",
+  "kimiUi": {
+    "controlLabel": "图例",
+    "location": "图表工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "图例"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "chart.legend boolean persists"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-CHART-LEGEND-SET",
+    "selfTestChecklist": [
+      "setChartLegend true appears on renderModel"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T12:00:00.000Z",
+    "agent": "s11-chart"
+  },
+  "updatedAt": "2026-08-15T12:00:00.000Z"
+}

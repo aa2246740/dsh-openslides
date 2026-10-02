@@ -1,0 +1,53 @@
+{
+  "id": "element.arrange.distribute.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "分布选中对象",
+  "kimiUi": {
+    "controlLabel": "横分 / 竖分",
+    "location": "contextual toolbar",
+    "appearsWhen": "3+ selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "multi"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Select 3+ elements",
+      "Click 横分 or 竖分"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "evenly spaces selected bounds"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "distributeSelected"
+  },
+  "test": {
+    "id": "EO-ELEMENT-ARRANGE-DISTRIBUTE-SET",
+    "automated": true,
+    "selfTestChecklist": [
+      "horizontal distribute orders x"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-15T00:00:00.000Z",
+    "agent": "native-1-1",
+    "sessionId": "goal-1-1-2026-08-15"
+  },
+  "updatedAt": "2026-08-15T00:00:00.000Z"
+}

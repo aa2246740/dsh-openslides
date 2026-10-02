@@ -1,0 +1,27 @@
+version: v2
+title: 华北区域渠道增长复盘
+size:
+  - 960
+  - 540
+theme:
+  colors:
+    primary: "#04512C"
+    accent: "#2FC1D6"
+    text: "#565656"
+    muted: "#7E7E7E"
+    background: "#FFFFFF"
+    danger: "#E71C56"
+  textStyles:
+    title:
+      fontSize: 28
+      bold: true
+      color: "#04512C"
+    body:
+      fontSize: 15
+      color: "#565656"
+pages:
+  - pages/01_cover.page
+  - pages/02_toc.page
+  - pages/03_content.page
+  - pages/04_evidence.page
+  - pages/05_close.page

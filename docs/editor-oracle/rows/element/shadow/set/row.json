@@ -1,0 +1,46 @@
+{
+  "id": "element.shadow.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "元素阴影",
+  "kimiUi": {
+    "controlLabel": "阴影",
+    "location": "上下文工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "阴影"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "element.shadow blur/offset/color; null clears"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-SHADOW-SET",
+    "selfTestChecklist": [
+      "setSelectedShadow persists blur on renderModel"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T15:00:00.000Z",
+    "agent": "s6-shadow"
+  },
+  "updatedAt": "2026-08-15T15:00:00.000Z"
+}

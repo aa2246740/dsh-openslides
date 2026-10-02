@@ -1,0 +1,60 @@
+{
+  "id": "chrome.createhub.topic.fill",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "Fill Create Hub PPT topic textbox",
+  "description": "WebBridge smoke 2026-08-07: contenteditable topic on /slides.",
+  "kimiUi": {
+    "controlLabel": "输入你想创作的 PPT 主题",
+    "location": "Create Hub center composer",
+    "appearsWhen": "on https://www.kimi.com/slides without open project"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "Product shell control; native counterpart is agent brief input"
+  },
+  "action": {
+    "type": "type-text",
+    "steps": [
+      "Open /slides",
+      "Focus center contenteditable",
+      "Type topic string"
+    ],
+    "input": {
+      "text": "华北区域Q3经营复盘：试点成效与下周动作"
+    }
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no PPTD yet — Create Hub only"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "runGenerate brief",
+    "uiParityNotes": "Create Hub layout during 1:1 shell phase"
+  },
+  "test": {
+    "id": "EO-HUB-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "native:generate accepts brief and writes PPTD"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-07T00:00:00.000Z",
+    "agent": "webbridge-smoke",
+    "sessionId": "native-oracle-smoke"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

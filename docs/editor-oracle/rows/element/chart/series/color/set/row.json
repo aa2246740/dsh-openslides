@@ -1,0 +1,46 @@
+{
+  "id": "element.chart.series.color.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.chart",
+  "title": "系列颜色",
+  "kimiUi": {
+    "controlLabel": "系列色",
+    "location": "图表工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "系列色"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "series[i].fill writes a solid color"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-CHART-SERIES-COLOR-SET",
+    "selfTestChecklist": [
+      "setChartSeriesFill persists on renderModel.chartColors"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T12:00:00.000Z",
+    "agent": "s11-chart"
+  },
+  "updatedAt": "2026-08-15T12:00:00.000Z"
+}

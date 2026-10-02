@@ -1,0 +1,12 @@
+open-kimi-ppt-skill recovery snapshot
+====================================
+Recovered: 2026-08-07 21:38:29 CST
+Source:    /Users/wu/.npm/_npx/f0c6d339d4bf5886/node_modules/open-kimi-ppt-skill
+Package:   open-kimi-ppt-skill
+Version:   1.2.0 (from package.json)
+npm status at recovery: UNPUBLISHED (npm view → 404, unpublished 2026-08-07)
+Original repo: https://github.com/binaryify/open-kimi-ppt-skill
+License: MIT
+
+This is the local npx install cache copy, not a git clone.
+Includes: bin/, editor/, lib/, skills/open-kimi-ppt/ (SKILL.md, reference/pptd.md, design_system/, scripts/), README, theme docs.

@@ -1,0 +1,539 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t5
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 81–100 / 177
+      style: $body
+  - elementId: sh-leftRightCircularArrow
+    elementType: shape
+    shapeName: leftRightCircularArrow
+    adjustments:
+      - 12500
+      - 1142319
+      - 20457681
+      - 11942319
+      - 12500
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-leftRightCircularArrow
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: leftRightCircularArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-curvedRightArrow
+    elementType: shape
+    shapeName: curvedRightArrow
+    adjustments:
+      - 25000
+      - 50000
+      - 25000
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-curvedRightArrow
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: curvedRightArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-curvedLeftArrow
+    elementType: shape
+    shapeName: curvedLeftArrow
+    adjustments:
+      - 25000
+      - 50000
+      - 25000
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-curvedLeftArrow
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: curvedLeftArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-curvedUpArrow
+    elementType: shape
+    shapeName: curvedUpArrow
+    adjustments:
+      - 25000
+      - 50000
+      - 25000
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-curvedUpArrow
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: curvedUpArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-curvedDownArrow
+    elementType: shape
+    shapeName: curvedDownArrow
+    adjustments:
+      - 25000
+      - 50000
+      - 25000
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-curvedDownArrow
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: curvedDownArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-stripedRightArrow
+    elementType: shape
+    shapeName: stripedRightArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-stripedRightArrow
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: stripedRightArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-notchedRightArrow
+    elementType: shape
+    shapeName: notchedRightArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-notchedRightArrow
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: notchedRightArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-swooshArrow
+    elementType: shape
+    shapeName: swooshArrow
+    adjustments:
+      - 25000
+      - 16667
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-swooshArrow
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: swooshArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-rightArrowCallout
+    elementType: shape
+    shapeName: rightArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 64977
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-rightArrowCallout
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: rightArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftArrowCallout
+    elementType: shape
+    shapeName: leftArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 64977
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-leftArrowCallout
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: leftArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-upArrowCallout
+    elementType: shape
+    shapeName: upArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 64977
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-upArrowCallout
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: upArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-downArrowCallout
+    elementType: shape
+    shapeName: downArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 64977
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-downArrowCallout
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: downArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftRightArrowCallout
+    elementType: shape
+    shapeName: leftRightArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 48123
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-leftRightArrowCallout
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftRightArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-upDownArrowCallout
+    elementType: shape
+    shapeName: upDownArrowCallout
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 48123
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-upDownArrowCallout
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: upDownArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-quadArrowCallout
+    elementType: shape
+    shapeName: quadArrowCallout
+    adjustments:
+      - 18515
+      - 18515
+      - 18515
+      - 48123
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-quadArrowCallout
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: quadArrowCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-wedgeRectCallout
+    elementType: shape
+    shapeName: wedgeRectCallout
+    adjustments:
+      - -20833
+      - 62500
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-wedgeRectCallout
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: wedgeRectCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-wedgeRoundRectCallout
+    elementType: shape
+    shapeName: wedgeRoundRectCallout
+    adjustments:
+      - -20833
+      - 62500
+      - 16667
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-wedgeRoundRectCallout
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: wedgeRoundRectCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-wedgeEllipseCallout
+    elementType: shape
+    shapeName: wedgeEllipseCallout
+    adjustments:
+      - -20833
+      - 62500
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-wedgeEllipseCallout
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: wedgeEllipseCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-cloudCallout
+    elementType: shape
+    shapeName: cloudCallout
+    adjustments:
+      - -20833
+      - 62500
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-cloudCallout
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: cloudCallout
+      style: $body
+      fontSize: 10
+  - elementId: sh-borderCallout1
+    elementType: shape
+    shapeName: borderCallout1
+    adjustments:
+      - 18750
+      - -8333
+      - 112500
+      - -38333
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-borderCallout1
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: borderCallout1
+      style: $body
+      fontSize: 10

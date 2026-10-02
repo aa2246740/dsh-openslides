@@ -1,0 +1,488 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t1
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 1–20 / 177
+      style: $body
+  - elementId: sh-rect
+    elementType: shape
+    shapeName: rect
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-rect
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: rect
+      style: $body
+      fontSize: 10
+  - elementId: sh-roundRect
+    elementType: shape
+    shapeName: roundRect
+    adjustments:
+      - 16667
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-roundRect
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: roundRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-ellipse
+    elementType: shape
+    shapeName: ellipse
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-ellipse
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: ellipse
+      style: $body
+      fontSize: 10
+  - elementId: sh-triangle
+    elementType: shape
+    shapeName: triangle
+    adjustments:
+      - 50000
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-triangle
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: triangle
+      style: $body
+      fontSize: 10
+  - elementId: sh-rtTriangle
+    elementType: shape
+    shapeName: rtTriangle
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-rtTriangle
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: rtTriangle
+      style: $body
+      fontSize: 10
+  - elementId: sh-parallelogram
+    elementType: shape
+    shapeName: parallelogram
+    adjustments:
+      - 25000
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-parallelogram
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: parallelogram
+      style: $body
+      fontSize: 10
+  - elementId: sh-trapezoid
+    elementType: shape
+    shapeName: trapezoid
+    adjustments:
+      - 25000
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-trapezoid
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: trapezoid
+      style: $body
+      fontSize: 10
+  - elementId: sh-nonIsoscelesTrapezoid
+    elementType: shape
+    shapeName: nonIsoscelesTrapezoid
+    adjustments:
+      - 25000
+      - 25000
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-nonIsoscelesTrapezoid
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: nonIsoscelesTrapezoid
+      style: $body
+      fontSize: 10
+  - elementId: sh-diamond
+    elementType: shape
+    shapeName: diamond
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-diamond
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: diamond
+      style: $body
+      fontSize: 10
+  - elementId: sh-pentagon
+    elementType: shape
+    shapeName: pentagon
+    adjustments:
+      - 105146
+      - 110557
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-pentagon
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: pentagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-hexagon
+    elementType: shape
+    shapeName: hexagon
+    adjustments:
+      - 25000
+      - 115470
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-hexagon
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: hexagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-heptagon
+    elementType: shape
+    shapeName: heptagon
+    adjustments:
+      - 102572
+      - 105210
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-heptagon
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: heptagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-octagon
+    elementType: shape
+    shapeName: octagon
+    adjustments:
+      - 29289
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-octagon
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: octagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-decagon
+    elementType: shape
+    shapeName: decagon
+    adjustments:
+      - 105146
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-decagon
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: decagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-dodecagon
+    elementType: shape
+    shapeName: dodecagon
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-dodecagon
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: dodecagon
+      style: $body
+      fontSize: 10
+  - elementId: sh-plus
+    elementType: shape
+    shapeName: plus
+    adjustments:
+      - 25000
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-plus
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: plus
+      style: $body
+      fontSize: 10
+  - elementId: sh-homePlate
+    elementType: shape
+    shapeName: homePlate
+    adjustments:
+      - 50000
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-homePlate
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: homePlate
+      style: $body
+      fontSize: 10
+  - elementId: sh-chevron
+    elementType: shape
+    shapeName: chevron
+    adjustments:
+      - 50000
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-chevron
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: chevron
+      style: $body
+      fontSize: 10
+  - elementId: sh-pie
+    elementType: shape
+    shapeName: pie
+    adjustments:
+      - 0
+      - 16200000
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-pie
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: pie
+      style: $body
+      fontSize: 10
+  - elementId: sh-pieWedge
+    elementType: shape
+    shapeName: pieWedge
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-pieWedge
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: pieWedge
+      style: $body
+      fontSize: 10

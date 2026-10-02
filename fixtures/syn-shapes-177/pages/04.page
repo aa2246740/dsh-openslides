@@ -1,0 +1,522 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t4
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 61–80 / 177
+      style: $body
+  - elementId: sh-star12
+    elementType: shape
+    shapeName: star12
+    adjustments:
+      - 37500
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-star12
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: star12
+      style: $body
+      fontSize: 10
+  - elementId: sh-star16
+    elementType: shape
+    shapeName: star16
+    adjustments:
+      - 37500
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-star16
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: star16
+      style: $body
+      fontSize: 10
+  - elementId: sh-star24
+    elementType: shape
+    shapeName: star24
+    adjustments:
+      - 37500
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-star24
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: star24
+      style: $body
+      fontSize: 10
+  - elementId: sh-star32
+    elementType: shape
+    shapeName: star32
+    adjustments:
+      - 37500
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-star32
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: star32
+      style: $body
+      fontSize: 10
+  - elementId: sh-irregularSeal1
+    elementType: shape
+    shapeName: irregularSeal1
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-irregularSeal1
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: irregularSeal1
+      style: $body
+      fontSize: 10
+  - elementId: sh-irregularSeal2
+    elementType: shape
+    shapeName: irregularSeal2
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-irregularSeal2
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: irregularSeal2
+      style: $body
+      fontSize: 10
+  - elementId: sh-rightArrow
+    elementType: shape
+    shapeName: rightArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-rightArrow
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: rightArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftArrow
+    elementType: shape
+    shapeName: leftArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-leftArrow
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: leftArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-upArrow
+    elementType: shape
+    shapeName: upArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-upArrow
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: upArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-downArrow
+    elementType: shape
+    shapeName: downArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-downArrow
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: downArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftRightArrow
+    elementType: shape
+    shapeName: leftRightArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-leftRightArrow
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftRightArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-upDownArrow
+    elementType: shape
+    shapeName: upDownArrow
+    adjustments:
+      - 50000
+      - 50000
+      - 50000
+      - 50000
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-upDownArrow
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: upDownArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-quadArrow
+    elementType: shape
+    shapeName: quadArrow
+    adjustments:
+      - 22500
+      - 22500
+      - 22500
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-quadArrow
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: quadArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftRightUpArrow
+    elementType: shape
+    shapeName: leftRightUpArrow
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-leftRightUpArrow
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftRightUpArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftUpArrow
+    elementType: shape
+    shapeName: leftUpArrow
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-leftUpArrow
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: leftUpArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-bentArrow
+    elementType: shape
+    shapeName: bentArrow
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 43750
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-bentArrow
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: bentArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-bentUpArrow
+    elementType: shape
+    shapeName: bentUpArrow
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-bentUpArrow
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: bentUpArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-uturnArrow
+    elementType: shape
+    shapeName: uturnArrow
+    adjustments:
+      - 25000
+      - 25000
+      - 25000
+      - 43750
+      - 75000
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-uturnArrow
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: uturnArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-circularArrow
+    elementType: shape
+    shapeName: circularArrow
+    adjustments:
+      - 12500
+      - 1142319
+      - 20457681
+      - 10800000
+      - 12500
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-circularArrow
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: circularArrow
+      style: $body
+      fontSize: 10
+  - elementId: sh-leftCircularArrow
+    elementType: shape
+    shapeName: leftCircularArrow
+    adjustments:
+      - 12500
+      - -1142319
+      - 1142319
+      - 10800000
+      - 12500
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-leftCircularArrow
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: leftCircularArrow
+      style: $body
+      fontSize: 10

@@ -1,0 +1,23 @@
+{
+  "name": "@open-slidestudio/native-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline native PPTD canvas shell — zero Kimi iframe/CDN",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "test": "node --test src/*.test.mjs"
+  },
+  "dependencies": {
+    "@open-slidestudio/canvas-session": "0.1.0",
+    "@open-slidestudio/exporter-native": "0.1.0",
+    "@open-slidestudio/pptd-v2": "0.1.0",
+    "@open-slidestudio/presentation-run": "0.1.0",
+    "@open-slidestudio/project-store": "0.1.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-session-persistence": "^0.2.0-rc.2",
+    "jsdom": "^30.0.1"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "element.animation.timeline.set",
+  "version": 1,
+  "status": "wont-port",
+  "surface": "animation",
+  "title": "动画时间轴",
+  "description": "Product chrome hidden. Official iframe has no clock. Generate/edit does not open the timeline panel.",
+  "kimiUi": {
+    "controlLabel": "动画时间轴",
+    "location": "时间轴面板",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "动画时间轴"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "setPageAnimations writes page.animations[] effect + trigger (onClick / withPrevious / afterPrevious)"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-ANIMATION-TIMELINE-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

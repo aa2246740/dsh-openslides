@@ -1,0 +1,47 @@
+{
+  "description": "Manual entry retired with the bottom 更多 → 主题色 panel. The document capability and its command (setThemeColor → theme.color.set) stay available for programmatic callers.",
+  "id": "theme.color.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "theme.background",
+  "title": "主题色 token",
+  "kimiUi": {
+    "controlLabel": "主题色",
+    "location": "空选区上下文条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "改 primary"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "presentation.theme.colors[key] writes hex"
+    }
+  },
+  "test": {
+    "id": "EO-THEME-COLOR-SET",
+    "selfTestChecklist": [
+      "setThemeColor updates renderModel.themeColors"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T12:30:00.000Z",
+    "agent": "s12-theme"
+  },
+  "updatedAt": "2026-08-15T12:30:00.000Z"
+}

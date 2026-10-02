@@ -1,0 +1,91 @@
+pageType: cover
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: band
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 200
+      - 540
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: mint
+    elementType: shape
+    bounds:
+      - 200
+      - 0
+      - 12
+      - 540
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#D1F5E2"
+  - elementId: foot
+    elementType: shape
+    bounds:
+      - 0
+      - 528
+      - 960
+      - 12
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#5114F6"
+  - elementId: kicker
+    elementType: text
+    bounds:
+      - 236
+      - 150
+      - 680
+      - 22
+    content:
+      text: OPEN SLIDESTUDIO
+      wrap: true
+      fontSize: 11
+      color: "#7E7E7E"
+      bold: true
+  - elementId: title
+    elementType: text
+    bounds:
+      - 236
+      - 186
+      - 680
+      - 130
+    content:
+      text: 边缘推理平台路线图
+      wrap: true
+      fontSize: 24
+      bold: true
+      color: "#5114F6"
+  - elementId: sub
+    elementType: text
+    bounds:
+      - 236
+      - 328
+      - 680
+      - 48
+    content:
+      text: Open SlideStudio · work/electric-violet-business
+      wrap: true
+      fontSize: 14
+      color: "#333333"
+  - elementId: pg
+    elementType: text
+    bounds:
+      - 900
+      - 498
+      - 36
+      - 16
+    content:
+      text: "1"
+      wrap: false
+      fontSize: 10
+      color: "#7E7E7E"
+      align:
+        - right
+        - middle

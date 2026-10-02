@@ -1,0 +1,41 @@
+{
+  "steps": [
+    "deduplicated insertion and Agent entry points",
+    "format selection is side-effect free and scope is explicit",
+    "download pptx file after explicit action",
+    "download png file after explicit action",
+    "version snapshot and preview round trip",
+    "reachable controls and Agent panel at 1440px",
+    "reachable controls and Agent panel at 1024px",
+    "reachable controls and Agent panel at 768px",
+    "reachable controls and Agent panel at 390px"
+  ],
+  "errors": [],
+  "exports": [
+    {
+      "format": "pptx",
+      "file": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/shell-version-content-final-2/human-export.pptx",
+      "bytes": 7639292
+    },
+    {
+      "format": "png",
+      "file": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/shell-version-content-final-2/human-export.png",
+      "bytes": 519296
+    }
+  ],
+  "versionPreviewDom": {
+    "appClass": "app is-history",
+    "insertDisplay": "none",
+    "historyDisplay": "flex",
+    "readonlyText": "只读 · V1 原始版本",
+    "contentEditable": 0,
+    "editingClasses": [],
+    "snapshotId": "v1"
+  },
+  "versionRestore": {
+    "failedAttemptRetainedPreview": true,
+    "retrySucceeded": true,
+    "snapshotId": "v1"
+  },
+  "ok": true
+}

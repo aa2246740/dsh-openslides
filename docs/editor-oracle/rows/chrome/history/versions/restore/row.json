@@ -1,0 +1,43 @@
+{
+  "id": "chrome.history.versions.restore",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "恢复历史版本",
+  "kimiUi": {
+    "controlLabel": "恢复历史版本",
+    "location": "版本菜单 Restore",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "恢复历史版本"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-CHROME-HISTORY-VERSIONS-RESTORE"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

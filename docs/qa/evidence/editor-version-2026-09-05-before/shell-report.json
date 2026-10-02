@@ -1,0 +1,23 @@
+{
+  "steps": [
+    "deduplicated insertion and Agent entry points",
+    "format selection is side-effect free and scope is explicit",
+    "download pptx file after explicit action",
+    "download png file after explicit action"
+  ],
+  "errors": [],
+  "exports": [
+    {
+      "format": "pptx",
+      "file": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/shell-final/human-export.pptx",
+      "bytes": 7639296
+    },
+    {
+      "format": "png",
+      "file": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/shell-final/human-export.png",
+      "bytes": 519296
+    }
+  ],
+  "ok": false,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== false\n\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-shell-human-audit.mjs:72:10\n    at async step (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-shell-human-audit.mjs:20:30)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-shell-human-audit.mjs:63:2"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "chrome.workspace.assistant.send",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "自然对话发送与连续输入",
+  "preconditions": {
+    "fixtureId": "deck-8a06f686",
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "全新合成会话，真实 DeepSeek：询问页数、两页生成、续聊、指定页修改和导出；用户原稿仅本地只读检查。"
+  },
+  "action": {
+    "type": "compound",
+    "steps": [
+      "直接输入建议、短句补充或修改要求，无模式选择",
+      "点击发送立即把本次请求移入左侧对话并清空本次草稿；接收与完成均保留后来输入的新草稿",
+      "核对回复粗体与列表可读、无旧生成 toast、中文候选不误发送",
+      "从第2页输入“1、2两页都把背景色改成白色”，核对两页实际改色、其他属性不变，结果只出现在原对话中",
+      "明确整份文稿修改直接执行，无确认弹窗；短暂状态查询断线自动重连，不误取消或回滚"
+    ]
+  },
+  "evidence": {
+    "pptd": {
+      "summary": "真实讨论前后哈希不变；指定页修改只有第 2 页 body-title 一行；新草稿在接收和完成后保留。证据 docs/acceptance/2026-09-20-assistant-chat.md。 多页原句的真实模型验收：两页只变 background.color；单一对话无重复卡片，46 项相关回归通过。docs/acceptance/2026-09-20-unified-chat-and-page-scope.md。 原生问题卡与即时发送验收见 docs/acceptance/2026-09-20-assistant-questions.md：真实选择后两页改色、直接全稿两页仅 background.color 变化。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "assistant-intent -> discussion or scoped editorEdit",
+    "uiParityNotes": "发送、提问、回答、进度、失败重试均在左侧同一对话；无模式选择器、全稿确认弹窗或画布进度浮条。"
+  },
+  "test": {
+    "id": "EO-ASSISTANT-004",
+    "automated": true,
+    "selfTestChecklist": [
+      "直接输入建议、短句补充或修改要求，无模式选择",
+      "点击发送立即把本次请求移入左侧对话并清空本次草稿；接收与完成均保留后来输入的新草稿",
+      "核对回复粗体与列表可读、无旧生成 toast、中文候选不误发送",
+      "从第2页输入“1、2两页都把背景色改成白色”，核对两页实际改色、其他属性不变，结果只出现在原对话中",
+      "明确整份文稿修改直接执行，无确认弹窗；短暂状态查询断线自动重连，不误取消或回滚"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T05:00:27.850901+00:00",
+    "agent": "Codex",
+    "sessionId": "8a06f686-44e6-4b32-b9f1-e59202c13e1c"
+  },
+  "updatedAt": "2026-09-20T08:32:19.723806+00:00"
+}

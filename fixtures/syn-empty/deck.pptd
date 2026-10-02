@@ -1,0 +1,20 @@
+version: v2
+title: 空白工程
+size:
+  - 960
+  - 540
+theme:
+  colors:
+    primary: "#2563EB"
+    text: "#111111"
+    background: "#FFFFFF"
+  textStyles:
+    title:
+      fontSize: 36
+      bold: true
+      color: "$text"
+    body:
+      fontSize: 18
+      color: "$text"
+pages:
+  - pages/1_cover.page

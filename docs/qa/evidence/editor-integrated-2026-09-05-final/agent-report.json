@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "open-slidestudio.editor-agent-audit.v1",
+  "startedAt": "2026-09-05T13:20:55.170Z",
+  "base": "http://127.0.0.1:55482",
+  "project": "/var/folders/3s/358mwqw14630yh2f7d121v4h0000gn/T/oss-editor-agent-audit-vBK6RC/project",
+  "evidence": [
+    {
+      "id": "workspace-toggle",
+      "evidenceType": "real-local",
+      "detail": "open, close, and reopen all changed the visible editor state"
+    },
+    {
+      "id": "shift-enter",
+      "evidenceType": "real-local",
+      "detail": "Shift+Enter inserted a newline without submitting"
+    },
+    {
+      "id": "enter-failure-recovery-retry-tool",
+      "evidenceType": "real-local",
+      "detail": "Enter submitted; no-session failed honestly; input, form, retry, and expandable error detail recovered without a version"
+    },
+    {
+      "id": "attachment-upload-submit-guard",
+      "evidenceType": "real-local",
+      "detail": "send was rejected while an attachment upload was still unresolved"
+    },
+    {
+      "id": "attachment-pending-remove-refresh",
+      "evidenceType": "real-local",
+      "detail": "two files uploaded to the Agent API, survived refresh as pending chips, and exact removal deleted server context"
+    },
+    {
+      "id": "attachment-turn-page-scope-success",
+      "evidenceType": "http-test-double",
+      "detail": "the submitted DSH turn froze removal, carried the pending attachment ID and one authorized page, then consumed the chip"
+    },
+    {
+      "id": "deck-scope",
+      "evidenceType": "http-test-double",
+      "detail": "whole-deck wording required confirmation and authorized exactly 8 pages"
+    },
+    {
+      "id": "cancel-and-retry",
+      "evidenceType": "http-test-double",
+      "detail": "cancel requested host stop, restored the protected snapshot, unlocked the form, and restored editable input"
+    },
+    {
+      "id": "comment-to-agent-consent",
+      "evidenceType": "real-local",
+      "detail": "saved comment reached explicit provider consent and refused send when no recipient was known"
+    }
+  ],
+  "browserErrors": [],
+  "limitations": [
+    "The deterministic success and cancel scenarios use explicitly labelled HTTP test doubles; they prove browser state and request contracts, not model quality or provider availability.",
+    "The no-session failure, attachment upload/delete, refresh restore, comment consent, and server persistence paths use the real native-web server.",
+    "A credentialed DSH generation/edit turn is intentionally not started by this audit."
+  ],
+  "finishedAt": "2026-09-05T13:21:03.948Z"
+}

@@ -1,0 +1,152 @@
+M DESIGN.md
+ M apps/native-web/public/app.js
+ M apps/native-web/public/chat-markdown.js
+ M apps/native-web/public/comment-targets.js
+ M apps/native-web/public/generation-process.js
+ M apps/native-web/public/hub.css
+ M apps/native-web/public/hub.html
+ M apps/native-web/public/hub.js
+ M apps/native-web/public/index.html
+ M apps/native-web/public/styles.css
+ M apps/native-web/public/tooltips.js
+ M apps/native-web/public/work-agent-scope.js
+ M apps/native-web/src/comment-targets.test.mjs
+ M apps/native-web/src/generation-activity-project.test.mjs
+ M apps/native-web/src/generation-process-dom.test.mjs
+ M apps/native-web/src/project-retention.test.mjs
+ M apps/native-web/src/review-threads.test.mjs
+ M apps/native-web/src/server.mjs
+ M apps/native-web/src/work-agent-scope.test.mjs
+ M docs/editor-oracle/catalog/index.yaml
+ M docs/editor-oracle/rows/chrome/comment/pin/row.json
+ M docs/editor-oracle/rows/chrome/comments/retry/row.json
+ M docs/editor-oracle/rows/chrome/comments/select/row.json
+ M docs/editor-oracle/rows/chrome/export/pptx/row.json
+ M package-lock.json
+ M packages/agent-harness/src/page-raster.ts
+ M packages/dsh-slides-bundle/cordis.patch.yml
+ M packages/dsh-slides-bundle/presets/slides/agent.cordis.yml
+ M packages/dsh-slides-host/package.json
+ M packages/dsh-slides-host/src/agent-fault.ts
+ M packages/dsh-slides-host/src/edit-elements.test.ts
+ M packages/dsh-slides-host/src/edit-elements.ts
+ M packages/dsh-slides-host/src/host.test.ts
+ M packages/dsh-slides-host/src/plugin.ts
+ M packages/dsh-slides-host/src/produce-request-header.test.ts
+ M packages/dsh-slides-host/src/produce-request-header.ts
+ M packages/dsh-slides-host/src/protocol.ts
+ M packages/dsh-slides-host/src/routes-resume.test.ts
+ M packages/dsh-slides-host/src/routes.ts
+ M packages/dsh-slides-host/src/session-transition.test.ts
+ M packages/dsh-slides-host/src/slice-session.ts
+ M packages/dsh-slides-host/src/tool-loop-guard.test.ts
+ M packages/dsh-slides-host/src/tool-loop-guard.ts
+ M packages/dsh-slides-host/src/tools.ts
+ M packages/dsh-slides-host/src/write-page-schema.test.ts
+ M packages/presentation-run/src/domain/agent-tools.ts
+ M packages/presentation-run/src/domain/compose-ir.ts
+ M packages/presentation-run/src/domain/domain-hands.ts
+ M packages/presentation-run/src/domain/page-raster.ts
+ M packages/presentation-run/src/domain/persist-page-id.test.ts
+ M packages/presentation-run/src/domain/review-write-scope.ts
+ M packages/presentation-run/src/index.ts
+ M packages/project-store/src/index.ts
+ M packages/project-store/src/store.test.ts
+ M scripts/qa/editor-ai-workspace-comment-agent.mjs
+ M scripts/qa/editor-comment-batch.mjs
+ M vendor/dsh-llm-pi-ai/PIN.md
+ M vendor/dsh-llm-pi-ai/lib/index.js
+ M vendor/dsh-llm-pi-ai/lib/types/stream.d.ts
+?? apps/native-web/public/assistant-conversation.js
+?? apps/native-web/public/assistant-questions.js
+?? apps/native-web/public/conversation-scroll.js
+?? apps/native-web/src/assistant-artifacts.mjs
+?? apps/native-web/src/assistant-artifacts.test.mjs
+?? apps/native-web/src/assistant-composer-dom.test.mjs
+?? apps/native-web/src/assistant-conversation.test.mjs
+?? apps/native-web/src/assistant-edit-scope-dom.test.mjs
+?? apps/native-web/src/assistant-questions-dom.test.mjs
+?? apps/native-web/src/chat-markdown.test.mjs
+?? apps/native-web/src/comment-selection-dom.test.mjs
+?? apps/native-web/src/comment-submissions.mjs
+?? apps/native-web/src/conversation-stability-dom.test.mjs
+?? apps/native-web/src/export-project-dom.test.mjs
+?? apps/native-web/src/shape-render-alignment-dom.test.mjs
+?? docs/acceptance/2026-09-20-annotation-selection.md
+?? docs/acceptance/2026-09-20-assistant-chat.md
+?? docs/acceptance/2026-09-20-assistant-questions.md
+?? docs/acceptance/2026-09-20-collaboration.md
+?? docs/acceptance/2026-09-20-comment-context.md
+?? docs/acceptance/2026-09-20-comment-popover.md
+?? docs/acceptance/2026-09-20-comment-real-loop.md
+?? docs/acceptance/2026-09-20-comment-selection.md
+?? docs/acceptance/2026-09-20-comment-send-state.md
+?? docs/acceptance/2026-09-20-comments-single-send.md
+?? docs/acceptance/2026-09-20-conversation-stability.md
+?? docs/acceptance/2026-09-20-default-edit-scope.md
+?? docs/acceptance/2026-09-20-shape-alignment.md
+?? docs/acceptance/2026-09-20-unified-chat-and-page-scope.md
+?? docs/acceptance/assets/2026-09-20-assistant-chat/correct-project-export.png
+?? docs/acceptance/assets/2026-09-20-assistant-chat/readable-390.png
+?? docs/acceptance/assets/2026-09-20-assistant-chat/readable-877.png
+?? docs/acceptance/assets/2026-09-20-assistant-chat/real-chat-final.png
+?? docs/acceptance/assets/2026-09-20-assistant-chat/scoped-edit-complete.png
+?? docs/acceptance/assets/2026-09-20-collaboration/01-before-home.png
+?? docs/acceptance/assets/2026-09-20-collaboration/02-before-editor.png
+?? docs/acceptance/assets/2026-09-20-collaboration/comment-selection-fixed.png
+?? docs/acceptance/assets/2026-09-20-collaboration/comments-single-send-batch.png
+?? docs/acceptance/assets/2026-09-20-collaboration/comments-single-send-live.png
+?? docs/acceptance/assets/2026-09-20-collaboration/editor-390.png
+?? docs/acceptance/assets/2026-09-20-collaboration/editor-877.png
+?? docs/acceptance/assets/2026-09-20-collaboration/home-after.png
+?? docs/acceptance/assets/2026-09-20-collaboration/selected-edit-after.png
+?? docs/acceptance/assets/2026-09-20-comment-context/batch-ready.png
+?? docs/acceptance/assets/2026-09-20-comment-context/draft-1440.png
+?? docs/acceptance/assets/2026-09-20-comment-context/draft-375.png
+?? docs/acceptance/assets/2026-09-20-comment-context/draft-877.png
+?? docs/acceptance/assets/2026-09-20-comment-context/live-note.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/batch-inbox.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/draft-1440.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/draft-375.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/draft-877.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/live-draft.png
+?? docs/acceptance/assets/2026-09-20-comment-popover/live-note.png
+?? docs/acceptance/assets/2026-09-20-comment-real-loop/after-real-model.png
+?? docs/acceptance/assets/2026-09-20-comment-real-loop/before-send.png
+?? docs/acceptance/assets/2026-09-20-comment-real-loop/marquee-popover.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/failed-message-375.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/failed-message-retry.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/real-complete-keeps-draft.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/real-inflight.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/real-reloaded.png
+?? docs/acceptance/assets/2026-09-20-comment-send-state/retry-complete-keeps-draft.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/real-complete.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/real-page-2.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/real-running.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/unified-chat-1440.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/unified-chat-390.png
+?? docs/acceptance/assets/2026-09-20-unified-chat/unified-chat-877.png
+?? docs/acceptance/assistant-runtime-repair-2026-09-21.md
+?? docs/architecture/continuous-collaboration.md
+?? docs/editor-oracle/rows/chrome/comments/list/row.json
+?? docs/editor-oracle/rows/chrome/comments/resend/row.json
+?? docs/editor-oracle/rows/chrome/comments/targets/row.json
+?? docs/editor-oracle/rows/chrome/createhub/assistant/mode/row.json
+?? docs/editor-oracle/rows/chrome/workspace/assistant/mode/row.json
+?? docs/editor-oracle/rows/chrome/workspace/assistant/model/row.json
+?? docs/editor-oracle/rows/chrome/workspace/assistant/question/row.json
+?? docs/editor-oracle/rows/chrome/workspace/assistant/send/row.json
+?? packages/dsh-slides-host/src/assistant-conversation.test.ts
+?? packages/dsh-slides-host/src/assistant-conversation.ts
+?? packages/dsh-slides-host/src/assistant-intent.test.ts
+?? packages/dsh-slides-host/src/assistant-intent.ts
+?? packages/dsh-slides-host/src/assistant-questions.test.ts
+?? packages/dsh-slides-host/src/assistant-questions.ts
+?? packages/dsh-slides-host/src/write-page-text.test.ts
+?? packages/dsh-slides-host/src/write-page-text.ts
+?? packages/presentation-run/src/domain/conversation-requirements.test.ts
+?? packages/presentation-run/src/domain/conversation-requirements.ts
+?? scripts/qa/annotation-selection-responsive.mjs
+?? scripts/qa/assistant-scope-default-matrix.mjs
+?? scripts/qa/completed-reply-adapter.test.mjs
+?? scripts/qa/continuous-collaboration-responsive.mjs

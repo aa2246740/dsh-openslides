@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "open-slidestudio.editor-human-audit.v1",
+  "generatedAt": "2026-09-05T12:26:32.684Z",
+  "base": "http://127.0.0.1:55481",
+  "results": [
+    {
+      "name": "table edit is committed before rail navigation",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: rail DOM must follow the model page after leaving a table cell\n\n'0' !== '1'\n\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:145:12\n    at async runCase (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:120:22)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:133:3",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/editor-human-audit/01-table-edit-is-committed-before-rail-navigation.png"
+    },
+    {
+      "name": "table edit is committed before export opens",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: model/disk source must include the visible table edit before export can be offered\n+ actual - expected\n\n+ '列 A'\n- 'AUDIT_TABLE_EXPORT'\n\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:159:12\n    at async runCase (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:120:22)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:150:3",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/editor-human-audit/02-table-edit-is-committed-before-export-opens.png"
+    },
+    {
+      "name": "notes autosave remains bound to the page where typing occurred",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: typed notes must persist on page 1 despite immediate navigation\n+ actual - expected\n\n+ ''\n- 'AUDIT_NOTES_PAGE_ONE'\n\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:185:12\n    at async runCase (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:120:22)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:167:3",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/editor-human-audit/03-notes-autosave-remains-bound-to-the-page-where-typing-occurred.png"
+    },
+    {
+      "name": "undo after adding the last page keeps a valid current page",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: undo left /api/model unavailable: {\"error\":\"Cannot read properties of undefined (reading 'page')\"}\n\n500 !== 200\n\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:203:12\n    at async runCase (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:120:22)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:190:3",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/editor-human-audit/04-undo-after-adding-the-last-page-keeps-a-valid-current-page.png"
+    }
+  ],
+  "browserErrors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "Error: Cannot read properties of undefined (reading 'page')",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ],
+  "serverLog": "Open SlideStudio  http://127.0.0.1:55481/\n创建 Hub 是默认首页。编辑器: http://127.0.0.1:55481/index.html\nDefault project: /Users/wu/Documents/ChatGPT/openslides/latest/fixtures/okp-yu7-ppt\nZero Kimi iframe/CDN in this shell.\nTypeError: Cannot read properties of undefined (reading 'page')\n    at currentPage (file:///Users/wu/Documents/ChatGPT/openslides/latest/packages/canvas-session/dist/index.js:52:53)\n    at Module.renderModel (file:///Users/wu/Documents/ChatGPT/openslides/latest/packages/canvas-session/dist/index.js:1846:18)\n    at liveModel (file:///Users/wu/Documents/ChatGPT/openslides/latest/apps/native-web/src/server.mjs:561:31)\n    at Server.<anonymous> (file:///Users/wu/Documents/ChatGPT/openslides/latest/apps/native-web/src/server.mjs:2330:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\nTypeError: Cannot read properties of undefined (reading 'page')\n    at currentPage (file:///Users/wu/Documents/ChatGPT/openslides/latest/packages/canvas-session/dist/index.js:52:53)\n    at Module.renderModel (file:///Users/wu/Documents/ChatGPT/openslides/latest/packages/canvas-session/dist/index.js:1846:18)\n    at liveModel (file:///Users/wu/Documents/ChatGPT/openslides/latest/apps/native-web/src/server.mjs:561:31)\n    at Server.<anonymous> (file:///Users/wu/Documents/ChatGPT/openslides/latest/apps/native-web/src/server.mjs:1795:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n"
+}

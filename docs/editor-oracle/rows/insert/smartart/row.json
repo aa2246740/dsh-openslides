@@ -1,0 +1,55 @@
+{
+  "description": "Manual entry retired by design (the 更多 menu palette was removed). The command path stays available for programmatic and QA seeding: POST /api/command {cmd:\"insert\",kind:\"smartart\"}.",
+  "id": "insert.smartart",
+  "version": 1,
+  "status": "verified",
+  "surface": "insert",
+  "title": "插入 SmartArt（节点 + 连接线）",
+  "kimiUi": {
+    "controlLabel": "SmartArt",
+    "location": "bottom insert pill · More",
+    "appearsWhen": "always"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Open More on the insert pill",
+      "Choose SmartArt → 流程 / 循环 / 层级"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "Writes shape+text nodes and line connectors with smartArt metadata; no dual IR"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "insertSmartArt",
+    "uiParityNotes": "Frame 14: independently selectable nodes and curved connectors"
+  },
+  "test": {
+    "id": "EO-INSERT-007",
+    "automated": true,
+    "selfTestChecklist": [
+      "insertSmartArt('process') creates 3 nodes + 2 connectors",
+      "nodes remain independently selectable (no group auto-select)"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T03:40:00.000Z",
+    "agent": "editor-1-1-smartart"
+  },
+  "updatedAt": "2026-08-15T03:40:00.000Z"
+}

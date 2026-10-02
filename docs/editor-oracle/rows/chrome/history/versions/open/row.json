@@ -1,0 +1,43 @@
+{
+  "id": "chrome.history.versions.open",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "历史版本菜单",
+  "kimiUi": {
+    "controlLabel": "历史版本菜单",
+    "location": "标题栏 Vn",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "历史版本菜单"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-CHROME-HISTORY-VERSIONS-OPEN"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

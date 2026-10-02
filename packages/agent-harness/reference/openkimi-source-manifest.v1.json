@@ -1,0 +1,1515 @@
+{
+  "version": "openkimi-source-manifest-v1",
+  "chunkBytes": 12288,
+  "files": [
+    {
+      "sourceId": "openkimi:SKILL.md",
+      "relativePath": "SKILL.md",
+      "pathSha256": "0e95f5a3666031d6fac42bc6ca698b40b61648f4974c8ec355181ed4888c5c26",
+      "byteLength": 17522,
+      "sha256": "f2f845d7dc1793ced000887035f5dafdfdd59287fdb2b1baed0d398a55857937",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "c3e444ad82fdbc389d0485dd096d63ed9b2e331d6850a38bdc7d5c685e65ad53"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 17522,
+          "sha256": "e76e08237a0347ac021c658f88c6c292b31a2c8d5398568a7330989ed18aca13"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/01/en/dusk-violet-consulting.md",
+      "relativePath": "reference/design_system/01_strategy/01/en/dusk-violet-consulting.md",
+      "pathSha256": "bfe59347e37b4605d37a1110cd19dfc29210e29d90352a127c8bc694141174c6",
+      "byteLength": 21626,
+      "sha256": "a48c25db24dbd5f04d6471c1c3a2eb4dbdc2055f70c3b8111c8ee33d88b3a4b5",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "1109b847786a91ddb29783cf44ed07a6986b475967e9642b6173554810a7761a"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 21626,
+          "sha256": "54bce0c43528c87d0a6aed881aa292188c16556911b71179bdc8d957270efc6a"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/02/en/indigo-due-diligence.md",
+      "relativePath": "reference/design_system/01_strategy/02/en/indigo-due-diligence.md",
+      "pathSha256": "bb329253dcff501a8fbe2026c70a7d932ede1a3d31b20bd6d146ef7b6817fc4a",
+      "byteLength": 21187,
+      "sha256": "71db85633188d89607e8d1827a4a95f1a1cbe4669c98fe8edd76379f823b09c3",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "16bd18dcbd9a455e728abb1905046eb3ba04dcc3786281698c0336e6c495f05b"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 21187,
+          "sha256": "65fd608878b695e8e6d4bdaafd2cda450679b002ceb0ae77f85052dbe2fc4288"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/03/en/pine-green-strategy.md",
+      "relativePath": "reference/design_system/01_strategy/03/en/pine-green-strategy.md",
+      "pathSha256": "28da6296aaa7ac54c73b4350b594c6d1474b2e050b3a0f626c1727e3e0c5ea2d",
+      "byteLength": 20718,
+      "sha256": "9b6fdba1e13c7da2181da7aaf013511f1b42fd09463c9811dd608d66ee2df545",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "9d62446d1f23781a84dfdac498dabc39767588dc7f6923c43aee0237ea0f90ce"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20718,
+          "sha256": "2b30846ac841c047a5fa296e41ba40220d3624e6cdffd01e56c26c2130d0c603"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/04/en/red-black-business.md",
+      "relativePath": "reference/design_system/01_strategy/04/en/red-black-business.md",
+      "pathSha256": "15e6d29fba0a65c3e2cc9fab9ef8f3b4930f871a037200d9dbfceb58ba1c4648",
+      "byteLength": 19149,
+      "sha256": "1891c8ca3cc8aef181bfd76e3493d937e361165bacf497058ba6a0b781dd3d2f",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "8b629f42c3d471cd8f7f9dc45c68840e0d4df153b00f919e7ae02ef71ba1fef1"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 19149,
+          "sha256": "3f1ccd6e81fbaa703544f6c785141adcdad3ab7ded9953a2fc52cd127819f842"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/05/en/moss-green-transformation.md",
+      "relativePath": "reference/design_system/01_strategy/05/en/moss-green-transformation.md",
+      "pathSha256": "db903ad86bde67f29ca1f1535ac8f599dbe19b8388e0a55e2a034a4f06292c3a",
+      "byteLength": 21019,
+      "sha256": "53a83e7e800fbae335a5898af0e884f088a277e945e75886a0ffebb68cd7ccdc",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "91e76658721ceeb599543fd0813acd4a5b41793018700cc1151120d6f44c3442"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 21019,
+          "sha256": "a481392eb41d94de5c76538a75aa0fd95e4394e28d2d5584eb605b17573a213b"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/01_strategy/06/en/map-strategy.md",
+      "relativePath": "reference/design_system/01_strategy/06/en/map-strategy.md",
+      "pathSha256": "73c99d019d95af26703f6b73786000ae15b3b807571f8524bb1447ee3e2098e6",
+      "byteLength": 9037,
+      "sha256": "c42db2dc47f9dda6b1caa8079df156db9e7959d05c4ea74d3d1dba6c7fa08f83",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 9037,
+          "sha256": "c42db2dc47f9dda6b1caa8079df156db9e7959d05c4ea74d3d1dba6c7fa08f83"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/01/en/honey-orange-memo.md",
+      "relativePath": "reference/design_system/02_business/01/en/honey-orange-memo.md",
+      "pathSha256": "58331a212a5c3f7212bcb906d24711e5ebb5105063f2e1b45511a120af525a3c",
+      "byteLength": 20720,
+      "sha256": "a79f55609d1d91a38934f6474f009fcc925c20c2b24c4599f86ccd80947608ac",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "293862977a55750e0450d2849e9db407fd3939941cc1a27de1a7b0b63fba17c4"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20720,
+          "sha256": "d7c1122680a8bfe5f3febf847cfd50c8865652e895dec846ad08430badd7f06f"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/02/en/lake-blue-memo.md",
+      "relativePath": "reference/design_system/02_business/02/en/lake-blue-memo.md",
+      "pathSha256": "84ec8730bab57febd2d4eb27c3ca02ac930470c009618573cfc241cc48fd7b35",
+      "byteLength": 17953,
+      "sha256": "6601608ea1e3542eb6cae185834e21c9a90c5d09d813fee9f743b45d6b0f4c6d",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "f45c3602816fdb2b0880802068ddf657c53c70ff527184b578e1837d51261f4b"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 17953,
+          "sha256": "beefd098bea695802d10a826f3fb33bb2cce98688f811a75fa86f72114ce57af"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/03/en/xuan-paper-annual.md",
+      "relativePath": "reference/design_system/02_business/03/en/xuan-paper-annual.md",
+      "pathSha256": "3c7e2a5ea52d82b87e6d03681180f25d13c4dbac8ddd0bf3b443ca181324ae89",
+      "byteLength": 18856,
+      "sha256": "00e108f9748c3e5c7feb6c7ead60015cd2e0b4c11caa7721099fa0b0b2ca5c66",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "54c29bdf6f36019e72e6d2eb86244178bc51735ccc9a51b6d097cf36564c3cf0"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 18856,
+          "sha256": "404241e6d1bf13677e47faf89ce2d5313ec5a787471ce09e0ba013eb7c679632"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/04/en/lead-gray-quarterly.md",
+      "relativePath": "reference/design_system/02_business/04/en/lead-gray-quarterly.md",
+      "pathSha256": "adc94d4f3647ae5bae4815f7e72064a9f27ae985e829f85246a305bb5f4f7ef0",
+      "byteLength": 16987,
+      "sha256": "a15187918f7bcf0c068db084451eb035554479c81b0e4585426ad5f619bc4db2",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "ca5bfeddec1235557f69b4cea821ae1c3f5ef0ebabcaa811b833d6ebe57324bc"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 16987,
+          "sha256": "0d00afbdb8c43df5bb4cd7a1776917be84cd5e548af14631bed529e3ef64cec3"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/05/en/ink-green-market-trends.md",
+      "relativePath": "reference/design_system/02_business/05/en/ink-green-market-trends.md",
+      "pathSha256": "aeeeda928218e150f5e215d065585cd8a26e4fe6104870d4470ba640dbc1c18e",
+      "byteLength": 20928,
+      "sha256": "813d0807b6a6af8ba3d9afc204a8703b8ea44d0ed9eba6ea885ab5bfb09e64a9",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "312c55212de1af8f39fa204b648f3b39606d272747991448b3e3fcf048aa478d"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20928,
+          "sha256": "ec1f2847e9569b098ea616f3192d7768e5d600b0a7ae1205cc7c7b79f118c147"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/02_business/06/en/orange-tech.md",
+      "relativePath": "reference/design_system/02_business/06/en/orange-tech.md",
+      "pathSha256": "1610ded931310a48ddc3c352979a29369fb1f813df1355de505cb6072ad3dd31",
+      "byteLength": 20560,
+      "sha256": "75b31493f7e326312a35fde307fb389365d1355c8243c21568b261ddf0aa366f",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "c03868554c44e226b88d8965516c6fd4220aabd82da4c831c4eaaa73d49da52b"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20560,
+          "sha256": "1642dc472b5f81a5322cb48f551d6131e2f06f302807eb2a516846fbb0af2b92"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/01/en/sky-blue-wayfinding.md",
+      "relativePath": "reference/design_system/03_work/01/en/sky-blue-wayfinding.md",
+      "pathSha256": "07e72fabcbe37dafcb1936ee89319afd901d8c9b7ba4248b4cbe6b2e51dc3aca",
+      "byteLength": 9746,
+      "sha256": "a2038a5149ac3febcea9cc42bac5790bcab86b112c2ba4fe755b0ba444b3f017",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 9746,
+          "sha256": "a2038a5149ac3febcea9cc42bac5790bcab86b112c2ba4fe755b0ba444b3f017"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/02/en/mist-blue-travelogue.md",
+      "relativePath": "reference/design_system/03_work/02/en/mist-blue-travelogue.md",
+      "pathSha256": "795139ab92de94b459697d1538a4a468c4a10de2c13545d1f3dac70a22cac9f0",
+      "byteLength": 24852,
+      "sha256": "663b3fe85363d240a9f8e38022212632f31ee90b2de000a6b8d66f2c71a46fc0",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "57502128b30e3e20834aa2cb8d5454d59b1fbadd484fa9f4ff8621208a478b60"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 24576,
+          "sha256": "ff563796022062c422f95d5f402dcc2aea9294cd56457a9ddf636b648dddcdc5"
+        },
+        {
+          "index": 2,
+          "byteStart": 24576,
+          "byteEndExclusive": 24852,
+          "sha256": "3f1e46946a0838a2a42be12bedee18254fac39d46c13958eac37ed22e0195f50"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/03/en/warm-jade-annual-report.md",
+      "relativePath": "reference/design_system/03_work/03/en/warm-jade-annual-report.md",
+      "pathSha256": "420aea99a651d7638fe3587d7b0870c7b025645a7349a9c61958d0d83ab1384c",
+      "byteLength": 22157,
+      "sha256": "bb853f698050186f6753473d3447bcf99b8df0241622b9f645cc14dfdbe5d250",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "86d48a881a0a7ff29f53f6bf4187c2b21661d4b90f0e86ecb0cc91652573bd17"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 22157,
+          "sha256": "e9459ea34e59ccabc9f1e44b707a7042589121919aaf8318acaa0356bb4e93f3"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/04/en/color-stripes-documentary.md",
+      "relativePath": "reference/design_system/03_work/04/en/color-stripes-documentary.md",
+      "pathSha256": "7e0b2043b40088b7c7dbfefb947c22d162ab4bd5c0a32d85ca8189167aa86207",
+      "byteLength": 18845,
+      "sha256": "5bdcbd5f021c99e3a9bc37d5410d2f6dc729a775c477e575125bf925b95c9988",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "1815fb66f1c20100937a610d9bd0a83ffec08f74c8a43e95a1f303d48f08be85"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 18845,
+          "sha256": "c3f1a7e12fbf912819689159d552f0d16aafa7e529aea573e4730dd76be1acb8"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/05/en/moon-white-imagery.md",
+      "relativePath": "reference/design_system/03_work/05/en/moon-white-imagery.md",
+      "pathSha256": "ed826a265f1e24bf56778fd55b754e73daf2cbda46b114e751477dd36ee546b7",
+      "byteLength": 19668,
+      "sha256": "3dfe63eb34198982802fa76acbbd3a792b8d34614a5e1ce968c6e6c4965b1023",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "fa96196f97cdb27e07395411c957da944ac3855e10d5aa2a4aa2280c65a09b56"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 19668,
+          "sha256": "6c7142f31005e49ef7e11706bcfeccb8df4816d7d701076d37ee3af5ac66d342"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/03_work/06/en/red-white-business.md",
+      "relativePath": "reference/design_system/03_work/06/en/red-white-business.md",
+      "pathSha256": "d54a921c7c593b8ad58f1c8f8bfbb59116ab622a74b419c0743a0b00157acb53",
+      "byteLength": 19616,
+      "sha256": "02700e8b9f009b3fa5cec673dbcfab1c0b5dbb161d51695a2589d9edfa896f79",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "a899a56681069eb5252f884a20951c090517d940f94075491994f2a955da6d3e"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 19616,
+          "sha256": "87b5e988e08b90a6a1eb4958dded12ab3455da261350bc47460db65b3c4e90ae"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/01/en/cream-collage.md",
+      "relativePath": "reference/design_system/04_promotion/01/en/cream-collage.md",
+      "pathSha256": "c7e320192b0ef4ec3a63d29a40d002940be6689c60c1d5ce52af00023da72613",
+      "byteLength": 9295,
+      "sha256": "81e0ef548a8b515f4522acd53f57071e38914c81ab7ecf3f649093d99900247f",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 9295,
+          "sha256": "81e0ef548a8b515f4522acd53f57071e38914c81ab7ecf3f649093d99900247f"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/02/en/silk-yellow-magazine.md",
+      "relativePath": "reference/design_system/04_promotion/02/en/silk-yellow-magazine.md",
+      "pathSha256": "d96c8295d479bc28cbde69a58aa57c5530a18d103be29ab6ca1768d9d109638a",
+      "byteLength": 20200,
+      "sha256": "9d1017f3fc21c2327442b2b762e5dc0f21c27674b87e0b0eae8a8b4fa7b26ac2",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "77ab27a318351ae4be84ac8f365006bbcf48e77c4f0a0e43401cff16ec5f29e4"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20200,
+          "sha256": "298de77bd3bcb99a744949c77cd6b6d5067961502f9de0115586ae513cdf47e1"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/03/en/pine-soot-pictorial.md",
+      "relativePath": "reference/design_system/04_promotion/03/en/pine-soot-pictorial.md",
+      "pathSha256": "510ce337298c5c529cf0bb32aa1c4222d92aee397548b21ef4d5f7668042f1c8",
+      "byteLength": 19281,
+      "sha256": "7ebfb029e69012e9460191507016ef7b8e116c018dcd036d0d9374a6356736d2",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "44cb32c54d9f0eadf090cc017d21b298845656c46357db98d1b6f1b9726c03e4"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 19281,
+          "sha256": "b67fb6035252070a8afa4bbeb21073f62402ae5196aa7402a46585b7a3806ff0"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/04/en/gold-orange-type-journal.md",
+      "relativePath": "reference/design_system/04_promotion/04/en/gold-orange-type-journal.md",
+      "pathSha256": "5b8c850a12759bac8a570ccdf63b76987121c952f5223f3adcc474ffd67de4fa",
+      "byteLength": 19502,
+      "sha256": "d17a9dd9b2e7827af7dcff099b5376c493dfd10ef76766f63dccd2d3a4c1d043",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "b76139dd17ed50f1844e02bfcc81a510ac97631241f4b36a9a662a5a2bf28fbe"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 19502,
+          "sha256": "251ba05a98c80fcf5a3b8cea2c3ac0af99b9897553cc4793bcb46646cef3010a"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/05/en/silver-gray-luxury-magazine.md",
+      "relativePath": "reference/design_system/04_promotion/05/en/silver-gray-luxury-magazine.md",
+      "pathSha256": "69fec912be1bbf90999a19fcfba96d72693df86acfdb4e7c852e324c050fc1dd",
+      "byteLength": 23976,
+      "sha256": "d1dccbae157399a41c26257748f41ba2f9f56d638a3c87a0b81086aced2bccd1",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "aad163e73fb6095f59cb3781017e606ec4f5663523c5da31941314e7d6f2b280"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 23976,
+          "sha256": "0c4c86fceb5bbfc10e88257b1acaec6ccf2862fdaf10c977d0dfb5e634024263"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/04_promotion/06/en/fresh-brand.md",
+      "relativePath": "reference/design_system/04_promotion/06/en/fresh-brand.md",
+      "pathSha256": "e0f94754f673def4503ca83182a7c74504e9d306ac32341a46dce55f372a2c67",
+      "byteLength": 20828,
+      "sha256": "bf4a27937456aa5cafa001603f2062be45854b98f9d5c487cc05e0015bbf5fad",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "7108758e5c560284e93c5a8b1272115410f87dae520c0d49eef8b53cfe6477fb"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 20828,
+          "sha256": "6570154ce4dc300c88c957916e589bbd6f835e0e9c12e4b2e089ce341db31679"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/01/en/pink-purple-diagnosis.md",
+      "relativePath": "reference/design_system/05_academic/01/en/pink-purple-diagnosis.md",
+      "pathSha256": "f07e9442f05f2191b1b7797f852993548323da87fe534fd1567db164c2357387",
+      "byteLength": 15734,
+      "sha256": "7ea8a474249e50146d2e287981709bf2aa6e81ba66b467a7eb2f66eab109eb55",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "a76487f51da14ef44881bb01c8b5f89b2593316fbb4891276abb877c9c3576ba"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15734,
+          "sha256": "8ce0094116e2ec637227e886a8045a5ce39549f3ffaf3270c0f6c9f9275c61fc"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/02/en/teal-green-academic-defense.md",
+      "relativePath": "reference/design_system/05_academic/02/en/teal-green-academic-defense.md",
+      "pathSha256": "1e6e168bd1619eef6c323bb41cfb92a06d63764e20489cac6b410395e8773ae1",
+      "byteLength": 16103,
+      "sha256": "edf5481950e75eee8b531bb6e54d8b29db7a811e9529ea5215d86156f2554309",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "90800eacda63b18d608a98979c8850c5aa97a173436f36938f5f25e6424f484e"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 16103,
+          "sha256": "0c680fe96c50d545fe200041195e1aad7b420acc1ad2f37e513548c1adff0a97"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/03/en/pastel-derivation.md",
+      "relativePath": "reference/design_system/05_academic/03/en/pastel-derivation.md",
+      "pathSha256": "4f57e6d54a2174b249ebf0894b5e36913b12c5fdc67a0f3dce680aadb653173c",
+      "byteLength": 14068,
+      "sha256": "6c43c6553deefb2cfddc2ffdb5def51080c927469aaa7b96328964316cbceecc",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "ac8f5b4010248dc74e601cadc9c79fa09839beff6ec6dc4602c11c26817f4100"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14068,
+          "sha256": "064e8ab829e817b32fce6bee5ba8586515354e8964d0c85c2aa91afaebe6e9ac"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/04/en/paper-white-courseware.md",
+      "relativePath": "reference/design_system/05_academic/04/en/paper-white-courseware.md",
+      "pathSha256": "f1dade64801668b3fa7e7151a588acaa6fbe73119441e18dc722a46a0d589e96",
+      "byteLength": 10997,
+      "sha256": "988afcc62005542f7efcc27f573c395a3887e1aedd291152ed4f5ab58fb30a2a",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 10997,
+          "sha256": "988afcc62005542f7efcc27f573c395a3887e1aedd291152ed4f5ab58fb30a2a"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/05/en/blue-line-courseware.md",
+      "relativePath": "reference/design_system/05_academic/05/en/blue-line-courseware.md",
+      "pathSha256": "c15f8e1a498365f17aee1452bd8fed0eaa9a7ed6c73c3281c766e09e9a2f3cff",
+      "byteLength": 10957,
+      "sha256": "75fca304e56562ea638980f64a1fba60ede6bd29737740f313fac0f4695ad482",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 10957,
+          "sha256": "75fca304e56562ea638980f64a1fba60ede6bd29737740f313fac0f4695ad482"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/05_academic/06/en/dark-themed-data.md",
+      "relativePath": "reference/design_system/05_academic/06/en/dark-themed-data.md",
+      "pathSha256": "88a3ba8cc2832e250c1b00fe954ea17d31ef45912b4e8d316c1dccfae5137282",
+      "byteLength": 21038,
+      "sha256": "b8540b4bd8cda0dd6e3e567426bfe77299974140036a81162c4339fa8f36265e",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "07007e570463aff6552b65980818eeae010a2abceb009434e202860c9b8b03c8"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 21038,
+          "sha256": "34b1842f3390a6a7ef11a9f6713beb105dc9145e48f3d8421cdb86541c17e455"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/blue-line-courseware/design.md",
+      "relativePath": "reference/design_system/academic/blue-line-courseware/design.md",
+      "pathSha256": "4845ae01252afa666cd4fa803a4571d77822777c2b82c3654d2f52ac79d0be10",
+      "byteLength": 14267,
+      "sha256": "cbceb29f83eefbab1b593923948344fc60143cb124fed37885eb78c07034701b",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "6e10ffe7299c32ca523acdd047dd5af4485941b6ff7696b1550192dd4c9327ca"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14267,
+          "sha256": "90863736b90464d05c8c52c001c9037527ec011d1eb7c78f6301501180035a3c"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/deep-blue-atlas/design.md",
+      "relativePath": "reference/design_system/academic/deep-blue-atlas/design.md",
+      "pathSha256": "b6e927f5b327ec4cfc047bbd8d1ead883b22d05dbfb2be82fef457e21143f182",
+      "byteLength": 13777,
+      "sha256": "9ec1dceff1768027c704261feee85c39ff84d4812a5eabdb116194452be7670a",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "bef9a69844b8d070f9329e574b7bd08e69d1afcd4358149a87a9334c1a1f7ede"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13777,
+          "sha256": "9aaf9687defd4d767c1a06c446e454e0cc508e67a1fdf5116837bbc229add8f7"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/paper-white-courseware/design.md",
+      "relativePath": "reference/design_system/academic/paper-white-courseware/design.md",
+      "pathSha256": "3be36a2ebe6c620cdb6796c94f05b8ac668e2b8c5878224b21e368a3d47dcb0b",
+      "byteLength": 14310,
+      "sha256": "afd099d9cd40a30c1a393c9910604b9caf8e4c6d8a1f490efad29b8da21cda53",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12286,
+          "sha256": "d158cb5a6265df2c288b7e68c4011c7a0ba7ff3551da9a995e93956e289b4a8f"
+        },
+        {
+          "index": 1,
+          "byteStart": 12286,
+          "byteEndExclusive": 14310,
+          "sha256": "04eeb803a82d86372c286993d771ed4b1adf11cabbeb9e15d95a29b12f12e275"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/pastel-derivation/design.md",
+      "relativePath": "reference/design_system/academic/pastel-derivation/design.md",
+      "pathSha256": "a3d132e9829ee91fe5c679e91dda4aebddf81531d9e77fb2ed25d58d347035ac",
+      "byteLength": 14971,
+      "sha256": "8c959783f95073be9c7f1df7382a987640e1f7b43ca23ae9e95b0211860ab83a",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "6f3104fa2b02de81e79aaa18aa09c16663dc36cfedafaccae4ed67e99a7019ec"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14971,
+          "sha256": "86114c88dd88ceb62adec13055cb167d4a1b9da086fb426b869db171fb5b9075"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/teal-green-academic-defense/design.md",
+      "relativePath": "reference/design_system/academic/teal-green-academic-defense/design.md",
+      "pathSha256": "fd2c94f0c6bda8d2e30ac627d7c4b00e42032dde31476afe33ec4cbe8c865477",
+      "byteLength": 14420,
+      "sha256": "2945f10d4844153aa26add53feabf105c54701216662154ca5ccf3353bdf11c9",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "081cb882982962edd72a1d7aa9c376bc1cb6c22b215fce66d2baa4a8cc736bfc"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14420,
+          "sha256": "d521e2a105c0065973b10220b413e4c736d652f3e42191163ad41abff8e13762"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/academic/wine-red-data/design.md",
+      "relativePath": "reference/design_system/academic/wine-red-data/design.md",
+      "pathSha256": "2c7d63f97240d5645ad23f9f7b19ec4234670a2dc373c1a650338bbb0c7ca409",
+      "byteLength": 14505,
+      "sha256": "6b6fa9f7ec50ea38a466dcd904682a129ac0d0c5f7b929ad788aa1b915876d1a",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "8146f3a72315a42893d37be416b99ddac95b671cdf13aaa9d3a2a4bbea32561d"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14505,
+          "sha256": "dc79f9172a29cd4038c05c29348d579f28493755346190e4904fc841db1daa35"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/apricot-white-brief/design.md",
+      "relativePath": "reference/design_system/consulting/apricot-white-brief/design.md",
+      "pathSha256": "613e8d040df47a7de70c9b47d4e6a4f3ff174fce7d3d15e41aa333d26cf7774d",
+      "byteLength": 17794,
+      "sha256": "94a912c08d769a44e7b13a8332fda0148299d708cb4d21beed5847feb0f67fc9",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "57645fa8210e529c59cd6216e8e0f68c29a3966d00cedc55ba169856da2ccb18"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 17794,
+          "sha256": "d0045577ec469b5a3fb86d2c7cfff23d6002ae327398414461861049fb975a1a"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/indigo-due-diligence/design.md",
+      "relativePath": "reference/design_system/consulting/indigo-due-diligence/design.md",
+      "pathSha256": "80fca20b1ebbc0ea4a202d01a225d37df6859d0e614fa2cc43d6590d16e0d19b",
+      "byteLength": 12056,
+      "sha256": "34ac9b1cdda0f344aaa1a36c5dca3ba5daad148295fc86642a4bdff96e948557",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12056,
+          "sha256": "34ac9b1cdda0f344aaa1a36c5dca3ba5daad148295fc86642a4bdff96e948557"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/marine-blue-research/design.md",
+      "relativePath": "reference/design_system/consulting/marine-blue-research/design.md",
+      "pathSha256": "a18c3e93ca785e2a9df00a2b340ec503ce5a6c8a743264c650f1a8bd584f1f0a",
+      "byteLength": 12057,
+      "sha256": "be40268248dcc50fba0e2ed06ad7427c80bf4ebc3b68c8403270a7ca9a658a62",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12057,
+          "sha256": "be40268248dcc50fba0e2ed06ad7427c80bf4ebc3b68c8403270a7ca9a658a62"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/moss-green-transformation/design.md",
+      "relativePath": "reference/design_system/consulting/moss-green-transformation/design.md",
+      "pathSha256": "0d2f8b54ce6d434b93dad7d6cf942e90248f7ee4601e94a094a1bcbaf303431c",
+      "byteLength": 13505,
+      "sha256": "f7f4e31e18f7ecd50017527c821003787aec2c0cd522842e213c4c017c4ffa81",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "7dfeeca174deccaf0d40e76b8e745fab816726238c268d0866973345cd69987c"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13505,
+          "sha256": "a16f7c7ad635eea216722e56ac0271e3be3227d3c3285f9d29cfcf9c099e431c"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/pine-green-strategy/design.md",
+      "relativePath": "reference/design_system/consulting/pine-green-strategy/design.md",
+      "pathSha256": "f8d29feaa6119e96a7f33a2d03c4f2ea224a291fb5e879bbf535df87cf769c62",
+      "byteLength": 15421,
+      "sha256": "29ed43e59579278a2fcd93f4ec4d915041c73c5a51a8e50111e2b16be7e7f121",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "fa17d5b8211a7951da26afdcfd8a45e1e530254d15fe6ad924c8d4f7003a08be"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15421,
+          "sha256": "0a33e4c83363fc2514bf09138a3ec7387f649c74d609f3ecfbff8bf12b3c760b"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/consulting/red-black-growth/design.md",
+      "relativePath": "reference/design_system/consulting/red-black-growth/design.md",
+      "pathSha256": "015363a23657409e5ddda6903e72fc9ce36aad9942674c11d70596eeb295d73f",
+      "byteLength": 12963,
+      "sha256": "83f3c08597dc51ae32aed1bcf7ec8210e27f2e003d6cff3a90be95c908531c8f",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "7173cb1415de4e91ac9536b824ac6210a0db95106ca1e04579a49957e949d3da"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 12963,
+          "sha256": "b6c4f88334fc3e6649aa4f74e611ea69fa68c7968a0b92282ad462d224ba8c81"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/black-gold-ledger/design.md",
+      "relativePath": "reference/design_system/finance/black-gold-ledger/design.md",
+      "pathSha256": "73b0cb096c1e1adc0180c73624d6d2987f88f52bde05db4f37f388031e5ae393",
+      "byteLength": 15611,
+      "sha256": "03e708f0b2a347f3de053b98081daffb875a51fe6570761234cfbacf32ca805b",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "b7cf59f2de5c798ac502b840b3f52221e9d20931891b581ed5953270734dd875"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15611,
+          "sha256": "b15f920d71ebab899d2f8183f967c58e0874e4deede5dd8c315d36b8dc036bb3"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/ebony-ledger/design.md",
+      "relativePath": "reference/design_system/finance/ebony-ledger/design.md",
+      "pathSha256": "e8a35dd9106550954c72bafab2912482072848c9057bb60070b3c3b08e0326b7",
+      "byteLength": 14968,
+      "sha256": "8d162c31122401419a011d1be21b0608aeae19df778ff443d7a2eeac9e13623c",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "fdbdc2b67ecb874299f45b112511fb9d320d3e50fc473b049b266172fd5ac88e"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14968,
+          "sha256": "87ab87b5e2b25a416ab25054ce295f4b916a4ec9f11ff820517700db4e89c070"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/honey-orange-memo/design.md",
+      "relativePath": "reference/design_system/finance/honey-orange-memo/design.md",
+      "pathSha256": "48eab7c3e536e752e4abc17c2c10b5fd24505915764a510fdebc927167f448b1",
+      "byteLength": 13093,
+      "sha256": "08af45cf6170095695d426e43a5d4a407d5579f4b092edef853eae0e957dea69",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "8568496f76491c4279708dab46055fc356ed636088ddb92880151536d4b3bea4"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13093,
+          "sha256": "8838503a52b4899722f120d485e00b6d4e6fdf84719c6c7c1b75eb53dafcc79e"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/lake-blue-memo/design.md",
+      "relativePath": "reference/design_system/finance/lake-blue-memo/design.md",
+      "pathSha256": "2944267c6b14b3377116482dd6fc0302fbf1623df5e66b2202f7026fcdaef35c",
+      "byteLength": 16367,
+      "sha256": "d866c14b688afd597e5ac27eda35385669b50b5bc52852cd195db1439c00bcd8",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "d924d23d3b34290f63521a1001992adcd11d06a0de95172b2c3ce2a62a55c6e5"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 16367,
+          "sha256": "4487c87cdec4d3b5b2be5f97fb796f49c06de7dfa322a60e163357302aeb862c"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/prospect-annual/design.md",
+      "relativePath": "reference/design_system/finance/prospect-annual/design.md",
+      "pathSha256": "eb8d0c5bd1eeb5fa96761533f305686f3a92a9f9d271f1223b4bbaf4f760e378",
+      "byteLength": 14998,
+      "sha256": "f84d64c4d10a8ebd0cc7161cacd85b338bbce295df552e9445ce2c109da76cd9",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "78064d47d70b465a9c54f8c50ceb32c95633b1171803ebfa045debe5bc136671"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14998,
+          "sha256": "1eed45c408de5f73eb2b4451ef77eb9b364f60a0257908b3ceac614020792ce0"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/finance/rice-paper-annual/design.md",
+      "relativePath": "reference/design_system/finance/rice-paper-annual/design.md",
+      "pathSha256": "b9574a9fe070cac167fe4fe24217400ffbdf4a30c422c3cd4e9a94f2756ca1c0",
+      "byteLength": 11329,
+      "sha256": "b98b50eced346dc6d86c00cf0acfeb32298b0e9521fb3bbee2b5889b6b82abbf",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 11329,
+          "sha256": "b98b50eced346dc6d86c00cf0acfeb32298b0e9521fb3bbee2b5889b6b82abbf"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/aqua-charity-report/design.md",
+      "relativePath": "reference/design_system/promotion/aqua-charity-report/design.md",
+      "pathSha256": "76d57b4d85b304ac07479054f69f7d659a4ded27267fe223c088e7797452a84d",
+      "byteLength": 15464,
+      "sha256": "26209fc8f074e44d139e977db283a79920954a2a15b045e4359d78cba14fd148",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "3c500cd28af36a101d08b8f8e4c5679f46f4cd674f26999ecc96f965a893e54d"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15464,
+          "sha256": "73eedf1ff72d28ef91b3bd879990e63c8791b9d79c6092cfc9b21485a0f0fd7d"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/cream-collage/design.md",
+      "relativePath": "reference/design_system/promotion/cream-collage/design.md",
+      "pathSha256": "bdb3f0fd81ec431be9c1c2bf9204e3f7e610c1ef2d4520ff47520ea21a133b25",
+      "byteLength": 12937,
+      "sha256": "9f8cfef54ff28d9ee8a9d998325b97e90bdd4f45703cc7f20d2a9cd40ba9b2ce",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "39889f5eeac1096ed458becc7fa673e48231294355590c17b3abaf3ef1849b39"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 12937,
+          "sha256": "754a233efdb9a6a7fd261927b1a63c16d87727cfcdc567a81f04ea6dfc2807ec"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/pine-soot-pictorial/design.md",
+      "relativePath": "reference/design_system/promotion/pine-soot-pictorial/design.md",
+      "pathSha256": "5b732583c2b995f737dded581aaa60881ed71d7e41bda5caaeac42bca9902f52",
+      "byteLength": 14309,
+      "sha256": "f755132236574cb66d8937d55e3cde5df5ad5900ff19ae6960e7d9bbbd0705bd",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "09762b9e9f29202930ab2f2811e1c8fc0a58ea18ab8a0b933442901de751cb2b"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14309,
+          "sha256": "ecff59592fe66de6fda03adbe622e9e6edc91fabc1690c42f3f0540346b1e598"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/silk-yellow-magazine/design.md",
+      "relativePath": "reference/design_system/promotion/silk-yellow-magazine/design.md",
+      "pathSha256": "fe09acaf848707bf66eccbf1f907fbbac0b6af2cfb28b495e313a01a57571078",
+      "byteLength": 13578,
+      "sha256": "935291996cc74934c6980fddfceb7eeeda96b98cae573e379d657e22ed47ea90",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "0de31add439bf991ed8a13fc19da94955c21895e7ba0b9a34071e8d6bd1ccb61"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13578,
+          "sha256": "ed0753b0a8ce8986e8019b84b974d6bfe940ad188f13863c66df611a7cd6171f"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/silver-gray-luxury-magazine/design.md",
+      "relativePath": "reference/design_system/promotion/silver-gray-luxury-magazine/design.md",
+      "pathSha256": "278237599b8c6d68007aa828678602a85c45747778276453676044f8d647f1ad",
+      "byteLength": 14171,
+      "sha256": "883ca1821b3cfcf0d3b5282296168a8cbb361e675611709fccbc8fc40dc69ed1",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "26d030592be45f6c94d2d8f46166660de6bcf81d2880c0ba7cb1219aa1e8a7a2"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14171,
+          "sha256": "ba2364e4055739c2f5f2278b94f51785112f59e17cf57f801e1dcefd4c4601aa"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/promotion/travel-green-handbook/design.md",
+      "relativePath": "reference/design_system/promotion/travel-green-handbook/design.md",
+      "pathSha256": "4b35394cb5f4b1e68a5f59da2e6a9b7d26e017096af00b2c61017f82f9218044",
+      "byteLength": 15734,
+      "sha256": "5e960091a9f92bb95a5a0afb28d5341d4c58b74d36a7f83dd37c1854bb221018",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "76966d6ca38a886be9a195d1c17d714a56145e8fdfbb5ea146a65a402cd0a631"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15734,
+          "sha256": "44b6c0d20ee9c2dfafe3a2f609fd4e398e2736e846acae631ec5f59d449681ba"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/blue-flame-brand/design.md",
+      "relativePath": "reference/design_system/work/blue-flame-brand/design.md",
+      "pathSha256": "a18f590d312cecea9e38ff46e3f2365c70714b3881b5e95e24f64f50431092d4",
+      "byteLength": 14982,
+      "sha256": "49c6d12df76e72e8940e99b5251ddeb8b31a570a1fa8d217f9f672e39a7dc924",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "1a9690f1b52bf95e60875b4a8b14c00be4f04b8982caf98e4f878d2abe1667ea"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 14982,
+          "sha256": "a25631d8c8545d4c72ba3953eb9764fdb51cb549f6aa361b8c6d94489b4d4bb4"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/electric-violet-business/design.md",
+      "relativePath": "reference/design_system/work/electric-violet-business/design.md",
+      "pathSha256": "5ca96fb6291d4ca38da0083fc82903351aeca0b4d243e81d980613d28e15c999",
+      "byteLength": 13346,
+      "sha256": "30b7f007eeb5fc7495f98a22240847504c02c002a6413e5ac7afcf0901a923cb",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "021c2a0c5c770533680e35d82c13498859ff9694d3eb738bc4e3736a2aede28f"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13346,
+          "sha256": "680c351ca8e7c2a21e8b79c920db932cfb021b597e2a28b18a9c3c1ebde3fd74"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/moon-white-imagery/design.md",
+      "relativePath": "reference/design_system/work/moon-white-imagery/design.md",
+      "pathSha256": "ac42899265b7a3e35698f48ad5a1e4f4df80064619a098a66c6aae667f38499c",
+      "byteLength": 13833,
+      "sha256": "30e29b39a01630a1fa91b915731a5529b559fcec42a32def2c071be3f0c9dfcd",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "2039cf6866eda75115c67eeafdd461128247c349611238a57ae901397034841d"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13833,
+          "sha256": "351304fca1afde1530a95443f01b14930bd1cc40de3c0fd8b3a62a594b009d8c"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/sky-blue-wayfinding/design.md",
+      "relativePath": "reference/design_system/work/sky-blue-wayfinding/design.md",
+      "pathSha256": "fcfcfebcafee814927132df4edab53a74cefd6faece566ca30344f48d839c14d",
+      "byteLength": 15769,
+      "sha256": "da54734ef2f533e72b11f8d75fe8d2a8629489d2f3491214c0589bc938a69e65",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "40dae98646dc13fc0d0409b1acb6c59bb0c011c7f47a4e0efa5607a6cd6b2006"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15769,
+          "sha256": "aeca0fb68be545c6c08a85a17841eabe1eb0d091832f86922270d9007a8db3e0"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/warm-clay-works/design.md",
+      "relativePath": "reference/design_system/work/warm-clay-works/design.md",
+      "pathSha256": "7f15ff9928f6fbb28683322d07da49c4d6d302cff5c7c4b59354a884b2ed357c",
+      "byteLength": 13808,
+      "sha256": "8c4db65126cbb7a2e80c444a5ee7e6d07e219c2dd4d604f1392dc704398bd856",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "c18931bc526da5f558b6884f599ed97bb3c5d23eb8b1186a75231d6007e85f43"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 13808,
+          "sha256": "17fae2ee6aa0316e803d5dc7ef151a99c629d9df10cabb3d30710a76dfcec723"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/design_system/work/warm-jade-annual-report/design.md",
+      "relativePath": "reference/design_system/work/warm-jade-annual-report/design.md",
+      "pathSha256": "62a6d5e040ff0fbbdcfea1ba3b2f84288779b25a9d2498f55d6e5a159e295452",
+      "byteLength": 16040,
+      "sha256": "5961b8a59ad467f283fe1e6aa49b7866784e876f4b30a6a0dae83d9508a1d735",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "e2de525a7c0c9d986d94296abbacbf1139b13a1bf6fd650577efcd19313dcf4c"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 16040,
+          "sha256": "cf44a38c2bf8f84d16b68b5fd745d80dabf46f1cd57f5074b35763b9c5213328"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/fonts.md",
+      "relativePath": "reference/fonts.md",
+      "pathSha256": "373c94ea9a3d5e9019a074307adbb1bfe8ee1cc3e649be285acfa57b44338491",
+      "byteLength": 5511,
+      "sha256": "99d1e7719535e78519c3a5805c6a6e2b999323030eeeb52a350f79da20861f1b",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 5511,
+          "sha256": "99d1e7719535e78519c3a5805c6a6e2b999323030eeeb52a350f79da20861f1b"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/general-poster.md",
+      "relativePath": "reference/general-poster.md",
+      "pathSha256": "e5415c6e240f9f5dd3eee157bdbc04298eba6535c9706ad1acd8c6b90c8e6bfd",
+      "byteLength": 27404,
+      "sha256": "93540877bdafc194042784de15a67f7403259638563d13504feb6f5d8ee43281",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "2dd01e416a18e36c9a0d321cb2550f873842451b9cc742bf7570d0b7d52164bb"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 24576,
+          "sha256": "a17b928866c494d1b5d3800d4b6f7b7e56cf5f7c06f8a46f768b289eaf35a079"
+        },
+        {
+          "index": 2,
+          "byteStart": 24576,
+          "byteEndExclusive": 27404,
+          "sha256": "f05c31ce860edc97cf99fee39a1b4be0a601908b198ba2e756e517accad83974"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/pptd.md",
+      "relativePath": "reference/pptd.md",
+      "pathSha256": "987c7eac36a172ff8d1db5e958df3c3f9583781a2cf32c9360397a2bf66380aa",
+      "byteLength": 88335,
+      "sha256": "03068da917aba6ca7c4a7092df61256b7b3424133335adc5b431afa214ba655d",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "95f9224dc7b2f2b65a4193d48caa973191ffae47d88e0c0d8e8fe0882760983c"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 24576,
+          "sha256": "876a0c8f9a97bde07b279fe9e275f4707cb8a3c64f62592adb3867719fc4d9c7"
+        },
+        {
+          "index": 2,
+          "byteStart": 24576,
+          "byteEndExclusive": 36864,
+          "sha256": "5e2e99338193cd5d77d9cc6b9063c4837b08e735b335939656c777f3d539a636"
+        },
+        {
+          "index": 3,
+          "byteStart": 36864,
+          "byteEndExclusive": 49152,
+          "sha256": "8d071d874f30286e7c832d9d7db0bddf8304144549cb77b88bcb1d623c80b8c5"
+        },
+        {
+          "index": 4,
+          "byteStart": 49152,
+          "byteEndExclusive": 61440,
+          "sha256": "f08a43967a1b3d2efe9b5b050e9c25394511d9c800885a4cdf6d536a6702c9c0"
+        },
+        {
+          "index": 5,
+          "byteStart": 61440,
+          "byteEndExclusive": 73728,
+          "sha256": "c42cb592b1d6258744e6248f4d1e36db111e5555a72bd8bbf10cf3ee170605e3"
+        },
+        {
+          "index": 6,
+          "byteStart": 73728,
+          "byteEndExclusive": 86016,
+          "sha256": "30e0aacea88fc0f4a05c4099ec3081ff45c3c0320f664d433b2c21cb9a3fd146"
+        },
+        {
+          "index": 7,
+          "byteStart": 86016,
+          "byteEndExclusive": 88335,
+          "sha256": "9b66dfaa6173704bc40cce66fd13902b1a7e7d9d592ee2cc67078a1168069e68"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/shapes.md",
+      "relativePath": "reference/shapes.md",
+      "pathSha256": "c3abe41217b4f45ac739cf5816d4e3a5b3cb8b1943f0bbf5510d4fbac7cd1bf2",
+      "byteLength": 15399,
+      "sha256": "3b7a343ba6e1116144312d7585f30cd2033b96cf1fbf0647cfe1250082a15cfd",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "2639a3eb9da26b5cdb978d689ba146e9888192d129bc7bc0053b09065d11679a"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15399,
+          "sha256": "6babc8aa27c5227d9d918ad47e184ec7d03391bde89e0b7ac5fd00c592863a88"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories.md",
+      "relativePath": "reference/slides_categories.md",
+      "pathSha256": "7f016bfc3efa6f5d330ec527604596cdaa1193a4cd74e516c54a2c973f16f2f5",
+      "byteLength": 4798,
+      "sha256": "196ef1d40fbe6d670e5d4e6e148f9f1ed06d2b54de337a431e884adb899622b9",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 4798,
+          "sha256": "196ef1d40fbe6d670e5d4e6e148f9f1ed06d2b54de337a431e884adb899622b9"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/academic-research.md",
+      "relativePath": "reference/slides_categories/academic-research.md",
+      "pathSha256": "42e439bb91c1106c7e77e211e8f870d786e148ed74eebb4f13fe76ab61b6fed0",
+      "byteLength": 15523,
+      "sha256": "6dcb08a7af81d9fba07ba8fa899c7feefb6a11f029a437d1b556db69c426bc7a",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "4fdbf55b89b43ad9bd6e92e218936edf7e3e25dfca0c9b45a792ac4daa28d06e"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15523,
+          "sha256": "9775dbb595053150c29d3ab3a0c49d189c8e7239c9436d691962f208c03cf855"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/analysis-decision.md",
+      "relativePath": "reference/slides_categories/analysis-decision.md",
+      "pathSha256": "4ebf617c97286f63bfa797381e7baf22d69d3649535186daaa21880658f9b996",
+      "byteLength": 6086,
+      "sha256": "99beb366864485cd2f090a7475ba1371daefd82ec2d6df2a448962f6298188bf",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 6086,
+          "sha256": "99beb366864485cd2f090a7475ba1371daefd82ec2d6df2a448962f6298188bf"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/brand-creative.md",
+      "relativePath": "reference/slides_categories/brand-creative.md",
+      "pathSha256": "886f784cea6894a278059cd1066902dcc840d95454000ec6eaeca3af2a5eb0a7",
+      "byteLength": 15037,
+      "sha256": "f2ecc90a24c48cdeba1b9d33c5bcf95c831fe66a00398d464c6e0e95ce38f32b",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "722eaafd4b631481b39f1af49c6c0ed93e0a5738137506a57eb61ac7b8943ff5"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 15037,
+          "sha256": "5397f9abf55f445df19adeb4c2f235e961f219956cd62153b8c196dc65bd5f18"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/business-plan.md",
+      "relativePath": "reference/slides_categories/business-plan.md",
+      "pathSha256": "81a25ebc0e3ba8d35e2eb80d583f13061572b0988c17118b546e0b44a2518501",
+      "byteLength": 6535,
+      "sha256": "d81fc8f02c0c844845fe72b8fb7f78e6a4e1f35ef933c91ea284680e139a1e12",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 6535,
+          "sha256": "d81fc8f02c0c844845fe72b8fb7f78e6a4e1f35ef933c91ea284680e139a1e12"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/education-training.md",
+      "relativePath": "reference/slides_categories/education-training.md",
+      "pathSha256": "80a445a2165faf04b0c53ca1f461b97710b1f16d68a796e0b42c77cc0c91b005",
+      "byteLength": 24812,
+      "sha256": "a3f1583f92d1b829c6a466708222668a70fb8e3f1b19102b583af432c6ae89de",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "a6068fa9a8ccb21f32db5ede95b78e74cc12831337181c1c10cefa8492d9a79e"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 24576,
+          "sha256": "a6bce12488c8964acaf7762890633004ba07573e6c639dd88b4c683db0cbc396"
+        },
+        {
+          "index": 2,
+          "byteStart": 24576,
+          "byteEndExclusive": 24812,
+          "sha256": "e6f8b1918da08696071172f0b42a90548233797e4e675a18fdb959826876a0ef"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/management-report.md",
+      "relativePath": "reference/slides_categories/management-report.md",
+      "pathSha256": "121ff415fa7c471571259194603935206b054f114996dd4554c45664fcf3cc50",
+      "byteLength": 5763,
+      "sha256": "f123740acdfc75899feb75fadd23f282e683c993646b730c1539d1d7cdcccd07",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 5763,
+          "sha256": "f123740acdfc75899feb75fadd23f282e683c993646b730c1539d1d7cdcccd07"
+        }
+      ]
+    },
+    {
+      "sourceId": "openkimi:reference/slides_categories/tech-engineering.md",
+      "relativePath": "reference/slides_categories/tech-engineering.md",
+      "pathSha256": "31cc787c2884a5a68142749c8ffec3287f6ce7e060ee7d53e61bc6f301ad9300",
+      "byteLength": 18940,
+      "sha256": "4b13d120656b28f5d05b185729a5bd1dd159a30015fb102a63cd2715c40f6ebc",
+      "chunks": [
+        {
+          "index": 0,
+          "byteStart": 0,
+          "byteEndExclusive": 12288,
+          "sha256": "46bd03dbd8b3da939df9a3ccbfce263776f8a680138adbf500bbc2f533d783fe"
+        },
+        {
+          "index": 1,
+          "byteStart": 12288,
+          "byteEndExclusive": 18940,
+          "sha256": "842480ccc4f5f02009ce98042d49dc817631f8b7d75a43daf9f49262f810c389"
+        }
+      ]
+    }
+  ]
+}

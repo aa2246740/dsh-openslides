@@ -1,0 +1,75 @@
+import { t } from "./i18n.js";
+
+function cleanSelection(selection = {}) {
+  return {
+    provider: String(selection.provider || "").trim(),
+    model: String(selection.model || "").trim(),
+  };
+}
+
+export function createHealthRequestGate() {
+  let latest = 0;
+  return {
+    begin(selection) {
+      return { id: ++latest, selection: cleanSelection(selection) };
+    },
+    isCurrent(request, selection) {
+      const current = cleanSelection(selection);
+      return Boolean(
+        request &&
+        request.id === latest &&
+        request.selection.provider === current.provider &&
+        request.selection.model === current.model,
+      );
+    },
+  };
+}
+
+export function healthSelectionMatches(requested, received) {
+  const want = cleanSelection(requested);
+  const got = cleanSelection({
+    provider: received?.providerId ?? received?.provider,
+    model: received?.model,
+  });
+  return (!want.provider || want.provider === got.provider) &&
+    (!want.model || want.model === got.model);
+}
+
+export function selectedHealthReady(health) {
+  return health?.selection?.ready === true;
+}
+
+/**
+ * The four things the Hub strip shows for the model the user is about to
+ * send. `on` lights the chip; `hint` explains why on hover.
+ */
+export function capabilityViewModel(card, extras = {}) {
+  if (extras.state === "loading" || extras.state === "mismatch" || extras.state === "error" || !card) {
+    return { chips: [] };
+  }
+
+  const visionMode = card.vision?.mode;
+  const modelAcceptsImages = card.vision?.modelAcceptsImages;
+  const providerReady = extras.piAuthReady ?? extras.piAvailable ?? card.runtime?.piAvailable;
+  const visionOn = visionMode === "main-model" || visionMode === "reviewer";
+  const visionHint = visionMode === "main-model"
+    ? t("当前模型能看页面")
+    : visionMode === "reviewer"
+      ? t("由独立审阅模型看页面")
+      : modelAcceptsImages && !providerReady
+        ? t("这个模型能看页面，但还没登录")
+        : t("当前模型不支持看页面");
+  const researchOn = Boolean(card.research?.configured);
+  const nativeSearch = card.research?.via === "native" || card.research?.via === "pi-xai-hosted";
+  const searchOn = Boolean(card.imageSearch?.configured);
+  const generateOn = Boolean(card.imageGenerate?.configured);
+
+  return {
+    chips: [
+      { id: "vision", label: t("看图"), on: visionOn, hint: visionHint },
+      { id: "research", label: t("联网"), on: researchOn, hint: researchOn ? (nativeSearch ? t("联网检索 · 模型自带") : t("联网检索工具 · 已配置")) : t("联网检索 · 未配置") },
+      { id: "search", label: t("搜图"), on: searchOn, hint: searchOn ? t("搜图工具 · 已配置") : t("搜图工具 · 未配置") },
+      { id: "generate", label: t("生图"), on: generateOn, hint: generateOn ? t("生图工具 · 已配置") : t("生图工具 · 未配置") },
+    ],
+  };
+}

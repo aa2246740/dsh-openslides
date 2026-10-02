@@ -1,0 +1,506 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t3
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 41–60 / 177
+      style: $body
+  - elementId: sh-funnel
+    elementType: shape
+    shapeName: funnel
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-funnel
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: funnel
+      style: $body
+      fontSize: 10
+  - elementId: sh-gear6
+    elementType: shape
+    shapeName: gear6
+    adjustments:
+      - 15000
+      - 3526
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-gear6
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: gear6
+      style: $body
+      fontSize: 10
+  - elementId: sh-gear9
+    elementType: shape
+    shapeName: gear9
+    adjustments:
+      - 10000
+      - 1763
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-gear9
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: gear9
+      style: $body
+      fontSize: 10
+  - elementId: sh-plaque
+    elementType: shape
+    shapeName: plaque
+    adjustments:
+      - 16667
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-plaque
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: plaque
+      style: $body
+      fontSize: 10
+  - elementId: sh-doubleWave
+    elementType: shape
+    shapeName: doubleWave
+    adjustments:
+      - 6250
+      - 0
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-doubleWave
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: doubleWave
+      style: $body
+      fontSize: 10
+  - elementId: sh-wave
+    elementType: shape
+    shapeName: wave
+    adjustments:
+      - 12500
+      - 0
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-wave
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: wave
+      style: $body
+      fontSize: 10
+  - elementId: sh-lineInv
+    elementType: shape
+    shapeName: lineInv
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-lineInv
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: lineInv
+      style: $body
+      fontSize: 10
+  - elementId: sh-round1Rect
+    elementType: shape
+    shapeName: round1Rect
+    adjustments:
+      - 16667
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-round1Rect
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: round1Rect
+      style: $body
+      fontSize: 10
+  - elementId: sh-round2DiagRect
+    elementType: shape
+    shapeName: round2DiagRect
+    adjustments:
+      - 16667
+      - 0
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-round2DiagRect
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: round2DiagRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-round2SameRect
+    elementType: shape
+    shapeName: round2SameRect
+    adjustments:
+      - 16667
+      - 0
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-round2SameRect
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: round2SameRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-snip1Rect
+    elementType: shape
+    shapeName: snip1Rect
+    adjustments:
+      - 16667
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-snip1Rect
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: snip1Rect
+      style: $body
+      fontSize: 10
+  - elementId: sh-snip2DiagRect
+    elementType: shape
+    shapeName: snip2DiagRect
+    adjustments:
+      - 0
+      - 16667
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-snip2DiagRect
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: snip2DiagRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-snip2SameRect
+    elementType: shape
+    shapeName: snip2SameRect
+    adjustments:
+      - 16667
+      - 0
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-snip2SameRect
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: snip2SameRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-snipRoundRect
+    elementType: shape
+    shapeName: snipRoundRect
+    adjustments:
+      - 16667
+      - 16667
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-snipRoundRect
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: snipRoundRect
+      style: $body
+      fontSize: 10
+  - elementId: sh-star4
+    elementType: shape
+    shapeName: star4
+    adjustments:
+      - 12500
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-star4
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: star4
+      style: $body
+      fontSize: 10
+  - elementId: sh-star5
+    elementType: shape
+    shapeName: star5
+    adjustments:
+      - 19098
+      - 105146
+      - 110557
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-star5
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: star5
+      style: $body
+      fontSize: 10
+  - elementId: sh-star6
+    elementType: shape
+    shapeName: star6
+    adjustments:
+      - 28868
+      - 115470
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-star6
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: star6
+      style: $body
+      fontSize: 10
+  - elementId: sh-star7
+    elementType: shape
+    shapeName: star7
+    adjustments:
+      - 34601
+      - 102572
+      - 105210
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-star7
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: star7
+      style: $body
+      fontSize: 10
+  - elementId: sh-star8
+    elementType: shape
+    shapeName: star8
+    adjustments:
+      - 37500
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-star8
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: star8
+      style: $body
+      fontSize: 10
+  - elementId: sh-star10
+    elementType: shape
+    shapeName: star10
+    adjustments:
+      - 42533
+      - 105146
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-star10
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: star10
+      style: $body
+      fontSize: 10

@@ -1,0 +1,58 @@
+{
+  "id": "chrome.export.pptx",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.export",
+  "title": "导出 PPTX",
+  "description": "Confirm PPTX from S2 dialog; native exporter-native zip.",
+  "kimiUi": {
+    "controlLabel": "PPTX",
+    "location": "export dialog",
+    "appearsWhen": "export dialog open"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "dialog",
+    "steps": [
+      "Open 导出",
+      "Choose PPTX",
+      "Download"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change"
+    },
+    "export": {
+      "notes": "PPTX 下载显式绑定当前项目；export-project-dom.test.mjs 双标签页真实下载校验文件名和 slide1.xml。真实两页修改后导出包含新标题，coverage 1、0 降级；见 docs/acceptance/2026-09-20-assistant-chat.md。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "exportProjectToPptx"
+  },
+  "test": {
+    "id": "EO-EXPORT-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "POST /api/export returns PK zip",
+      "另一标签页打开其他项目后，下载仍包含当前文稿内容"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T16:00:00.000Z",
+    "agent": "s1-s2-s4-slice"
+  },
+  "updatedAt": "2026-09-20T05:00:27.850901+00:00"
+}

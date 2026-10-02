@@ -1,0 +1,46 @@
+{
+  "id": "element.ungroup.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "取消编组",
+  "kimiUi": {
+    "controlLabel": "解组",
+    "location": "上下文工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "解组"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "clears groupId"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-UNGROUP-SET",
+    "selfTestChecklist": [
+      "ungroupSelected removes groupId"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T13:20:00.000Z",
+    "agent": "s3-group"
+  },
+  "updatedAt": "2026-08-15T13:20:00.000Z"
+}

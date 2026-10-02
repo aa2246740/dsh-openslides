@@ -1,0 +1,205 @@
+pageType: content
+background:
+  type: image
+  src: media/bg_performance.jpg
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 0
+      stops:
+        - position: 0
+          color: "#000000F0"
+        - position: 0.55
+          color: "#00000096"
+        - position: 1
+          color: "#00000026"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 60
+      - 48
+      - 520
+      - 22
+    content:
+      style: $label
+      text: PERFORMANCE & HANDLING · 性能与操控
+  - elementId: title
+    elementType: text
+    bounds:
+      - 60
+      - 88
+      - 640
+      - 56
+    content:
+      style: $pageTitle
+      text: 自信从容，强大内蕴
+  - elementId: lead
+    elementType: text
+    bounds:
+      - 60
+      - 148
+      - 480
+      - 44
+    content:
+      fontSize: 14
+      color: $w70
+      lineHeight: 1.7
+      text: |
+        从电机到底盘，以强悍性能与稳定掌控，
+        回应每一种向前的渴望。
+  - elementId: p1-title
+    elementType: text
+    bounds:
+      - 60
+      - 226
+      - 460
+      - 30
+    content:
+      fontSize: 18
+      color: $white
+      bold: true
+      letterSpacing: 1
+      text: 小米超级电机 V6s Plus
+  - elementId: p1-desc
+    elementType: text
+    bounds:
+      - 60
+      - 258
+      - 460
+      - 40
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 分段磁钢 + 电压过调制技术，转速更快、功率更高，性能全面提升
+  - elementId: p2-title
+    elementType: text
+    bounds:
+      - 60
+      - 310
+      - 460
+      - 30
+    content:
+      fontSize: 18
+      color: $white
+      bold: true
+      letterSpacing: 1
+      text: 小米蛟龙底盘
+  - elementId: p2-desc
+    elementType: text
+    bounds:
+      - 60
+      - 342
+      - 460
+      - 40
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 闭式双腔空气弹簧 + 连续阻尼可变减振器，运动与舒适兼得
+  - elementId: p3-title
+    elementType: text
+    bounds:
+      - 60
+      - 394
+      - 460
+      - 30
+    content:
+      fontSize: 18
+      color: $white
+      bold: true
+      letterSpacing: 1
+      text: Brembo® 前四活塞固定卡钳
+  - elementId: p3-desc
+    elementType: text
+    bounds:
+      - 60
+      - 426
+      - 460
+      - 40
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 强劲制动力，兼顾性能与安全，山路与高速皆得心应手
+  - elementId: endurance-num
+    elementType: text
+    bounds:
+      - 620
+      - 320
+      - 300
+      - 80
+    content:
+      align:
+        - right
+        - middle
+      text: >
+        <p style="text-align:right"><span style="font-size:54px; color:#FFFFFF;
+        font-weight:700;">3944</span><span style="font-size:22px; color:#FF6900;
+        font-weight:700;"> km</span></p>
+  - elementId: endurance-label
+    elementType: text
+    bounds:
+      - 620
+      - 402
+      - 300
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      align:
+        - right
+        - middle
+      text: 24 小时耐力挑战总行驶里程
+  - elementId: endurance-note
+    elementType: text
+    bounds:
+      - 620
+      - 428
+      - 300
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: YU7 Max 测试车 · 中汽中心·华诚认证
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 490
+      - 700
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      text: >
+        数据来源：<a href="https://www.xiaomiev.com/yu7">小米汽车官网 xiaomiev.com/yu7</a>
+        · 配置区分车型版本
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 04 / 08

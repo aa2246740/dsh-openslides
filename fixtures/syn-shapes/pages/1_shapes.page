@@ -1,0 +1,134 @@
+pageType: content
+background:
+  type: solid
+  color: "#F8FAFC"
+animations:
+  - elementId: sh-round
+    effect: fade-in
+    trigger: onClick
+    durationMs: 400
+  - elementId: sh-arrow
+    effect: fly-in
+    trigger: afterPrevious
+    durationMs: 500
+    delayMs: 200
+elements:
+  - elementId: title
+    elementType: text
+    bounds:
+      - 24
+      - 12
+      - 900
+      - 28
+    content:
+      text: OOXML对照 presets · rect / roundRect / ellipse / triangle / rightArrow /
+        callout
+      style: $title
+  - elementId: sh-rect
+    elementType: shape
+    shapeName: rect
+    bounds:
+      - 36
+      - 56
+      - 140
+      - 88
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: sh-round
+    elementType: shape
+    shapeName: roundRect
+    adjustments:
+      - 16667
+    bounds:
+      - 200
+      - 56
+      - 140
+      - 88
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: sh-ellipse
+    elementType: shape
+    shapeName: ellipse
+    bounds:
+      - 364
+      - 56
+      - 140
+      - 88
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: sh-tri
+    elementType: shape
+    shapeName: triangle
+    adjustments:
+      - 50000
+    bounds:
+      - 528
+      - 56
+      - 140
+      - 88
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: sh-arrow
+    elementType: shape
+    shapeName: rightArrow
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 692
+      - 56
+      - 160
+      - 88
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: sh-callout
+    elementType: shape
+    shapeName: accentBorderCallout1
+    adjustments:
+      - 18750
+      - -8333
+      - 112500
+      - -38333
+    bounds:
+      - 140
+      - 180
+      - 220
+      - 140
+    fill:
+      type: solid
+      color: "#F97316"
+    border:
+      style: solid
+      width: 2
+      color: "#111111"
+  - elementId: photo
+    elementType: image
+    src: media/photo.png
+    bounds:
+      - 288
+      - 180
+      - 280
+      - 160
+    crop:
+      left: 0.08
+      top: 0.08
+      right: 0.08
+      bottom: 0.08
+    fit:
+      mode: cover
+  - elementId: ico
+    elementType: icon
+    iconName: fas:star
+    bounds:
+      - 600
+      - 200
+      - 72
+      - 72
+    fill:
+      type: solid
+      color: "#F59E0B"

@@ -1,0 +1,53 @@
+{
+  "id": "chrome.workspace.refine",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "自然语言精修当前页",
+  "kimiUi": {
+    "controlLabel": "左侧对话发送",
+    "location": "split workspace chat",
+    "appearsWhen": "editor open"
+  },
+  "preconditions": {
+    "fixtureId": "syn-shapes",
+    "pageIndex": 0,
+    "selection": { "kind": "none" }
+  },
+  "action": {
+    "type": "type-text",
+    "steps": [
+      "Type a refine instruction in the left Agent pane",
+      "Submit",
+      "Current page PPTD updates (replace / title / color / animation)"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "mutates current page text/fill/background/animation; snapshots version first"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "applyNaturalRefine"
+  },
+  "test": {
+    "id": "EO-CHROME-WORKSPACE-REFINE",
+    "automated": true,
+    "selfTestChecklist": [
+      "把A改成B replaces matching text",
+      "背景改成蓝色 writes page.background"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-08-15T00:00:00.000Z",
+    "agent": "native-1-1",
+    "sessionId": "goal-1-1-2026-08-15"
+  },
+  "updatedAt": "2026-08-15T00:00:00.000Z"
+}

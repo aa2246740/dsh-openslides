@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "open-slidestudio.editor-human-audit.v1",
+  "generatedAt": "2026-09-05T13:20:54.572Z",
+  "base": "http://127.0.0.1:55481",
+  "results": [
+    {
+      "name": "table edit is committed before rail navigation",
+      "ok": true,
+      "evidence": {
+        "modelPage": 1,
+        "activeDom": "1",
+        "staleTableVisible": false
+      }
+    },
+    {
+      "name": "table edit is committed before export opens",
+      "ok": true,
+      "evidence": {
+        "tableId": "table-1",
+        "modelValue": "AUDIT_TABLE_EXPORT"
+      }
+    },
+    {
+      "name": "notes autosave remains bound to the page where typing occurred",
+      "ok": true,
+      "evidence": {
+        "pageOneNotes": "AUDIT_NOTES_PAGE_ONE",
+        "pageTwoNotes": ""
+      }
+    },
+    {
+      "name": "undo after adding the last page keeps a valid current page",
+      "ok": true,
+      "evidence": {
+        "before": [
+          0,
+          8
+        ],
+        "after": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "name": "table edit is one undoable transaction across the toolbar boundary",
+      "ok": true,
+      "evidence": {
+        "tableId": "table-1",
+        "undoneValue": "列 A",
+        "redoneValue": "AUDIT_TABLE_UNDO_REDO"
+      }
+    },
+    {
+      "name": "shape gallery search categories line presets and icon filters stay usable",
+      "ok": true,
+      "evidence": {
+        "allShapeCount": 177,
+        "filteredShapeCount": 11,
+        "categoryCount": 15,
+        "linePresetCount": 3,
+        "outlineIconCount": 96,
+        "arrowIconCount": 96
+      }
+    },
+    {
+      "name": "keyboard copy and context-menu paste share the editor clipboard",
+      "ok": true,
+      "evidence": {
+        "before": 3,
+        "after": 5,
+        "delta": 2
+      }
+    },
+    {
+      "name": "rejected text save blocks navigation and retries without losing the edit",
+      "ok": true,
+      "evidence": {
+        "rejected": true,
+        "finalPage": 0,
+        "text": "AUDIT_RETRY_TEXT_SENTINEL"
+      }
+    },
+    {
+      "name": "rejected notes save blocks once and retries the original page buffer",
+      "ok": true,
+      "evidence": {
+        "rejected": true,
+        "finalPage": 0,
+        "notes": "AUDIT_RETRY_NOTES_SENTINEL"
+      }
+    },
+    {
+      "name": "notes typed while navigation is in flight stay on the capture-time page",
+      "ok": true,
+      "evidence": {
+        "delayed": true,
+        "pageOneNotes": "AUDIT_INFLIGHT_NOTES_SENTINEL",
+        "pageTwoNotes": ""
+      }
+    }
+  ],
+  "browserErrors": [],
+  "expectedBrowserErrors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ],
+  "serverLog": "Open SlideStudio  http://127.0.0.1:55481/\n创建 Hub 是默认首页。编辑器: http://127.0.0.1:55481/index.html\nDefault project: /Users/wu/Documents/ChatGPT/openslides/latest/fixtures/okp-yu7-ppt\nZero Kimi iframe/CDN in this shell.\n"
+}

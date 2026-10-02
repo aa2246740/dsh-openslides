@@ -1,0 +1,243 @@
+pageType: final
+background:
+  type: image
+  src: media/bg_final.jpg
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 90
+      stops:
+        - position: 0
+          color: "#00000070"
+        - position: 0.55
+          color: "#000000AD"
+        - position: 1
+          color: "#000000F0"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 60
+      - 46
+      - 520
+      - 22
+    content:
+      style: $label
+      text: SPACE & ECOLOGY · 空间与生态
+  - elementId: title
+    elementType: text
+    bounds:
+      - 60
+      - 84
+      - 720
+      - 56
+    content:
+      style: $pageTitle
+      text: 全能实力，从容远行
+  - elementId: lead
+    elementType: text
+    bounds:
+      - 60
+      - 144
+      - 720
+      - 30
+    content:
+      fontSize: 14
+      color: $w70
+      text: 宽敞空间、多变场景与全场景生态，让出行不再精打细算
+  - elementId: st1-line
+    elementType: shape
+    bounds:
+      - 60
+      - 208
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: st2-line
+    elementType: shape
+    bounds:
+      - 300
+      - 208
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: st3-line
+    elementType: shape
+    bounds:
+      - 540
+      - 208
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: space1-num
+    elementType: text
+    bounds:
+      - 60
+      - 224
+      - 200
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">141</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> L</span></p>
+  - elementId: space1-label
+    elementType: text
+    bounds:
+      - 60
+      - 286
+      - 200
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 电动前备箱
+  - elementId: space2-num
+    elementType: text
+    bounds:
+      - 300
+      - 224
+      - 200
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">1970</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> L</span></p>
+  - elementId: space2-label
+    elementType: text
+    bounds:
+      - 300
+      - 286
+      - 200
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 最大储物容积
+  - elementId: space3-num
+    elementType: text
+    bounds:
+      - 540
+      - 224
+      - 200
+      - 56
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">36</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> 处</span></p>
+  - elementId: space3-label
+    elementType: text
+    bounds:
+      - 540
+      - 286
+      - 200
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 全车收纳位
+  - elementId: eco
+    elementType: text
+    bounds:
+      - 60
+      - 340
+      - 840
+      - 34
+    content:
+      fontSize: 15
+      color: $w85
+      text: |
+        <p>基于小米澎湃 OS 的人车家全生态 · 磁吸生态配件 · 车顶滑轨 · 27W 供电螺纹接口</p>
+  - elementId: gt-line
+    elementType: shape
+    bounds:
+      - 60
+      - 392
+      - 56
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: gt
+    elementType: text
+    bounds:
+      - 60
+      - 404
+      - 620
+      - 34
+    content:
+      fontSize: 17
+      color: $white
+      bold: true
+      letterSpacing: 1
+      text: YU7 GT 即将预售 —— 纽博格林北环赛道 SUV 圈速新纪录
+  - elementId: cta
+    elementType: text
+    bounds:
+      - 60
+      - 448
+      - 420
+      - 36
+    content:
+      fontSize: 20
+      color: $primary
+      bold: true
+      letterSpacing: 2
+      text: 立即预约试驾 →
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 492
+      - 700
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      text: |
+        图源与数据：<a href="https://www.xiaomiev.com/yu7">小米汽车官网 xiaomiev.com/yu7</a>
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 08 / 08

@@ -1,0 +1,31 @@
+{
+  "name": "@open-slidestudio/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@open-slidestudio/agent-core": "0.1.0",
+    "@open-slidestudio/design-brain": "0.1.0",
+    "@open-slidestudio/exporter-pptx": "0.1.0",
+    "@open-slidestudio/pptd": "0.1.0",
+    "lucide-react": "^0.510.0",
+    "pptxgenjs": "^3.12.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^3.24.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "chrome.workspace.assistant.question",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "对话中的 DSH 原生问题卡",
+  "preconditions": {
+    "fixtureId": "deck-8a06f686",
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "OpenCode deepseek-v4.1-flash；独立合成会话，不发送用户原稿。"
+  },
+  "action": {
+    "type": "compound",
+    "steps": [
+      "用户要求先选配色，选完修改整份两页",
+      "模型通过原生 ask_user_question 在左侧给出问题；未回答前页面不变",
+      "选择深紫并继续，同一回合写入两页；另写的新草稿保持不变",
+      "明确全稿指令直接修改，两页只变指定背景色",
+      "选择支持单选、多选、自定义回答；失败保留选择可重试；取消不推断同意",
+      "纯讨论等待问题时刷新可恢复；回退文稿保留答案"
+    ]
+  },
+  "evidence": {
+    "pptd": {
+      "summary": "docs/acceptance/2026-09-20-assistant-questions.md；output/assistant-questions-acceptance-2026-09-20/real-choice-proof.json 与 real-direct-proof.json；75 项回归及断线、回退专项通过。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "native ask_user_question -> user-questions/request -> same tool promise result",
+    "uiParityNotes": "问题卡只在左侧既有对话中；答案返回等待中的原生工具，继续同一轮；画布无遮罩。"
+  },
+  "test": {
+    "id": "EO-ASSISTANT-005",
+    "automated": true,
+    "selfTestChecklist": [
+      "原生 DSH 服务与 waterfall 往返",
+      "单选、多选、自定义、取消和重复回执",
+      "保存失败保持等待",
+      "新草稿不被旧请求清除",
+      "1440/877/390 无横向溢出",
+      "真实选择后两页文件差异与未改范围验证"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T08:32:19.723806+00:00",
+    "agent": "Codex",
+    "sessionId": "8a06f686-44e6-4b32-b9f1-e59202c13e1c"
+  },
+  "updatedAt": "2026-09-20T08:32:19.723806+00:00"
+}

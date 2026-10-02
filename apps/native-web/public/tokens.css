@@ -1,0 +1,213 @@
+/*
+ * Open SlideStudio chrome tokens — shared by the Create Hub and the editor.
+ * Contract: DESIGN.md → "Warm workbench refresh · 2026-09-23".
+ *
+ * Primitive ramps first (n = warm neutral, a = clay accent, s/d/w = status),
+ * then semantic roles. Components consume the semantic roles; the primitive
+ * ramps exist so converted legacy rules keep their original lightness step.
+ * Slide content (PPTD paint, slide/table defaults, snap guides) never reads
+ * these tokens — the document owns its own colours.
+ */
+:root {
+  /* Warm neutral ramp (ivory → ink). */
+  --n-0: #ffffff;
+  --n-25: #fdfcfa;
+  --n-50: #faf9f5;
+  --n-75: #f6f4ee;
+  --n-100: #f1efe8;
+  --n-150: #ebe8df;
+  --n-200: #e3dfd4;
+  --n-250: #d9d4c8;
+  --n-300: #cbc6b9;
+  --n-400: #aca79b;
+  --n-500: #8b877d;
+  --n-600: #6d6a62;
+  --n-700: #55534c;
+  --n-800: #3d3b36;
+  --n-850: #2e2d29;
+  --n-900: #23221f;
+  --n-950: #1a1917;
+
+  /* Clay accent ramp. a-400 is the brand swatch; a-600 is the text-safe step. */
+  --a-25: #fdf7f4;
+  --a-50: #fbefe9;
+  --a-100: #f7e0d5;
+  --a-200: #efc5b2;
+  --a-300: #e5a488;
+  --a-400: #d97757;
+  --a-500: #c6613f;
+  --a-600: #b5573a;
+  --a-700: #93452f;
+  --a-800: #6e3524;
+  --a-900: #4d2619;
+
+  /* Status ramps: success (sage), danger (crimson, kept apart from clay), warning (amber). */
+  --s-50: #f1f6ee;
+  --s-100: #e1ecdb;
+  --s-200: #c3d9b9;
+  --s-500: #5b8a55;
+  --s-600: #467343;
+  --s-700: #365a35;
+  --s-800: #27432a;
+  --d-50: #fdf2f2;
+  --d-100: #f9e0e0;
+  --d-200: #f0bcbc;
+  --d-500: #d14343;
+  --d-600: #b53333;
+  --d-700: #922a2a;
+  --d-800: #6f2020;
+  --w-50: #fdf6e9;
+  --w-100: #f9e8c6;
+  --w-500: #c47f13;
+  --w-600: #a3650c;
+  --w-700: #82500c;
+
+  /* Channels for translucent paint: rgb(var(--x-rgb) / alpha). */
+  --shadow-rgb: 52 40 26;
+  --accent-rgb: 217 119 87;
+  --ink-rgb: 26 25 23;
+  --danger-rgb: 181 51 51;
+
+  /* Semantic roles. */
+  --bg-app: var(--n-50);
+  --bg-sunken: var(--n-75);
+  --bg-hover: rgb(var(--ink-rgb) / 0.05);
+  --bg-press: rgb(var(--ink-rgb) / 0.09);
+  --surface: var(--n-0);
+  --surface-raised: var(--n-0);
+  --surface-glass: rgb(253 252 250 / 0.82);
+  --line-soft: var(--n-150);
+  --line: var(--n-200);
+  --line-strong: var(--n-300);
+  --text: var(--n-950);
+  --text-2: var(--n-700);
+  --text-muted: var(--n-600);
+  --text-faint: var(--n-500);
+  --accent: var(--a-400);
+  --accent-hover: var(--a-500);
+  --accent-text: var(--a-600);
+  --accent-soft: var(--a-50);
+  --accent-soft-2: var(--a-100);
+  --accent-line: var(--a-200);
+  --focus-ring: 0 0 0 3px rgb(var(--accent-rgb) / 0.28);
+  --focus-outline: var(--a-400);
+  --primary-bg: var(--n-950);
+  --primary-bg-hover: var(--n-800);
+  --primary-text: var(--n-0);
+
+  /* Elevation: hairline + soft ambient, never heavy border with heavy shadow. */
+  --shadow-xs: 0 1px 2px rgb(var(--shadow-rgb) / 0.06);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-rgb) / 0.05), 0 2px 8px rgb(var(--shadow-rgb) / 0.05);
+  --shadow-md: 0 1px 3px rgb(var(--shadow-rgb) / 0.05), 0 8px 24px rgb(var(--shadow-rgb) / 0.08);
+  --shadow-lg: 0 2px 6px rgb(var(--shadow-rgb) / 0.05), 0 18px 48px rgb(var(--shadow-rgb) / 0.13);
+  --shadow-slide: 0 0 0 1px rgb(var(--shadow-rgb) / 0.06), 0 2px 4px rgb(var(--shadow-rgb) / 0.04), 0 18px 44px -8px rgb(var(--shadow-rgb) / 0.16);
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-med: 180ms;
+
+  --canvas-pattern: radial-gradient(rgb(var(--shadow-rgb) / 0.075) 1px, transparent 1.2px);
+  --font-ui: Inter, MiSans, "SF Pro Text", "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --font-display: Unna, "Songti SC", 思源宋体, Georgia, serif;
+}
+
+/* Maple Mono (Latin) for the 水墨 theme. CJK uses a locally installed
+   Maple Mono NF CN / CN when present, otherwise the bundled MiSans. */
+@font-face { font-family: "Maple Mono"; font-weight: 400; font-display: swap; src: url("./fonts/MapleMono-Latin-400.woff2") format("woff2"); }
+@font-face { font-family: "Maple Mono"; font-weight: 500; font-display: swap; src: url("./fonts/MapleMono-Latin-500.woff2") format("woff2"); }
+@font-face { font-family: "Maple Mono"; font-weight: 600; font-display: swap; src: url("./fonts/MapleMono-Latin-600.woff2") format("woff2"); }
+@font-face { font-family: "Maple Mono"; font-weight: 700; font-display: swap; src: url("./fonts/MapleMono-Latin-700.woff2") format("woff2"); }
+
+/*
+ * 水墨 · OOPS theme — values from apps/oops-product/DESIGN.md (Ink Wash):
+ * paper #F5F2EB, paper deep #EEEAE1, surface #FAF8F2, ink #141410, muted #69665E,
+ * line #CEC7B9, primary #11110F on #F8F5ED, error #9A4036. Monochrome: the
+ * "accent" roles resolve to ink, never to a hue.
+ */
+:root[data-theme="ink"] {
+  --n-0: #faf8f2;
+  --n-25: #f8f5ee;
+  --n-50: #f5f2eb;
+  --n-75: #f1ede5;
+  --n-100: #eeeae1;
+  --n-150: #e6e1d6;
+  --n-200: #dcd6c9;
+  --n-250: #d4cdbf;
+  --n-300: #cec7b9;
+  --n-400: #a8a296;
+  --n-500: #8a857b;
+  --n-600: #69665e;
+  --n-700: #4e4c46;
+  --n-800: #34332f;
+  --n-850: #26251f;
+  --n-900: #1c1b17;
+  --n-950: #141410;
+
+  --a-25: #f3f0e8;
+  --a-50: #eeeae1;
+  --a-100: #e4dfd3;
+  --a-200: #cec7b9;
+  --a-300: #8a857b;
+  --a-400: #11110f;
+  --a-500: #2a2924;
+  --a-600: #11110f;
+  --a-700: #0a0a0a;
+  --a-800: #0a0a0a;
+  --a-900: #000000;
+
+  --d-50: #f6ece8;
+  --d-100: #efd9d3;
+  --d-200: #e0b9b0;
+  --d-500: #a95549;
+  --d-600: #9a4036;
+  --d-700: #7e342c;
+  --d-800: #5f2721;
+
+  --shadow-rgb: 20 20 16;
+  --accent-rgb: 17 17 15;
+  --ink-rgb: 20 20 16;
+  --danger-rgb: 154 64 54;
+
+  --bg-app: var(--n-50);
+  --surface: var(--n-0);
+  --surface-raised: var(--n-0);
+  --surface-glass: rgb(250 248 242 / 0.9);
+  --line-soft: var(--n-200);
+  --line: var(--n-300);
+  --line-strong: var(--n-400);
+  --accent: var(--n-950);
+  --accent-hover: var(--n-800);
+  --accent-text: var(--n-950);
+  --accent-soft: var(--n-100);
+  --accent-soft-2: var(--n-150);
+  --accent-line: var(--n-400);
+  --focus-ring: 0 0 0 3px rgb(20 20 16 / 0.18);
+  --focus-outline: var(--n-950);
+  --primary-bg: #11110f;
+  --primary-bg-hover: #2a2924;
+  --primary-text: #f8f5ed;
+
+  --shadow-xs: 0 1px 1px rgb(20 20 16 / 0.05);
+  --shadow-sm: 0 1px 2px rgb(20 20 16 / 0.06);
+  --shadow-md: 0 1px 2px rgb(20 20 16 / 0.06), 0 4px 12px rgb(20 20 16 / 0.06);
+  --shadow-lg: 0 2px 4px rgb(20 20 16 / 0.06), 0 8px 20px rgb(20 20 16 / 0.08);
+  --shadow-slide: 0 0 0 1px rgb(20 20 16 / 0.12), 0 6px 18px -6px rgb(20 20 16 / 0.16);
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  --canvas-pattern: none;
+  --font-ui: "Maple Mono NF CN", "Maple Mono CN", "Maple Mono", MiSans, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: var(--font-ui);
+}
+

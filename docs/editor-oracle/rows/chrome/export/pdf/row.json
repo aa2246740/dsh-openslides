@@ -1,0 +1,57 @@
+{
+  "id": "chrome.export.pdf",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.export",
+  "title": "导出 PDF 全稿",
+  "description": "Whole-deck PDF from the export dialog. Every page is rendered from the native editor and assembled losslessly, so the viewing machine never substitutes fonts.",
+  "kimiUi": {
+    "controlLabel": "PDF",
+    "location": "export dialog",
+    "appearsWhen": "export dialog open"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "dialog",
+    "steps": [
+      "打开导出",
+      "选择 PDF",
+      "下载"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change"
+    },
+    "export": {
+      "notes": "fixture okp-yu7-ppt exported as application/pdf; body starts %PDF-; X-Export-Report {\"ok\":true,\"slideCount\":8,\"bytes\":3302122}; dialog states 全部 8 页 · PDF 图片版（所看即所得）; suggested filename 小米_YU7_豪华高性能纯电_SUV.pdf"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "POST /api/export {format:\"pdf\"}"
+  },
+  "test": {
+    "id": "EO-EXPORT-004",
+    "automated": true,
+    "selfTestChecklist": [
+      "POST /api/export {format:pdf} returns application/pdf starting with %PDF-",
+      "X-Export-Report.slideCount equals the project page count"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "export-pdf-row-2026-09-17"
+  },
+  "updatedAt": "2026-09-17T00:00:00.000Z"
+}

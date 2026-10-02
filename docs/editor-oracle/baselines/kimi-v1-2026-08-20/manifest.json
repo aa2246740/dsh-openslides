@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "kimi-slides-editor-v1-2026-08-20",
+  "capturedAt": "2026-08-20T10:50:54.495Z",
+  "source": {
+    "publicEntryUrl": "https://www.kimi.com/slides",
+    "publicEntryTitle": "Kimi PPT助手 一键生成PPT 免费使用",
+    "oracleHost": "http://127.0.0.1:55180/?project=yu7&view=official",
+    "officialChildUrlFamily": "https://www.kimi.com/neo-ppt/",
+    "fixture": "fixtures/okp-yu7-ppt",
+    "fixtureId": "yu7",
+    "accountRequired": false,
+    "connected": true,
+    "status": "官方已连接 · 小米 YU7 · 豪华高性能纯电 SUV"
+  },
+  "capture": {
+    "hostViewport": {
+      "width": 1600,
+      "height": 1000
+    },
+    "playwrightVersion": "1.61.1",
+    "chromiumRevision": "1228",
+    "script": "scripts/oracle-compare/inventory-official.mjs",
+    "clickableNodeCount": 125
+  },
+  "hoverTooltips": [
+    "全屏",
+    "预览模式",
+    "收起",
+    "缩小",
+    "放大"
+  ],
+  "limitations": [
+    "Official export and share controls were disabled in sdkMode.",
+    "Kimi account, payment, cloud collaboration, inbox, and Google Slides are outside this capture.",
+    "This baseline is editor evidence and does not establish authentic generation quality."
+  ],
+  "files": [
+    { "path": "editor-live/01-idle.png", "sha256": "618eea330d4a9cb023e8eacede2d0fd1e4f5eaf7bb387153ce67b98fae95771e" },
+    { "path": "editor-live/02-dismiss-annot.png", "sha256": "6ac5898003e32d26c141de75f5495df5cb5efba409dfcb4241e4d15606a50d8d" },
+    { "path": "editor-live/05-add-page.png", "sha256": "25f1d557fe0fbfe8134a2acd1b824a9059109875c929dacfb4163bf82bd47d24" },
+    { "path": "editor-live/06-annot.png", "sha256": "b88bbfea616e91d759230ca1984c2475e330e66d4daeb06b0634c2223678ee11" },
+    { "path": "editor-live/07-edit.png", "sha256": "bd1d3c9e2be3ee8dcacb2a8a86390c6776f2fd9af7030bc324680860987b7a00" },
+    { "path": "editor-live/08-canvas-click.png", "sha256": "a3cfa3c95f2599409ecda9207587976da0e484c99403bc183a7186591db147f2" },
+    { "path": "editor-live/REPORT.json", "sha256": "3a8778f399990b90ebe070be59273da09452f2ff7e686f980f7709a9b5dc9d2b" },
+    { "path": "editor-live/body-text.txt", "sha256": "903b02ef6c67705f1bc12706dd5f6288de1be64daecff435eff5a2bbb906e069" },
+    { "path": "editor-live/controls.json", "sha256": "0e231d0cff6646ad05ac6d8e74bed63432aeeb5513a368df858c8c0b15be5bd6" },
+    { "path": "editor-live/hover-01.png", "sha256": "a4ba7b3eba08efab080e3e42363ca89787728fa96c4243b1e288a032bea74044" },
+    { "path": "editor-live/hover-02.png", "sha256": "89b79f4c4a4a54373e0d44d9a731daec065c5fbc34080454ddee1bcff323160a" },
+    { "path": "editor-live/hover-03.png", "sha256": "9ec6271b241ebdec591020fa67e132eff71a85f3a3670e6710c1dd4c77196379" },
+    { "path": "editor-live/hover-04.png", "sha256": "8729e613f115400f2400224c18cafabde770aa277b2475a2842fc5f7527fc7c4" },
+    { "path": "editor-live/hover-05.png", "sha256": "7fe30a4c10d6f1b0dcdef3b5c4b91ec37bfbf59d577c05333235927222e07adf" },
+    { "path": "editor-live/hover-tooltips.json", "sha256": "417ecc0f90f30f35f23b640b59a3324f60fbc6a85e1148f7ce768e75763f49ff" }
+  ]
+}

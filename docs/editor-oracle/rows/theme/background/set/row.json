@@ -1,0 +1,44 @@
+{
+  "description": "Manual entry retired with the bottom 更多 → 主题色 panel. The document capability and its command (setBackground → theme.background.set) stay available for programmatic callers.",
+  "id": "theme.background.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "theme.background",
+  "title": "页面背景色",
+  "kimiUi": {
+    "controlLabel": "页面背景色",
+    "location": "右键画布 / 背景",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "页面背景色"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-THEME-BACKGROUND-SET"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

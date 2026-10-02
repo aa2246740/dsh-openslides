@@ -1,0 +1,48 @@
+{
+  "id": "selection.tab",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "Tab / Shift+Tab 循环元素",
+  "kimiUi": {
+    "controlLabel": "Tab",
+    "location": "keyboard",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element"
+    }
+  },
+  "action": {
+    "type": "keyboard",
+    "steps": [
+      "Tab moves to next element; Shift+Tab previous; after last element, selection clears"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "selection only; no document change"
+    }
+  },
+  "test": {
+    "id": "EO-SEL-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "tabSelect cycles elements and skips hidden",
+      "after the last element selection clears"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T04:20:00.000Z",
+    "agent": "editor-1-1-selection"
+  },
+  "updatedAt": "2026-08-15T04:20:00.000Z"
+}

@@ -1,0 +1,15 @@
+{
+  "ok": false,
+  "reason": "queue_blocked",
+  "url": "https://www.kimi.com/slides",
+  "title": "Kimi PPT助手 一键生成PPT 免费使用",
+  "hasQueue": true,
+  "hasExport": false,
+  "hasEditor": false,
+  "snippet": "提示 和Kimi聊天的人太多啦，订阅会员可进入独立的优先队列～ 我知道了 去升级",
+  "brief": "错峰oracle：一页标题与三点要点，极简商务风",
+  "styleSelected": "靛青尽调",
+  "at": "2026-08-07T19:39:56.022975Z",
+  "session": "kimi-try-now",
+  "note": "User signalled try now ~03:38 CST 2026-08-08; free priority queue still blocks PPT generate. Example style cards only select style."
+}

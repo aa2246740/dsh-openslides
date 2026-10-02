@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click the control in official neo-ppt iframe"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change; browser fullscreen"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "chrome.present.fullscreen",
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "全屏",
+  "kimiUi": {
+    "controlLabel": "全屏",
+    "location": "top bar right",
+    "appearsWhen": "always"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "requestFullscreen"
+  },
+  "test": {
+    "id": "EO-CHROME-009",
+    "automated": false,
+    "selfTestChecklist": [
+      "fullscreen button requests document fullscreen"
+    ]
+  }
+}

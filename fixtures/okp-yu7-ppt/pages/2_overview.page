@@ -1,0 +1,374 @@
+pageType: content
+background:
+  type: image
+  src: media/bg_data.png
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 90
+      stops:
+        - position: 0
+          color: "#000000E6"
+        - position: 0.65
+          color: "#000000B3"
+        - position: 1
+          color: "#00000080"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 60
+      - 48
+      - 500
+      - 22
+    content:
+      style: $label
+      text: YU7 AT A GLANCE · 一图看懂
+  - elementId: title
+    elementType: text
+    bounds:
+      - 210
+      - 70
+      - 700
+      - 58
+    content:
+      style: $pageTitle
+      text: 核心实力，一眼读懂
+      color: "#ff0000"
+  - elementId: subtitle
+    elementType: text
+    bounds:
+      - 60
+      - 148
+      - 760
+      - 26
+    content:
+      fontSize: 15
+      color: $w70
+      text: 五大核心指标，重新定义豪华高性能纯电 SUV 的标准
+  - elementId: divider
+    elementType: line
+    bounds:
+      - 60
+      - 196
+      - 840
+      - 1
+    viewBox:
+      - 840
+      - 1
+    points: 0,0.5 840,0.5
+    border:
+      style: solid
+      width: 1
+      color: "#FFFFFF2E"
+  - elementId: stat1-line
+    elementType: shape
+    bounds:
+      - 60
+      - 236
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: stat2-line
+    elementType: shape
+    bounds:
+      - 230
+      - 236
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: stat3-line
+    elementType: shape
+    bounds:
+      - 400
+      - 236
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: stat4-line
+    elementType: shape
+    bounds:
+      - 570
+      - 236
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: stat5-line
+    elementType: shape
+    bounds:
+      - 740
+      - 236
+      - 40
+      - 3
+    shapeName: rect
+    fill:
+      type: solid
+      color: $primary
+  - elementId: stat1
+    elementType: text
+    bounds:
+      - 60
+      - 252
+      - 150
+      - 60
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">23.35</span><span style="font-size:16px;
+        color:#FFFFFFB3;">万起</span></p>
+  - elementId: stat1-label
+    elementType: text
+    bounds:
+      - 60
+      - 318
+      - 150
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 起售价格
+  - elementId: stat1-desc
+    elementType: text
+    bounds:
+      - 60
+      - 344
+      - 152
+      - 40
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 官网在售价（2026.08）
+  - elementId: stat2
+    elementType: text
+    bounds:
+      - 230
+      - 252
+      - 150
+      - 60
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">835</span><span style="font-size:16px;
+        color:#FFFFFFB3;">km</span></p>
+  - elementId: stat2-label
+    elementType: text
+    bounds:
+      - 230
+      - 318
+      - 150
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: CLTC 最高续航
+  - elementId: stat2-desc
+    elementType: text
+    bounds:
+      - 230
+      - 344
+      - 152
+      - 40
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 全系长续航，入门即长续航
+  - elementId: stat3
+    elementType: text
+    bounds:
+      - 400
+      - 252
+      - 150
+      - 60
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">897</span><span style="font-size:16px;
+        color:#FFFFFFB3;">V</span></p>
+  - elementId: stat3-label
+    elementType: text
+    bounds:
+      - 400
+      - 318
+      - 150
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: Max 峰值电压
+  - elementId: stat3-desc
+    elementType: text
+    bounds:
+      - 400
+      - 344
+      - 152
+      - 40
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 全系碳化硅高压平台
+  - elementId: stat4
+    elementType: text
+    bounds:
+      - 570
+      - 252
+      - 150
+      - 60
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">0.245</span></p>
+  - elementId: stat4-label
+    elementType: text
+    bounds:
+      - 570
+      - 318
+      - 150
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 超低风阻系数
+  - elementId: stat4-desc
+    elementType: text
+    bounds:
+      - 570
+      - 344
+      - 152
+      - 40
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 10 组风道 · 40+ 处优化
+  - elementId: stat5
+    elementType: text
+    bounds:
+      - 740
+      - 252
+      - 150
+      - 60
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:38px; color:#FFFFFF;
+        font-weight:700;">3944</span><span style="font-size:16px;
+        color:#FFFFFFB3;">km</span></p>
+  - elementId: stat5-label
+    elementType: text
+    bounds:
+      - 740
+      - 318
+      - 150
+      - 22
+    content:
+      fontSize: 14
+      color: $w85
+      text: 24h 耐力挑战
+  - elementId: stat5-desc
+    elementType: text
+    bounds:
+      - 740
+      - 344
+      - 152
+      - 40
+    content:
+      fontSize: 12
+      color: $w50
+      lineHeight: 1.5
+      text: 中汽中心·华诚认证
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 468
+      - 840
+      - 40
+    content:
+      fontSize: 11
+      color: $w50
+      lineHeight: 1.6
+      text: >
+        数据来源：<a href="https://www.xiaomiev.com/yu7">小米汽车官网
+        xiaomiev.com/yu7</a>，2026 年 8 月抓取。续航、电压等数据来自小米汽车实验室，配置区分车型版本。
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 02 / 08
+  - elementId: chart-1
+    elementType: chart
+    bounds:
+      - 619.0671641791046
+      - 375.43470149253733
+      - 303.9085820895522
+      - 112.5652985074627
+    background:
+      type: solid
+      color: "#FFFFFF"
+    title: 示例数据
+    data:
+      cols:
+        - 类目
+        - 数值
+      rows:
+        - - A
+          - 3
+        - - B
+          - 5
+        - - C
+          - 2
+    series:
+      - type: bar
+        name: 数值
+        encode:
+          x: 类目
+          y: 数值
+    legend: true

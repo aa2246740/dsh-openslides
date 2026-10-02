@@ -1,0 +1,163 @@
+{
+  "viewport": {
+    "width": 1576,
+    "height": 892,
+    "deviceScaleFactor": 1
+  },
+  "document": {
+    "scrollWidth": 1576,
+    "scrollHeight": 892
+  },
+  "boxes": {
+    "titlebar": {
+      "x": 0,
+      "y": 0,
+      "width": 1576,
+      "height": 52
+    },
+    "docTitle": {
+      "x": 10,
+      "y": 12,
+      "width": 252,
+      "height": 28
+    },
+    "exportButton": {
+      "x": 1337,
+      "y": 10,
+      "width": 71,
+      "height": 32
+    },
+    "shareButton": {
+      "x": 1415,
+      "y": 10,
+      "width": 71,
+      "height": 32
+    },
+    "playButton": {
+      "x": 1494,
+      "y": 10,
+      "width": 32,
+      "height": 32
+    },
+    "fullscreenButton": {
+      "x": 1534,
+      "y": 10,
+      "width": 32,
+      "height": 32
+    },
+    "toolbar": {
+      "x": 0,
+      "y": 52,
+      "width": 1576,
+      "height": 52
+    },
+    "railViewButton": {
+      "x": 7,
+      "y": 61.5,
+      "width": 38,
+      "height": 32
+    },
+    "railToggleButton": {
+      "x": 146,
+      "y": 61.5,
+      "width": 38,
+      "height": 32
+    },
+    "undoButton": {
+      "x": 202,
+      "y": 61.5,
+      "width": 32,
+      "height": 32
+    },
+    "redoButton": {
+      "x": 238,
+      "y": 61.5,
+      "width": 32,
+      "height": 32
+    },
+    "zoomOutButton": {
+      "x": 1446,
+      "y": 61.5,
+      "width": 32,
+      "height": 32
+    },
+    "zoomInButton": {
+      "x": 1534,
+      "y": 61.5,
+      "width": 32,
+      "height": 32
+    },
+    "rail": {
+      "x": 0,
+      "y": 104,
+      "width": 192,
+      "height": 788
+    },
+    "firstThumb": {
+      "x": 12,
+      "y": 116,
+      "width": 167,
+      "height": 93.9
+    },
+    "stage": {
+      "x": 192,
+      "y": 104,
+      "width": 1384,
+      "height": 788
+    },
+    "stageViewport": {
+      "x": 192,
+      "y": 104,
+      "width": 1384,
+      "height": 788
+    },
+    "slide": {
+      "x": 340,
+      "y": 184,
+      "width": 1088,
+      "height": 612
+    },
+    "insertPill": {
+      "x": 760,
+      "y": 810,
+      "width": 248,
+      "height": 48
+    }
+  },
+  "layout": {
+    "viewportClientWidth": 1384,
+    "viewportClientHeight": 788,
+    "paddingTop": "80px",
+    "paddingRight": "148px",
+    "paddingBottom": "96px",
+    "paddingLeft": "148px"
+  },
+  "labels": {
+    "pageCount": "1 / 8",
+    "zoom": "113%",
+    "title": "小米 YU7 · 豪华高性能纯电 SUV"
+  },
+  "text": {
+    "descriptionLineCount": 1
+  },
+  "paint": {
+    "slideBackgroundImage": "url(\"http://127.0.0.1:55201/media/media/bg_cover.jpg\")",
+    "overlayFill": "url(#oss-shape-gradient-1)",
+    "overlayGradient": {
+      "x1": "0",
+      "y1": "50",
+      "x2": "100",
+      "y2": "50"
+    },
+    "imageResources": [
+      "http://127.0.0.1:55201/media/media/bg_cover.jpg",
+      "http://127.0.0.1:55201/media/media/bg_data.png",
+      "http://127.0.0.1:55201/media/media/bg_exterior.jpg",
+      "http://127.0.0.1:55201/media/media/bg_performance.jpg",
+      "http://127.0.0.1:55201/media/media/bg_cabin.png",
+      "http://127.0.0.1:55201/media/media/bg_had.jpg",
+      "http://127.0.0.1:55201/media/media/bg_safety.jpg",
+      "http://127.0.0.1:55201/media/media/bg_final.jpg"
+    ]
+  }
+}

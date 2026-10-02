@@ -1,0 +1,52 @@
+{
+  "id": "chrome.workspace.assistant.model",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "为下一轮选择模型",
+  "preconditions": {
+    "fixtureId": "deck-74021fe2",
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "真实隔离产品 13081/55201；OpenCode DeepSeek，同一 DSH 会话连续讨论、生成、编辑。"
+  },
+  "action": {
+    "type": "compound",
+    "steps": [
+      "在输入框下方选择已连接模型",
+      "发送消息并确认同一会话的模型更新",
+      "刷新后保留对话和模型，失败时可换模型继续"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "../../../../../../acceptance/assets/2026-09-20-collaboration/02-before-editor.png",
+      "after": "../../../../../../acceptance/assets/2026-09-20-collaboration/editor-877.png"
+    },
+    "pptd": {
+      "summary": "讨论保持 PPTD 不变；定向编辑仅改变指定标题。详见 docs/acceptance/2026-09-20-collaboration.md。"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "conversationMode / modelSelection",
+    "uiParityNotes": "协作控件属于会话层，独立于空白画布的文档命令白名单。"
+  },
+  "test": {
+    "id": "EO-ASSISTANT-002",
+    "automated": true,
+    "selfTestChecklist": [
+      "在输入框下方选择已连接模型",
+      "发送消息并确认同一会话的模型更新",
+      "刷新后保留对话和模型，失败时可换模型继续"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T01:58:34+08:00",
+    "agent": "Codex",
+    "sessionId": "continuous-collaboration-acceptance"
+  },
+  "updatedAt": "2026-09-20T01:58:34+08:00"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "chrome.keyboard.help",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "快捷键面板",
+  "kimiUi": {
+    "controlLabel": "快捷键",
+    "location": "空选区条 / ?",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "快捷键"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "UI overlay only; no PPTD mutation"
+    }
+  },
+  "test": {
+    "id": "EO-CHROME-KEYBOARD-HELP",
+    "selfTestChecklist": [
+      "? or 快捷键 button toggles overlay"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T12:30:00.000Z",
+    "agent": "s13-keyboard"
+  },
+  "updatedAt": "2026-08-15T12:30:00.000Z"
+}

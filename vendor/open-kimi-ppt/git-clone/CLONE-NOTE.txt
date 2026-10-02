@@ -1,0 +1,8 @@
+GitHub clone snapshot
+=====================
+Cloned: 2026-08-07 21:43:06 CST
+URL: https://github.com/Binaryify/open-kimi-ppt-skill
+HEAD: bc0a246c1dc37ab9644822e9657c6e23dca2128f
+Branch: main
+npm package open-kimi-ppt-skill was unpublished 2026-08-07; GitHub still public at clone time.
+Mirror (bare): /Users/wu/Downloads/open-kimi-ppt-skill-git-clone-mirror.git

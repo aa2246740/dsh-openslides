@@ -1,0 +1,57 @@
+{
+  "id": "chrome.generation.resume",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "继续全局生成",
+  "description": "Resume or steer live generation task in the active session after stopping or idle.",
+  "kimiUi": {
+    "controlLabel": "继续完成生成",
+    "location": "editor generation composer",
+    "appearsWhen": "generation paused or idle candidate"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "button",
+    "steps": [
+      "Wait for agent idle or stop active generation",
+      "Enter optional steering instruction",
+      "Click continue to send next turn"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "resumes writing and finalizing pages without resetting plan"
+    },
+    "export": {
+      "notes": "generation continues in current session"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "resumeGeneration"
+  },
+  "test": {
+    "id": "EO-CHROME-GENERATION-RESUME",
+    "automated": true,
+    "selfTestChecklist": [
+      "resume sends turn with optional model selection and steering text"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-14T00:00:00.000Z",
+    "agent": "native-1-1"
+  },
+  "updatedAt": "2026-09-14T00:00:00.000Z"
+}

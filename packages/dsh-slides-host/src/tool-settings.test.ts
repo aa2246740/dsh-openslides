@@ -1,0 +1,97 @@
+import { describe, it } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import {
+  applyToolSettingsToEnv,
+  emptyToolSettings,
+  parseToolSettingsPatch,
+  readToolSettings,
+  toToolSettingsView,
+  writeToolSettings,
+} from "./tool-settings.js";
+
+describe("tool settings", () => {
+  it("keeps an existing API key when the patch sends a blank key", () => {
+    const previous = parseToolSettingsPatch(
+      {
+        imageGenerate: {
+          kind: "custom",
+          url: "https://img.example/v1",
+          apiKey: "secret-key",
+          model: "flux",
+        },
+      },
+      emptyToolSettings(),
+    );
+    const next = parseToolSettingsPatch(
+      {
+        imageGenerate: {
+          kind: "custom",
+          url: "https://img.example/v1",
+          apiKey: "",
+          model: "flux",
+        },
+      },
+      previous,
+    );
+    assert.equal(next.imageGenerate.kind, "custom");
+    if (next.imageGenerate.kind !== "custom") return;
+    assert.equal(next.imageGenerate.apiKey, "secret-key");
+    const view = toToolSettingsView(next).imageGenerate;
+    assert.equal(view.kind, "custom");
+    if (view.kind !== "custom") return;
+    assert.equal(view.apiKeySet, true);
+  });
+
+  it("rejects non-http tool URLs", () => {
+    assert.throws(
+      () =>
+        parseToolSettingsPatch(
+          { imageSearch: { kind: "custom", url: "file:///tmp/search" } },
+          emptyToolSettings(),
+        ),
+      /http\(s\)/,
+    );
+  });
+
+  it("applies custom image generate onto env and can turn it off", () => {
+    const env: NodeJS.ProcessEnv = { SLIDESTUDIO_IMAGE_BASE_URL: "https://old.example/v1" };
+    applyToolSettingsToEnv(env, {
+      research: { kind: "off" },
+      imageSearch: { kind: "off" },
+      imageGenerate: {
+        kind: "custom",
+        url: "https://img.example/v1",
+        apiKey: "k",
+        model: "flux",
+      },
+    });
+    assert.equal(env.SLIDESTUDIO_IMAGE_BASE_URL, "https://img.example/v1");
+    assert.equal(env.SLIDESTUDIO_IMAGE, "1");
+    applyToolSettingsToEnv(env, emptyToolSettings());
+    assert.equal(env.SLIDESTUDIO_IMAGE_BASE_URL, undefined);
+    assert.equal(env.SLIDESTUDIO_IMAGE, undefined);
+  });
+
+  it("round-trips a stored settings file without exposing the key in the view", () => {
+    const home = fs.mkdtempSync(path.join(os.tmpdir(), "oss-tool-settings-"));
+    const settings = parseToolSettingsPatch(
+      {
+        imageSearch: { kind: "custom", url: "https://search.example/images", apiKey: "seek" },
+      },
+      emptyToolSettings(),
+    );
+    writeToolSettings(home, settings);
+    const read = readToolSettings(home, {});
+    const view = toToolSettingsView(read);
+    assert.equal(read.imageSearch.kind, "custom");
+    if (read.imageSearch.kind !== "custom") return;
+    assert.equal(read.imageSearch.apiKey, "seek");
+    assert.equal(view.imageSearch.kind, "custom");
+    if (view.imageSearch.kind !== "custom") return;
+    assert.equal(view.imageSearch.apiKeySet, true);
+    assert.equal("apiKey" in view.imageSearch, false);
+  });
+});

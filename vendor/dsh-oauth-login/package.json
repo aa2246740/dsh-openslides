@@ -1,0 +1,141 @@
+{
+  "name": "dsh-oauth-login",
+  "description": "DSH-owned subscription login powered by Pi AI adapters: OAuth plus official Plan API keys, with an independent credential store.",
+  "version": "0.2.5",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aa2246740/dsh-oauth-login.git"
+  },
+  "homepage": "https://github.com/aa2246740/dsh-oauth-login#readme",
+  "bugs": {
+    "url": "https://github.com/aa2246740/dsh-oauth-login/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "oauth",
+    "zhipu",
+    "glm",
+    "coding-plan",
+    "pi-agent",
+    "codex",
+    "openrouter"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": {
+    "dsh-oauth-login": "lib/bin.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./invariant": {
+      "types": "./lib/invariant.d.ts",
+      "default": "./lib/invariant.js"
+    },
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "cordis.patch.yml",
+    "INSTALL.md",
+    "INSTALL.zh.md",
+    "README.md",
+    "README.en.md",
+    "README.zh.md",
+    "SECURITY.md",
+    "LICENSE",
+    "docs/screenshots",
+    "docs/openrouter-sync.md",
+    "docs/network-proxy.md"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "undici": "^8.5.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.2.1",
+    "@deepseek-ai/dsh-atomic-write": "*",
+    "@deepseek-ai/dsh-attachment": "*",
+    "@deepseek-ai/dsh-client-connection": ">=0.2.0-rc.2 <0.2.1",
+    "@deepseek-ai/dsh-home-paths": "*",
+    "@deepseek-ai/dsh-host-webserver": "*",
+    "@deepseek-ai/dsh-invariants": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-llm-pi-ai": "*",
+    "@deepseek-ai/schemastery": "^3.18.2",
+    "@earendil-works/pi-ai": "^0.87.1",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-atomic-write": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-attachment": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-connection": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-home-paths": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-invariants": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm-pi-ai": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  }
+}

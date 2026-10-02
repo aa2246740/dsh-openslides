@@ -1,0 +1,177 @@
+pageType: content
+background:
+  type: solid
+  color: "#F3E8D4"
+elements:
+  - elementId: top
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 6
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: vrule
+    elementType: shape
+    bounds:
+      - 40
+      - 22
+      - 3
+      - 16
+    shapeName: rect
+    fill:
+      type: solid
+      color: "#2657D7"
+  - elementId: chap
+    elementType: text
+    bounds:
+      - 52
+      - 20
+      - 400
+      - 20
+    content:
+      text: 02 证据
+      wrap: true
+      fontSize: 11
+      color: "#7E7E7E"
+      bold: true
+  - elementId: title
+    elementType: text
+    bounds:
+      - 40
+      - 44
+      - 880
+      - 68
+    content:
+      text: 证据位：待补真实序列
+      wrap: true
+      fontSize: 18
+      bold: true
+      color: "#2657D7"
+  - elementId: chart
+    elementType: chart
+    bounds:
+      - 40
+      - 148
+      - 500
+      - 280
+    data:
+      cols:
+        - 项
+        - 值
+      rows:
+        - - A
+          - 3
+        - - B
+          - 5
+        - - C
+          - 2
+        - - D
+          - 4
+    series:
+      - type: bar
+        name: 值
+        encode:
+          x: 项
+          y: 值
+        fill: "#2657D7"
+    legend: false
+  - elementId: tbl
+    elementType: table
+    bounds:
+      - 560
+      - 148
+      - 360
+      - 280
+    columnWidths:
+      - 180
+      - 180
+    rows:
+      - - text: 项
+          bold: true
+          color: "#FFFFFF"
+          fill:
+            type: solid
+            color: "#2657D7"
+          align:
+            - left
+            - middle
+        - text: 值
+          bold: true
+          color: "#FFFFFF"
+          fill:
+            type: solid
+            color: "#2657D7"
+          align:
+            - left
+            - middle
+      - - text: A
+          color: "#333333"
+          align:
+            - left
+            - middle
+        - text: "3"
+          color: "#333333"
+          align:
+            - left
+            - middle
+      - - text: B
+          color: "#333333"
+          align:
+            - left
+            - middle
+        - text: "5"
+          color: "#333333"
+          align:
+            - left
+            - middle
+      - - text: C
+          color: "#333333"
+          align:
+            - left
+            - middle
+        - text: "2"
+          color: "#333333"
+          align:
+            - left
+            - middle
+      - - text: D
+          color: "#333333"
+          align:
+            - left
+            - middle
+        - text: "4"
+          color: "#333333"
+          align:
+            - left
+            - middle
+  - elementId: fn
+    elementType: text
+    bounds:
+      - 40
+      - 516
+      - 800
+      - 14
+    content:
+      text: 图表数值为结构占位，非正式统计。
+      wrap: true
+      fontSize: 9
+      color: "#7E7E7E"
+  - elementId: pg
+    elementType: text
+    bounds:
+      - 880
+      - 516
+      - 40
+      - 14
+    content:
+      text: "4"
+      wrap: false
+      fontSize: 10
+      color: "#7E7E7E"
+      align:
+        - right
+        - middle

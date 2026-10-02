@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="Open SlideStudio · 编辑器">Open SlideStudio · 编辑器</title>
+    <link rel="stylesheet" href="./fonts.css" />
+    <script src="./theme-boot.js"></script>
+    <link rel="stylesheet" href="./tokens.css?v=20260923-warm" />
+    <link rel="stylesheet" href="./styles.css?v=20260923-warm" />
+    <link rel="stylesheet" href="./tooltips.css?v=20260923-warm" />
+    <script src="./snap-guides.js"></script>
+    <script src="./shape-paint.js"></script>
+  </head>
+  <body>
+    <div class="workspace-cover" id="workspace-cover" role="status" aria-live="polite">
+      <div class="workspace-cover-inner">
+        <div class="workspace-cover-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="workspace-cover-title" id="workspace-cover-title" data-i18n="正在准备工作区">正在准备工作区</p>
+        <p class="workspace-cover-detail" id="workspace-cover-detail" hidden></p>
+        <p class="launch-user-card" id="workspace-cover-brief" hidden></p>
+        <ol class="workspace-cover-steps" id="workspace-cover-steps" data-i18n-aria-label="准备进度" aria-label="准备进度" hidden></ol>
+        <p class="workspace-cover-queue" id="workspace-cover-queue" hidden></p>
+        <div class="launch-actions" id="workspace-cover-actions" hidden></div>
+      </div>
+    </div>
+    <div class="shell">
+    <aside class="work-chat" id="work-chat" hidden>
+      <header class="chat-head">
+        <span id="chat-title" data-i18n="AI 助手">AI 助手</span>
+        <button type="button" class="icon-btn" data-i18n-title="收起 AI 工作区" title="收起 AI 工作区" data-i18n-aria-label="收起 AI 工作区" aria-label="收起 AI 工作区" id="chat-close" data-control="chrome.workspace.toggle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <section class="editor-generation" id="editor-generation" aria-live="polite" hidden>
+        <header>
+          <div><small data-i18n="AI 助手">AI 助手</small><strong id="editor-generation-title" data-i18n="AI 正在生成">AI 正在生成</strong></div>
+          <span id="editor-generation-status" data-i18n="准备中">准备中</span>
+          <button type="button" id="editor-generation-stop" data-control="chrome.workspace.stop" hidden data-i18n="停止修改">停止修改</button>
+          <button type="button" id="editor-generation-resume" data-control="chrome.generation.resume" hidden data-i18n="继续完成生成">继续完成生成</button>
+          <button type="button" id="editor-generation-toggle" aria-expanded="false" data-i18n="查看过程">查看过程</button>
+        </header>
+        <div class="editor-generation-stages" id="editor-generation-stages">
+          <span data-stage="plan" data-i18n="策划">策划</span>
+          <span data-stage="write" data-i18n="写页">写页</span>
+          <span data-stage="review" data-i18n="审阅">审阅</span>
+          <span data-stage="compose" data-i18n="封板">封板</span>
+        </div>
+        <div class="editor-generation-now" id="editor-generation-now">
+          <div><span data-i18n="任务">任务</span><strong id="editor-generation-intent" data-i18n="正在读取生成任务">正在读取生成任务</strong></div>
+          <div><span data-i18n="当前行动">当前行动</span><strong id="editor-generation-action" data-i18n="正在连接生成会话">正在连接生成会话</strong></div>
+          <div><span data-i18n="已产出">已产出</span><strong id="editor-generation-output" data-i18n="尚未写入页面">尚未写入页面</strong></div>
+        </div>
+        <div class="editor-generation-pages" id="editor-generation-pages" data-i18n-aria-label="页面生成状态" aria-label="页面生成状态"></div>
+        <div class="generation-indicator" id="editor-generation-indicator">
+          <i class="generation-indicator-dot" aria-hidden="true"></i>
+          <span class="generation-indicator-text" id="editor-generation-detail" data-i18n="准备中…">准备中…</span>
+        </div>
+        <form id="editor-generation-composer" class="editor-generation-composer" hidden>
+          <label><span data-i18n="纠偏说明">纠偏说明</span>
+            <textarea id="editor-generation-steer" data-control="chrome.generation.steer" rows="2" data-i18n-placeholder="可选。留空则按当前计划继续，不进入页面编辑。" placeholder="可选。留空则按当前计划继续，不进入页面编辑。"></textarea>
+          </label>
+          <label><span data-i18n="继续使用的模型">继续使用的模型</span>
+            <select id="editor-generation-model" data-control="chrome.generation.model" data-i18n-aria-label="继续使用的模型" aria-label="继续使用的模型"></select>
+          </label>
+          <p id="editor-generation-composer-hint" data-i18n="停止并确认空闲后，才会发送继续请求。">停止并确认空闲后，才会发送继续请求。</p>
+        </form>
+        <details id="editor-generation-events" class="editor-generation-events">
+          <summary><span id="editor-generation-event-label" data-i18n="生成过程">生成过程</span> <span id="editor-generation-event-count"></span></summary>
+          <div class="editor-generation-event-flow">
+            <ol id="editor-generation-event-list" data-i18n-aria-label="与 AI 的对话" aria-label="与 AI 的对话"><li id="generation-think-status" class="generation-think-status" role="status" hidden></li></ol>
+            <button type="button" id="editor-generation-latest" hidden data-i18n="↓ 回到最新">↓ 回到最新</button>
+          </div>
+        </details>
+      </section>
+      <div class="work-thread" id="work-thread">
+        <section class="work-empty" id="work-empty" data-i18n-aria-label="Agent 修改示例" aria-label="Agent 修改示例" hidden>
+          <strong data-i18n="和 AI 一起完善这份文稿">和 AI 一起完善这份文稿</strong>
+          <p data-i18n="可以先聊结构和文案，再让 AI 修改。修改时写明页码，或选中对象后说“精简所选文字”。">可以先聊结构和文案，再让 AI 修改。修改时写明页码，或选中对象后说“精简所选文字”。</p>
+          <div>
+            <button type="button" data-i18n-agent-prompt="这份文稿还有哪些可以改进的地方？" data-agent-prompt="这份文稿还有哪些可以改进的地方？" data-i18n="先给我一些建议">先给我一些建议</button>
+            <button type="button" data-i18n-agent-prompt="优化当前页版式，消除遮挡、裁切和线条穿字，并保持内容可读" data-agent-prompt="优化当前页版式，消除遮挡、裁切和线条穿字，并保持内容可读" data-i18n="优化当前页版式">优化当前页版式</button>
+            <button type="button" data-i18n-agent-prompt="精简选中的文字，保留关键结论和数据，不要改动其他元素" data-agent-prompt="精简选中的文字，保留关键结论和数据，不要改动其他元素" data-i18n="精简选中文字">精简选中文字</button>
+          </div>
+        </section>
+      </div>
+      <p class="work-generation-lock" id="work-generation-lock" role="status" aria-live="polite" hidden></p>
+      <form class="chat-composer" id="work-form">
+        <p id="assistant-feedback" role="status" hidden></p>
+        <p class="work-target" id="work-target" aria-live="polite" data-i18n="目标：当前页">目标：当前页</p>
+        <div class="agent-attachments" id="agent-attachments" data-i18n-aria-label="待发送附件" aria-label="待发送附件" hidden></div>
+        <div class="comment-batch-chip" id="work-comment-batch" aria-live="polite" hidden>
+          <span id="work-comment-batch-label"></span>
+          <div id="work-comment-items" class="comment-attachments" data-i18n-aria-label="待发送批注" aria-label="待发送批注"></div>
+        </div>
+        <textarea id="work-brief" data-i18n-aria-label="与 AI 协作" aria-label="与 AI 协作" data-i18n-placeholder="聊想法，或描述想修改的内容…" placeholder="聊想法，或描述想修改的内容…"></textarea>
+        <div class="composer-tools">
+          <button type="button" id="composer-plus" data-i18n-title="添加 TXT、Markdown、CSV、TSV 或 JSON 附件" title="添加 TXT、Markdown、CSV、TSV 或 JSON 附件" data-i18n-aria-label="添加 TXT、Markdown、CSV、TSV 或 JSON Agent 附件" aria-label="添加 TXT、Markdown、CSV、TSV 或 JSON Agent 附件">+</button>
+          <select data-control="chrome.workspace.assistant.model" id="assistant-model" data-i18n-aria-label="助手模型" aria-label="助手模型" data-i18n-title="选择下一条消息使用的模型" title="选择下一条消息使用的模型"><option value="">当前模型</option></select>
+          <button type="submit" class="composer-send" data-control="chrome.workspace.assistant.send" data-i18n-title="发送" title="发送" data-i18n-aria-label="发送消息" aria-label="发送消息">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+          </button>
+        </div>
+      </form>
+      <small class="ai-note" data-i18n="AI 生成，仅供参考">AI 生成，仅供参考</small>
+    </aside>
+    <div class="app">
+      <header class="titlebar">
+        <div class="title-left">
+          <a class="doc-title" id="doc-title" href="./" data-i18n-title="返回创建页" title="返回创建页" data-i18n="未加载">未加载</a>
+          <div class="version-wrap">
+            <button type="button" class="ver-btn" id="btn-versions" data-control="chrome.history.versions.open" data-i18n-title="历史版本" title="历史版本" aria-haspopup="menu" aria-controls="version-menu" aria-expanded="false">V1 ▾</button>
+            <div class="version-menu" id="version-menu" role="menu" data-i18n-aria-label="历史版本" aria-label="历史版本" hidden>
+              <div id="versions-list"></div>
+              <button type="button" class="btn version-save" id="version-save" role="menuitem" data-control="chrome.history.versions.snapshot" data-i18n="保存当前为新版本">保存当前为新版本</button>
+            </div>
+          </div>
+          <div class="history-bar" id="history-bar" hidden>
+            <span class="readonly-badge" id="history-readonly" data-i18n="只读">只读</span>
+            <button type="button" class="btn restore-btn" id="history-restore" data-control="chrome.history.versions.restore" data-i18n="↺ 还原">↺ 还原</button>
+            <button type="button" class="btn history-back" id="history-back" data-i18n="回到最新">回到最新</button>
+          </div>
+        </div>
+        <div class="title-actions">
+          <button type="button" class="chrome-pill title-tool" id="btn-comments" data-control="chrome.comment.pin" data-i18n-aria-label="添加批注" aria-label="添加批注" aria-pressed="false" aria-expanded="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5h14v10H9l-4 4z"/></svg>
+            <span data-i18n="批注">批注</span>
+          </button>
+          <button type="button" class="chrome-pill title-tool" id="btn-sparkles" data-control="chrome.workspace.toggle" data-i18n-aria-label="打开 AI 工作区" aria-label="打开 AI 工作区" aria-expanded="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.2 4.8L18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2z"/><path d="M19 15l.6 2.4L22 18l-2.4.6L19 21l-.6-2.4L16 18l2.4-.6z"/></svg>
+            <span data-i18n="AI 助手">AI 助手</span>
+          </button>
+          <button type="button" class="chrome-pill export-btn" id="btn-export" data-control="chrome.export.open" data-i18n-aria-label="导出" aria-label="导出">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
+            <span data-i18n="导出">导出</span>
+          </button>
+          <button type="button" class="icon-btn title-play" id="btn-play" data-control="chrome.present.play" data-i18n-aria-label="播放" aria-label="播放">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="btn-fs" data-control="chrome.present.fullscreen" data-i18n-title="全屏" title="全屏">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <button type="button" class="icon-btn" id="btn-rail-view" data-i18n-title="预览模式" title="预览模式" data-i18n-aria-label="切换页面预览模式" aria-label="切换页面预览模式">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </button>
+        <span class="page-count" id="page-count">0 / 0</span>
+        <span class="rail-meta" id="rail-meta">
+          <button type="button" class="icon-btn" id="btn-rail" data-control="chrome.pages.rail.toggle" data-i18n-title="收起" title="收起">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M14 9l3 3-3 3"/></svg>
+          </button>
+        </span>
+        <span class="divider"></span>
+        <button type="button" class="icon-btn" id="btn-undo" data-control="chrome.history.undo" data-i18n-title="撤销" title="撤销" data-i18n-aria-label="撤销" aria-label="撤销">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7 4 12l5 5"/><path d="M4 12h10a6 6 0 0 1 6 6"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="btn-redo" data-control="chrome.history.redo" data-i18n-title="重做" title="重做" data-i18n-aria-label="重做" aria-label="重做">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 7 5 5-5 5"/><path d="M20 12H10a6 6 0 0 0-6 6"/></svg>
+        </button>
+        <nav class="insert-toolbar" id="insert-toolbar" data-i18n-aria-label="插入工具" aria-label="插入工具" data-ud-check="editor-insert-toolbar" data-ud-role="nav">
+          <span class="insert-toolbar-label" data-i18n="插入">插入</span>
+          <button type="button" class="insert-btn" data-insert="text" data-control="insert.text" data-i18n-title="插入文本" title="插入文本" data-i18n-aria-label="插入文本" aria-label="插入文本"><span class="insert-glyph">T</span><span data-i18n="文本">文本</span></button>
+          <button type="button" class="insert-btn" data-insert="shape" data-control="insert.shape" data-i18n-title="插入形状" title="插入形状" data-i18n-aria-label="插入形状" aria-label="插入形状" aria-haspopup="dialog" aria-controls="shape-palette" aria-expanded="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="6" width="14" height="12" rx="3"/></svg><span data-i18n="形状">形状</span></button>
+          <button type="button" class="insert-btn" data-insert="image" data-control="insert.image" data-i18n-title="插入图片" title="插入图片" data-i18n-aria-label="插入图片" aria-label="插入图片"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.4"/><path d="M4 16l5-5 3 3 2-2 6 6"/></svg><span data-i18n="图片">图片</span></button>
+          <button type="button" class="insert-btn" data-insert="table" data-control="insert.table" data-i18n-title="插入表格" title="插入表格" data-i18n-aria-label="插入表格" aria-label="插入表格" aria-haspopup="dialog" aria-controls="table-size" aria-expanded="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 10h16M4 15h16M10 5v14M16 5v14"/></svg><span data-i18n="表格">表格</span></button>
+        </nav>
+        <span class="spacer"></span>
+        <button type="button" class="icon-btn" id="btn-zoom-out" data-control="chrome.zoom.out" data-i18n-title="缩小" title="缩小">−</button>
+        <button type="button" class="zoom-label" id="zoom-label" data-control="chrome.zoom.percent" data-i18n-aria-label="适应画布" aria-label="适应画布">100%</button>
+        <button type="button" class="icon-btn" id="btn-zoom-in" data-control="chrome.zoom.in" data-i18n-title="放大" title="放大">+</button>
+      </div>
+
+      <div class="workspace">
+        <aside class="rail" id="rail" data-i18n-aria-label="页面列表" aria-label="页面列表"></aside>
+        <main class="stage-wrap">
+          <div id="comment-mode-hint" class="comment-mode-hint" role="status" aria-live="polite" hidden></div>
+          <div class="stage-viewport" id="viewport">
+            <div class="slide-card">
+              <div class="slide" id="slide" tabindex="0" data-i18n-aria-label="幻灯片画布" aria-label="幻灯片画布"></div>
+            </div>
+          </div>
+          <button type="button" class="notes-link" id="btn-notes-link" data-control="chrome.notes.toggle" data-i18n="显示演讲者备注">显示演讲者备注</button>
+          <div class="table-size" id="table-size" role="dialog" data-i18n-aria-label="选择表格规格" aria-label="选择表格规格" hidden>
+            <header data-i18n="选择规格">选择规格</header>
+            <div class="table-size-grid" id="table-size-grid"></div>
+            <small id="table-size-label">2 × 2</small>
+          </div>
+          <div class="palette palette-wide shape-gallery" id="shape-palette" role="dialog" data-i18n-aria-label="选择形状或线条" aria-label="选择形状或线条" hidden>
+            <div class="lib-tabs" id="lib-tabs">
+              <button type="button" data-lib="shape" class="on" data-i18n="形状">形状</button>
+              <button type="button" data-lib="line" data-i18n="线条">线条</button>
+            </div>
+            <div id="lib-shape">
+              <header class="shape-gallery-head">
+                <strong data-i18n="形状">形状</strong>
+                <span id="shape-count">177</span>
+              </header>
+              <input class="palette-search" id="shape-search" data-i18n-placeholder="搜索形状" placeholder="搜索形状" />
+              <div class="shape-cats" id="shape-cats"></div>
+              <div class="palette-grid" id="shape-grid"></div>
+            </div>
+            <div id="lib-line" hidden>
+              <header class="shape-gallery-head"><strong data-i18n="线条">线条</strong></header>
+              <div class="line-presets" id="line-presets"></div>
+            </div>
+          </div>
+          <aside class="notes-panel" id="notes-panel" hidden>
+            <button type="button" id="btn-notes-close" data-control="chrome.notes.toggle" data-i18n-aria-label="收起演讲者备注" aria-label="收起演讲者备注" data-i18n-title="收起演讲者备注" title="收起演讲者备注">×</button>
+            <label><span data-i18n="演讲者备注">演讲者备注</span>
+              <textarea id="notes-text" data-control="notes.content.set" data-i18n-aria-label="演讲者备注内容" aria-label="演讲者备注内容"></textarea>
+            </label>
+          </aside>
+        </main>
+        <aside class="property-panel" id="property-panel" data-ud-check="editor-property-panel" data-ud-role="panel">
+          <header class="side-panel-head" data-inspector-section="target">
+            <div><small data-i18n="对象属性">对象属性</small><strong id="property-title" data-i18n="未选择对象">未选择对象</strong></div>
+            <button type="button" class="icon-btn" id="property-toggle" data-i18n-aria-label="收起属性面板" aria-label="收起属性面板" aria-expanded="true">›</button>
+          </header>
+          <p class="property-empty" id="property-empty" data-i18n="选择文字、形状、图片、表格或图表后，在这里调整属性。">选择文字、形状、图片、表格或图表后，在这里调整属性。</p>
+          <div class="ctx-bar" id="ctx-bar" hidden></div>
+        </aside>
+
+      </div>
+    </div>
+    <div class="present-layer" id="present" hidden>
+      <div class="slide present-slide" id="present-slide"></div>
+      <div class="present-hint" data-i18n="单击或 → 翻页 · Esc 退出">单击或 → 翻页 · Esc 退出</div>
+    </div>
+    <aside class="comment-panel" id="comment-panel" role="dialog" aria-labelledby="comment-popover-title" hidden data-ud-check="editor-comment-popover" data-ud-role="panel">
+      <header class="side-panel-head">
+        <strong id="comment-popover-title" data-i18n="添加批注">添加批注</strong>
+        <button type="button" class="icon-btn" id="comment-panel-close" data-i18n-aria-label="关闭批注浮卡" aria-label="关闭批注浮卡">×</button>
+      </header>
+      <section class="comment-compose">
+        <div class="comment-target" id="comment-target" role="status" aria-live="polite"></div>
+        <ol class="comment-targets" id="comment-targets" data-i18n-aria-label="已选对象，可逐项取消" aria-label="已选对象，可逐项取消" hidden></ol>
+        <textarea id="comment-draft" data-i18n-aria-label="修改意见" aria-label="修改意见" data-i18n-placeholder="描述你希望如何修改…" placeholder="描述你希望如何修改…"></textarea>
+        <footer class="comment-actions"><span class="comment-shortcut">⌘ / Ctrl + Enter</span><button type="button" class="comment-add" id="comment-add" disabled data-i18n="添加批注">添加批注</button></footer>
+      </section>
+      <section class="comment-list-wrap" id="comment-list-wrap" data-i18n-aria-label="当前批注" aria-label="当前批注"><div class="comment-list" id="comment-list"></div></section>
+    </aside>
+    <div class="comment-layer" id="comment-layer" hidden></div>
+    <div class="chart-overlay" id="chart-overlay" hidden>
+      <header class="chart-overlay-head">
+        <strong data-i18n="编辑图表数据">编辑图表数据</strong>
+        <button type="button" id="chart-overlay-close" data-i18n-aria-label="关闭图表数据编辑" aria-label="关闭图表数据编辑">×</button>
+      </header>
+      <p class="chart-data-status" id="chart-data-status" role="status" aria-live="polite" hidden></p>
+      <div class="chart-grid-scroll" tabindex="0" data-i18n-aria-label="可横向滚动的图表数据表格" aria-label="可横向滚动的图表数据表格">
+        <table id="chart-grid" data-i18n-aria-label="图表数据编辑表" aria-label="图表数据编辑表"></table>
+      </div>
+      <p class="chart-overlay-hint" data-i18n="可粘贴 Excel / 表格数据；数值列只接受数字。">可粘贴 Excel / 表格数据；数值列只接受数字。</p>
+    </div>
+    <div class="ctx-menu" id="ctx-menu" hidden></div>
+
+    <dialog class="text-link-dialog" id="text-link-dialog" aria-labelledby="text-link-title">
+      <form class="text-link-shell" id="text-link-form">
+        <h2 id="text-link-title" data-i18n="编辑链接">编辑链接</h2>
+        <p class="text-link-scope" id="text-link-scope" data-i18n="作用于整个文本框">作用于整个文本框</p>
+        <label for="text-link-input" data-i18n="链接地址">链接地址</label>
+        <input id="text-link-input" name="href" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://example.com" aria-describedby="text-link-scope text-link-error" />
+        <p class="text-link-error" id="text-link-error" role="alert" hidden></p>
+        <a class="text-link-open" id="text-link-open" target="_blank" rel="noopener noreferrer" hidden data-i18n="打开当前链接 ↗">打开当前链接 ↗</a>
+        <menu>
+          <button type="button" class="btn text-link-remove" id="text-link-remove" data-i18n="移除链接">移除链接</button>
+          <span class="spacer"></span>
+          <button type="button" class="btn" id="text-link-cancel" data-i18n="取消">取消</button>
+          <button type="submit" class="btn primary" id="text-link-save" data-i18n="保存">保存</button>
+        </menu>
+      </form>
+    </dialog>
+    <dialog class="export-dialog" id="export-dialog">
+      <form method="dialog" class="export-shell">
+        <h2 data-i18n="导出">导出</h2>
+        <div class="export-formats">
+          <button type="button" class="export-fmt on" id="export-pptx" data-control="chrome.export.pptx">PPT</button>
+          <button type="button" class="export-fmt" id="export-pdf" data-control="chrome.export.pdf">PDF</button>
+          <button type="button" class="export-fmt" id="export-png" data-control="chrome.export.image" data-i18n="图片">图片</button>
+        </div>
+        <label class="export-embed" id="export-font-label">
+          <span data-i18n="嵌入字体（PowerPoint/WPS）">嵌入字体（PowerPoint/WPS）</span>
+          <input type="checkbox" id="export-embed-fonts" data-control="chrome.export.embedfonts" checked />
+        </label>
+        <p class="export-path" id="export-scope" aria-live="polite" data-i18n="全部页面 · 可编辑 PPTX">全部页面 · 可编辑 PPTX</p>
+        <button type="button" class="export-download" id="export-download" data-i18n="下载">下载</button>
+        <div id="export-status" role="status" aria-live="polite">
+          <div class="export-progress" id="export-progress" hidden>
+            <i class="export-spinner" aria-hidden="true"></i>
+            <span id="export-progress-text" data-i18n="正在导出 PPTX…">正在导出 PPTX…</span>
+          </div>
+          <div class="export-result" id="export-result" hidden></div>
+          <div class="export-error" id="export-error" hidden>
+            <p id="export-error-text"></p>
+            <button type="button" class="btn" id="export-retry" data-i18n="重试">重试</button>
+          </div>
+        </div>
+        <menu>
+          <button value="cancel" class="btn" data-i18n="取消">取消</button>
+        </menu>
+      </form>
+    </dialog>
+    <div class="font-warmup" aria-hidden="true">
+      <span style="font-family:MiSans" data-i18n="字">字</span>
+      <span style="font-family:Unna">Aa</span>
+      <span style="font-family:'Maple Mono'">Aa</span>
+    </div>
+    <input type="file" id="image-file" accept="image/*" hidden />
+    <input type="file" id="agent-attachment-file" accept=".txt,.md,.csv,.tsv,.json,text/plain,text/markdown,text/csv,application/json" multiple hidden />
+    <div class="app-toast" id="app-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+    </div>
+    <script type="module" src="./app.js?v=20260920-collaboration4"></script>
+  </body>
+</html>

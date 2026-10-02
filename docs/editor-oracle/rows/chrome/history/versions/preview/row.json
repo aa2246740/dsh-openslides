@@ -1,0 +1,45 @@
+{
+  "id": "chrome.history.versions.preview",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "历史版本只读预览",
+  "kimiUi": {
+    "controlLabel": "只读预览 / Back to latest",
+    "location": "标题栏 Vn 下拉后进入历史稿",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "点击标题栏 Vn",
+      "选择历史版本进入只读预览",
+      "Restore 恢复或 Back to latest 返回最新"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "preview does not mutate PPTD; restore snapshots current then writes a new latest from the old snapshot"
+    }
+  },
+  "test": {
+    "id": "EO-CHROME-HISTORY-VERSIONS-PREVIEW"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T22:00:00.000Z",
+    "agent": "history-preview"
+  },
+  "updatedAt": "2026-08-14T22:00:00.000Z"
+}

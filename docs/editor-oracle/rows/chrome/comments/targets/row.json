@@ -1,0 +1,61 @@
+{
+  "id": "chrome.comments.targets",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "确认批注对象与逐项取消",
+  "description": "框选后确认实际命中对象，可从编号名单逐项取消，保留意见输入。",
+  "kimiUi": {
+    "controlLabel": "取消选择对象",
+    "location": "光标旁批注浮卡的对象名单",
+    "appearsWhen": "存在对象范围草稿"
+  },
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    },
+    "notes": "项目中至少存在一条待发送意见。"
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "拖框划过两个对象左端，松手看到两个完整轮廓和编号",
+      "从名单点 × 取消一个对象，另一个仍选中且意见不丢",
+      "取消最后一项后添加按钮禁用",
+      "重新选定对象后添加，持久化范围只包含确认的对象"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "output/annotation-selection-acceptance-2026-09-20/native-before.png",
+      "after": "output/annotation-selection-acceptance-2026-09-20/native-after.png"
+    },
+    "pptd": {
+      "summary": "只修改 review 范围，PPTD 不变。"
+    },
+    "notes": "2026-09-20：原生浏览器实际封面验证 4→3；comment-selection-dom.test.mjs 验证落盘范围、键盘取消和清空保护；7 种尺寸、同页动态缩放、连续对话及 20 步发送回归通过。详见 docs/acceptance/2026-09-20-annotation-selection.md。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "local draft target IDs; PATCH /api/reviews only after Add",
+    "uiParityNotes": "点击添加前可检查和缩小目标名单；空选择不转为整页。"
+  },
+  "test": {
+    "id": "EO-COMMENTS-TARGETS-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "拖框划过两个对象左端，松手看到两个完整轮廓和编号",
+      "从名单点 × 取消一个对象，另一个仍选中且意见不丢",
+      "取消最后一项后添加按钮禁用",
+      "重新选定对象后添加，持久化范围只包含确认的对象"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-17T00:00:00.000Z",
+    "agent": "ai-comment-batch"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

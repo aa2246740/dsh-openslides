@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "open-slidestudio.office-editor-acceptance.v1",
+  "startedAt": "2026-09-05T13:01:31.050Z",
+  "base": "http://127.0.0.1:55488",
+  "source": "fixtures/okp-yu7-ppt",
+  "steps": [
+    {
+      "step": 1,
+      "id": "theme-editing",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-version-final/01-theme-editing.png"
+    },
+    {
+      "step": 2,
+      "id": "comment-and-notes",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-version-final/02-comment-and-notes.png"
+    },
+    {
+      "step": 3,
+      "id": "workspace-no-session-recovery",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-version-final/03-workspace-no-session-recovery.png"
+    },
+    {
+      "step": 4,
+      "id": "version-preview-readonly",
+      "health": "pass",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/output/human-audit/office-version-final/04-version-preview-readonly.png"
+    }
+  ],
+  "exercisedControls": [
+    "chrome.comment.pin",
+    "chrome.history.versions.open",
+    "chrome.history.versions.preview",
+    "chrome.history.versions.restore",
+    "chrome.history.versions.snapshot",
+    "chrome.notes.toggle",
+    "chrome.workspace.refine",
+    "chrome.workspace.toggle",
+    "notes.content.set",
+    "theme.background.set",
+    "theme.color.set"
+  ],
+  "observedControls": [
+    "chrome.comment.pin",
+    "chrome.export.image",
+    "chrome.export.open",
+    "chrome.export.pptx",
+    "chrome.history.redo",
+    "chrome.history.undo",
+    "chrome.history.versions.open",
+    "chrome.history.versions.preview",
+    "chrome.history.versions.restore",
+    "chrome.history.versions.snapshot",
+    "chrome.keyboard.help",
+    "chrome.notes.toggle",
+    "chrome.pages.rail.toggle",
+    "chrome.present.fullscreen",
+    "chrome.present.play",
+    "chrome.workspace.toggle",
+    "chrome.zoom.in",
+    "chrome.zoom.out",
+    "chrome.zoom.percent",
+    "insert.chart",
+    "insert.icon",
+    "insert.image",
+    "insert.line",
+    "insert.more",
+    "insert.shape",
+    "insert.smartart",
+    "insert.table",
+    "insert.text",
+    "notes.content.set",
+    "theme.background.set",
+    "theme.color.set"
+  ],
+  "browserErrors": [],
+  "exports": [],
+  "limitations": [
+    "Headless Chromium cannot prove native macOS fullscreen presentation; requestFullscreen wiring is tested with a browser stub.",
+    "Google Slides export and animation authoring are declared wont-port and are not enabled editor controls."
+  ],
+  "finishedAt": "2026-09-05T13:01:36.051Z"
+}

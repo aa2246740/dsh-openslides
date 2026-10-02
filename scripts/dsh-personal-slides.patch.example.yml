@@ -1,0 +1,13 @@
+# 「演示文稿」DSH 插件挂载补丁 — 使用前先复制一份并改成本机绝对路径：
+#   cp scripts/dsh-personal-slides.patch.example.yml my-slides.patch.yml
+#
+# 两种情况：
+#  A. 已安装 dsh-personal（Personal 入口）→ 演示文稿出现在 Personal 侧栏
+#     把第一段 name 换成你本地 dsh-personal-entry 仓库的绝对路径。
+#  B. 不装 dsh-personal → 演示文稿作为独立入口出现在 DSH 主导航
+#     把第一段删掉即可（插件 client 会自动切换成顶层入口模式）。
+- insert:
+    - id: dsh-personal
+      name: /ABS/PATH/TO/dsh-personal-entry
+    - id: dsh-personal-slides
+      name: /ABS/PATH/TO/dsh-openslides/dsh-personal-slides

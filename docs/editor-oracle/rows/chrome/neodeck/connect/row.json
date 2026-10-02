@@ -1,0 +1,55 @@
+{
+  "id": "chrome.neodeck.connect",
+  "version": 1,
+  "status": "wont-port",
+  "surface": "chrome.global",
+  "title": "NeoDeck host connects public neo-ppt via Penpal",
+  "description": "open-kimi local host loads kimi.com/neo-ppt iframe, RPC handshake, loads demo PPTD. Not a production path.",
+  "kimiUi": {
+    "controlLabel": "已连接",
+    "location": "NeoDeck top bar status pill",
+    "appearsWhen": "penpal handshake succeeds"
+  },
+  "preconditions": {
+    "fixtureId": "neodeck-demo",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "observe",
+    "steps": [
+      "Start open-kimi-ppt-skill serve",
+      "Open http://127.0.0.1:55173/",
+      "Wait for 已连接 and demo 2 pages"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "No disk PPTD change on connect; demo is in-memory setPPTD"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "native-web openSession — no penpal",
+    "uiParityNotes": "Native shell must never load kimi.com/neo-ppt; show offline canvas instead"
+  },
+  "test": {
+    "id": "EO-NEODECK-001",
+    "automated": false,
+    "selfTestChecklist": [
+      "NeoDeck shows 已连接 when network available",
+      "apps/native-web health.kimiRuntime === false"
+    ]
+  },
+  "oracle": {
+    "source": "iframe",
+    "agent": "kimi-try-now-neodeck-re"
+  },
+  "updatedAt": "2026-08-08T00:00:00.000Z"
+}

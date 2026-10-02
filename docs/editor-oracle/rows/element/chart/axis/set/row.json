@@ -1,0 +1,46 @@
+{
+  "id": "element.chart.axis.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.chart",
+  "title": "坐标轴标题",
+  "kimiUi": {
+    "controlLabel": "X轴 / Y轴",
+    "location": "图表工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "type-text",
+    "steps": [
+      "X轴"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "chart.axis.x / y persist"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-CHART-AXIS-SET",
+    "selfTestChecklist": [
+      "setChartAxis writes axis.x"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T15:00:00.000Z",
+    "agent": "s11-chart"
+  },
+  "updatedAt": "2026-08-15T15:00:00.000Z"
+}

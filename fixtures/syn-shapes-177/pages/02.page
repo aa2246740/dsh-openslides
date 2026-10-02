@@ -1,0 +1,493 @@
+pageType: content
+background:
+  type: solid
+  color: "#FFFFFF"
+elements:
+  - elementId: t2
+    elementType: text
+    bounds:
+      - 24
+      - 10
+      - 900
+      - 24
+    content:
+      text: OOXML 21–40 / 177
+      style: $body
+  - elementId: sh-arc
+    elementType: shape
+    shapeName: arc
+    adjustments:
+      - 16200000
+      - 0
+    bounds:
+      - 24
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-arc
+    elementType: text
+    bounds:
+      - 24
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: arc
+      style: $body
+      fontSize: 10
+  - elementId: sh-chord
+    elementType: shape
+    shapeName: chord
+    adjustments:
+      - 2700000
+      - 16200000
+    bounds:
+      - 208.8
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-chord
+    elementType: text
+    bounds:
+      - 208.8
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: chord
+      style: $body
+      fontSize: 10
+  - elementId: sh-blockArc
+    elementType: shape
+    shapeName: blockArc
+    adjustments:
+      - 10800000
+      - 0
+      - 25000
+    bounds:
+      - 393.6
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-blockArc
+    elementType: text
+    bounds:
+      - 393.6
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: blockArc
+      style: $body
+      fontSize: 10
+  - elementId: sh-teardrop
+    elementType: shape
+    shapeName: teardrop
+    adjustments:
+      - 100000
+    bounds:
+      - 578.4000000000001
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-teardrop
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: teardrop
+      style: $body
+      fontSize: 10
+  - elementId: sh-frame
+    elementType: shape
+    shapeName: frame
+    adjustments:
+      - 12500
+    bounds:
+      - 763.2
+      - 40
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-frame
+    elementType: text
+    bounds:
+      - 763.2
+      - 135
+      - 172.8
+      - 14
+    content:
+      text: frame
+      style: $body
+      fontSize: 10
+  - elementId: sh-halfFrame
+    elementType: shape
+    shapeName: halfFrame
+    adjustments:
+      - 33333
+      - 33333
+    bounds:
+      - 24
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-halfFrame
+    elementType: text
+    bounds:
+      - 24
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: halfFrame
+      style: $body
+      fontSize: 10
+  - elementId: sh-corner
+    elementType: shape
+    shapeName: corner
+    adjustments:
+      - 50000
+      - 50000
+    bounds:
+      - 208.8
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-corner
+    elementType: text
+    bounds:
+      - 208.8
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: corner
+      style: $body
+      fontSize: 10
+  - elementId: sh-diagStripe
+    elementType: shape
+    shapeName: diagStripe
+    adjustments:
+      - 50000
+    bounds:
+      - 393.6
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-diagStripe
+    elementType: text
+    bounds:
+      - 393.6
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: diagStripe
+      style: $body
+      fontSize: 10
+  - elementId: sh-foldedCorner
+    elementType: shape
+    shapeName: foldedCorner
+    bounds:
+      - 578.4000000000001
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-foldedCorner
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: foldedCorner
+      style: $body
+      fontSize: 10
+  - elementId: sh-donut
+    elementType: shape
+    shapeName: donut
+    adjustments:
+      - 25000
+    bounds:
+      - 763.2
+      - 163
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-donut
+    elementType: text
+    bounds:
+      - 763.2
+      - 258
+      - 172.8
+      - 14
+    content:
+      text: donut
+      style: $body
+      fontSize: 10
+  - elementId: sh-noSmoking
+    elementType: shape
+    shapeName: noSmoking
+    adjustments:
+      - 18750
+    bounds:
+      - 24
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-noSmoking
+    elementType: text
+    bounds:
+      - 24
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: noSmoking
+      style: $body
+      fontSize: 10
+  - elementId: sh-heart
+    elementType: shape
+    shapeName: heart
+    bounds:
+      - 208.8
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-heart
+    elementType: text
+    bounds:
+      - 208.8
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: heart
+      style: $body
+      fontSize: 10
+  - elementId: sh-lightningBolt
+    elementType: shape
+    shapeName: lightningBolt
+    bounds:
+      - 393.6
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-lightningBolt
+    elementType: text
+    bounds:
+      - 393.6
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: lightningBolt
+      style: $body
+      fontSize: 10
+  - elementId: sh-sun
+    elementType: shape
+    shapeName: sun
+    adjustments:
+      - 25000
+    bounds:
+      - 578.4000000000001
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-sun
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: sun
+      style: $body
+      fontSize: 10
+  - elementId: sh-moon
+    elementType: shape
+    shapeName: moon
+    adjustments:
+      - 50000
+    bounds:
+      - 763.2
+      - 286
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#10B981"
+  - elementId: lb-moon
+    elementType: text
+    bounds:
+      - 763.2
+      - 381
+      - 172.8
+      - 14
+    content:
+      text: moon
+      style: $body
+      fontSize: 10
+  - elementId: sh-cloud
+    elementType: shape
+    shapeName: cloud
+    bounds:
+      - 24
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#F59E0B"
+  - elementId: lb-cloud
+    elementType: text
+    bounds:
+      - 24
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: cloud
+      style: $body
+      fontSize: 10
+  - elementId: sh-smileyFace
+    elementType: shape
+    shapeName: smileyFace
+    adjustments:
+      - 4653
+    bounds:
+      - 208.8
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#8B5CF6"
+  - elementId: lb-smileyFace
+    elementType: text
+    bounds:
+      - 208.8
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: smileyFace
+      style: $body
+      fontSize: 10
+  - elementId: sh-bevel
+    elementType: shape
+    shapeName: bevel
+    adjustments:
+      - 12500
+    bounds:
+      - 393.6
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#EF4444"
+  - elementId: lb-bevel
+    elementType: text
+    bounds:
+      - 393.6
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: bevel
+      style: $body
+      fontSize: 10
+  - elementId: sh-can
+    elementType: shape
+    shapeName: can
+    adjustments:
+      - 25000
+    bounds:
+      - 578.4000000000001
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#2563EB"
+  - elementId: lb-can
+    elementType: text
+    bounds:
+      - 578.4000000000001
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: can
+      style: $body
+      fontSize: 10
+  - elementId: sh-cube
+    elementType: shape
+    shapeName: cube
+    adjustments:
+      - 25000
+    bounds:
+      - 763.2
+      - 409
+      - 172.8
+      - 95
+    fill:
+      type: solid
+      color: "#0EA5E9"
+  - elementId: lb-cube
+    elementType: text
+    bounds:
+      - 763.2
+      - 504
+      - 172.8
+      - 14
+    content:
+      text: cube
+      style: $body
+      fontSize: 10

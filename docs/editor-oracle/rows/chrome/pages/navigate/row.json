@@ -1,0 +1,51 @@
+{
+  "id": "chrome.pages.navigate",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.pages",
+  "title": "Navigate to page by index",
+  "description": "Native goToPage; full page-list chrome pending S1 capture.",
+  "kimiUi": {
+    "controlLabel": "页面缩略图 / 页列表",
+    "location": "left or bottom page rail",
+    "appearsWhen": "always"
+  },
+  "preconditions": {
+    "fixtureId": "syn-smoke",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click page thumbnail at index"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change; session pageIndex only"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "goToPage"
+  },
+  "test": {
+    "id": "EO-PAGE-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "goToPage changes renderModel.pageIndex"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "native-implement-spine"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

@@ -1,0 +1,34 @@
+# Live generation controls
+
+While a run is live the panel is locked (`#work-chat.is-live-generation`), the canvas is read-only and the
+composer is the only control. Driver id `generation-live` (`drivers/assistant.mjs`), session bound with
+`&live=1&session=verify-session`. The run itself is faked: the driver writes the events the panel renders.
+
+## What a user does
+
+- Progress rows appear in `#editor-generation-event-list` (reasoning, tool rows).
+- Text typed during a run that was **not** started from this composer is a **steer**: posted with
+  `steer: true`, no intent read, the draft clears once accepted.
+- Text typed during a run **started from this composer** is held. The draft stays and the toast
+  `#app-toast` says 助手正在回复，完成后可以继续发送. Nothing is posted.
+- An empty composer plus the stop square stops the run. One JSON stop request, confirmed within seconds;
+  `#generation-think-status` (正在思考) disappears. A paused run may offer `#editor-generation-resume`
+  (继续完成生成).
+- A new instruction after a stop goes through the intent read and becomes a `generate` turn on the same
+  session.
+
+## What the driver proves
+
+- Locked panel with rows; steer posted as `{text, steer:true}` with no intent read; draft cleared.
+- Stop: one request, `application/json`, button returns to send within 5 s, no lingering 正在思考.
+- New instruction: reaches the same session with the new text, `conversationMode: "generate"`, exactly one
+  intent read.
+- Held draft: text kept, toast shown, no extra turn.
+
+## Gotchas
+
+- Held versus steer depends on who started the run. `assistantTurnPending` clears only when the agent
+  status goes idle, which the fake reproduces by setting `s.busy`/`s.phase` in `s.onTurn`.
+- The resume button is checked only when visible; when the panel hides it the driver records a note, not
+  a failure.
+- This never runs the kernel. A real generation is out of scope (see `../SKILL.md`).

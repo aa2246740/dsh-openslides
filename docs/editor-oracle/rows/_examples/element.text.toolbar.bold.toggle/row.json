@@ -1,0 +1,60 @@
+{
+  "id": "element.text.toolbar.bold.toggle",
+  "version": 1,
+  "status": "discovered",
+  "surface": "element.text",
+  "title": "Toggle bold on selected text (EXAMPLE ONLY)",
+  "description": "Template row — replace with real iframe capture before treating as specified.",
+  "kimiUi": {
+    "controlLabel": "加粗 / Bold",
+    "location": "top contextual toolbar when text selected",
+    "appearsWhen": "single text element selected"
+  },
+  "preconditions": {
+    "fixtureId": "okp-example-pending",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "text",
+      "elementHint": "title"
+    },
+    "notes": "EXAMPLE — do not implement native from this stub"
+  },
+  "action": {
+    "type": "toggle",
+    "steps": [
+      "Open fixture in official editor via open-kimi serve",
+      "Select the title text box",
+      "Click Bold in the contextual toolbar"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "EXAMPLE — expect text run bold/fontWeight change in .page YAML"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "updateElement",
+    "uiParityNotes": "Match Kimi toolbar icon placement during 1:1 phase"
+  },
+  "test": {
+    "id": "EO-TEXT-000",
+    "automated": false,
+    "selfTestChecklist": [
+      "Select text in native editor",
+      "Toggle bold",
+      "PPTD reflects bold",
+      "Export PPTX text is bold in PowerPoint"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "schema-template"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

@@ -1,0 +1,12 @@
+kind,name,metric,value,unit,note
+channel,自营 App,gmv,620,万元,虚构演示
+channel,旗舰店,gmv,410,万元,虚构演示
+channel,直播间,gmv,190,万元,虚构演示
+channel,团购券,gmv,80,万元,虚构演示
+region,华北,gmv,540,万元,虚构演示
+region,华东,gmv,710,万元,虚构演示
+region,华南,gmv,590,万元,虚构演示
+inventory,周转天数,days,42,天,虚构演示
+inventory,缺货SKU,count,27,个,虚构演示
+ops,准时发货率,rate,93.4,%,虚构演示
+ops,客诉,count,214,单,虚构演示

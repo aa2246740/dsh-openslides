@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click the control in official neo-ppt iframe"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change; zoomPercent only"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "chrome.zoom.out",
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "缩小画布",
+  "kimiUi": {
+    "controlLabel": "−",
+    "location": "second toolbar right",
+    "appearsWhen": "always"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "zoomBy out"
+  },
+  "test": {
+    "id": "EO-CHROME-004",
+    "automated": true,
+    "selfTestChecklist": [
+      "zoomBy out lowers zoomPercent by 10"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "silhouette": 0.5648
+    },
+    {
+      "page": 2,
+      "silhouette": 0.6027
+    },
+    {
+      "page": 3,
+      "silhouette": 0.5797
+    },
+    {
+      "page": 4,
+      "silhouette": 0.6297
+    },
+    {
+      "page": 5,
+      "silhouette": 0.5827
+    },
+    {
+      "page": 6,
+      "silhouette": 0.517
+    },
+    {
+      "page": 7,
+      "silhouette": 0.6232
+    },
+    {
+      "page": 8,
+      "silhouette": 0.5212
+    },
+    {
+      "page": 9,
+      "silhouette": 0.5919
+    }
+  ],
+  "mean": 0.5792,
+  "note": "slide-crop silhouette after native scale fix; not a 1:1 claim"
+}

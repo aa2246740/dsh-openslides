@@ -1,0 +1,59 @@
+{
+  "id": "chrome.comment.pin",
+  "version": 1,
+  "status": "verified",
+  "surface": "chrome.global",
+  "title": "画布批注编号与就地编辑",
+  "kimiUi": {
+    "controlLabel": "批注编号",
+    "location": "批注目标对象旁",
+    "appearsWhen": "批注模式下存在未解决批注"
+  },
+  "preconditions": {
+    "fixtureId": "syn-shapes",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "进入批注模式",
+      "点击编号，目标旁显示单条意见",
+      "修改后点更新或 Cmd/Ctrl+Enter，浮卡收起",
+      "关闭浮卡可以继续标记，Esc 退出批注模式"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "",
+      "after": "docs/acceptance/assets/2026-09-20-comment-context/live-note.png"
+    },
+    "pptd": {
+      "summary": "批注保存到项目 _agent/review-threads.v1.json；查看和编辑批注不改变 PPTD 页面。"
+    },
+    "notes": "2026-09-20：真实指针 DOM 验证点击、Shift 多选、直接拖框、快捷键添加/更新、移除撤销、刷新恢复、退出模式和页面逐字节不变；原生浏览器确认现有意见原样显示，无旧选框/旋转柄。"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "comment pin overlay"
+  },
+  "test": {
+    "id": "EO-CHROME-COMMENT-PIN",
+    "automated": true,
+    "selfTestChecklist": [
+      "浮卡只显示当前意见，无勾选/全部批注/解决",
+      "点击或拖框直接确定范围",
+      "关闭浮卡保持连续标记，Esc 返回编辑",
+      "更新保留范围、创建时间与锚点",
+      "画布无残留编辑选框与旋转柄"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "capturedAt": "2026-09-20T00:00:00.000Z",
+    "agent": "comment-popover"
+  },
+  "updatedAt": "2026-09-20T00:00:00.000Z"
+}

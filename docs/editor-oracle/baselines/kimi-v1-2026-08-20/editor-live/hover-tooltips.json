@@ -1,0 +1,82 @@
+[
+  {
+    "tag": "button",
+    "text": "",
+    "title": "",
+    "aria": "",
+    "cls": "button auto-rtl button-icon-only button-medium button-has-icon",
+    "rect": {
+      "x": 1546,
+      "y": 106,
+      "width": 32,
+      "height": 32
+    },
+    "revealed": [
+      "全屏"
+    ]
+  },
+  {
+    "tag": "div",
+    "text": "",
+    "title": "",
+    "aria": "",
+    "cls": "toggle-menu",
+    "rect": {
+      "x": 19,
+      "y": 158,
+      "width": 38,
+      "height": 32
+    },
+    "revealed": [
+      "预览模式"
+    ]
+  },
+  {
+    "tag": "div",
+    "text": "",
+    "title": "",
+    "aria": "",
+    "cls": "toggle-menu",
+    "rect": {
+      "x": 158,
+      "y": 158,
+      "width": 38,
+      "height": 32
+    },
+    "revealed": [
+      "收起"
+    ]
+  },
+  {
+    "tag": "button",
+    "text": "",
+    "title": "",
+    "aria": "",
+    "cls": "button auto-rtl button-icon-only button-medium button-has-icon",
+    "rect": {
+      "x": 1458,
+      "y": 158,
+      "width": 32,
+      "height": 32
+    },
+    "revealed": [
+      "缩小"
+    ]
+  },
+  {
+    "tag": "button",
+    "text": "",
+    "title": "",
+    "aria": "",
+    "cls": "button auto-rtl button-icon-only button-medium button-has-icon",
+    "rect": {
+      "x": 1546,
+      "y": 158,
+      "width": 32,
+      "height": 32
+    },
+    "revealed": [
+      "放大"
+    ]
+  }
+]

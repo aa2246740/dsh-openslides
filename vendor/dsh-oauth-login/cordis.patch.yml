@@ -1,0 +1,5 @@
+# Pi-native OAuth routes. Does not replace catalog API-key routes and never
+# shares official CLI files (~/.codex, ~/.grok, ~/.claude).
+- insert:
+    - id: llm-oauth-login
+      name: dsh-oauth-login

@@ -1,0 +1,44 @@
+{
+  "description": "Manual entry retired by design (the palette icon tab was removed). The command path stays available for programmatic and QA seeding: POST /api/command {cmd:\"insert\",kind:\"icon\"}.",
+  "id": "insert.icon",
+  "version": 1,
+  "status": "verified",
+  "surface": "insert",
+  "title": "插入图标",
+  "kimiUi": {
+    "controlLabel": "插入图标",
+    "location": "插入更多菜单",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "插入图标"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "native session mutates PPTD"
+    }
+  },
+  "test": {
+    "id": "EO-INSERT-ICON"
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T20:00:00.000Z",
+    "agent": "s3-s13"
+  },
+  "updatedAt": "2026-08-14T20:00:00.000Z"
+}

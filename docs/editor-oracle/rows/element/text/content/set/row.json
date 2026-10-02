@@ -1,0 +1,59 @@
+{
+  "id": "element.text.content.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.text",
+  "title": "Set selected text content",
+  "description": "Native canvas-session API; dual-channel iframe capture still pending for verified.",
+  "kimiUi": {
+    "controlLabel": "文本内容",
+    "location": "inline edit / right panel when text selected",
+    "appearsWhen": "single text element selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "text",
+      "elementHint": "title"
+    }
+  },
+  "action": {
+    "type": "type-text",
+    "steps": [
+      "Select text element",
+      "Replace content string"
+    ],
+    "input": {
+      "text": "新标题"
+    }
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "content.text changes on selected element"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "setSelectedText",
+    "uiParityNotes": "Wire after S4/S5 capture; API already gated by allowlist"
+  },
+  "test": {
+    "id": "EO-TEXT-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "setSelectedText with allowlist updates PPTD",
+      "without allowlist throws dead-button error"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "native-implement-spine"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

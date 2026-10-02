@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@open-slidestudio/pptd": ["../../packages/pptd/src/index.ts"],
+      "@open-slidestudio/pptd/*": ["../../packages/pptd/src/*"],
+      "@open-slidestudio/agent-core": ["../../packages/agent-core/src/index.ts"],
+      "@open-slidestudio/agent-core/*": ["../../packages/agent-core/src/*"],
+      "@open-slidestudio/exporter-pptx": ["../../packages/exporter-pptx/src/index.ts"],
+      "@open-slidestudio/exporter-pptx/*": ["../../packages/exporter-pptx/src/*"],
+      "@open-slidestudio/design-brain": ["../../packages/design-brain/src/index.ts"],
+      "@open-slidestudio/design-brain/*": ["../../packages/design-brain/src/*"]
+    }
+  },
+  "include": ["src"]
+}

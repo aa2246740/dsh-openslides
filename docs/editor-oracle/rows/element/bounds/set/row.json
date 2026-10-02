@@ -1,0 +1,55 @@
+{
+  "id": "element.bounds.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "selection",
+  "title": "Set selected element bounds",
+  "description": "Native setSelectedBounds (drag/resize wiring pending UI).",
+  "kimiUi": {
+    "controlLabel": "拖拽 / 调整大小",
+    "location": "selection handles on canvas",
+    "appearsWhen": "element selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "text",
+      "elementHint": "title"
+    }
+  },
+  "action": {
+    "type": "drag",
+    "steps": [
+      "Select element",
+      "Set bounds [x,y,w,h]"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "element.bounds array updates"
+    }
+  },
+  "expectedNative": {
+    "mustChangeDocument": true,
+    "commandHint": "setSelectedBounds"
+  },
+  "test": {
+    "id": "EO-SEL-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "setSelectedBounds updates bounds",
+      "undo restores previous bounds"
+    ]
+  },
+  "oracle": {
+    "source": "derived",
+    "agent": "native-implement-spine"
+  },
+  "updatedAt": "2026-08-07T00:00:00.000Z"
+}

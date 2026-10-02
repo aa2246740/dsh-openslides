@@ -1,0 +1,27 @@
+/* Product-chrome fonts only. Slide text uses the Office/WPS system faces in
+ * font-policy.ts and is not embedded. Font Awesome is kept here so the
+ * exporter can embed icon glyphs when a deck names the family. */
+@font-face { font-family: MiSans; src: url("./fonts/MiSans.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: Unna; src: url("./fonts/Unna.woff2") format("woff2"); font-display: swap; }
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("./vendor/fa/fa-solid-900.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./vendor/fa/fa-regular-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./vendor/fa/fa-brands-400.woff2") format("woff2");
+}

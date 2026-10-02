@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "open-slidestudio.editor-human-audit.v1",
+  "generatedAt": "2026-09-05T12:36:42.625Z",
+  "base": "http://127.0.0.1:55481",
+  "results": [
+    {
+      "name": "table edit is committed before rail navigation",
+      "ok": true,
+      "evidence": {
+        "modelPage": 1,
+        "activeDom": "1",
+        "staleTableVisible": false
+      }
+    },
+    {
+      "name": "table edit is committed before export opens",
+      "ok": true,
+      "evidence": {
+        "tableId": "table-1",
+        "modelValue": "AUDIT_TABLE_EXPORT"
+      }
+    },
+    {
+      "name": "notes autosave remains bound to the page where typing occurred",
+      "ok": true,
+      "evidence": {
+        "pageOneNotes": "AUDIT_NOTES_PAGE_ONE",
+        "pageTwoNotes": ""
+      }
+    },
+    {
+      "name": "undo after adding the last page keeps a valid current page",
+      "ok": true,
+      "evidence": {
+        "before": [
+          0,
+          8
+        ],
+        "after": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "name": "table edit is one undoable transaction across the toolbar boundary",
+      "ok": true,
+      "evidence": {
+        "tableId": "table-1",
+        "undoneValue": "列 A",
+        "redoneValue": "AUDIT_TABLE_UNDO_REDO"
+      }
+    },
+    {
+      "name": "shape gallery search categories line presets and icon filters stay usable",
+      "ok": false,
+      "error": "AssertionError [ERR_ASSERTION]: line preset library unexpectedly small: 3\n    at file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:254:12\n    at async runCase (file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:120:22)\n    at async file:///Users/wu/Documents/ChatGPT/openslides/latest/scripts/qa/editor-human-audit.mjs:234:3",
+      "screenshot": "/Users/wu/Documents/ChatGPT/openslides/latest/docs/qa/evidence/editor-human-audit-2026-09-05-after-expanded/02-shape-gallery-search-categories-line-presets-and-icon-filters-stay-usable.png"
+    },
+    {
+      "name": "keyboard copy and context-menu paste share the editor clipboard",
+      "ok": true,
+      "evidence": {
+        "before": 3,
+        "after": 5,
+        "delta": 2
+      }
+    }
+  ],
+  "browserErrors": [],
+  "serverLog": "Open SlideStudio  http://127.0.0.1:55481/\n创建 Hub 是默认首页。编辑器: http://127.0.0.1:55481/index.html\nDefault project: /Users/wu/Documents/ChatGPT/openslides/latest/fixtures/okp-yu7-ppt\nZero Kimi iframe/CDN in this shell.\n"
+}

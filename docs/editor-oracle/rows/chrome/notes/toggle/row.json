@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "preconditions": {
+    "fixtureId": "okp-yu7-ppt",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Click the control in official neo-ppt iframe"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "no document change; notesOpen only"
+    }
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-14T12:00:00.000Z",
+    "agent": "oracle-compare-s1-discover",
+    "sessionId": "iframe-compare-2026-08-14"
+  },
+  "updatedAt": "2026-08-14T12:00:00.000Z",
+  "id": "chrome.notes.toggle",
+  "status": "verified",
+  "surface": "notes",
+  "title": "显示演讲者备注",
+  "kimiUi": {
+    "controlLabel": "显示演讲者备注",
+    "location": "below canvas",
+    "appearsWhen": "always"
+  },
+  "expectedNative": {
+    "mustChangeDocument": false,
+    "commandHint": "setNotesOpen"
+  },
+  "test": {
+    "id": "EO-CHROME-010",
+    "automated": true,
+    "selfTestChecklist": [
+      "setNotesOpen flips notesOpen"
+    ]
+  }
+}

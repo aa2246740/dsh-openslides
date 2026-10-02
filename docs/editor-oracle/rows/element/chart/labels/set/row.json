@@ -1,0 +1,46 @@
+{
+  "id": "element.chart.labels.set",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.chart",
+  "title": "数据标签",
+  "kimiUi": {
+    "controlLabel": "标签",
+    "location": "图表工具条",
+    "appearsWhen": "editor"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "none"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "标签"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "chart.labels boolean"
+    }
+  },
+  "test": {
+    "id": "EO-ELEMENT-CHART-LABELS-SET",
+    "selfTestChecklist": [
+      "setChartLabels false appears on renderModel"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T15:00:00.000Z",
+    "agent": "s11-chart"
+  },
+  "updatedAt": "2026-08-15T15:00:00.000Z"
+}

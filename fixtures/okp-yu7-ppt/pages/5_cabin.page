@@ -1,0 +1,217 @@
+pageType: content
+background:
+  type: image
+  src: media/bg_cabin.png
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 0
+      stops:
+        - position: 0
+          color: "#00000000"
+        - position: 0.45
+          color: "#00000059"
+        - position: 1
+          color: "#000000E6"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 520
+      - 48
+      - 380
+      - 22
+    content:
+      style: $label
+      align:
+        - right
+        - middle
+      text: SMART CABIN · 智能座舱
+  - elementId: title
+    elementType: text
+    bounds:
+      - 520
+      - 88
+      - 380
+      - 56
+    content:
+      style: $pageTitle
+      align:
+        - right
+        - middle
+      text: 澎湃智能座舱
+  - elementId: lead
+    elementType: text
+    bounds:
+      - 520
+      - 148
+      - 380
+      - 40
+    content:
+      fontSize: 14
+      color: $w70
+      align:
+        - right
+        - middle
+      lineHeight: 1.6
+      text: 小米澎湃 OS · 人车家全生态，科技、豪华与舒适皆备
+  - elementId: c1-title
+    elementType: text
+    bounds:
+      - 520
+      - 214
+      - 380
+      - 28
+    content:
+      fontSize: 17
+      color: $white
+      bold: true
+      align:
+        - right
+        - middle
+      letterSpacing: 1
+      text: 小米天际屏全景显示
+  - elementId: c1-desc
+    elementType: text
+    bounds:
+      - 520
+      - 244
+      - 380
+      - 34
+    content:
+      fontSize: 12
+      color: $w70
+      align:
+        - right
+        - middle
+      lineHeight: 1.6
+      text: 三块 Mini LED · 1.1m 超宽 · 108PPD · 1200nits
+  - elementId: c2-title
+    elementType: text
+    bounds:
+      - 520
+      - 288
+      - 380
+      - 28
+    content:
+      fontSize: 17
+      color: $white
+      bold: true
+      align:
+        - right
+        - middle
+      letterSpacing: 1
+      text: 第三代骁龙8 移动平台
+  - elementId: c2-desc
+    elementType: text
+    bounds:
+      - 520
+      - 318
+      - 380
+      - 34
+    content:
+      fontSize: 12
+      color: $w70
+      align:
+        - right
+        - middle
+      lineHeight: 1.6
+      text: 4nm 制程 · 开机快、启动快、升级更快
+  - elementId: c3-title
+    elementType: text
+    bounds:
+      - 520
+      - 362
+      - 380
+      - 28
+    content:
+      fontSize: 17
+      color: $white
+      bold: true
+      align:
+        - right
+        - middle
+      letterSpacing: 1
+      text: 超级小爱 · 五音区语音交互
+  - elementId: c3-desc
+    elementType: text
+    bounds:
+      - 520
+      - 392
+      - 380
+      - 34
+    content:
+      fontSize: 12
+      color: $w70
+      align:
+        - right
+        - middle
+      lineHeight: 1.6
+      text: 端侧大模型 · 全车声纹识别 · 车外语音控制
+  - elementId: c4-title
+    elementType: text
+    bounds:
+      - 520
+      - 436
+      - 380
+      - 28
+    content:
+      fontSize: 17
+      color: $white
+      bold: true
+      align:
+        - right
+        - middle
+      letterSpacing: 1
+      text: 25 扬声器豪华音响系统
+  - elementId: c4-desc
+    elementType: text
+    bounds:
+      - 520
+      - 466
+      - 380
+      - 34
+    content:
+      fontSize: 12
+      color: $w70
+      align:
+        - right
+        - middle
+      lineHeight: 1.6
+      text: 支持杜比全景声 · 私享音乐座舱
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 492
+      - 440
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      text: |
+        图源：<a href="https://www.xiaomiev.com/yu7">小米汽车官网</a> · 配置区分车型版本
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 05 / 08

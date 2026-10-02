@@ -1,0 +1,31 @@
+{
+  "name": "@open-slidestudio/presentation-run",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test dist/*.test.js dist/domain/*.test.js"
+  },
+  "dependencies": {
+    "@open-slidestudio/exporter-native": "0.1.0",
+    "@open-slidestudio/pptd-v2": "0.1.0",
+    "@open-slidestudio/project-store": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

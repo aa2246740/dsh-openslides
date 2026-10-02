@@ -1,0 +1,49 @@
+{
+  "id": "element.smartart.node.add",
+  "version": 1,
+  "status": "verified",
+  "surface": "element.smartart",
+  "title": "SmartArt 加节点",
+  "kimiUi": {
+    "controlLabel": "加节点",
+    "location": "selection context toolbar",
+    "appearsWhen": "SmartArt node or label selected"
+  },
+  "preconditions": {
+    "fixtureId": "syn-empty",
+    "pageIndex": 0,
+    "selection": {
+      "kind": "element",
+      "elementType": "shape"
+    }
+  },
+  "action": {
+    "type": "click",
+    "steps": [
+      "Select a SmartArt node",
+      "Click 加节点 on the compact context bar"
+    ]
+  },
+  "evidence": {
+    "screenshots": {
+      "before": "shots/before.png",
+      "after": "shots/after.png"
+    },
+    "pptd": {
+      "summary": "Appends a node+label and relayouts connectors"
+    }
+  },
+  "test": {
+    "id": "EO-SMARTART-001",
+    "automated": true,
+    "selfTestChecklist": [
+      "addSmartArtNode increases node count by 1 and recreates connectors"
+    ]
+  },
+  "oracle": {
+    "source": "kimi-iframe",
+    "capturedAt": "2026-08-15T03:40:00.000Z",
+    "agent": "editor-1-1-smartart"
+  },
+  "updatedAt": "2026-08-15T03:40:00.000Z"
+}

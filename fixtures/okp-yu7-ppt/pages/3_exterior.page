@@ -1,0 +1,180 @@
+pageType: content
+background:
+  type: image
+  src: media/bg_exterior.jpg
+  fit:
+    mode: cover
+elements:
+  - elementId: overlay
+    elementType: shape
+    bounds:
+      - 0
+      - 0
+      - 960
+      - 540
+    shapeName: rect
+    fill:
+      type: gradient
+      gradientType: linear
+      angle: 0
+      stops:
+        - position: 0
+          color: "#000000F0"
+        - position: 0.6
+          color: "#0000008C"
+        - position: 1
+          color: "#00000000"
+  - elementId: label
+    elementType: text
+    bounds:
+      - 60
+      - 48
+      - 500
+      - 22
+    content:
+      style: $label
+      text: EXTERIOR DESIGN · 外观设计
+  - elementId: title
+    elementType: text
+    bounds:
+      - 60
+      - 88
+      - 640
+      - 56
+    content:
+      style: $pageTitle
+      text: 优雅动感，一脉相承
+  - elementId: lead
+    elementType: text
+    bounds:
+      - 60
+      - 148
+      - 560
+      - 44
+    content:
+      fontSize: 14
+      color: $w70
+      lineHeight: 1.7
+      text: |
+        1:3 头身比与舒展的宽体低趴姿态，搭配流畅车身曲线；
+        镂空水滴大灯与光环尾灯，一眼经典，再看独特。
+  - elementId: row1-num
+    elementType: text
+    bounds:
+      - 60
+      - 232
+      - 220
+      - 52
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:36px; color:#FFFFFF;
+        font-weight:700;">1:3</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> 头身比</span></p>
+  - elementId: row1-desc
+    elementType: text
+    bounds:
+      - 300
+      - 236
+      - 380
+      - 44
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 延续汽车工业沉淀百年的长车头豪华比例，蓄势待发
+  - elementId: row2-num
+    elementType: text
+    bounds:
+      - 60
+      - 302
+      - 220
+      - 52
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:36px; color:#FFFFFF;
+        font-weight:700;">3.11</span><span style="font-size:15px;
+        color:#FFFFFFB3;">㎡ 蚌式铝机盖</span></p>
+  - elementId: row2-desc
+    elementType: text
+    bounds:
+      - 300
+      - 306
+      - 380
+      - 44
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 量产最大蚌式铝机盖，与整车型面浑然一体
+  - elementId: row3-num
+    elementType: text
+    bounds:
+      - 60
+      - 372
+      - 220
+      - 52
+    content:
+      align:
+        - left
+        - middle
+      text: >
+        <p><span style="font-size:36px; color:#FFFFFF;
+        font-weight:700;">0.245</span><span style="font-size:15px;
+        color:#FFFFFFB3;"> 风阻系数</span></p>
+  - elementId: row3-desc
+    elementType: text
+    bounds:
+      - 300
+      - 376
+      - 380
+      - 44
+    content:
+      fontSize: 13
+      color: $w70
+      lineHeight: 1.6
+      text: 10 组贯穿式风道 · 40+ 处空气动力学优化，带来更好续航
+  - elementId: extra
+    elementType: text
+    bounds:
+      - 60
+      - 450
+      - 560
+      - 40
+    content:
+      fontSize: 12
+      color: $w60
+      letterSpacing: 1
+      lineHeight: 1.7
+      text: 镂空水滴大灯 · 光环尾灯 · 电动内翻式门把手 · 22° 上翘鸭尾
+  - elementId: note
+    elementType: text
+    bounds:
+      - 60
+      - 492
+      - 560
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      text: |
+        图源：<a href="https://www.xiaomiev.com/yu7">小米汽车官网</a> · 风阻数据来自中国汽研重庆风洞实验室
+  - elementId: page-num
+    elementType: text
+    bounds:
+      - 850
+      - 500
+      - 60
+      - 20
+    content:
+      fontSize: 11
+      color: $w50
+      align:
+        - right
+        - middle
+      text: 03 / 08

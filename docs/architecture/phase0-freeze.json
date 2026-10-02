@@ -1,0 +1,18 @@
+{
+  "schema": "phase0-freeze-v1",
+  "gitSha": "5acf6e4335f478bc8d8fb408681ca7d967b1d234",
+  "capturedAt": "2026-08-26T06:28:00.928Z",
+  "kernel": {
+    "name": "pi",
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "0.80.10"
+  },
+  "openkimi": {
+    "sourceFiles": 76,
+    "visualFiles": 44
+  },
+  "editor": {
+    "clickableNodeCount": 125,
+    "tooltipCount": 5
+  }
+}
