@@ -97,3 +97,46 @@ Three-page editable export:
 - DSHX's whole-repository compatibility audit finds pre-existing legacy
   `assistant/chunk` handling/fixtures; full bounded server hot-reload acceptance
   is not claimed.
+
+## GLM-5.3 on the actual Desktop
+
+A further live run used the existing `pi-zai-coding-cn / glm-5.3` adapter
+on the actual Desktop Host. It completed the same three-page Chinese community
+book exchange brief. The operator clicked Export, Download, and the native Save
+dialog. ZIP inspection of the downloaded PPTX found three slide XML parts and
+one native chart part; size 26,930 bytes. SHA-256:
+`75b7fd259e5a3f77f0b1c746e13bd94a6387b0bc67175129d3084e0829f7705f`.
+
+The first native automation input dropped Chinese characters. That incomplete
+request was stopped; the full Chinese brief was pasted, verified in the UI, and
+submitted in the same test session. This was an operator-input correction, not
+a clean one-shot model benchmark. The final generation completed without a
+provider error. No automated vision review was configured.
+
+![GLM native Desktop chart](glm-desktop-chart.png)
+
+![GLM native Desktop export](glm-desktop-export.png)
+
+## Space-switch investigation
+
+A failed legacy `dsh-personal-slides` instance had been re-enabled alongside the
+active `dsh-openslides` bundle. A fresh authenticated browser page failed to boot
+and named the legacy instance. Disabling that exact legacy instance through the
+official plugin manager immediately restored fresh-page loading. The active
+bundle and project data were retained. This establishes a duplicate-plugin boot
+defect; it does not establish that the same defect causes every switch stutter.
+
+Source inspection found that Personal calls `layout.selectPanel(null)` to return
+to Work. The shell selects a keyed main slot, and the renderer uses each entry's
+identity as a React key. Thus switching spaces unmounts and remounts the main
+panel. Personal also releases its sidebar override, remounting the Work sidebar.
+Observed Desktop state contained 267 sessions (100 visible rows) and a selected
+311-step conversation. Returning to Personal reset the Slides editor to its hub,
+consistent with that lifecycle. The switch handler itself makes no model call.
+
+Reconstruction of the sidebar and conversation is a plausible source of the
+stutter. Native input/AX round-trip timings are not browser frame timings and
+were not used to quantify performance. The browser permission prompt denied
+CDP performance profiling, so no CPU/long-task trace was collected. The dominant
+performance cause and a verified performance fix remain open; this report does
+not attribute the stutter to the SWE proxy or declare it fixed.
