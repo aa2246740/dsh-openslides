@@ -149,8 +149,7 @@ function proxyToSidecar(req, res, editorOrigin) {
 export function apply(ctx) {
     // dev entry: <plugin>/src/dsh-personal-slides.ts → ../.. is the repo checkout.
     // built entry: <plugin>/lib/dsh-personal-slides.js → same depth.
-    const repoRoot = resolve(process.env.OPEN_SLIDESTUDIO_ROOT?.trim() ||
-        fileURLToPath(new URL("../..", import.meta.url)));
+    const repoRoot = resolve(fileURLToPath(new URL("../..", import.meta.url)));
     const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
     registerSlidesPreset(ctx);
     applySlidesHostAny(ctx, {

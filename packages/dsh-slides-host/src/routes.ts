@@ -16,6 +16,7 @@ import {
   deleteHomeKey,
   saveHomeKey,
   slidesProviders,
+  hostedProviders,
   withDshModelCatalog,
 } from "./providers.js";
 import {
@@ -85,6 +86,7 @@ export type SlidesHostRuntime = {
    * roster and declared profile/catalog metadata; an empty live list does not.
    */
   listModelCatalog?: () => Promise<RuntimeModelCatalog>;
+  managedModels?: boolean;
   createAgent(input: {
     brief: string;
     conversationMode?: "discuss";
@@ -349,9 +351,11 @@ function capabilityEnv(home: string): NodeJS.ProcessEnv {
 }
 
 function availableRoster(runtime: SlidesHostRuntime, catalog?: RuntimeModelCatalog) {
-  return withDshModelCatalog(slidesProviders(runtime.dshHome), catalog).map((provider) => {
+  return (runtime.managedModels ? hostedProviders(catalog ?? new Map()) : withDshModelCatalog(slidesProviders(runtime.dshHome), catalog)).map((provider) => {
     const health = runtime.providerHealth?.(provider.id);
     if (!health) return provider;
+    // Adapter faults remain visible in the hosted picker; DSH owns the roster.
+    if (runtime.managedModels) return { ...provider, degraded: true, degradedReason: health.reason };
     return health.kind === "broken"
       ? { ...provider, ready: false, readyReason: health.reason }
       : { ...provider, degraded: true, degradedReason: health.reason };
@@ -501,7 +505,7 @@ export function handleSlidesRequest(
       const wantModel = url.searchParams.get("model")?.trim() || "";
       const modelCatalog = await runtime.listModelCatalog?.();
       const roster = availableRoster(runtime, modelCatalog);
-      const selectedProvider = wantProvider || connection.providerId;
+      const selectedProvider = wantProvider || (runtime.managedModels ? roster.find((row) => row.ready)?.id : undefined) || connection.providerId;
       const selectedRow = roster.find((item) => item.id === selectedProvider);
       const selectedModel = wantModel || selectedRow?.models?.[0] || connection.model;
       const modelKnown = selectedRow?.models.includes(selectedModel) ?? false;

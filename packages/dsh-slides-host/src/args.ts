@@ -6,6 +6,7 @@ import {
   isAntigravityId,
   loadSlidesModelCatalog,
   type SlidesModelCatalog,
+  type RuntimeModelCatalog,
 } from "./local-models.js";
 import { readByokProviders } from "./byok.js";
 
@@ -77,6 +78,8 @@ export type ResolveSlidesLlmRouteOpts = {
   readonly xai?: XaiLoginSnapshot;
   readonly home?: string;
   readonly catalog?: SlidesModelCatalog;
+  /** Exact live adapter roster, supplied only by the shared Harness runtime. */
+  readonly managedCatalog?: RuntimeModelCatalog;
   readonly provider?: string;
   readonly model?: string;
 };
@@ -304,6 +307,13 @@ export function assertSlidesGenerateReady(
 ): SlidesLlmRoute {
   bindMinimaxCnKey(env);
   const route = resolveSlidesLlmRoute(env, opts);
+  if (opts?.managedCatalog !== undefined) {
+    if (!opts.managedCatalog.get(route.provider)?.has(route.model)) {
+      throw new RejectedGenerateModelError(`generate model ${route.provider}/${route.model} is not in the current provider roster`);
+    }
+    // DSH's adapter owns credential resolution and reports actual auth errors on stream.
+    return route;
+  }
   if (route.provider === SLIDES_LLM_PROVIDER) {
     const host = hostnameOf(env.SLIDESTUDIO_LLM_BASE_URL?.trim() ?? "");
     if (host && host !== SLIDES_LLM_CN_HOST) {

@@ -37,6 +37,7 @@ export type SlidesHostRuntime = {
      * roster and declared profile/catalog metadata; an empty live list does not.
      */
     listModelCatalog?: () => Promise<RuntimeModelCatalog>;
+    managedModels?: boolean;
     createAgent(input: {
         brief: string;
         conversationMode?: "discuss";

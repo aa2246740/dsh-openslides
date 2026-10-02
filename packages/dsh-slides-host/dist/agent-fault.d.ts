@@ -51,4 +51,6 @@ export declare class AgentFaults {
     clear(sessionId: string, projectRoot?: string): void;
     settle(sessionId: string, projectRoot: string, phaseKind: string): void;
 }
+/** Infrastructure hints must not treat digits inside trace ids as HTTP status codes. */
+export declare function friendlyProviderCause(detail: string): string;
 //# sourceMappingURL=agent-fault.d.ts.map

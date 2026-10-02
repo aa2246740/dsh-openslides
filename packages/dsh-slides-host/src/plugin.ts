@@ -44,6 +44,7 @@ import { publishSessionLive, closeSessionLive } from "./session-live.js";
 import { AgentStreamBridge } from "./stream-bridge.js";
 import {
   AgentFaults,
+  friendlyProviderCause,
   classifyAgentError,
   clearAgentError,
   clearRateLimitWait,
@@ -148,7 +149,9 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
   // Personal mode runs inside the user's own Host: the ambient DSH_HOME
   // (normally ~/.dsh) is the right home — it already holds the user's OAuth
   // grants and model catalog, so the isolation check must not reject it.
-  const configuredHome = process.env.DSH_HOME?.trim() || pathResolve(workspaceRoot, ".dsh", "home");
+  const profileHome = (ctx.get("profileContext") as { home?: string } | undefined)?.home;
+  const configuredHome = (config.personal ? profileHome : undefined)
+    || process.env.DSH_HOME?.trim() || pathResolve(workspaceRoot, ".dsh", "home");
   const dshHome = config.personal ? pathResolve(configuredHome) : assertIsolatedDshHome(configuredHome);
   const importedCatalog = loadSlidesModelCatalog(dshHome);
   if (importedCatalog) applyCatalogEnv(importedCatalog, process.env);
@@ -195,20 +198,6 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
   };
   bindGrokProduce();
   /**
-   * Turn a provider/runtime failure into a short user-meaningful suffix.
-   * Recognized infrastructure causes get a readable phrase; anything else
-   * (TypeErrors, adapter internals) stays in the server log, not the bubble.
-   */
-  const friendlyProviderCause = (detail: string): string => {
-    const d = detail.slice(0, 200);
-    if (/auth|unauthoriz|401|403|invalid.*(key|token)|凭据|认证/i.test(d)) return "（模型服务认证失效或未配置）";
-    if (/timeout|timed out|abort|ECONNREFUSED|ECONNRESET|ENOTFOUND|network|fetch failed/i.test(d)) return "（模型服务暂时不可达）";
-    if (/rate.?limit|429|quota/i.test(d)) return "（模型服务限流，请稍后重试）";
-    if (/not in the current provider roster|no credential|UNKNOWN_MODEL|NO_ADAPTER/i.test(d)) return "（该模型未配置或不可用，请更换模型）";
-    if (/invalid_argument|invalid request|Bad Request|400\b/i.test(d)) return "（模型服务拒绝了本次请求）";
-    return "";
-  };
-  /**
    * Failure-derived provider health for the roster: a real call failure is the
    * only trustworthy resolvability signal — the stream adapter registry is not
    * the same map resolveModelInfo consults, so info-level probing lies.
@@ -243,7 +232,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
     const revision = catalogRevision;
     const catalog = new Map<string, ReadonlyMap<string, RuntimeModelInfo>>();
     for (const provider of ctx.llm.listProviders()) {
-      if (isAntigravityId(provider.id)) continue;
+      if (!config.personal && isAntigravityId(provider.id)) continue;
       const models = await ctx.llm.listModels(provider.id).catch(() => []);
       const byId = new Map<string, RuntimeModelInfo>();
       for (const model of models) {
@@ -261,6 +250,11 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
     modelCatalogCache = catalog;
     return catalog;
   };
+  const readyRoute = async (options: Parameters<typeof assertSlidesGenerateReady>[1]) =>
+    assertSlidesGenerateReady(process.env, {
+      ...options,
+      ...(config.personal ? { managedCatalog: await listModelCatalog() } : {}),
+    });
   const capabilityProvider = (
     providerId: string,
     modelId: string,
@@ -282,7 +276,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
   };
   const assertRosterModel = async (providerId: string, modelId: string): Promise<RuntimeModelCatalog> => {
     const catalog = await listModelCatalog();
-    if (!slidesProviderHasModel(dshHome, providerId, modelId, catalog)) {
+    if (config.personal ? !catalog.get(providerId)?.has(modelId) : !slidesProviderHasModel(dshHome, providerId, modelId, catalog)) {
       throw new Error(`generate model ${providerId}/${modelId} is not in the current provider roster`);
     }
     return catalog;
@@ -692,6 +686,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       return providerHealth.get(provider);
     },
     listModelCatalog,
+    managedModels: config.personal === true,
     async operatorStop(sessionId) {
       rateLimits.operatorStop(sessionId);
       const agent = runtime.getAgent(sessionId);
@@ -721,7 +716,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       const selected = input.modelSelection;
       const providerId = selected?.provider || bound?.providerId || "";
       try {
-        const route = assertSlidesGenerateReady(process.env, {
+        const route = await readyRoute({
           xai: currentXai(), home: dshHome,
           provider: selected?.provider || bound?.providerId,
           model: selected?.model || bound?.modelId,
@@ -753,7 +748,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       assertHubProduceGatesReady(workspaceRoot);
       bindGrokProduce();
       if (input.provider === "mimo-desktop") await assertMimoDesktopGateway(dshHome);
-      const route = assertSlidesGenerateReady(process.env, {
+      const route = await readyRoute({
         xai: currentXai(),
         home: dshHome,
         provider: input.provider,
@@ -825,7 +820,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       if (boundProvider0?.providerId === "mimo-desktop") await assertMimoDesktopGateway(dshHome);
       const boundProvider = store.bindingFor(sessionId)?.provider;
       const requestedModel = models.get(sessionId) ?? boundProvider?.modelId;
-      const route = assertSlidesGenerateReady(process.env, {
+      const route = await readyRoute({
         xai: currentXai(),
         home: dshHome,
         provider: boundProvider?.providerId,
@@ -859,7 +854,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       const providerId = provider?.trim() || priorBinding.provider.providerId;
       const requestedProvider = providerId || process.env.SLIDESTUDIO_LLM_PROVIDER?.trim() || "";
       const catalog = await assertRosterModel(requestedProvider, model);
-      const route = assertSlidesGenerateReady(process.env, {
+      const route = await readyRoute({
         xai: currentXai(),
         home: dshHome,
         provider: providerId,

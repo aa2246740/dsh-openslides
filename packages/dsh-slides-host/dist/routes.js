@@ -5,7 +5,7 @@ import path from "node:path";
 import { createUserMessage } from "@deepseek-ai/dsh-llm";
 import { authorizePageEdits, buildCatalogDto, inspectProjectCapabilities, inspectProjectExecution, readVerifiedDelivery, resolveCatalogPreviewFile, } from "@open-slidestudio/presentation-run";
 import { pickRequestedRasterFile } from "./slice-session.js";
-import { connectionState, deleteHomeKey, saveHomeKey, slidesProviders, withDshModelCatalog, } from "./providers.js";
+import { connectionState, deleteHomeKey, saveHomeKey, slidesProviders, hostedProviders, withDshModelCatalog, } from "./providers.js";
 import { BYOK_PRESETS, parseByokUpsert, readByokProviders, removeByokProvider, upsertByokProvider, } from "./byok.js";
 import { readXaiLoginSnapshot, routeHasNativeSearch } from "./oauth-login.js";
 import { loadProject } from "@open-slidestudio/pptd-v2";
@@ -258,10 +258,13 @@ function capabilityEnv(home) {
     return stored ? mergeToolSettingsEnv(process.env, stored) : process.env;
 }
 function availableRoster(runtime, catalog) {
-    return withDshModelCatalog(slidesProviders(runtime.dshHome), catalog).map((provider) => {
+    return (runtime.managedModels ? hostedProviders(catalog ?? new Map()) : withDshModelCatalog(slidesProviders(runtime.dshHome), catalog)).map((provider) => {
         const health = runtime.providerHealth?.(provider.id);
         if (!health)
             return provider;
+        // Adapter faults remain visible in the hosted picker; DSH owns the roster.
+        if (runtime.managedModels)
+            return { ...provider, degraded: true, degradedReason: health.reason };
         return health.kind === "broken"
             ? { ...provider, ready: false, readyReason: health.reason }
             : { ...provider, degraded: true, degradedReason: health.reason };
@@ -404,7 +407,7 @@ export function handleSlidesRequest(runtime, req, res) {
             const wantModel = url.searchParams.get("model")?.trim() || "";
             const modelCatalog = await runtime.listModelCatalog?.();
             const roster = availableRoster(runtime, modelCatalog);
-            const selectedProvider = wantProvider || connection.providerId;
+            const selectedProvider = wantProvider || (runtime.managedModels ? roster.find((row) => row.ready)?.id : undefined) || connection.providerId;
             const selectedRow = roster.find((item) => item.id === selectedProvider);
             const selectedModel = wantModel || selectedRow?.models?.[0] || connection.model;
             const modelKnown = selectedRow?.models.includes(selectedModel) ?? false;

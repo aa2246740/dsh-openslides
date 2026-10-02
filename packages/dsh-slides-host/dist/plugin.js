@@ -21,7 +21,7 @@ import { generationFormat, assertAttachmentBudget, attachmentDeliveryBlock, inpu
 import { appendAgentTrace, traceRowsFromSessionEvent } from "./agent-trace.js";
 import { publishSessionLive, closeSessionLive } from "./session-live.js";
 import { AgentStreamBridge } from "./stream-bridge.js";
-import { AgentFaults, classifyAgentError, clearAgentError, clearRateLimitWait, isMinimaxCnFailoverFault, isOpenRouterFailoverFault, isWaitAndResumeFault, parseRetryAfterMs, readAgentError, readRateLimitWait, recordAgentError, writeRateLimitWait, } from "./agent-fault.js";
+import { AgentFaults, friendlyProviderCause, classifyAgentError, clearAgentError, clearRateLimitWait, isMinimaxCnFailoverFault, isOpenRouterFailoverFault, isWaitAndResumeFault, parseRetryAfterMs, readAgentError, readRateLimitWait, recordAgentError, writeRateLimitWait, } from "./agent-fault.js";
 import { RateLimitResumeController } from "./rate-limit-resume.js";
 import { agentOptionsForRoute, assertSlidesGenerateReady, bindMinimaxCnKey, markGrokFailed, markMinimaxCnAuthFailed, markOpenRouterHardFailed, minimaxCnKeyPresent, modelForRoute, OPENROUTER_MINIMAX_FREE_MODEL, openrouterKeyPresent, resolveSlidesLlmRoute, SLIDES_LLM_DEFAULT_MODEL, SLIDES_LLM_PROVIDER, } from "./args.js";
 import { bindHomeKeys, connectionState, slidesProviderHasModel } from "./providers.js";
@@ -58,7 +58,9 @@ export function apply(ctx, config = {}) {
     // Personal mode runs inside the user's own Host: the ambient DSH_HOME
     // (normally ~/.dsh) is the right home — it already holds the user's OAuth
     // grants and model catalog, so the isolation check must not reject it.
-    const configuredHome = process.env.DSH_HOME?.trim() || pathResolve(workspaceRoot, ".dsh", "home");
+    const profileHome = ctx.get("profileContext")?.home;
+    const configuredHome = (config.personal ? profileHome : undefined)
+        || process.env.DSH_HOME?.trim() || pathResolve(workspaceRoot, ".dsh", "home");
     const dshHome = config.personal ? pathResolve(configuredHome) : assertIsolatedDshHome(configuredHome);
     const importedCatalog = loadSlidesModelCatalog(dshHome);
     if (importedCatalog)
@@ -107,25 +109,6 @@ export function apply(ctx, config = {}) {
     };
     bindGrokProduce();
     /**
-     * Turn a provider/runtime failure into a short user-meaningful suffix.
-     * Recognized infrastructure causes get a readable phrase; anything else
-     * (TypeErrors, adapter internals) stays in the server log, not the bubble.
-     */
-    const friendlyProviderCause = (detail) => {
-        const d = detail.slice(0, 200);
-        if (/auth|unauthoriz|401|403|invalid.*(key|token)|凭据|认证/i.test(d))
-            return "（模型服务认证失效或未配置）";
-        if (/timeout|timed out|abort|ECONNREFUSED|ECONNRESET|ENOTFOUND|network|fetch failed/i.test(d))
-            return "（模型服务暂时不可达）";
-        if (/rate.?limit|429|quota/i.test(d))
-            return "（模型服务限流，请稍后重试）";
-        if (/not in the current provider roster|no credential|UNKNOWN_MODEL|NO_ADAPTER/i.test(d))
-            return "（该模型未配置或不可用，请更换模型）";
-        if (/invalid_argument|invalid request|Bad Request|400\b/i.test(d))
-            return "（模型服务拒绝了本次请求）";
-        return "";
-    };
-    /**
      * Failure-derived provider health for the roster: a real call failure is the
      * only trustworthy resolvability signal — the stream adapter registry is not
      * the same map resolveModelInfo consults, so info-level probing lies.
@@ -159,7 +142,7 @@ export function apply(ctx, config = {}) {
         const revision = catalogRevision;
         const catalog = new Map();
         for (const provider of ctx.llm.listProviders()) {
-            if (isAntigravityId(provider.id))
+            if (!config.personal && isAntigravityId(provider.id))
                 continue;
             const models = await ctx.llm.listModels(provider.id).catch(() => []);
             const byId = new Map();
@@ -180,6 +163,10 @@ export function apply(ctx, config = {}) {
         modelCatalogCache = catalog;
         return catalog;
     };
+    const readyRoute = async (options) => assertSlidesGenerateReady(process.env, {
+        ...options,
+        ...(config.personal ? { managedCatalog: await listModelCatalog() } : {}),
+    });
     const capabilityProvider = (providerId, modelId, ready, catalog) => {
         const modalities = modelInputModalities(dshHome, providerId, modelId, catalog ?? modelCatalogCache);
         return {
@@ -191,7 +178,7 @@ export function apply(ctx, config = {}) {
     };
     const assertRosterModel = async (providerId, modelId) => {
         const catalog = await listModelCatalog();
-        if (!slidesProviderHasModel(dshHome, providerId, modelId, catalog)) {
+        if (config.personal ? !catalog.get(providerId)?.has(modelId) : !slidesProviderHasModel(dshHome, providerId, modelId, catalog)) {
             throw new Error(`generate model ${providerId}/${modelId} is not in the current provider roster`);
         }
         return catalog;
@@ -546,6 +533,7 @@ export function apply(ctx, config = {}) {
             return providerHealth.get(provider);
         },
         listModelCatalog,
+        managedModels: config.personal === true,
         async operatorStop(sessionId) {
             rateLimits.operatorStop(sessionId);
             const agent = runtime.getAgent(sessionId);
@@ -577,7 +565,7 @@ export function apply(ctx, config = {}) {
             const selected = input.modelSelection;
             const providerId = selected?.provider || bound?.providerId || "";
             try {
-                const route = assertSlidesGenerateReady(process.env, {
+                const route = await readyRoute({
                     xai: currentXai(), home: dshHome,
                     provider: selected?.provider || bound?.providerId,
                     model: selected?.model || bound?.modelId,
@@ -613,7 +601,7 @@ export function apply(ctx, config = {}) {
             bindGrokProduce();
             if (input.provider === "mimo-desktop")
                 await assertMimoDesktopGateway(dshHome);
-            const route = assertSlidesGenerateReady(process.env, {
+            const route = await readyRoute({
                 xai: currentXai(),
                 home: dshHome,
                 provider: input.provider,
@@ -679,7 +667,7 @@ export function apply(ctx, config = {}) {
                 await assertMimoDesktopGateway(dshHome);
             const boundProvider = store.bindingFor(sessionId)?.provider;
             const requestedModel = models.get(sessionId) ?? boundProvider?.modelId;
-            const route = assertSlidesGenerateReady(process.env, {
+            const route = await readyRoute({
                 xai: currentXai(),
                 home: dshHome,
                 provider: boundProvider?.providerId,
@@ -711,7 +699,7 @@ export function apply(ctx, config = {}) {
             const providerId = provider?.trim() || priorBinding.provider.providerId;
             const requestedProvider = providerId || process.env.SLIDESTUDIO_LLM_PROVIDER?.trim() || "";
             const catalog = await assertRosterModel(requestedProvider, model);
-            const route = assertSlidesGenerateReady(process.env, {
+            const route = await readyRoute({
                 xai: currentXai(),
                 home: dshHome,
                 provider: providerId,

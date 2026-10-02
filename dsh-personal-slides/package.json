@@ -1,7 +1,7 @@
 {
   "name": "dsh-personal-slides",
   "version": "0.1.0",
-  "description": "Open SlideStudio as a dsh-personal feature (演示文稿): /slides API on the Host webServer plus a personal page",
+  "description": "Open SlideStudio as a dsh-personal feature (\u6f14\u793a\u6587\u7a3f): /slides API on the Host webServer plus a personal page",
   "type": "module",
   "main": "lib/dsh-personal-slides.js",
   "types": "lib/types/dsh-personal-slides.d.ts",
@@ -22,10 +22,11 @@
   },
   "dsh": {
     "client": {
-      "inject": [
-        "dsh-personal"
-      ],
+      "inject": [],
       "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
     }
   },
   "files": [

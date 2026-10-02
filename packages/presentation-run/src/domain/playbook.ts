@@ -4,6 +4,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { contrastRatio } from "@open-slidestudio/pptd-v2";
 import { officialRecipesMarkdown } from "./playbook-recipes.js";
 
@@ -45,7 +46,7 @@ const SKILL_REL = path.join(
   "open-kimi-ppt",
 );
 
-export function resolveSkillRoot(start = process.cwd()): string {
+export function resolveSkillRoot(start = fileURLToPath(new URL("../../../../", import.meta.url))): string {
   const env = process.env.SLIDESTUDIO_SKILL_ROOT;
   if (env && fs.existsSync(path.join(env, "SKILL.md"))) return path.resolve(env);
 

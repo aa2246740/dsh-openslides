@@ -76,7 +76,7 @@ describe("slides client plugin", () => {
     assert.match(capabilityState, /联网检索 · 模型自带/);
     assert.match(capabilityState, /card\.imageSearch\?\.configured[\s\S]*搜图工具/);
     assert.match(capabilityState, /card\.imageGenerate\?\.configured[\s\S]*生图工具/);
-    assert.match(capabilityState, /label: "看图"[\s\S]*label: "联网"[\s\S]*label: "搜图"[\s\S]*label: "生图"/);
+    assert.match(capabilityState, /label: t\("看图"\)[\s\S]*label: t\("联网"\)[\s\S]*label: t\("搜图"\)[\s\S]*label: t\("生图"\)/);
     assert.match(hub, /serverCapability = data\.capability/);
   });
 
@@ -97,7 +97,7 @@ describe("slides client plugin", () => {
     assert.match(html, /添加自定义提供方/);
     assert.match(html, /data-settings-pane="models"/);
     assert.match(html, /id="search-url"/);
-    assert.match(html, /data-settings-pane="tools" hidden/);
+    assert.match(html, /data-settings-pane="tools"[^>]* hidden/);
     assert.match(html, /自定义工具（搜图\/生图）以后开发/);
     assert.doesNotMatch(html, /id="btn-pi-settings"/);
     assert.match(html, /class="capability-row"/);

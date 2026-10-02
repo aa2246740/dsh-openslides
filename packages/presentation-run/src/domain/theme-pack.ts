@@ -292,18 +292,20 @@ export type PackColorWriteContext = {
 };
 
 let cachedCatalogPalettes: ReadonlyMap<string, ReadonlySet<string>> | undefined;
+let cachedSkillRoot: string | undefined;
 
 export function catalogPackPaletteHexes(): ReadonlyMap<string, ReadonlySet<string>> {
-  if (cachedCatalogPalettes) return cachedCatalogPalettes;
   const map = new Map<string, ReadonlySet<string>>();
   try {
     const skillRoot = resolveSkillRoot();
+    if (cachedCatalogPalettes && cachedSkillRoot === skillRoot) return cachedCatalogPalettes;
     for (const sys of listDesignSystems(skillRoot)) {
       const markdown = fs.readFileSync(sys.file, "utf8");
       map.set(sys.id, new Set(extractColorPaletteHexes(markdown)));
     }
+    cachedSkillRoot = skillRoot;
   } catch {
-    cachedCatalogPalettes = map;
+    // Missing resources can recover after install; never cache a failed lookup.
     return map;
   }
   cachedCatalogPalettes = map;

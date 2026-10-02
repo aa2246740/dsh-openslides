@@ -194,8 +194,7 @@ export function apply(ctx: Context) {
   // dev entry: <plugin>/src/dsh-personal-slides.ts → ../.. is the repo checkout.
   // built entry: <plugin>/lib/dsh-personal-slides.js → same depth.
   const repoRoot = resolve(
-    process.env.OPEN_SLIDESTUDIO_ROOT?.trim() ||
-      fileURLToPath(new URL("../..", import.meta.url)),
+    fileURLToPath(new URL("../..", import.meta.url)),
   );
   const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
 

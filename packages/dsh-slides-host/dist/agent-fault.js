@@ -377,4 +377,19 @@ export class AgentFaults {
         recordAgentError(projectRoot, error);
     }
 }
+/** Infrastructure hints must not treat digits inside trace ids as HTTP status codes. */
+export function friendlyProviderCause(detail) {
+    const d = detail.slice(0, 200);
+    if (/auth|unauthoriz|\b(?:401|403)\b|invalid.*(key|token)|凭据|认证/i.test(d))
+        return "（模型服务认证失效或未配置）";
+    if (/timeout|timed out|abort|ECONNREFUSED|ECONNRESET|ENOTFOUND|network|fetch failed/i.test(d))
+        return "（模型服务暂时不可达）";
+    if (/rate.?limit|\b429\b|quota/i.test(d))
+        return "（模型服务限流，请稍后重试）";
+    if (/not in the current provider roster|no credential|UNKNOWN_MODEL|NO_ADAPTER/i.test(d))
+        return "（该模型未配置或不可用，请更换模型）";
+    if (/invalid_argument|invalid request|Bad Request|\b400\b/i.test(d))
+        return "（模型服务拒绝了本次请求）";
+    return "";
+}
 //# sourceMappingURL=agent-fault.js.map

@@ -266,19 +266,21 @@ export function extractColorPaletteHexes(markdown) {
     return [...hexes];
 }
 let cachedCatalogPalettes;
+let cachedSkillRoot;
 export function catalogPackPaletteHexes() {
-    if (cachedCatalogPalettes)
-        return cachedCatalogPalettes;
     const map = new Map();
     try {
         const skillRoot = resolveSkillRoot();
+        if (cachedCatalogPalettes && cachedSkillRoot === skillRoot)
+            return cachedCatalogPalettes;
         for (const sys of listDesignSystems(skillRoot)) {
             const markdown = fs.readFileSync(sys.file, "utf8");
             map.set(sys.id, new Set(extractColorPaletteHexes(markdown)));
         }
+        cachedSkillRoot = skillRoot;
     }
     catch {
-        cachedCatalogPalettes = map;
+        // Missing resources can recover after install; never cache a failed lookup.
         return map;
     }
     cachedCatalogPalettes = map;

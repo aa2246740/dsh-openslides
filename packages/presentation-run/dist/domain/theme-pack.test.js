@@ -7,9 +7,9 @@ import { createEmptyProject, loadProject, saveProject } from "@open-slidestudio/
 import { classifyBriefKind } from "./compose-ir.js";
 import { executeGenerateTool } from "./agent-tools.js";
 import { persistPageKey } from "./layout-qa.js";
-import { loadPlaybook } from "./playbook.js";
+import { loadPlaybook, resolveSkillRoot } from "./playbook.js";
 import { stableSha256 } from "./run-ledger.js";
-import { KIND_THEME_PACK_ERROR, MISSING_THEME_PACK_ERROR, PACK_COLOR_ERROR, chosenThemePacksFrom, extractColorPaletteHexes, kindThemePackIssue, packColorWriteContextFrom, parseThemePackId, sourceIdList, } from "./theme-pack.js";
+import { KIND_THEME_PACK_ERROR, MISSING_THEME_PACK_ERROR, PACK_COLOR_ERROR, chosenThemePacksFrom, catalogPackPaletteHexes, extractColorPaletteHexes, kindThemePackIssue, packColorWriteContextFrom, parseThemePackId, sourceIdList, } from "./theme-pack.js";
 import { BEILU_H1, QINGLAN_INTRO, CHENGGUANG_MONTHLY, HARNESS_NOT_MONTHLY, LEARN_SHARE, LEARN_SHARE_CHAPTERS, COVER_ONLY } from "./compose-ir.test.js";
 function fillEl(color) {
     return {
@@ -661,5 +661,30 @@ describe("adopted pack Color Palette tokens at write and compose", () => {
         const packCtx = packColorWriteContextFrom({});
         assert.equal(packCtx.adoptedPackHexes, undefined);
     });
+});
+it("resolves installed resources from another launch directory and refreshes the palette cache when the resource root changes", () => {
+    const cwd = process.cwd();
+    const override = process.env.SLIDESTUDIO_SKILL_ROOT;
+    const emptyRoot = fs.mkdtempSync(path.join(os.tmpdir(), "slides-empty-skill-"));
+    fs.writeFileSync(path.join(emptyRoot, "SKILL.md"), "# Empty test skill");
+    try {
+        delete process.env.SLIDESTUDIO_SKILL_ROOT;
+        process.chdir(os.tmpdir());
+        const root = resolveSkillRoot();
+        assert.ok(fs.existsSync(path.join(root, "SKILL.md")));
+        assert.ok(catalogPackPaletteHexes().size > 0);
+        process.env.SLIDESTUDIO_SKILL_ROOT = emptyRoot;
+        assert.equal(catalogPackPaletteHexes().size, 0);
+        delete process.env.SLIDESTUDIO_SKILL_ROOT;
+        assert.ok(catalogPackPaletteHexes().size > 0);
+    }
+    finally {
+        process.chdir(cwd);
+        fs.rmSync(emptyRoot, { recursive: true, force: true });
+        if (override === undefined)
+            delete process.env.SLIDESTUDIO_SKILL_ROOT;
+        else
+            process.env.SLIDESTUDIO_SKILL_ROOT = override;
+    }
 });
 //# sourceMappingURL=theme-pack.test.js.map

@@ -4,12 +4,13 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { contrastRatio } from "@open-slidestudio/pptd-v2";
 import { officialRecipesMarkdown } from "./playbook-recipes.js";
 export const DEFAULT_DESIGN_SYSTEM = "consulting/pine-green-strategy";
 export const DEFAULT_CATEGORY = "analysis-decision";
 const SKILL_REL = path.join("vendor", "open-kimi-ppt", "skill-1.2.0", "skills", "open-kimi-ppt");
-export function resolveSkillRoot(start = process.cwd()) {
+export function resolveSkillRoot(start = fileURLToPath(new URL("../../../../", import.meta.url))) {
     const env = process.env.SLIDESTUDIO_SKILL_ROOT;
     if (env && fs.existsSync(path.join(env, "SKILL.md")))
         return path.resolve(env);

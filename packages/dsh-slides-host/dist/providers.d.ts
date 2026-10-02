@@ -29,6 +29,8 @@ export type ProviderDescriptor = {
     readonly modelEfforts?: Readonly<Record<string, readonly string[]>>;
 };
 export declare function slidesProviders(home?: string): readonly ProviderDescriptor[];
+/** Hosted plugins use DSH's live adapters; no duplicate credential/catalog store. */
+export declare function hostedProviders(catalog: RuntimeModelCatalog): readonly ProviderDescriptor[];
 /** The same model roster is used by the picker, health and execution guards. */
 export declare function withDshModelCatalog(providers: readonly ProviderDescriptor[], catalog?: RuntimeModelCatalog): readonly ProviderDescriptor[];
 export declare function slidesProviderHasModel(home: string, providerId: string, modelId: string, catalog?: RuntimeModelCatalog): boolean;

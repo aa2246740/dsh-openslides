@@ -100,6 +100,14 @@ export function slidesProviders(home) {
     }
     return merged;
 }
+/** Hosted plugins use DSH's live adapters; no duplicate credential/catalog store. */
+export function hostedProviders(catalog) {
+    return [...catalog].map(([id, models]) => ({
+        id, name: id, methods: [], models: [...models.keys()], ready: models.size > 0,
+        nativeSearch: routeHasNativeSearch(id),
+        modelEfforts: Object.fromEntries([...models].map(([model, info]) => [model, info.efforts ?? []])),
+    }));
+}
 /** The same model roster is used by the picker, health and execution guards. */
 export function withDshModelCatalog(providers, catalog) {
     return providers.filter((provider) => !isAntigravityId(provider.id)).map((provider) => {

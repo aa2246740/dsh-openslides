@@ -105,7 +105,7 @@ function startEditorSidecar(repoRoot) {
 	});
 	return child;
 }
-const HOP_HEADERS = new Set([
+const HOP_HEADERS = /* @__PURE__ */ new Set([
 	"connection",
 	"keep-alive",
 	"proxy-authenticate",
@@ -146,7 +146,7 @@ function proxyToSidecar(req, res, editorOrigin) {
 	req.pipe(proxy);
 }
 function apply(ctx) {
-	const repoRoot = resolve(process.env.OPEN_SLIDESTUDIO_ROOT?.trim() || fileURLToPath(new URL("../..", import.meta.url)));
+	const repoRoot = resolve(fileURLToPath(new URL("../..", import.meta.url)));
 	const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
 	registerSlidesPreset(ctx);
 	applySlidesHostAny(ctx, {

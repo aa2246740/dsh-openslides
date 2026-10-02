@@ -148,6 +148,15 @@ export function slidesProviders(home?: string): readonly ProviderDescriptor[] {
   return merged;
 }
 
+/** Hosted plugins use DSH's live adapters; no duplicate credential/catalog store. */
+export function hostedProviders(catalog: RuntimeModelCatalog): readonly ProviderDescriptor[] {
+  return [...catalog].map(([id, models]) => ({
+    id, name: id, methods: [], models: [...models.keys()], ready: models.size > 0,
+    nativeSearch: routeHasNativeSearch(id),
+    modelEfforts: Object.fromEntries([...models].map(([model, info]) => [model, info.efforts ?? []])),
+  }));
+}
+
 /** The same model roster is used by the picker, health and execution guards. */
 export function withDshModelCatalog(
   providers: readonly ProviderDescriptor[],

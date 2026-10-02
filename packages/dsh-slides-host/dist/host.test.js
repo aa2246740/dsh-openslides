@@ -14,13 +14,13 @@ import { writeSliceRuntime, readSliceRuntimeFile, briefForOpenProject } from "./
 import { DROPPED_CHART_DETAIL, initializeRunLedger, parseSkillPage, PRODUCE_GATE_REL_FILES, packColorWriteContextFrom, stableSha256 } from "@open-slidestudio/presentation-run";
 import { loadProject, saveProject, normalizeWritePageDialect } from "@open-slidestudio/pptd-v2";
 import { commandHash, lookupToolReceipt, recordToolReceipt } from "./receipts.js";
-import { coerceSlidePlan, resolveSlidesLlmRoute, assertMinimaxCnGenerateReady, bindMinimaxCnKey, markOpenRouterHardFailed, resetGenerateRouteState, OPENROUTER_MINIMAX_FREE_MODEL, } from "./args.js";
-import { classifyAgentError, isHardProviderFault, isMinimaxCnFailoverFault, isMinimaxTokenPlanExhausted, isOpenRouterFailoverFault, isWaitAndResumeFault, parseRetryAfterMs, rateLimitWaitMs, RATE_LIMIT_BACKOFF_CAP_MS, RATE_LIMIT_BACKOFF_MS, recordAgentError, writeRateLimitWait, } from "./agent-fault.js";
+import { coerceSlidePlan, resolveSlidesLlmRoute, assertMinimaxCnGenerateReady, assertSlidesGenerateReady, bindMinimaxCnKey, markOpenRouterHardFailed, resetGenerateRouteState, OPENROUTER_MINIMAX_FREE_MODEL, } from "./args.js";
+import { classifyAgentError, friendlyProviderCause, isHardProviderFault, isMinimaxCnFailoverFault, isMinimaxTokenPlanExhausted, isOpenRouterFailoverFault, isWaitAndResumeFault, parseRetryAfterMs, rateLimitWaitMs, RATE_LIMIT_BACKOFF_CAP_MS, RATE_LIMIT_BACKOFF_MS, recordAgentError, writeRateLimitWait, } from "./agent-fault.js";
 import { RateLimitResumeController } from "./rate-limit-resume.js";
 import { pagesHintForBrief, directorBrief } from "./director-brief.js";
 import { inspectHubProduceGates, assertHubProduceGatesReady, emptyWriteIsRejectedByLoadedHost, emptyCreateHasNoSeedFromLoadedPptd, StaleProduceGatesError, } from "./produce-gates.js";
 import { handleSlidesRequest, editorReviewScopeFromEdit, editorReviewScopesFromEdit, resolveEditorAttachments, turnTextWithAttachments, turnTextWithReviewScope, } from "./routes.js";
-import { bindHomeKeys, connectionState, deleteHomeKey, saveHomeKey, assertNoSecretLeak, slidesProviderHasModel, slidesProviders, } from "./providers.js";
+import { bindHomeKeys, connectionState, deleteHomeKey, saveHomeKey, assertNoSecretLeak, slidesProviderHasModel, slidesProviders, hostedProviders, } from "./providers.js";
 import { routeHasNativeSearch } from "./oauth-login.js";
 import { PRODUCT_HOME, redirectRootToProductHome, shouldProxyToEditor } from "./product-proxy.js";
 import { deckTitleFromBrief, displayDeckTitle, pickCoverRevision, pickRasterFile, pickRequestedRasterFile, SliceSessionStore, slugTitle, } from "./slice-session.js";
@@ -2850,4 +2850,70 @@ function invokeSlides(runtime, method, url, body) {
         handleSlidesRequest(runtime, req, res);
     });
 }
+describe("hosted runtime model roster", () => {
+    const catalog = new Map([
+        ["minimax-local", new Map([["minimax-code-m3.1", {
+                        name: "MiniMax M3.1 Preview", inputModalities: ["text"], efforts: ["high"],
+                    }]])],
+        ["devin-local", new Map([["devin/swe-2", {
+                        name: "SWE-2", inputModalities: ["text"], efforts: ["max"],
+                    }]])],
+    ]);
+    it("advertises native custom adapters without an exported catalog or copied credentials", () => {
+        const providers = hostedProviders(catalog);
+        assert.deepEqual(providers.map(p => p.id), ["minimax-local", "devin-local"]);
+        assert.equal(providers[0]?.ready, true);
+        assert.deepEqual(providers[0]?.models, ["minimax-code-m3.1"]);
+        assert.deepEqual(providers[0]?.modelEfforts?.["minimax-code-m3.1"], ["high"]);
+        for (const [provider, models] of catalog) {
+            for (const model of models.keys()) {
+                const route = assertSlidesGenerateReady({}, { provider, model, managedCatalog: catalog });
+                assert.equal(route.provider, provider);
+                assert.equal(route.model, model);
+            }
+        }
+    });
+    it("serves the live picker and health selection from the same hosted roster", async () => {
+        const home = fs.mkdtempSync(path.join(os.tmpdir(), "hosted-roster-"));
+        try {
+            const runtime = { ...staleRuntime(home, "unused-session"), workspaceRoot: REPO_ROOT,
+                dshHome: home, managedModels: true, listModelCatalog: async () => catalog,
+                providerHealth: () => ({ kind: "broken", reason: "temporary adapter error" }) };
+            const models = await invokeSlides(runtime, "GET", "/slides/models");
+            assert.equal(models.status, 200);
+            const groups = models.json;
+            assert.deepEqual(groups.map(group => group.providerId), ["minimax-local", "devin-local"]);
+            assert.equal(groups[0]?.models[0]?.name, "MiniMax M3.1 Preview");
+            const health = await invokeSlides(runtime, "GET", "/slides/health");
+            const body = health.json;
+            assert.deepEqual(body.selection, { providerId: "minimax-local", model: "minimax-code-m3.1", ready: true });
+            assert.equal(body.generateReady, true);
+        }
+        finally {
+            fs.rmSync(home, { recursive: true, force: true });
+        }
+    });
+    it("shows every registered hosted provider while retaining existing generation restrictions", () => {
+        const all = new Map([...catalog, ["antigravity", new Map([["custom-model", {
+                            name: "Custom", inputModalities: ["text"],
+                        }]])]]);
+        assert.equal(hostedProviders(all).length, 3);
+        assert.throws(() => assertSlidesGenerateReady({}, { provider: "antigravity", model: "custom-model", managedCatalog: all }), /Antigravity generate is rejected/);
+    });
+    it("rejects missing hosted models and preserves isolated-home credential checks", () => {
+        assert.throws(() => assertSlidesGenerateReady({}, {
+            provider: "minimax-local", model: "missing", managedCatalog: catalog,
+        }), /current provider roster/);
+        assert.throws(() => assertSlidesGenerateReady({}, {
+            provider: "minimax-local", model: "minimax-code-m3.1", managedCatalog: new Map(),
+        }), /current provider roster/);
+        assert.throws(() => assertSlidesGenerateReady({}, {
+            provider: "minimax-local", model: "minimax-code-m3.1",
+        }), /no credential/);
+    });
+});
+it("does not mistake a provider trace id for an authentication status", () => {
+    assert.equal(friendlyProviderCause("devin upstream error (invalid_argument): an internal error occurred (trace ID: ae34269d84d62b2d7403fcd39296220a)"), "（模型服务拒绝了本次请求）");
+    assert.equal(friendlyProviderCause("upstream HTTP 403 Forbidden"), "（模型服务认证失效或未配置）");
+});
 //# sourceMappingURL=host.test.js.map

@@ -1,5 +1,5 @@
 import type { XaiLoginSnapshot } from "./oauth-login.js";
-import { type SlidesModelCatalog } from "./local-models.js";
+import { type SlidesModelCatalog, type RuntimeModelCatalog } from "./local-models.js";
 /** Models often wrap the plan as `{ items: [...] }` or MiniMax `{ items: { item: T } }`. */
 export declare function coerceSlidePlan(raw: unknown): unknown[];
 export declare const SLIDES_LLM_PROVIDER: "minimax-cn";
@@ -29,6 +29,8 @@ export type ResolveSlidesLlmRouteOpts = {
     readonly xai?: XaiLoginSnapshot;
     readonly home?: string;
     readonly catalog?: SlidesModelCatalog;
+    /** Exact live adapter roster, supplied only by the shared Harness runtime. */
+    readonly managedCatalog?: RuntimeModelCatalog;
     readonly provider?: string;
     readonly model?: string;
 };
