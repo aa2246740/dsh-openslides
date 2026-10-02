@@ -68,7 +68,7 @@ test("clicking the canvas beside the page clears the selection", async () => {
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
     browser = await launchPinnedChromium({ headless: true });
-    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1440, height: 900 } });
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&workspace=0`, {
       waitUntil: "domcontentloaded",
     });

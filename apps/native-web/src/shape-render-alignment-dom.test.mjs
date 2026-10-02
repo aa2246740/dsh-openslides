@@ -29,7 +29,7 @@ test('thin shape paint, hit area and annotation stay aligned across zoom, thumbn
   try {
     for(let i=0;i<80;i++) {try {if((await fetch(`${base}/api/health`)).ok) break;}catch{if(i===79) throw new Error('Test server failed');}await new Promise(r=>setTimeout(r,100));}
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&workspace=0`,{waitUntil:'domcontentloaded'});
     const check=async(selector,label)=>{
       await page.locator(`${selector} .el.shape > svg.shape-paint`).first().waitFor({state:'attached'});

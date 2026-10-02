@@ -40,7 +40,7 @@ test('a structural turn inserts a page at insertIndex through the real lock, per
  try{
   for(let i=0;i<80;i++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  page=await browser.newPage({viewport:{width:1440,height:900}});
+  page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[],turns=[],locks=[],dialogs=[];page.on('pageerror',e=>errors.push(e.message));
   page.on('console',m=>{if(m.type()==='error'&&!/Failed to load resource/.test(m.text()))errors.push(`console:${m.text()}`);});
   page.on('dialog',d=>{dialogs.push(d.message());void d.accept();});

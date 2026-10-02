@@ -19,7 +19,7 @@ test('live, settled and reloaded conversation preserves turn ownership and the r
  const out=process.env.SLIDESTUDIO_QA_OUTPUT_DIR || path.join(ROOT,'output/conversation-stability-acceptance-2026-09-20');fs.mkdirSync(out,{recursive:true});
  try {
   for(let i=0;i<80;i++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
-  browser=await launchPinnedChromium({headless:true});const page=await browser.newPage({viewport:{width:1440,height:900}});
+  browser=await launchPinnedChromium({headless:true});const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   let busy=true;const events=[];const messages=[];
   for(let turn=1;turn<=3;turn++){

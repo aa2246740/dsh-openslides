@@ -30,7 +30,7 @@ test('model scope survives to the actual lock and turn; edit feedback stays in o
  try{
   for(let i=0;i<80;i++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[],turns=[],locks=[];page.on('pageerror',e=>errors.push(e.message));
   let busy=false,finished=false,failTurn=false,invalidPlan=false,deckPlan=false,turnGate=null,stateOutageUntil=0,transientFailures=0,stops=0;
   const state=()=>({agentStatus:busy?'busy':'idle',phase:{kind:finished&&failTurn?'failed':'page-ready',error:{detail:'测试模型暂时不可用'}},inspection:{pages:pagePaths.map((p,i)=>({pageId:path.basename(p,'.page'),...currentPageRevision(project,path.basename(p,'.page'))}))}});

@@ -25,7 +25,7 @@ test('inspector X and width edited back to back both persist',async()=>{
  try{
   for(let n=0;n<80;n++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const page=await browser.newPage({viewport:{width:1600,height:1000}});
+  const page=await browser.newPage({locale:'zh-CN',viewport:{width:1600,height:1000}});
   await page.goto(`${base}/index.html?project=${encodeURIComponent(root)}`,{waitUntil:'networkidle'});
   await page.locator('#slide .el[data-id="box"]').click();
   await page.waitForFunction(()=>!document.getElementById('property-panel')?.hidden);

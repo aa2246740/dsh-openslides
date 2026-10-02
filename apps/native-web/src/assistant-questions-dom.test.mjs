@@ -17,7 +17,7 @@ test('native question cards stay in chat through polling, errors, reload, select
  let browser;
  try{
   for(let i=0;i<100;i++){try{if((await fetch(`http://127.0.0.1:${port}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
-  browser=await launchPinnedChromium({headless:true});const page=await browser.newPage({viewport:{width:1440,height:900}});
+  browser=await launchPinnedChromium({headless:true});const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[],answers=[],metrics=[];page.on('pageerror',e=>errors.push(e.message));let fail=true;
   const rows=[{id:'q1',at:new Date().toISOString(),status:'pending',questions:[{id:'color',question:'希望使用哪种深色背景？',options:[{label:'深蓝',description:'保持冷静、清晰的观感。'},{label:'深紫',description:'更有表现力。'}]}]}];
   const activity={ok:true,sessionId:'question-test',brief:'换一套深色配色，请先让我选',phase:'discussing',provider:{providerId:'test',modelId:'cheap'},project:{path:project,title:'Questions',pageCount:2},events:[],conversation:{version:1,mode:'discuss',messages:[]}};

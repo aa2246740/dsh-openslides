@@ -8,8 +8,9 @@ import { after, describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "../../..");
-const playwrightRuntime = path.join(os.homedir(), ".codex", "playwright-runtime", "runtime.mjs");
-const hasPlaywright = fs.existsSync(playwrightRuntime);
+const { resolvePlaywrightRuntimeFile } = await import("../../../scripts/lib/playwright-runtime-path.mjs");
+const playwrightRuntime = resolvePlaywrightRuntimeFile(process.env, { repoRoot: ROOT, homeDir: os.homedir() });
+const hasPlaywright = playwrightRuntime.ready;
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), "openslides-process-dom-"));
 const project = path.join(scratch, "project");
 
@@ -82,7 +83,7 @@ describe("generation process DOM", { skip: !hasPlaywright }, () => {
 
     const { launchPinnedChromium } = await import("../../../scripts/lib/pinned-playwright.mjs");
     browser = await launchPinnedChromium({ headless: true });
-    page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    page = await browser.newPage({locale:'zh-CN', viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     const hostile = "<img src=x onerror=alert(1)>";
     const history = Array.from({ length: 36 }, (_, index) => ({
       id: `ledger-${index}`,
@@ -468,7 +469,7 @@ describe("generation process DOM", { skip: !hasPlaywright }, () => {
     assert.equal(await page.getByRole('button',{name:'发送消息',exact:true}).isEnabled(),true);
     assert.equal(await page.getByRole('button',{name:'导出',exact:true}).isVisible(),true);
     let activityReads = 0;
-    const raster = await browser.newPage();
+    const raster = await browser.newPage({locale:'zh-CN'});
     try {
       await raster.route('**/api/generation-activity**', route => {activityReads++;return route.fulfill({json:snapshot([],'generating')});});
       await raster.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0&workspace=0&render=1`,{waitUntil:'networkidle',timeout:10000});

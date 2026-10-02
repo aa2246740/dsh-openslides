@@ -22,7 +22,7 @@ test('chat remains readable and editable through inference, acceptance, streamin
  try {
   for(let i=0;i<80;i++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   const reply='可以换成**科幻风**，我会保留标题和正文。\n\n- **背景**：近黑的深空蓝 #0A1020\n- **主色**：青蓝荧光 #35E0FF\n\n1. 保留原有内容\n2. 调整配色和细线\n\n| 位置 | 配色 |\n|---|---|\n| 标题 | **青蓝色** |\n| 正文 | 冷白色 |\n\n'+('这是需要自然换行的说明，不能遮住输入框。'.repeat(20));
   let current={ok:true,sessionId:'chat-test',brief:'测试对话',phase:'complete',agentStatus:'idle',provider:{providerId:'test',modelId:'cheap'},project:{path:project,title:'Chat acceptance',pageCount:2,pagePaths:['pages/01_cover.page','pages/02_overview.page']},stages:[],inspection:{pages:[]},events:[{id:'a0',kind:'message',at:'2026-09-20T01:00:00Z',detail:reply,status:'complete'}],conversation:{version:1,mode:'generate',messages:[]}};

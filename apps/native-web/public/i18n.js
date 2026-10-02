@@ -1406,6 +1406,7 @@ function resolveLang() {
     const stored = localStorage.getItem("oss.lang");
     if (stored) return norm(stored);
   } catch { /* storage optional */ }
+  if (typeof document === "undefined") return "zh"; // non-browser importers get the product default
   try { return norm(navigator.language); } catch { return "zh"; }
 }
 
@@ -1473,13 +1474,17 @@ function setLang(value) {
   listeners.forEach((fn) => { try { fn(next) } catch { /* listener bugs must not break i18n */ } });
 }
 
-window.addEventListener("message", (event) => {
-  const data = event.data;
-  if (data && data.type === "oss:locale" && data.lang) setLang(data.lang);
-});
+if (typeof window !== "undefined") {
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+    if (data && data.type === "oss:locale" && data.lang) setLang(data.lang);
+  });
+}
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => applyI18n());
-} else {
-  applyI18n();
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => applyI18n());
+  } else {
+    applyI18n();
+  }
 }

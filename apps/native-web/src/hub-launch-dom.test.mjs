@@ -103,7 +103,7 @@ test('Hub groups prompt and recent work without a viewport-sized gap in either t
   let browser;
   try{
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:1000}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:1000}});
     await mockKernelCatchAll(page);
     await mockProviders(page);
     await page.route('**/api/projects',route=>route.fulfill({json:{projects:Array.from({length:6},(_,i)=>({
@@ -144,7 +144,7 @@ test('Hub keeps an opened model panel, groups usable models and preserves exact 
   const gate=deferred();
   try{
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
     const reopen=async()=>{
       if(await page.locator('#pi-panel').isVisible())await page.click('#btn-model');
       await page.click('#btn-model');
@@ -227,10 +227,20 @@ test('Hub keeps an opened model panel, groups usable models and preserves exact 
     await page.click('#btn-model');
     await page.click('#btn-layout');
     assert.equal(await page.locator('#pi-panel').isHidden(),true,'other menu closes the model popup');
+    const modelRefresh=page.waitForResponse(r=>r.url().includes('/slides/models'),{timeout:5000}).catch(()=>null);
+    const healthRefresh=page.waitForResponse(r=>r.url().includes('/slides/health'),{timeout:5000}).catch(()=>null);
     await page.click('#btn-model');
     assert.equal(await page.locator('#layout-menu').isHidden(),true);
+    // settle the open-time catalog + capability refresh before measuring Tab
+    // behavior — the repaint legitimately restores focus to the selected option.
+    await modelRefresh;
+    await page.waitForFunction(()=>document.querySelectorAll('#pi-model [role="group"]').length===2);
+    await healthRefresh;
     await page.locator('#capability-row li').last().focus();
     await page.keyboard.press('Tab');
+    // focusout with relatedTarget=null closes the panel on the next frame —
+    // wait for the actual hidden state, not a same-tick snapshot.
+    await page.waitForFunction(()=>document.getElementById('pi-panel').hidden===true);
     assert.equal(await page.locator('#pi-panel').isHidden(),true,'Tab leaving closes');
     catalog=[];
     await reopen();
@@ -279,7 +289,7 @@ test('Send opens the editor at once, shows the message, then binds the live sess
   let browser;
   try{
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await mockKernelCatchAll(page);
     await mockProviders(page);
@@ -341,7 +351,7 @@ test('a failed launch keeps the message, offers retry, and hands the draft back 
   let browser;
   try{
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await mockKernelCatchAll(page);
     await mockProviders(page);
@@ -385,7 +395,7 @@ test('a live kernel answers the boot probes through the real proxy (no route moc
   let browser;
   try{
     browser=await launchPinnedChromium({headless:true});
-    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     // No page.route at all: /slides/* and /plugins/* are proxied to the kernel
     // by server.mjs, exactly as production serves them.

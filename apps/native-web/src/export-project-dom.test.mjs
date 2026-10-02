@@ -24,7 +24,7 @@ test('PPTX download belongs to its tab even when another project was opened late
  try{
   for(let n=0;n<80;n++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const first=await browser.newPage(),second=await browser.newPage();
+  const first=await browser.newPage({locale:'zh-CN'}),second=await browser.newPage({locale:'zh-CN'});
   await first.goto(`${base}/index.html?project=${encodeURIComponent(projects[0])}`,{waitUntil:'networkidle'});
   assert.match(await first.locator('#slide').innerText(),/Current deck/);
   await first.getByRole('button',{name:'导出',exact:true}).click();
@@ -68,7 +68,7 @@ test('PNG download is the page the tab is showing, not the default session page'
  try{
   for(let n=0;n<80;n++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const page=await browser.newPage();
+  const page=await browser.newPage({locale:'zh-CN'});
   await page.goto(`${base}/index.html?project=${encodeURIComponent(root)}`,{waitUntil:'networkidle'});
   const goTo=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/command'&&r.request().postDataJSON()?.cmd==='goToPage');
   await page.locator('#rail .thumb').nth(1).click();await goTo;

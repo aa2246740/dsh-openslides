@@ -20,7 +20,7 @@ test('a running generation stops at once and continues with a new instruction',a
  try{
   for(let i=0;i<80;i++){try{if((await fetch(`${base}/api/health`)).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
   browser=await launchPinnedChromium({headless:true});
-  const page=await browser.newPage({viewport:{width:1440,height:900}});
+  const page=await browser.newPage({locale:'zh-CN',viewport:{width:1440,height:900}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   let busy=true;const stops=[];const turns=[];
   const now=Date.now();const at=n=>new Date(now+n*1000).toISOString();

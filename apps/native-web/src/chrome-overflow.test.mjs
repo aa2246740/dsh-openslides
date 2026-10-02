@@ -12,8 +12,9 @@ const appJs = fs.readFileSync(path.join(PUBLIC, "app.js"), "utf8");
 const hubJs = fs.readFileSync(path.join(PUBLIC, "hub.js"), "utf8");
 const styles = fs.readFileSync(path.join(PUBLIC, "styles.css"), "utf8");
 const hubCss = fs.readFileSync(path.join(PUBLIC, "hub.css"), "utf8");
-const playwrightRuntime = path.join(os.homedir(), ".codex", "playwright-runtime", "runtime.mjs");
-const hasPlaywright = fs.existsSync(playwrightRuntime);
+const { resolvePlaywrightRuntimeFile } = await import("../../../scripts/lib/playwright-runtime-path.mjs");
+const playwrightRuntime = resolvePlaywrightRuntimeFile(process.env, { repoRoot: ROOT, homeDir: os.homedir() });
+const hasPlaywright = playwrightRuntime.ready;
 
 const LONG = Array.from({ length: 80 }, (_, i) =>
   `## 核心医疗场景 ${i + 1}\n\n南通市医疗物流精调调研，模拟数据。**重点**：仓储、冷链、院内配送。\n| 指标 | 数值 |\n| --- | --- |\n| 时效 | 2h |\n| 覆盖 | 98% |\n`,
@@ -123,7 +124,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
 
   it("keeps a super-long generate source inside the editor viewport", async () => {
     await boot();
-    const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0`, {
       waitUntil: "networkidle",
     });
@@ -178,7 +179,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
   it("keeps Agent, properties, comments, and menus reachable at desktop and narrow widths", async () => {
     await boot();
     for (const width of [1280, 1000, 600]) {
-      const page = await browser.newPage({ viewport: { width, height: 800 }, deviceScaleFactor: 1 });
+      const page = await browser.newPage({locale:'zh-CN', viewport: { width, height: 800 }, deviceScaleFactor: 1 });
       // workspace=0 keeps the Agent panel closed on load so this test still owns
       // the open/close toggle path it asserts.
       await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0&workspace=0`, { waitUntil: "networkidle" });
@@ -249,7 +250,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
   it("gives the canvas priority when Agent and object properties compete for width", async () => {
     await boot();
     for (const [width, shouldAutoCollapse] of [[1100, true], [1280, true], [1440, true], [1920, false]]) {
-      const page = await browser.newPage({ viewport: { width, height: 720 }, deviceScaleFactor: 1 });
+      const page = await browser.newPage({locale:'zh-CN', viewport: { width, height: 720 }, deviceScaleFactor: 1 });
       // The Agent workspace opens by default now; workspace=0 restores the closed
       // baseline this auto-collapse scenario measures from.
       await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0&workspace=0`, { waitUntil: "networkidle" });
@@ -322,7 +323,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
 
   it("caps hub generate source so the agent screen does not paint the whole brief", async () => {
     await boot();
-    const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     // The hub polls its health endpoint continuously, so "networkidle" never
     // settles; wait for the agent screen element instead.
     // The brief chip renders in the editor thread now (the hub hands off), so the
@@ -362,7 +363,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
 
   it("uses the real browser fullscreen capability and exits cleanly", async () => {
     await boot();
-    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0`, {
       waitUntil: "networkidle",
     });
@@ -388,7 +389,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
 
   it("disables fullscreen with an explicit reason when the browser has no API", async () => {
     await boot();
-    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0`, {
       waitUntil: "networkidle",
     });
@@ -410,7 +411,7 @@ describe("generate/editor chrome overflow on the real page", { skip: !hasPlaywri
 
   it("anchors an element comment beside its target and reselects that immutable scope", async () => {
     await boot();
-    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({locale:'zh-CN', viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
     await page.goto(`${base}/index.html?project=${encodeURIComponent(project)}&page=0`, {
       waitUntil: "networkidle",
     });
