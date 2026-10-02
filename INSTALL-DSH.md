@@ -9,8 +9,7 @@
 
 ```sh
 git clone https://github.com/aa2246740/dsh-openslides.git
-cd dsh-openslides
-git checkout devin/dsh-personal-slides    # 或 Devin 给你的分支名
+cd dsh-openslides                        # 默认分支 main 就是正式版
 npm install                              # 只装根目录；workspace 会自动链接 packages/*
 ```
 
