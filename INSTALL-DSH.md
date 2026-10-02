@@ -23,6 +23,7 @@ npm install                              # 只装根目录；workspace 会自动
 ```sh
 cp scripts/dsh-personal-slides.patch.example.yml my-slides.patch.yml
 # 编辑 my-slides.patch.yml：把 /ABS/PATH/... 换成本机绝对路径
+# name 必须指向构建产物文件（…/lib/dsh-personal-slides.js），写包目录会导入失败
 # 不用 dsh-personal 的话，删掉第一段（演示文稿会变成主导航顶层入口）
 ```
 
