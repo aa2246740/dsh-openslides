@@ -29,7 +29,8 @@ Other observed fixes:
 
 DSH 0.2.0-rc.2, macOS; native Codex browser interaction and screenshots.
 Two separate temporary Homes, one with Personal 0.2.7 and one without Personal.
-The pre-existing Desktop Host was not restarted during these tests.
+After those generation tests, the user authorized a normal Desktop restart.
+The installed plugin was then verified in the actual Desktop Personal UI.
 
 | Check | Observed result |
 | --- | --- |
@@ -39,7 +40,7 @@ The pre-existing Desktop Host was not restarted during these tests.
 | Editable content | Export report: 3 slides, native coverage 1, one native editable chart, no degradations |
 | SWE-2 (`devin/swe-2`) | Selected successfully; PPT intent requests failed twice with upstream `invalid_argument` |
 | SWE-2 minimal gateway request | HTTP 200 and `OK`; does not prove PPT generation works |
-| Main Desktop activation | Pending normal launcher restart/activation verification; these screenshots are isolated local acceptance |
+| Main Desktop activation | Passed after normal restart: official catalog 44, Slides catalog 44, 15 providers, missing 0, extra 0; existing MiniMax deck opened in Personal |
 
 The MiniMax brief requested a fictional community book exchange plan, monthly
 simulated values 120/180/260, three action steps, no web research or images.
@@ -51,6 +52,17 @@ benchmark.
 
 PPTX SHA-256:
 `6f054107f51eaa8f962a517a85e09d66749b06baaac045a947e4c9be4362e700`
+
+## Actual Desktop verification
+
+The current Host returned the same 44 provider/model identity pairs from
+`session/modelCatalog` and `/slides/models`. This is a live catalog check,
+not a claim that all 44 models passed generation. The screenshots below show
+the installed Personal picker and the reopened MiniMax chart page.
+
+![Actual Desktop model picker](desktop-models-synced.png)
+
+![Actual Desktop MiniMax deck](desktop-minimax-deck.png)
 
 ## Screenshots
 
