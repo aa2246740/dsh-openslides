@@ -15,6 +15,7 @@ import fs from "node:fs";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { pathToFileURL } from "node:url";
 import { readProjectSessionTrace } from "./session-trace-journal.mjs";
@@ -24,6 +25,24 @@ import { AttachmentStore, parseAttachmentBuffer, attachmentPublic, decodeAttachm
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../../..");
 loadRootEnv(ROOT);
+
+// Runtime packages must resolve to ONE copy each: bare `@open-slidestudio/*`
+// imports inside the packages always land on node_modules, so loading the
+// entry points through packages/ would create a second module instance with
+// its own state (pptd-v2's write-lock map is module-level — two instances
+// self-deadlock every mutating command). Resolve the node_modules dir and
+// import through it; in a pnpm checkout the workspace links realpath back to
+// packages/, so dev and packaged installs share one code path.
+const nativeRequire = createRequire(import.meta.url);
+const runtimeImport = (specifier, rel = "dist/index.js") => {
+  for (const base of nativeRequire.resolve.paths(`${specifier}/package.json`) ?? []) {
+    const dir = path.join(base, specifier);
+    if (fs.existsSync(path.join(dir, "package.json"))) {
+      return pathToFileURL(path.join(fs.realpathSync(dir), rel)).href;
+    }
+  }
+  throw new Error(`cannot resolve runtime package ${specifier}`);
+};
 const PUBLIC = path.resolve(__dirname, "../public");
 const PORT = Number(process.env.PORT || 55200);
 
@@ -295,18 +314,10 @@ function parseFontsCss() {
 const FONT_FAMILIES = parseFontsCss();
 
 async function loadNative() {
-  const pptd = await import(
-    pathToFileURL(path.join(ROOT, "packages/pptd-v2/dist/index.js")).href
-  );
-  const canvas = await import(
-    pathToFileURL(path.join(ROOT, "packages/canvas-session/dist/index.js")).href
-  );
-  const exporter = await import(
-    pathToFileURL(path.join(ROOT, "packages/exporter-native/dist/index.js")).href
-  );
-  const store = await import(
-    pathToFileURL(path.join(ROOT, "packages/project-store/dist/index.js")).href
-  );
+  const pptd = await import(runtimeImport("@open-slidestudio/pptd-v2"));
+  const canvas = await import(runtimeImport("@open-slidestudio/canvas-session"));
+  const exporter = await import(runtimeImport("@open-slidestudio/exporter-native"));
+  const store = await import(runtimeImport("@open-slidestudio/project-store"));
   return { pptd, canvas, exporter, store };
 }
 
@@ -1408,7 +1419,7 @@ function projectPageSnapshotWithinLock(native, root, pagePath, presentation) {
 
 async function projectPageSnapshot(native, root, pagePath) {
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   return native.pptd.withProjectWriteLock(root, () =>
     projectPageSnapshotWithinLock(native, root, pagePath, presentation));
@@ -1416,7 +1427,7 @@ async function projectPageSnapshot(native, root, pagePath) {
 
 async function projectVerificationSnapshot(native, root, pagePath, { allowMissingPage = false } = {}) {
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   return native.pptd.withProjectWriteLock(root, () => {
     const project = native.pptd.loadProject(root);
@@ -1455,7 +1466,7 @@ async function projectVerificationSnapshot(native, root, pagePath, { allowMissin
 
 async function acquireCurrentCommentReviewLock(native, root, pagePath, comment, expectedPageSha256) {
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   return native.pptd.withProjectWriteLock(root, () => {
     const currentPage = projectPageSnapshotWithinLock(native, root, pagePath, presentation);
@@ -1593,7 +1604,7 @@ async function startReviewBatch(native, root, rawItems, brief = "") {
     return { error: `items must not exceed ${REVIEW_BATCH_MAX_ITEMS} comments` };
   }
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   const first = await validateReviewBatchItems(native, root, items, presentation);
   if (first.stale.length) return { conflict: false, stale: first.stale };
@@ -1714,7 +1725,7 @@ function verifyReviewBatch(native, root, lock, presentation) {
 /** Acceptance and state updates share the project write lock, preventing a
  * successful page from hiding an untouched comment on that same page. */
 async function finishReviewBatch(native, root, token, outcome, failure) {
-  const presentation = await import(pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href);
+  const presentation = await import(runtimeImport("@open-slidestudio/presentation-run"));
   return native.pptd.withProjectWriteLock(root, () => {
     const lock = reviewAiLockByToken(token);
     const batchItems = Array.isArray(lock?.items) ? lock.items : null;
@@ -1752,7 +1763,7 @@ async function finishReviewBatch(native, root, token, outcome, failure) {
 
 async function acquireCurrentWorkspaceReviewLock(native, root, pagePath, rawWorkspaceEdit) {
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   return native.pptd.withProjectWriteLock(root, () => {
     const currentPage = projectPageSnapshotWithinLock(native, root, pagePath, presentation);
@@ -1963,7 +1974,7 @@ async function readGenerationActivity(native, root) {
   const dshRuntime = readProjectRecord(path.join(agentDir, "dsh-runtime.json"));
   const run = readProjectRecord(path.join(agentDir, "presentation-run.v1.json"));
   const presentation = await import(
-    pathToFileURL(path.join(ROOT, "packages/presentation-run/dist/index.js")).href
+    runtimeImport("@open-slidestudio/presentation-run")
   );
   const snapshot = presentation.inspectGenerationActivitySnapshot(root);
   const inspection = snapshot.inspection;
@@ -4171,9 +4182,7 @@ const server = http.createServer(async (req, res) => {
             if (cfg && el?.src && !el.src.startsWith("data:")) {
               try {
                 const presentation = await import(
-                  pathToFileURL(
-                    path.join(ROOT, "packages/presentation-run/dist/index.js"),
-                  ).href
+                  runtimeImport("@open-slidestudio/presentation-run"),
                 );
                 const nodes = await presentation.rebuildNodesFromImage(
                   cfg,
@@ -4288,7 +4297,7 @@ const server = http.createServer(async (req, res) => {
         // substitution on the viewing machine.
         const rasterModule = await import(
           pathToFileURL(
-            path.join(ROOT, "packages/presentation-run/dist/domain/page-raster.js"),
+            fileURLToPath(runtimeImport("@open-slidestudio/presentation-run", "dist/domain/page-raster.js")),
           ).href
         );
         const raster = rasterModule.createPageRasterPort({
@@ -4336,7 +4345,7 @@ const server = http.createServer(async (req, res) => {
       if (format === "png") {
         const rasterModule = await import(
           pathToFileURL(
-            path.join(ROOT, "packages/presentation-run/dist/domain/page-raster.js"),
+            fileURLToPath(runtimeImport("@open-slidestudio/presentation-run", "dist/domain/page-raster.js")),
           ).href
         );
         const raster = rasterModule.createPageRasterPort({
