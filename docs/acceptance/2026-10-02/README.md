@@ -217,3 +217,32 @@ Release remains pending: the final archive still needs actual Desktop acceptance
 and Personal-to-Work stutter has no confirmed dominant cause or verified fix.
 The previously denied raw browser profiling request remains pending renewed
 permission. This PR has not been merged and no new stable release was published.
+
+
+## October 3: native WPS acceptance
+
+Opened a byte-identical copy of the downloaded SWE-2 PPTX in the local WPS
+application. The complete page renders with the original box, arrow, layer and
+rotation icons. Selecting the box exposes native drawing tools and resize/rotate
+handles. This closes the WPS opening and editable-icon visual checks for this
+artifact; Microsoft PowerPoint itself was not tested. Native automation briefly
+lost its connection during opening, then recovered; the loaded document and
+editable shape were inspected directly rather than inferring success from the
+open command.
+
+![Actual WPS render](swe-wps-open.png)
+
+![Selected native icon with drawing tools and edit handles](swe-wps-editable-icon.png)
+
+A fresh local Desktop read still reports 44 official models and 44 Slides models,
+with no missing or extra entries. Personal and the existing GLM deck reopen.
+These observations apply to the installed development wrapper; they do not close
+final-package Desktop activation acceptance.
+
+Source inspection confirms the Personal exit calls layout.selectPanel(null),
+releases Personal's sidebar/leading slot contributions, and switches the keyed
+main slot back to conversation. Slides' iframe is inside the unmounted panel.
+There is no SWE generation call in the switch handler. This establishes the
+lifecycle path, not a measured dominant cause of the stutter. Raw CDP remains
+blocked by the browser's saved site setting even after renewed chat consent;
+no alternate profiling channel was used. The PR remains unmerged.
