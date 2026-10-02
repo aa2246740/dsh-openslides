@@ -34,7 +34,7 @@ The pre-existing Desktop Host was not restarted during these tests.
 | Check | Observed result |
 | --- | --- |
 | Personal entry | Loads the full editor and native custom model list |
-| Independent sidebar entry | Loads without Personal in the client graph |
+| Independent sidebar entry | Loads without Personal; MiniMax completed and exported a separate 1-page action card |
 | MiniMax M3.1 Flash Preview (`minimax-code-m3.1`) | Completed a 3-page Chinese deck and editable PPTX export |
 | Editable content | Export report: 3 slides, native coverage 1, one native editable chart, no degradations |
 | SWE-2 (`devin/swe-2`) | Selected successfully; PPT intent requests failed twice with upstream `invalid_argument` |
@@ -65,6 +65,10 @@ Independent entry with SWE-2 selected:
 MiniMax chart in the actual editor:
 
 ![MiniMax generated chart](minimax-chart.png)
+
+MiniMax also completed a separate generation from the independent sidebar:
+
+![Independent MiniMax generation](minimax-standalone.png)
 
 Three-page editable export:
 
