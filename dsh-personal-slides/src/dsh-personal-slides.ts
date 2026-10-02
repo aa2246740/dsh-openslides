@@ -191,12 +191,23 @@ function proxyToSidecar(
 }
 
 export function apply(ctx: Context) {
-  // dev entry: <plugin>/src/dsh-personal-slides.ts → ../.. is the repo checkout.
-  // built entry: <plugin>/lib/dsh-personal-slides.js → same depth.
+  // Packaged install: <pkg>/lib/dsh-personal-slides.js ships apps/, packages/,
+  // vendor/ inside the package root. Dev checkout: <plugin>/lib/… is one level
+  // below the repo root, so fall back to the parent directory.
+  const packageRoot = fileURLToPath(new URL("..", import.meta.url));
+  const checkoutRoot = fileURLToPath(new URL("../..", import.meta.url));
   const repoRoot = resolve(
     process.env.OPEN_SLIDESTUDIO_ROOT?.trim() ||
-      fileURLToPath(new URL("../..", import.meta.url)),
+      (existsSync(join(packageRoot, "apps/native-web/src/server.mjs"))
+        ? packageRoot
+        : checkoutRoot),
   );
+  // Packaged installs carry the open-kimi skill under the package root; the
+  // host process cwd never contains vendor/, so seed the lookup env here.
+  const bundledSkill = join(repoRoot, "vendor/open-kimi-ppt/skill-1.2.0/skills/open-kimi-ppt");
+  if (!process.env.SLIDESTUDIO_SKILL_ROOT?.trim() && existsSync(join(bundledSkill, "SKILL.md"))) {
+    process.env.SLIDESTUDIO_SKILL_ROOT = bundledSkill;
+  }
   const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
 
   registerSlidesPreset(ctx);

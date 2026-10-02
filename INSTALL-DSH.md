@@ -5,6 +5,31 @@
 
 要求：Node ≥ 22.19，DSH `0.2.0-rc.2`（本仓库 devDependencies 已固定该版本，无需另外安装内核）。
 
+## 0. 桌面快捷安装（推荐）：自包含 tgz 包
+
+正式分发物是一个**自包含插件包** `dsh-personal-slides-0.1.0.tgz`（约 180MB，包含编辑器、运行栈、内置 Chromium 渲染器、skill 资源，安装后零环境变量）。构建：
+
+```sh
+cd dsh-personal-slides
+node scripts/release.mjs      # 产出 .local/release/dsh-personal-slides-0.1.0.tgz + SHA256SUMS
+```
+
+安装（任选其一）：
+
+- **DSH 设置 → 插件 → 添加插件**，填入 tgz 文件的本地路径（桌面端标准流程）。
+- 命令行：`dsh plugin --profile web add /path/dsh-personal-slides-0.1.0.tgz`；
+  然后在 `profiles/web/cordis.patch.yml` 加一行（桌面安装器会自动合并，命令行需手动）：
+
+  ```yaml
+  - insert:
+      - id: dsh-personal-slides
+        name: dsh-personal-slides
+  ```
+
+装完重启 Host → 主导航出现「演示文稿」。已实测：全新 Home 里安装→生成→导出全链路通过。
+
+下面是从源码运行的开发路径。
+
 ## 1. 拉代码 + 装依赖
 
 ```sh
