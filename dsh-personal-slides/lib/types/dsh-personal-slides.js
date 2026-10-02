@@ -6,7 +6,7 @@ import { apply as applySlidesHost } from "@open-slidestudio/dsh-slides-host";
 import { request as httpRequest } from "node:http";
 /** Cross-package Context shape; cordis is shared at runtime, types differ. */
 const applySlidesHostAny = applySlidesHost;
-export const name = "dsh-personal-slides";
+export const name = "dsh-openslides";
 // slides-host services are injected through this wrapper so activation ordering
 // keeps `webServer`/`agents`/`llm` ready before the slice API mounts.
 export const inject = [
@@ -56,7 +56,7 @@ const SLIDES_PERSONA_PREFIX = [
 function registerSlidesPreset(ctx) {
     const presets = ctx.get("agentPresets");
     if (!presets?.register) {
-        console.warn("[dsh-personal-slides] agentPresets service missing; slides agents will run without the preset");
+        console.warn("[dsh-openslides] agentPresets service missing; slides agents will run without the preset");
         return;
     }
     ctx.effect(() => presets.register({
@@ -85,7 +85,7 @@ function registerSlidesPreset(ctx) {
 function startEditorSidecar(repoRoot) {
     const server = join(repoRoot, "apps/native-web/src/server.mjs");
     if (!existsSync(server)) {
-        console.warn(`[dsh-personal-slides] editor sidecar not found at ${server}`);
+        console.warn(`[dsh-openslides] editor sidecar not found at ${server}`);
         return undefined;
     }
     const child = spawn(process.execPath, [server], {
@@ -94,10 +94,10 @@ function startEditorSidecar(repoRoot) {
         stdio: ["ignore", "ignore", "inherit"],
     });
     child.on("error", (error) => {
-        console.warn("[dsh-personal-slides] editor sidecar failed to start", error);
+        console.warn("[dsh-openslides] editor sidecar failed to start", error);
     });
     child.on("exit", (code, signal) => {
-        console.warn(`[dsh-personal-slides] editor sidecar exited code=${String(code)} signal=${String(signal)}`);
+        console.warn(`[dsh-openslides] editor sidecar exited code=${String(code)} signal=${String(signal)}`);
     });
     return child;
 }
@@ -218,6 +218,6 @@ export function apply(ctx) {
         if (sidecar && !sidecar.killed)
             sidecar.kill("SIGTERM");
     });
-    console.log("[my-plugins/dsh-personal-slides] loaded");
+    console.log("[my-plugins/dsh-openslides] loaded");
 }
 //# sourceMappingURL=dsh-personal-slides.js.map

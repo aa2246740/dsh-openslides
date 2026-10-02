@@ -1,5 +1,15 @@
 # Hosted model synchronization and local generation acceptance
 
+## Current release: 0.2.0
+
+The fixes below are distributed as the formal 0.2.0 release from `main`. Earlier pending/PR statements are dated investigation history. The package and client Loader ID are now both `dsh-openslides`, with an official `dsh.bundle.patch` and prebuilt code. npm name installation remains pending registry verification. The independent and Personal entry paths remain supported.
+
+Personal 0.2.8 separately removes Work/sidebar and iframe remounts on ordinary space switches. Its offline lifecycle comparison and three actual Web round trips passed; see [the Personal report](https://github.com/aa2246740/dsh-personal-entry/blob/main/docs/switch-performance.md). Slides cooperates with its modal through `personal.suspend()` when opening Host Settings. This does not supply a real Desktop long-task trace.
+
+Final archive Desktop interaction remains unverified because native automation returned stale/invalid UI elements, and then timed out. Existing Desktop generation and WPS evidence below applies only to the builds identified there. The external pinned browser runtime is still a prerequisite; installation does not download it. Windows/Linux native interactions and automatic project migration are not claimed.
+
+## Earlier investigation and evidence
+
 ## Problem and fix
 
 The hosted plugin intersected a private `slides-model-catalog.json` / credential
@@ -246,3 +256,10 @@ There is no SWE generation call in the switch handler. This establishes the
 lifecycle path, not a measured dominant cause of the stutter. Raw CDP remains
 blocked by the browser's saved site setting even after renewed chat consent;
 no alternate profiling channel was used. The PR remains unmerged.
+
+
+## 0.2.0 packaging and installation verification
+
+The actual prebuilt tarball passed official DSH CLI installation into two fresh, temporary Homes: Slides alone, and Personal 0.2.8 plus Slides. Both selected the expected bundle and produced a valid official configuration dump. Package name, patch module name, and compiled client Loader ID all equal `dsh-openslides`. These checks establish installation and composition, not final Desktop UI acceptance. Two compiled-client Settings lifecycle tests pass with and without Personal; Personal's final build also passes its offline suspend/resume and iframe-preservation check.
+
+The archive passes 104 production dependency checks, real produce gates, an eight-page PPTX export, shape geometry loading and two editable-icon exports outside the checkout. See [release-install.json](release-install.json). The npm registry is still awaiting account authentication; name-only installation is not yet reported as published.

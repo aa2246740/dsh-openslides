@@ -1,6 +1,6 @@
 import type { Context } from "@deepseek-ai/cordis";
 import type { IncomingMessage, ServerResponse } from "node:http";
-export declare const name = "dsh-personal-slides";
+export declare const name = "dsh-openslides";
 export declare const inject: string[];
 declare module "@deepseek-ai/cordis" {
     interface Context {

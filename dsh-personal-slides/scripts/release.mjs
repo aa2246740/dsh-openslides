@@ -11,8 +11,8 @@ const pluginDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const repoRoot = resolve(pluginDir, "..");
 const output = join(pluginDir, ".local", "release");
 const manifest = JSON.parse(readFileSync(join(pluginDir, "package.json"), "utf8"));
-if (manifest.name !== "dsh-personal-slides") {
-  throw new Error("expected the dsh-personal-slides package");
+if (manifest.name !== "dsh-openslides") {
+  throw new Error("expected the dsh-openslides package");
 }
 
 const version = manifest.version ?? "0.1.0";
@@ -77,7 +77,7 @@ for (const rel of ["lib", "src", "README.md", "dshx.yml", "cordis.yml"]) {
 
 writeFileSync(
   join(pkg, "cordis.patch.yml"),
-  "- insert:\n    - id: dsh-personal-slides\n      name: dsh-personal-slides\n",
+  "- insert:\n    - id: dsh-openslides\n      name: dsh-openslides\n",
 );
 
 // Copy the complete production dependency closure, including transitive packages.
@@ -128,6 +128,7 @@ for (const name of BUNDLED_NODE_MODULES) {
 const published = {
   ...manifest,
   private: false,
+  publishConfig: { access: "public", registry: "https://registry.npmjs.org/" },
   dependencies: bundledVersions,
   files: [
     "lib",

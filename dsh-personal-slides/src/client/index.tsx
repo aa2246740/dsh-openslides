@@ -1,13 +1,14 @@
 import type { Context as ClientContext } from '@deepseek-ai/cordis'
 import React from 'react'
 
-export const name = 'dsh-personal-slides-client'
+export const name = 'dsh-openslides-client'
 // Only the slots service is required up front: without dsh-personal the feature
 // still mounts as its own top-level panel; when Personal is present the same
 // page is re-registered inside its sidebar instead (see ctx.inject below).
 export const inject = ['slots']
 
 type PersonalRegistry = {
+  suspend?: () => (restore?: boolean) => void
   register: (feature: {
     id: string
     title: string
@@ -130,29 +131,33 @@ function settingsUiMounted(): boolean {
  * unless the user navigated elsewhere in the meantime.
  */
 function openDshSettings(ctx: ClientContext, source: MessageEventSource | null, origin: string): void {
+  // Personal 0.2.8 retains its page in a native modal. Release that modal while
+  // the Host owns Settings, then restore the same iframe after Settings closes.
+  const resumePersonal = (ctx.get('personal') as PersonalRegistry | undefined)?.suspend?.()
   if (settingsUiMounted()) {
     // Ack immediately: we take over from here (any dialog that owns the layer,
     // onboarding included, is already a settings-surface flow).
     if (source && 'postMessage' in source) {
       (source as Window).postMessage({ type: 'oss:dsh-settings-opened' }, origin)
     }
-    driveSettingsOpen(ctx, null)
+    driveSettingsOpen(ctx, resumePersonal ?? null)
     return
   }
   const layout = ctx.get('layout') as LayoutService | undefined
-  if (!layout) return
+  if (!layout) { resumePersonal?.(); return }
   const previousPanel = layout.panelInfo?.getSnapshot().activePanelId ?? null
   layout.selectPanel(null)
   // Fresh signal: aborted by any later selectPanel, so a user-driven
   // navigation cancels the pending restore below.
   const navigation = layout.beginNavigation?.() ?? null
   driveSettingsOpen(ctx, () => {
-    if (navigation?.aborted) return
+    if (navigation?.aborted) { resumePersonal?.(false); return }
     try {
       layout.selectPanel(previousPanel)
     } catch {
       // Panel unregistered meanwhile (e.g. Personal unloaded); stay put.
     }
+    resumePersonal?.()
   })
 }
 
@@ -165,11 +170,15 @@ function openDshSettings(ctx: ClientContext, source: MessageEventSource | null, 
  * navigation; in-place callers pass null.
  */
 function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null): void {
+  let finished = false
   let opened = false
   let needDispatch = true
   let waited = 0
   const done = () => {
+    if (finished) return
+    finished = true
     window.clearInterval(timer)
+    window.clearTimeout(deadline)
     finish?.()
   }
   const timer = window.setInterval(() => {
@@ -196,7 +205,8 @@ function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null): voi
     // Dispatch produced nothing and the layer is empty — don't strand the user.
     if (!needDispatch && waited >= 10_000) done()
   }, 250)
-  window.setTimeout(() => window.clearInterval(timer), 600_000)
+  const deadline = window.setTimeout(done, 600_000)
+  ctx.effect(() => done)
 }
 
 function SlidesPage() {

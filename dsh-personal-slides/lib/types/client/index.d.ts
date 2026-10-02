@@ -1,8 +1,9 @@
 import type { Context as ClientContext } from '@deepseek-ai/cordis';
 import React from 'react';
-export declare const name = "dsh-personal-slides-client";
+export declare const name = "dsh-openslides-client";
 export declare const inject: string[];
 type PersonalRegistry = {
+    suspend?: () => (restore?: boolean) => void;
     register: (feature: {
         id: string;
         title: string;

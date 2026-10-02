@@ -1,5 +1,5 @@
-id: dsh-personal-slides
+id: dsh-openslides
 entry: src/dsh-personal-slides.ts
-marker: "[my-plugins/dsh-personal-slides] loaded"
+marker: "[my-plugins/dsh-openslides] loaded"
 kind: client
 profile: web

@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "harnessVersion": "0.2.0-rc.2",
+  "checks": [
+    {
+      "mode": "direct",
+      "officialCliInstall": true,
+      "bundleSelected": true,
+      "version": "0.2.0",
+      "personal": false,
+      "dumpConfig": true
+    },
+    {
+      "mode": "personal",
+      "officialCliInstall": true,
+      "bundleSelected": true,
+      "version": "0.2.0",
+      "personal": true,
+      "dumpConfig": true
+    }
+  ],
+  "archive": {
+    "dependencyPackages": 104,
+    "exportedSlides": 8,
+    "editableIcons": 2
+  },
+  "desktopFinalArchiveUi": "not verified: native automation unavailable",
+  "npm": "awaiting authentication"
+}

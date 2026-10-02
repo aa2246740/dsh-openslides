@@ -1,13 +1,14 @@
 {
-  "name": "dsh-personal-slides",
-  "version": "0.1.0",
-  "description": "Open SlideStudio as a dsh-personal feature (\u6f14\u793a\u6587\u7a3f): /slides API on the Host webServer plus a personal page",
+  "name": "dsh-openslides",
+  "version": "0.2.0",
+  "description": "Editable presentations for DeepSeek Harness, with optional Personal integration",
   "type": "module",
   "main": "lib/dsh-personal-slides.js",
   "types": "lib/types/dsh-personal-slides.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json && tsdown",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:client": "node scripts/test-settings.mjs"
   },
   "exports": {
     ".": {
@@ -40,16 +41,22 @@
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@open-slidestudio/dsh-slides-host": "link:../packages/dsh-slides-host"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
-    "@deepseek-ai/dsh": ">=0.2.0-rc.1 <0.2.1",
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.3.0-0",
     "dsh-personal": ">=0.2.5 <0.3.0"
   },
   "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
     "dsh-personal": {
       "optional": true
     }
@@ -62,5 +69,14 @@
     "react-dom": "^18.2.0",
     "tsdown": "^0.22.2",
     "typescript": "^6.0.3"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aa2246740/dsh-openslides.git"
+  },
+  "homepage": "https://github.com/aa2246740/dsh-openslides#readme",
+  "bugs": {
+    "url": "https://github.com/aa2246740/dsh-openslides/issues"
   }
 }

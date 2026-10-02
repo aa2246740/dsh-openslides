@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-	id: "dsh-personal-slides",
+	id: "dsh-openslides",
 	factory: (require) => {
 		var module = { exports: {} };
 		var exports = module.exports;
@@ -8,7 +8,7 @@ window.__ModuleLoader__.load({
 		require("react");
 		let react_jsx_runtime = require("react/jsx-runtime");
 		//#region src/client/index.tsx
-		const name = "dsh-personal-slides-client";
+		const name = "dsh-openslides-client";
 		const inject = ["slots"];
 		/** Replay a registered shortcut command through the real keydown dispatch path. */
 		function dispatchShortcut(ctx, commandId) {
@@ -75,21 +75,29 @@ window.__ModuleLoader__.load({
 		* unless the user navigated elsewhere in the meantime.
 		*/
 		function openDshSettings(ctx, source, origin) {
+			const resumePersonal = ctx.get("personal")?.suspend?.();
 			if (settingsUiMounted()) {
 				if (source && "postMessage" in source) source.postMessage({ type: "oss:dsh-settings-opened" }, origin);
-				driveSettingsOpen(ctx, null);
+				driveSettingsOpen(ctx, resumePersonal ?? null);
 				return;
 			}
 			const layout = ctx.get("layout");
-			if (!layout) return;
+			if (!layout) {
+				resumePersonal?.();
+				return;
+			}
 			const previousPanel = layout.panelInfo?.getSnapshot().activePanelId ?? null;
 			layout.selectPanel(null);
 			const navigation = layout.beginNavigation?.() ?? null;
 			driveSettingsOpen(ctx, () => {
-				if (navigation?.aborted) return;
+				if (navigation?.aborted) {
+					resumePersonal?.(false);
+					return;
+				}
 				try {
 					layout.selectPanel(previousPanel);
 				} catch {}
+				resumePersonal?.();
 			});
 		}
 		/**
@@ -101,11 +109,15 @@ window.__ModuleLoader__.load({
 		* navigation; in-place callers pass null.
 		*/
 		function driveSettingsOpen(ctx, finish) {
+			let finished = false;
 			let opened = false;
 			let needDispatch = true;
 			let waited = 0;
 			const done = () => {
+				if (finished) return;
+				finished = true;
 				window.clearInterval(timer);
+				window.clearTimeout(deadline);
 				finish?.();
 			};
 			const timer = window.setInterval(() => {
@@ -129,7 +141,8 @@ window.__ModuleLoader__.load({
 				}
 				if (!needDispatch && waited >= 1e4) done();
 			}, 250);
-			window.setTimeout(() => window.clearInterval(timer), 6e5);
+			const deadline = window.setTimeout(done, 6e5);
+			ctx.effect(() => done);
 		}
 		function SlidesPage() {
 			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("iframe", {

@@ -1,47 +1,35 @@
-# dsh-personal-slides
+# dsh-openslides
 
-Open SlideStudio for DeepSeek Harness 0.2.0-rc.2. With `dsh-personal`, Slides
-registers in Personal. Without it, Slides registers its own sidebar panel.
-Personal is an optional peer, including in the client dependency graph.
+Open SlideStudio for DeepSeek Harness. Generate, edit and export native editable PowerPoint presentations. Uses the current Harness model catalog and credentials.
 
-Development uses the adjacent repository packages and resources. Run
-`node scripts/release.mjs` to assemble and verify a portable plugin tarball.
-The tarball bundles application dependencies and resources; the pinned browser
-runtime remains separately managed (Playwright 1.61.1 / Chromium shell 1228).
-Set `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` when it is outside the default
-`~/.codex/playwright-runtime/runtime.mjs` location. The packaging script does not
-install or upgrade that runtime. Passing artifact checks does not automatically
-publish a release.
+## Install
 
-From the repository root:
+In the Desktop **Plugins → Add plugin** page, paste this prebuilt release URL:
 
-```sh
-npm ci
-# Rebuild changed workspace packages if developing:
-npm run build:native
+```text
+https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
 ```
 
-For changes to this wrapper, install its development dependencies with pnpm,
-then build against the configured DSHX Harness:
+For the Web profile:
 
 ```sh
-cd dsh-personal-slides
-pnpm install --ignore-workspace
-pnpm build
+dsh plugin --profile web add https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
 ```
 
-The build uses DSHX `externalClientBundle` for the lazy-CJS client handoff.
-Install the package directory through the active profile's plugin manager or
-`dshx plugin add /absolute/path/to/dsh-personal-slides --profile desktop --port <host-port>`.
-The `dsh.bundle` manifest activates `cordis.patch.yml`; do not also insert the
-same plugin through another patch. A file-only server mount does not install
-the client package graph.
+For registry installation, the npm name and Desktop install field are `dsh-openslides`; the CLI command is `dsh plugin --profile web add dsh-openslides`.
 
-Hosted model selection uses the Harness `llm` service. Configure custom model
-APIs in Harness settings; no `slides-model-catalog.json` export or duplicate
-API-key store is required. Adapter registration establishes availability;
-actual authentication is checked by that adapter when a request runs.
+With Personal installed, find **Personal → Slides**. Without Personal, find **Slides** in the official sidebar. Personal is an optional peer. Personal 0.2.8 preserves the editor across space switches and lets Slides temporarily hide it while Host Settings opens.
 
-Resources resolve from this checkout, independently of the launch directory.
-`SLIDESTUDIO_SKILL_ROOT` optionally overrides the design-resource directory;
-`SLIDES_EDITOR_PORT` overrides the editor sidecar port (default `56200`).
+## Requirements
+
+Tested with Harness 0.2.0-rc.2 and Node ^22.19.0 or >=24.0.0. The package contains built application code, production dependencies and design resources. No install-time build is required.
+
+Rendering requires an existing pinned Playwright 1.61.1 / Chromium Headless Shell 1228 runtime exposing `verifyPinnedRuntime` and `launchPinnedChromium`. The default is `~/.codex/playwright-runtime/runtime.mjs`. Set `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` for another runtime file. This plugin does not install or upgrade the browser. A fresh machine needs that rendering environment before generation; installing the plugin alone does not provide it.
+
+`SLIDES_EDITOR_PORT` changes the local editor sidecar port (default 56200). Projects currently live under the running package or checkout's `output/`; retain that directory before upgrading. Migration from an old installation is manual. Disable the old `dsh-personal-slides` bundle before enabling this package, because both use the same routes.
+
+## Development and release
+
+The historical source directory remains `dsh-personal-slides/`; the published package and client Loader identity are `dsh-openslides`. From the repository root, build changed native packages with `npm run build:native`. Build this wrapper using `pnpm --dir dsh-personal-slides build` against an existing DSHX Harness. Run `node dsh-personal-slides/scripts/release.mjs` to assemble and verify the portable archive outside the checkout.
+
+The bundle follows the [official packaging contract](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/docs/user/develop/basic/publish.md). See the [repository README](https://github.com/aa2246740/dsh-openslides#readme) and [acceptance evidence](https://github.com/aa2246740/dsh-openslides/blob/main/docs/acceptance/2026-10-02/README.md).

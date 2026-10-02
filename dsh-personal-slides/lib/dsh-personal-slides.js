@@ -7,7 +7,7 @@ import { request } from "node:http";
 //#region lib/types/dsh-personal-slides.js
 /** Cross-package Context shape; cordis is shared at runtime, types differ. */
 const applySlidesHostAny = apply$1;
-const name = "dsh-personal-slides";
+const name = "dsh-openslides";
 const inject = [
 	"webServer",
 	"connection",
@@ -55,7 +55,7 @@ const SLIDES_PERSONA_PREFIX = [
 function registerSlidesPreset(ctx) {
 	const presets = ctx.get("agentPresets");
 	if (!presets?.register) {
-		console.warn("[dsh-personal-slides] agentPresets service missing; slides agents will run without the preset");
+		console.warn("[dsh-openslides] agentPresets service missing; slides agents will run without the preset");
 		return;
 	}
 	ctx.effect(() => presets.register({
@@ -81,7 +81,7 @@ function registerSlidesPreset(ctx) {
 function startEditorSidecar(repoRoot) {
 	const server = join(repoRoot, "apps/native-web/src/server.mjs");
 	if (!existsSync(server)) {
-		console.warn(`[dsh-personal-slides] editor sidecar not found at ${server}`);
+		console.warn(`[dsh-openslides] editor sidecar not found at ${server}`);
 		return;
 	}
 	const child = spawn(process.execPath, [server], {
@@ -98,10 +98,10 @@ function startEditorSidecar(repoRoot) {
 		]
 	});
 	child.on("error", (error) => {
-		console.warn("[dsh-personal-slides] editor sidecar failed to start", error);
+		console.warn("[dsh-openslides] editor sidecar failed to start", error);
 	});
 	child.on("exit", (code, signal) => {
-		console.warn(`[dsh-personal-slides] editor sidecar exited code=${String(code)} signal=${String(signal)}`);
+		console.warn(`[dsh-openslides] editor sidecar exited code=${String(code)} signal=${String(signal)}`);
 	});
 	return child;
 }
@@ -204,7 +204,7 @@ function apply(ctx) {
 	ctx.effect(() => () => {
 		if (sidecar && !sidecar.killed) sidecar.kill("SIGTERM");
 	});
-	console.log("[my-plugins/dsh-personal-slides] loaded");
+	console.log("[my-plugins/dsh-openslides] loaded");
 }
 //#endregion
 export { apply, inject, name };

@@ -21,6 +21,6 @@ const adapter = join(harnessRoot, 'tools/dshx/src/client-build.js')
 if (!existsSync(adapter)) throw new Error(`dshx client build adapter not found: ${adapter}`)
 const { externalClientBundle } = await import(pathToFileURL(adapter).href)
 
-export default externalClientBundle('dsh-personal-slides', ['lib/types/dsh-personal-slides.js'], {
+export default externalClientBundle('dsh-openslides', ['lib/types/dsh-personal-slides.js'], {
   clientEntry: 'src/client/index.tsx',
 })

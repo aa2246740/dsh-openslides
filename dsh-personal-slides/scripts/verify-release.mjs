@@ -13,6 +13,16 @@ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'slides-release-check-'));
 try {
  execFileSync('tar',['-xzf',archive,'-C',temp]);
  const root=fs.realpathSync(path.join(temp,'package'));
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
+ assert.equal(manifest.name,'dsh-openslides');
+ assert.equal(manifest.private,false);
+ assert.equal(manifest.dsh.bundle.patch,'./cordis.patch.yml');
+ assert.equal(manifest.peerDependenciesMeta['dsh-personal'].optional,true);
+ assert.equal(manifest.scripts,undefined,'Consumers must not need install-time builds');
+ const patch=fs.readFileSync(path.join(root,'cordis.patch.yml'),'utf8');
+ assert.match(patch,/id: dsh-openslides\n\s+name: dsh-openslides/);
+ const client=fs.readFileSync(path.join(root,'lib/client.js'),'utf8');
+ assert.match(client,/id: "dsh-openslides"/,'Client Loader identity must match the installed package');
  const seen=new Set();
  function check(dir){
   dir=fs.realpathSync(dir);if(seen.has(dir))return;seen.add(dir);

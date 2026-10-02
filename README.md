@@ -6,13 +6,57 @@
 
 当前产品主路径是：创建页 → 供应商登录 → DSH Agent Run 真实生成 → 可编辑画布 → 原生 PPTX（内核见 `docs/adr/0009-dsh-is-the-single-agent-kernel.md`）。界面和微交互仍按冻结的 Kimi 参考基线逐项补齐；官方账号队列、套餐和 Google Slides 不属于本地产品。
 
-## 自己部署验收
+## 安装到 DeepSeek Harness
+
+当前正式版本：**0.2.0**。这是社区外部插件，使用 DSH 官方公开插件接口；产品名为 Open SlideStudio。
+
+### 一条命令安装
+
+已安装 DSH CLI 的用户，在 **Web profile** 执行：
+
+```sh
+dsh plugin --profile web add https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
+```
+
+安装包已经编译，包含编辑器、导出器、字体、设计资源与生产依赖，不需要克隆本仓库或在安装时编译。
+
+### 桌面端安装
+
+打开 DSH 侧栏的 **插件 → 添加插件**，填入上面的 `.tgz` 下载地址，检查后安装并启用。
+
+npm 发布名统一为 `dsh-openslides`。**npm 发布验证尚待完成**；完成后桌面安装框可直接填写 `dsh-openslides`，CLI 对应：
+
+```sh
+dsh plugin --profile web add dsh-openslides
+```
+
+Web 和 Desktop 使用各自的 profile；CLI 的 `--profile web` 不会安装到桌面。桌面安装和升级应走桌面插件管理器，并遵循其重启提示。
+
+### 两种入口
+
+- **直接安装**：官方侧栏出现「演示文稿」，无需 Personal。
+- **已有 Personal**：同一插件出现在「个人 → 演示文稿」。推荐 Personal 0.2.8，空间切换保留工作树与 PPT 页面。[Personal 安装说明](https://github.com/aa2246740/dsh-personal-entry#安装与兼容)
+
+模型选择器读取当前 Harness 的模型服务，配置模型、API 地址和凭证都在 Harness 设置中完成。无需再导入一份 Slides 模型目录。列表同步不等于每个供应商都已通过 PPT 生成测试。
+
+### 环境与升级注意
+
+- 已验证 DSH **0.2.0-rc.2**；Node.js 要求 `^22.19.0 || >=24.0.0`。
+- 生成中的截图/排版检查需要 **Playwright 1.61.1 / Chromium Headless Shell 1228** 的固定运行时。插件不会自动下载浏览器。已有默认 `~/.codex/playwright-runtime/runtime.mjs` 时自动使用；其他部署须设置 `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` 指向兼容的 `runtime.mjs`。因此「一条命令安装插件」不代表全新机器无需配置渲染环境。
+- 旧版包名为 `dsh-personal-slides`。升级前在插件管理器中停用旧包，再启用 `dsh-openslides`，避免重复占用路由和侧栏；不要把两个包同时启用。
+- 当前项目保存在运行目录的 `output/`。从旧源码安装或旧包迁移时，先保留该目录；新包不会自动搬迁历史项目，也不要删除旧目录。源码部署可继续沿用原运行目录。
+
+打包方式对照官方 [打包与安装插件](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.2.0-rc.2/docs/user/develop/basic/publish.zh.md)：声明 `dsh.bundle.patch`，补丁按 npm 包名加载插件，发布预编译入口，复用宿主 peer 依赖。GitHub 源码根目录是 monorepo，**安装请使用发布包**。
+
+生成、可编辑 PPTX、模型同步及截图证据见 [验收报告](docs/acceptance/2026-10-02/README.md)。当前正式发布不代表未测平台已通过；原生桌面的最终安装包复验仍有自动化阻塞。
+
+## 从源码运行（开发者）
 
 需要 Node.js 22.19+，以及至少一个可用的模型供应商账号或 API Key。
 
 ```bash
-git clone <本仓库>
-cd open-slidestudio
+git clone https://github.com/aa2246740/dsh-openslides.git
+cd dsh-openslides
 npm install
 npm start
 ```
