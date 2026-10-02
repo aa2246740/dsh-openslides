@@ -4,19 +4,15 @@ Open SlideStudio for DeepSeek Harness. Generate, edit and export native editable
 
 ## Install
 
-In the Desktop **Plugins → Add plugin** page, paste this prebuilt release URL:
+The GitHub repository is currently private. Sign in and download `dsh-openslides-0.2.0.tgz` from the [0.2.0 Release](https://github.com/aa2246740/dsh-openslides/releases/tag/v0.2.0).
 
-```text
-https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
-```
-
-For the Web profile:
+In Desktop **Plugins → Add plugin**, enter the downloaded file's absolute path. For the Web profile, run from the download directory:
 
 ```sh
-dsh plugin --profile web add https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
+dsh plugin --profile web add ./dsh-openslides-0.2.0.tgz
 ```
 
-For registry installation, the npm name and Desktop install field are `dsh-openslides`; the CLI command is `dsh plugin --profile web add dsh-openslides`.
+The private Release URL cannot be passed to an unauthenticated installer: it returns 404. Public npm distribution is pending scope confirmation and account authentication. Once published, the Desktop install field accepts `dsh-openslides`, and the CLI command is `dsh plugin --profile web add dsh-openslides`. Until then, use the downloaded archive.
 
 With Personal installed, find **Personal → Slides**. Without Personal, find **Slides** in the official sidebar. Personal is an optional peer. Personal 0.2.8 preserves the editor across space switches and lets Slides temporarily hide it while Host Settings opens.
 

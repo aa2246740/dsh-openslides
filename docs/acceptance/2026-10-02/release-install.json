@@ -25,5 +25,15 @@
     "editableIcons": 2
   },
   "desktopFinalArchiveUi": "not verified: native automation unavailable",
-  "npm": "awaiting authentication"
+  "npm": "awaiting public-distribution confirmation and account authentication",
+  "github": {
+    "formalRelease": true,
+    "downloadedSha256Matches": true,
+    "repositoryPrivate": true,
+    "unauthenticatedUrlInstall": {
+      "passed": false,
+      "httpStatus": 404
+    },
+    "installMethod": "authenticated download, then local file"
+  }
 }

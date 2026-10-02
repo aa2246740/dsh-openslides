@@ -10,21 +10,24 @@
 
 当前正式版本：**0.2.0**。这是社区外部插件，使用 DSH 官方公开插件接口；产品名为 Open SlideStudio。
 
-### 一条命令安装
+### 当前安装方式（私有 GitHub 仓库）
 
-已安装 DSH CLI 的用户，在 **Web profile** 执行：
+先登录 GitHub，从 [0.2.0 Release](https://github.com/aa2246740/dsh-openslides/releases/tag/v0.2.0) 下载 `dsh-openslides-0.2.0.tgz`。
+
+- **桌面端**：打开 DSH 侧栏的 **插件 → 添加插件**，填写下载文件的绝对路径，检查后安装并启用。
+- **Web CLI**：在安装包所在目录执行：
 
 ```sh
-dsh plugin --profile web add https://github.com/aa2246740/dsh-openslides/releases/download/v0.2.0/dsh-openslides-0.2.0.tgz
+dsh plugin --profile web add ./dsh-openslides-0.2.0.tgz
 ```
 
-安装包已经编译，包含编辑器、导出器、字体、设计资源与生产依赖，不需要克隆本仓库或在安装时编译。
+安装包已经编译，包含编辑器、导出器、字体、设计资源与生产依赖，不需要克隆本仓库或在安装时编译。**当前仓库是私有的**，直接让 DSH 下载 GitHub Release URL 会因为没有 GitHub 认证而返回 404；不能把私有下载直链当作公共安装地址。
 
-### 桌面端安装
+### npm 包名安装的状态
 
-打开 DSH 侧栏的 **插件 → 添加插件**，填入上面的 `.tgz` 下载地址，检查后安装并启用。
+发布包的名称、bundle patch 和客户端 ID 均已统一为 `dsh-openslides`。**公开 npm 发布尚未完成**：需要确认把私有仓库中的运行代码和资源作为插件包公开，并恢复 npm 账号认证。完成前，桌面仅填包名不能安装。
 
-npm 发布名统一为 `dsh-openslides`。**npm 发布验证尚待完成**；完成后桌面安装框可直接填写 `dsh-openslides`，CLI 对应：
+公开发布并验证后，桌面安装框填写 `dsh-openslides`，Web CLI 只需：
 
 ```sh
 dsh plugin --profile web add dsh-openslides
