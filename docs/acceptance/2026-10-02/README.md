@@ -140,3 +140,39 @@ were not used to quantify performance. The browser permission prompt denied
 CDP performance profiling, so no CPU/long-task trace was collected. The dominant
 performance cause and a verified performance fix remain open; this report does
 not attribute the stutter to the SWE proxy or declare it fixed.
+
+## Release preparation (not a release approval)
+
+The PR now incorporates the newer `main` packaging work. The source/build
+conflicts were resolved while retaining module-relative resource discovery.
+The release archive is verified outside the checkout before the builder reports
+success: all production dependency paths must stay inside the extracted package,
+only official Harness peers are supplied externally, the real produce gates run,
+and an eight-page fixture is exported to PPTX. The current verifier passes with
+104 dependency package instances. Browser rendering uses the separately managed
+pinned runtime; this package does not install or copy a browser.
+
+The old archive retained a local `link:` dependency and omitted transitive
+packages. Packaging now records ordinary version dependencies and includes their
+production closure. Internal workspace packages remain siblings because the
+runtime's integrity checks read their adjacent compiled files. A first isolated
+candidate exposed that sibling-layout requirement; it was fixed before the
+successful archive verification. The existing v0.1.0 Release has not been
+replaced, and the corrected local candidate is not yet an approved release.
+
+The catalog test now reads `theme.md` from the retained 1.2.0 source pack,
+while continuing to verify all 44 preview-to-guide mappings. The previous
+`git-pre-wipe` directory retains image resources but not the index.
+
+Validation: `npm run test:native` passed 1,122/1,122; `test:dsh-contract` passed
+322/322; the presentation-run subset passed 272/272; tracked-file secret scan
+passed (2,453 files, six pattern checks).
+
+A bounded SWE proxy comparison returned HTTP 200 without explicit sampling
+parameters, HTTP 502 `invalid_argument` with only `temperature: 0`, and HTTP 200
+with only `max_tokens: 512` after the proxy recovered. The classifier no longer
+forces temperature; it retains time/token bounds and schema/authorization
+validation. The corrected extracted plugin passed classification and started
+actual page generation with SWE-2. This is not yet a claim of complete SWE
+PPTX delivery. Live performance profiling remains unapproved, and the space
+switch stutter remains an open release gate.

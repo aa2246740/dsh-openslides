@@ -7,7 +7,7 @@ import { buildCatalogDto, resolveCatalogPreviewFile, resolveRepoRoot } from "./c
 // These tests read the actual pinned source pack and its real JPEG assets.
 test("catalog joins every real preview to the exact guide linked by the pinned theme index", () => {
     const root = resolveRepoRoot();
-    const index = fs.readFileSync(path.join(root, "vendor/open-kimi-ppt/git-pre-wipe/theme.md"), "utf8");
+    const index = fs.readFileSync(path.join(root, "vendor/open-kimi-ppt/skill-1.2.0/theme.md"), "utf8");
     const blocks = index.split(/^#### /m);
     const catalog = buildCatalogDto(root);
     assert.equal(catalog.styles.length, 44);

@@ -1,0 +1,43 @@
+/** Verify the tarball outside the checkout, supplying only official Harness peers. */
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {createRequire} from 'node:module';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const archive=path.resolve(process.argv[2]??'');
+assert.ok(process.argv[2], 'Usage: node scripts/verify-release.mjs <tgz>');
+const temp=fs.mkdtempSync(path.join(os.tmpdir(),'slides-release-check-'));
+try {
+ execFileSync('tar',['-xzf',archive,'-C',temp]);
+ const root=fs.realpathSync(path.join(temp,'package'));
+ const seen=new Set();
+ function check(dir){
+  dir=fs.realpathSync(dir);if(seen.has(dir))return;seen.add(dir);
+  assert.ok(dir.startsWith(root+path.sep)||dir===root,'Dependency escaped package');
+  const manifest=JSON.parse(fs.readFileSync(path.join(dir,'package.json'),'utf8'));
+  const require=createRequire(path.join(dir,'package.json'));
+  for(const [name,version]of Object.entries(manifest.dependencies??{})){
+   if(name.startsWith('@deepseek-ai/'))continue;
+   assert.ok(!/^(link|file):/.test(version),`Nonportable dependency ${name}`);
+   const file=require.resolve.paths(name+'/package.json')?.map(base=>path.join(base,name,'package.json')).find(fs.existsSync);
+   assert.ok(file,`Missing production dependency ${name}`);check(path.dirname(file));
+  }
+ }
+ check(root);
+ assert.ok(!fs.existsSync(path.join(root,'.runtime')),'Browser runtime must remain separately managed');
+ fs.mkdirSync(path.join(temp,'node_modules'));
+ fs.symlinkSync(fs.realpathSync(path.join(repo,'node_modules/@deepseek-ai')),path.join(temp,'node_modules/@deepseek-ai'));
+ const load=rel=>import(pathToFileURL(path.join(root,rel)).href);
+ await load('lib/dsh-personal-slides.js');
+ const gates=await load('node_modules/@open-slidestudio/dsh-slides-host/dist/produce-gates.js');
+ const report=gates.assertHubProduceGatesReady(root);
+ assert.equal(report.ok,true);
+ const {exportProjectToPptx,validateExportReport}=await load('packages/exporter-native/dist/index.js');
+ const exported=await exportProjectToPptx(path.join(root,'fixtures/okp-yu7-ppt'));
+ assert.equal(validateExportReport(exported.report).ok,true);
+ assert.ok(exported.data.length>1000);
+ console.log(JSON.stringify({ok:true,dependencyPackages:seen.size,produceGates:report.ok,exportedSlides:exported.report.slideCount,bytes:exported.data.length}));
+} finally {fs.rmSync(temp,{recursive:true,force:true});}

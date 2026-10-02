@@ -9,6 +9,7 @@ const input = { text: "就按第二个方案来", pageCount: 2, currentPage: 1, 
 test("uses the selected model and recent conversation without giving the classifier tools", async () => {
     let seen;
     const result = await inferAssistantIntent(async function* (options) {
+        assert.equal(options.temperature, undefined, "registered models may reject explicit temperature");
         seen = options;
         yield { type: "block-end", index: 0, block: { type: "text", text: '{"intent":"edit","scope":"pages","pages":[2],"scopeEvidence":{"source":"continuation","quote":"就按第二个方案来","historyQuote":"第二个方案：把第2页标题改短。"}}' } };
         yield { type: "finish", reason: { kind: "stop" } };

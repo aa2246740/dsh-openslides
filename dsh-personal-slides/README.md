@@ -4,9 +4,14 @@ Open SlideStudio for DeepSeek Harness 0.2.0-rc.2. With `dsh-personal`, Slides
 registers in Personal. Without it, Slides registers its own sidebar panel.
 Personal is an optional peer, including in the client dependency graph.
 
-Keep this package inside the full repository: its server uses the adjacent
-workspace packages, editor and vendored design resources. This is a local
-checkout bundle, not a self-contained npm artifact.
+Development uses the adjacent repository packages and resources. Run
+`node scripts/release.mjs` to assemble and verify a portable plugin tarball.
+The tarball bundles application dependencies and resources; the pinned browser
+runtime remains separately managed (Playwright 1.61.1 / Chromium shell 1228).
+Set `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` when it is outside the default
+`~/.codex/playwright-runtime/runtime.mjs` location. The packaging script does not
+install or upgrade that runtime. Passing artifact checks does not automatically
+publish a release.
 
 From the repository root:
 

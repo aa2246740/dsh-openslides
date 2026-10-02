@@ -367,8 +367,10 @@ export async function inferAssistantIntent(
         position: Number.isSafeInteger(page.position) ? page.position : index + 1,
       }))
     : undefined;
+  // Keep adapter sampling defaults: some registered models reject temperature.
+  // Authorization is enforced by parseAssistantIntent, not a sampling setting.
   for await (const chunk of stream({
-    ...route, system: INSTRUCTIONS, maxTokens: route.reasoningEffort ? 2048 : 512, temperature: 0, signal,
+    ...route, system: INSTRUCTIONS, maxTokens: route.reasoningEffort ? 2048 : 512, signal,
     messages: [createUserMessage({ content: [{type:"text",text:JSON.stringify({history,text,pageCount,currentPage,selectedCount,pages})}], source:{kind:"user"} })],
   })) {
     signal.throwIfAborted();

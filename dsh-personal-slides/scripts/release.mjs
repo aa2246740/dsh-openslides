@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
 const pluginDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -37,8 +38,6 @@ const BUNDLED_NODE_MODULES = [
   "image-size",
   "pptxgenjs",
   ...RUNTIME_PACKAGES.map((p) => `@open-slidestudio/${p}`),
-  "playwright",
-  "playwright-core",
 ];
 
 rmSync(output, { recursive: true, force: true });
@@ -65,7 +64,9 @@ copy("packages/agent-harness/reference/openkimi-source-manifest.v1.json");
 copy("packages/agent-harness/reference/openkimi-visual-manifest.v1.json");
 copy("vendor/open-kimi-ppt/skill-1.2.0");
 copy("vendor/open-kimi-ppt/git-pre-wipe");
-copy(".runtime/playwright");
+// Use the separately managed pinned browser runtime; never copy a browser into the plugin.
+copy("scripts/lib");
+copy("LICENSE");
 copy("fixtures/okp-yu7-ppt");
 for (const rel of ["lib", "src", "README.md", "dshx.yml", "cordis.yml"]) {
   const from = join(pluginDir, rel);
@@ -77,37 +78,59 @@ writeFileSync(
   "- insert:\n    - id: dsh-personal-slides\n      name: dsh-personal-slides\n",
 );
 
-// Real node_modules entries (no symlinks) so resolution works inside the
-// installed package regardless of the host install's layout.
-for (const name of BUNDLED_NODE_MODULES) {
-  if (name === "playwright" || name === "playwright-core") continue; // shipped under .runtime
-  const scope = name.startsWith("@") ? name.split("/")[0] : null;
-  const leaf = scope ? name.split("/")[1] : name;
-  const destDir = join(pkg, "node_modules", scope ?? "");
-  mkdirSync(destDir, { recursive: true });
-  const src = name.startsWith("@open-slidestudio/")
-    ? join(repoRoot, "packages", leaf)
-    : join(repoRoot, "node_modules", name);
-  if (!existsSync(src)) throw new Error(`missing node_modules input: ${name}`);
-  cpSync(src, join(destDir, leaf), {
+// Copy the complete production dependency closure, including transitive packages.
+// Resolve from each parent so differing dependency versions cannot be flattened incorrectly.
+const bundledVersions = {};
+function bundlePackage(name, source, destination, ancestors = new Set()) {
+  if (ancestors.has(source)) throw new Error(`cyclic bundled dependency: ${name}`);
+  const metadata = JSON.parse(readFileSync(join(source, "package.json"), "utf8"));
+  const next = new Set([...ancestors, source]);
+  cpSync(source, destination, {
     recursive: true,
-    filter: (s) =>
-      name.startsWith("@open-slidestudio/")
-        ? !(s.includes("/src/") || s.endsWith(".tsbuildinfo") || s.includes("/node_modules/"))
-        : !(s.includes("/test/") || s.endsWith(".map")),
+    dereference: true,
+    filter: s => {
+      const rel = s.slice(source.length);
+      return !rel.split(/[\\/]/).some(part => ["node_modules", ".git", "test", "tests", "src"].includes(part))
+        && !s.endsWith(".tsbuildinfo");
+    },
   });
+  const require = createRequire(join(source, "package.json"));
+  const children = [];
+  for (const [child, range] of Object.entries(metadata.dependencies ?? {})) {
+    if (child.startsWith("@deepseek-ai/") || child.startsWith("@open-slidestudio/")) continue;
+    const childManifest = require.resolve.paths(`${child}/package.json`)
+      ?.map(base => join(base, child, "package.json"))
+      .find(file => existsSync(file));
+    if (!childManifest) throw new Error(`missing production dependency: ${child} from ${name}`);
+    bundlePackage(child, dirname(childManifest), join(destination, "node_modules", child), next);
+    children.push(child);
+  }
+  metadata.bundleDependencies = children;
+  delete metadata.devDependencies;
+  delete metadata.scripts;
+  writeFileSync(join(destination, "package.json"), JSON.stringify(metadata, null, 2) + "\n");
+  return metadata.version;
+}
+for (const name of BUNDLED_NODE_MODULES) {
+  const source = name.startsWith("@open-slidestudio/")
+    ? join(repoRoot, "packages", name.split("/")[1])
+    : join(repoRoot, "node_modules", name);
+  if (!existsSync(source)) throw new Error(`missing dependency: ${name}`);
+  bundledVersions[name] = bundlePackage(name, source, join(pkg, "node_modules", name));
 }
 
 const published = {
   ...manifest,
-  private: true,
+  private: false,
+  dependencies: bundledVersions,
   files: [
     "lib",
     "src",
     "apps",
     "packages",
     "vendor",
-    ".runtime",
+    "scripts/lib",
+    "LICENSE",
     "fixtures",
     "cordis.patch.yml",
     "cordis.yml",
@@ -129,6 +152,7 @@ const packed = JSON.parse(
   execFileSync("npm", ["pack", "--ignore-scripts", "--json", "--pack-destination", output], {
     cwd: pkg,
     encoding: "utf8",
+    maxBuffer: 32 * 1024 * 1024,
   }),
 )[0];
 const bytes = readFileSync(join(output, packed.filename));
@@ -137,4 +161,7 @@ writeFileSync(
   `${createHash("sha256").update(bytes).digest("hex")}  ${packed.filename}\n`,
 );
 rmSync(stage, { recursive: true, force: true });
-console.log(JSON.stringify({ file: join(output, packed.filename), version }, null, 2));
+const verification = JSON.parse(execFileSync(process.execPath, [
+  join(pluginDir, "scripts/verify-release.mjs"), join(output, packed.filename),
+], { encoding: "utf8", maxBuffer: 1024 * 1024 }));
+console.log(JSON.stringify({ file: join(output, packed.filename), version, verification }, null, 2));
