@@ -176,3 +176,44 @@ validation. The corrected extracted plugin passed classification and started
 actual page generation with SWE-2. This is not yet a claim of complete SWE
 PPTX delivery. Live performance profiling remains unapproved, and the space
 switch stutter remains an open release gate.
+
+
+## October 3: SWE delivery and final-package defects
+
+SWE-2 completed the fictional one-page community book-exchange deck in the
+extracted plugin, with ten layout revisions and a model visual-review pass.
+The authoritative top-level execution state reported delivered, with no blockers.
+This was a corrected run after the earlier parameter failures, not a clean
+first-attempt model benchmark.
+
+Actual delivery exposed a content fidelity bug: five Font Awesome icons were
+silently replaced by five-point stars. The export dialog misleadingly called
+all degradations image fallbacks. The exporter now reads the same bundled solid,
+regular and brand fonts as the editor and emits native editable custom geometry,
+including quadratic curves. Unknown icons fail export rather than change their
+meaning. The UI now describes the general count as export differences.
+
+The final-package reopen flow also exposed missing presetShapeDefinitions.xml.
+Both runtime package locations now include the geometry data; archive verification
+exercises shape geometry and editable icon export in addition to the eight-page
+fixture and dependency checks.
+
+Validation after these changes: exporter tests 49/49; actual archive verification
+passes with 104 dependency instances, eight-page export and editable icon checks.
+The temporary Web Host was restarted on the corrected extracted archive, the
+existing SWE deck reopened successfully, and its PPTX was downloaded through the
+native browser. The downloaded file contains five editable icon objects and zero
+star replacements: 16,583 bytes, SHA-256
+`864a48bec5f9a39e8bacc4182d8c250e0d71569a0c127578106ca8b700f59001`.
+The exporter report has nativeCoverage 1 and no degradations. The earlier
+1,122-test full-suite result precedes this icon change; only the affected exporter
+suite and archive checks were rerun. PowerPoint/WPS visual opening is not yet proved.
+
+![Original export with five substitutions](swe-export-before-fix.png)
+
+![Corrected archive: successful browser export with no degradation warning](swe-export-fixed.png)
+
+Release remains pending: the final archive still needs actual Desktop acceptance,
+and Personal-to-Work stutter has no confirmed dominant cause or verified fix.
+The previously denied raw browser profiling request remains pending renewed
+permission. This PR has not been merged and no new stable release was published.

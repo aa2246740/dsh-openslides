@@ -4917,7 +4917,7 @@ function showExportResult(info) {
     .join("、");
   result.innerHTML = `<strong class="export-file">${escapeHtmlText(info.filename)}</strong>
     <span>${t("{p0} 页 · {p1}", { p0: info.pages, p1: info.size })}</span>
-    ${deg > 0 ? `<small class="export-deg">${t("{p0} 处以图片保底", { p0: deg })}</small>` : ""}
+    ${deg > 0 ? `<small class="export-deg">${t("{p0} 处存在导出差异", { p0: deg })}</small>` : ""}
     ${embedded.length ? `<small class="export-fonts">${t("已嵌入字体：{p0}", { p0: embeddedNames })}</small>` : ""}
     ${builtin.length ? `<small class="export-fonts">${t("Office / WPS 自带，无需嵌入：{p0}", { p0: builtinNames })}</small>` : ""}
     ${problems.length ? `<small class="export-fonts export-fonts-skipped">${t("未能嵌入：{p0}", { p0: problemNames })}</small>` : ""}`;

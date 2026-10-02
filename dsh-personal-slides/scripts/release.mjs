@@ -60,6 +60,8 @@ for (const name of RUNTIME_PACKAGES) {
   copy(`packages/${name}/package.json`);
   copy(`packages/${name}/dist`);
 }
+copy("packages/exporter-native/assets");
+copy("packages/pptd-v2/src/data");
 copy("packages/agent-harness/reference/openkimi-source-manifest.v1.json");
 copy("packages/agent-harness/reference/openkimi-visual-manifest.v1.json");
 copy("vendor/open-kimi-ppt/skill-1.2.0");
@@ -94,6 +96,10 @@ function bundlePackage(name, source, destination, ancestors = new Set()) {
         && !s.endsWith(".tsbuildinfo");
     },
   });
+  // The geometry interpreter reads this runtime XML beside its compiled code.
+  if (name === "@open-slidestudio/pptd-v2") {
+    cpSync(join(source, "src/data"), join(destination, "src/data"), { recursive: true });
+  }
   const require = createRequire(join(source, "package.json"));
   const children = [];
   for (const [child, range] of Object.entries(metadata.dependencies ?? {})) {

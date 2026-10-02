@@ -1381,7 +1381,7 @@ const EN = {
   "选择规格": "Pick a size",
   "演讲者备注": "Speaker notes",
   "{p0} 页 · {p1}": "{p0} pages · {p1}",
-  "{p0} 处以图片保底": "{p0} fell back to images",
+  "{p0} 处存在导出差异": "{p0} export differences",
   "已嵌入字体：{p0}": "Embedded fonts: {p0}",
   "Office / WPS 自带，无需嵌入：{p0}": "Bundled with Office / WPS, no embedding needed: {p0}",
   "未能嵌入：{p0}": "Could not embed: {p0}",

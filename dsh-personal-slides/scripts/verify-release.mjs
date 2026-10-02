@@ -39,5 +39,18 @@ try {
  const exported=await exportProjectToPptx(path.join(root,'fixtures/okp-yu7-ppt'));
  assert.equal(validateExportReport(exported.report).ok,true);
  assert.ok(exported.data.length>1000);
- console.log(JSON.stringify({ok:true,dependencyPackages:seen.size,produceGates:report.ok,exportedSlides:exported.report.slideCount,bytes:exported.data.length}));
+ const {createEmptyProject,titleOnlyCoverPage}=await load('packages/pptd-v2/dist/index.js');
+ for(const location of ['packages/pptd-v2','node_modules/@open-slidestudio/pptd-v2']) {
+  const {shapeGeometry}=await load(`${location}/dist/index.js`);
+  assert.ok(shapeGeometry('roundRect'),'Packaged shape geometry resources must load');
+ }
+ const icons=createEmptyProject(path.join(temp,'icons'),{title:'Packaged icon fidelity'});
+ icons.pages=[{file:'1.yaml',page:{...titleOnlyCoverPage('Icons'),elements:[
+  {elementId:'arrow',elementType:'icon',iconName:'fas:arrow-right',bounds:[40,40,80,80]},
+  {elementId:'box',elementType:'icon',iconName:'fas:box-open',bounds:[140,40,80,80]},
+ ]}}];
+ const iconExport=await exportProjectToPptx(icons);
+ assert.equal(validateExportReport(iconExport.report).ok,true);
+ assert.deepEqual(iconExport.report.degradations,[]);
+ console.log(JSON.stringify({ok:true,dependencyPackages:seen.size,produceGates:report.ok,exportedSlides:exported.report.slideCount,bytes:exported.data.length,editableIcons:2}));
 } finally {fs.rmSync(temp,{recursive:true,force:true});}

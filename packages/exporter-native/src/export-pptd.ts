@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { iconOutline } from "./icon-outline.js";
 import path from "node:path";
 import pptxgenjs from "pptxgenjs";
 import type PptxGenJS from "pptxgenjs";
@@ -2061,7 +2062,7 @@ function mapLine(
   };
 }
 
-function mapIcon(
+async function mapIcon(
   slide: PptxGenJS.Slide,
   el: IconElement,
   theme: PptdProject["presentation"]["theme"],
@@ -2069,7 +2070,7 @@ function mapIcon(
   layout: { w: number; h: number },
   degradations: Degradation[],
   slideIndex: number,
-): void {
+): Promise<void> {
   const [x, y, w, h] = el.bounds;
   const fill = fillToPptx(el.fill, theme, degradations, slideIndex, el.elementId, el.opacity, "icon");
   const color = pptxInk(fill);
@@ -2079,85 +2080,22 @@ function mapIcon(
       : fill.type === "gradient"
         ? fill.fallback.transparency
         : undefined;
-  const icon = String(el.iconName ?? "star").replace(/^(fas|far|fab):/, "");
-  const px = (value: number, axis: "x" | "y") =>
-    pxToIn(
-      value,
-      axis === "x" ? size[0] : size[1],
-      axis === "x" ? layout.w : layout.h,
-    );
-
-  if (icon === "mug-hot") {
-    slide.addShape("ellipse", {
-      x: px(x + w * 0.58, "x"),
-      y: px(y + h * 0.39, "y"),
-      w: px(w * 0.34, "x"),
-      h: px(h * 0.34, "y"),
-      fill: { color, transparency: 100 },
-      line: {
-        color,
-        width: 1.25,
-        transparency,
-      },
-    });
-    slide.addShape("roundRect", {
-      x: px(x + w * 0.08, "x"),
-      y: px(y + h * 0.34, "y"),
-      w: px(w * 0.62, "x"),
-      h: px(h * 0.5, "y"),
-      fill: {
-        type: "solid",
-        color,
-        transparency,
-      },
-      line: { color, transparency: 100 },
-    });
-    for (const offset of [0.26, 0.48]) {
-      slide.addShape("line", {
-        x: px(x + w * offset, "x"),
-        y: px(y + h * 0.04, "y"),
-        w: 0,
-        h: px(h * 0.22, "y"),
-        line: {
-          color,
-          width: 1.1,
-          transparency,
-        },
-      });
-    }
-    slide.addShape("line", {
-      x: px(x + w * 0.03, "x"),
-      y: px(y + h * 0.9, "y"),
-      w: px(w * 0.82, "x"),
-      h: 0,
-      line: {
-        color,
-        width: 1.1,
-        transparency,
-      },
-    });
-    return;
-  }
-
-  slide.addShape("star5" as PptxGenJS.SHAPE_NAME, {
-    x: px(x, "x"),
-    y: px(y, "y"),
-    w: px(w, "x"),
-    h: px(h, "y"),
-    fill: {
-      type: "solid",
-      color,
-      transparency,
-    },
+  const width = pxToIn(w, size[0], layout.w);
+  const height = pxToIn(h, size[1], layout.h);
+  const points = await iconOutline(el.iconName || "fas:star", width, height);
+  slide.addShape("custGeom" as PptxGenJS.SHAPE_NAME, {
+    x: pxToIn(x, size[0], layout.w),
+    y: pxToIn(y, size[1], layout.h),
+    w: width,
+    h: height,
+    objectName: `icon:${el.elementId}`,
+    points,
+    fill: { type: "solid", color, transparency },
+    line: { color, transparency: 100 },
+    ...(el.rotation !== undefined ? { rotate: el.rotation } : {}),
+    ...(el.flipH !== undefined ? { flipH: el.flipH } : {}),
+    ...(el.flipV !== undefined ? { flipV: el.flipV } : {}),
   });
-  if (icon !== "star") {
-    degradations.push({
-      slideIndex,
-      elementId: el.elementId,
-      kind: "icon-as-star",
-      reason: `icon ${el.iconName ?? ""} exported as star5 vector`,
-    });
-  }
 }
 
 /** Minimal natural-size probe — enough to convert crop fractions into OOXML
@@ -2367,7 +2305,7 @@ export async function exportProjectToPptx(
   let mapped = 0;
   let failed = 0;
 
-  project.pages.forEach((lp, slideIndex) => {
+  for (const [slideIndex, lp] of project.pages.entries()) {
     const slide = pptx.addSlide();
     const pageSurface = pageSurfaceColor(lp.page, project.presentation.theme, size);
     const bg = lp.page.background as
@@ -2502,7 +2440,7 @@ export async function exportProjectToPptx(
             break;
           case "icon": {
             const ic = el as IconElement;
-            mapIcon(
+            await mapIcon(
               slide,
               ic,
               project.presentation.theme,
@@ -2536,7 +2474,7 @@ export async function exportProjectToPptx(
     if (lp.page.notes) {
       slide.addNotes(lp.page.notes);
     }
-  });
+  }
 
   let raw = await postProcessPptx(
     (await pptx.write({ outputType: "nodebuffer" })) as Buffer,

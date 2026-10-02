@@ -22,6 +22,45 @@ function projectWithCover(dir: string, title: string) {
 }
 
 describe("export-native", () => {
+  it("preserves action-card icons as distinct editable outlines, including regular and brand faces", async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "exp-icon-outlines-"));
+    try {
+      const project = projectWithCover(dir, "Icon fidelity");
+      const names = ["fas:box-open", "fas:arrow-right", "fas:layer-group", "fas:arrows-rotate", "far:heart", "fab:github"];
+      project.pages[0]!.page.elements = names.map((iconName, index) => ({
+        elementId: `icon-${index}`, elementType: "icon", iconName,
+        bounds: [40 + index * 100, 100, 80, 80],
+        fill: { type: "solid", color: "#123456" },
+        rotation: 15, flipH: true,
+      }));
+      const result = await exportProjectToPptx(project);
+      assert.equal(result.report.ok, true);
+      assert.deepEqual(result.report.degradations, []);
+      const { default: JSZip } = await import("jszip");
+      const zip = await JSZip.loadAsync(result.data);
+      const xml = await zip.file("ppt/slides/slide1.xml")!.async("string");
+      assert.doesNotMatch(xml, /star5|<p:pic>/);
+      const geometries = xml.match(/<a:custGeom>[\s\S]*?<\/a:custGeom>/g) ?? [];
+      assert.equal(geometries.length, names.length);
+      assert.equal(new Set(geometries).size, names.length);
+      assert.match(xml, /<a:quadBezTo>/);
+      assert.match(xml, /flipH="1"/);
+      assert.match(xml, /rot="900000"/);
+      assert.match(xml, /123456/);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  it("fails export for an unknown icon instead of silently replacing its meaning", async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "exp-icon-missing-"));
+    try {
+      const project = projectWithCover(dir, "Missing icon");
+      project.pages[0]!.page.elements = [{ elementId: "unknown", elementType: "icon", iconName: "fas:does-not-exist", bounds: [20, 20, 40, 40] }];
+      const result = await exportProjectToPptx(project);
+      assert.equal(result.report.ok, false);
+      assert.equal(result.report.degradations[0]?.kind, "error");
+      assert.match(result.report.degradations[0]!.reason, /Unsupported icon/);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  });
   it("exports PPTD text boxes without PowerPoint default insets", async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "exp-text-inset-"));
     const project = projectWithCover(dir, "文本框边距");
