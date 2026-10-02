@@ -39,3 +39,4 @@ vendor/dsh-llm-pi-ai/node_modules/
 # Fixture runtime state written by the editor during QA runs
 fixtures/**/.versions/
 fixtures/**/_agent/
+.local/

@@ -191,10 +191,15 @@ function proxyToSidecar(
 }
 
 export function apply(ctx: Context) {
-  // dev entry: <plugin>/src/dsh-personal-slides.ts → ../.. is the repo checkout.
-  // built entry: <plugin>/lib/dsh-personal-slides.js → same depth.
+  // Packaged install: <pkg>/lib/dsh-personal-slides.js ships apps/, packages/,
+  // vendor/ inside the package root. Dev checkout: <plugin>/lib/… is one level
+  // below the repo root, so fall back to the parent directory.
+  const packageRoot = fileURLToPath(new URL("..", import.meta.url));
+  const checkoutRoot = fileURLToPath(new URL("../..", import.meta.url));
   const repoRoot = resolve(
-    fileURLToPath(new URL("../..", import.meta.url)),
+    existsSync(join(packageRoot, "apps/native-web/src/server.mjs"))
+      ? packageRoot
+      : checkoutRoot,
   );
   const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
 

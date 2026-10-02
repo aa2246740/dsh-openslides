@@ -146,7 +146,9 @@ function proxyToSidecar(req, res, editorOrigin) {
 	req.pipe(proxy);
 }
 function apply(ctx) {
-	const repoRoot = resolve(fileURLToPath(new URL("../..", import.meta.url)));
+	const packageRoot = fileURLToPath(new URL("..", import.meta.url));
+	const checkoutRoot = fileURLToPath(new URL("../..", import.meta.url));
+	const repoRoot = resolve(existsSync(join(packageRoot, "apps/native-web/src/server.mjs")) ? packageRoot : checkoutRoot);
 	const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
 	registerSlidesPreset(ctx);
 	applySlidesHostAny(ctx, {
