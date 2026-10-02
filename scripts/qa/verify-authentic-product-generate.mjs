@@ -15,7 +15,7 @@ const BRIEF_FILE = process.env.QA_AUTHENTIC_BRIEF_FILE?.trim();
 const BRIEF =
   process.env.QA_AUTHENTIC_BRIEF ||
   (BRIEF_FILE ? fs.readFileSync(path.resolve(BRIEF_FILE), "utf8") : "") ||
-  "生成一份4页中文演示，主题是『从想法到可编辑PPT：Open SlideStudio工作流』。第1页封面；第2页用流程图表现Agent规划与工具链；第3页用对比图解释PPTD可编辑对象与PPTX导出；第4页给出三项下一步行动。每页采用不同构图，使用简洁现代的蓝紫色科技视觉；不要套用完整页面模板。";
+  "生成一份4页中文演示，主题是『从想法到可编辑PPT：DSH SlideStudio工作流』。第1页封面；第2页用流程图表现Agent规划与工具链；第3页用对比图解释PPTD可编辑对象与PPTX导出；第4页给出三项下一步行动。每页采用不同构图，使用简洁现代的蓝紫色科技视觉；不要套用完整页面模板。";
 const EXPECTED_PAGES = Number(process.env.QA_AUTHENTIC_EXPECTED_PAGES || 0);
 const TIMEOUT_MS = Number(process.env.QA_AUTHENTIC_TIMEOUT_MS || 20 * 60_000);
 const modelConsent = requireExternalModelConsent({

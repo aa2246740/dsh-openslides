@@ -1,8 +1,8 @@
 {
-  "name": "dsh-openslides",
+  "name": "dsh-slidestudio",
   "private": true,
   "version": "0.2.0",
-  "description": "Open SlideStudio — native offline PPTD v2 path (YAML SSOT) + legacy web stack",
+  "description": "DSH SlideStudio — AI presentations for DeepSeek Harness",
   "type": "module",
   "workspaces": [
     "packages/*",

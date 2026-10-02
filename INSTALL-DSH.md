@@ -7,14 +7,14 @@
 
 ## 0. 构建与安装候选包
 
-`dsh-personal-slides-<version>.tgz` 包含编辑器、生产依赖和设计资源。
+`dsh-slidestudio-<version>.tgz` 包含编辑器、生产依赖和设计资源。
 浏览器渲染运行时单独管理：使用 Playwright 1.61.1、Chromium Headless Shell 1228。
 默认读取 `~/.codex/playwright-runtime/runtime.mjs`，其他部署路径通过
 `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` 指定；缺失或版本不符时应停止渲染验收。
 构建脚本不会安装、复制或升级浏览器。
 
 ```sh
-cd dsh-personal-slides
+cd dsh-slidestudio
 node scripts/release.mjs
 ```
 
@@ -32,23 +32,23 @@ Host 的安装结果为准。新版本的发布状态以 Release 与验收报告
 ## 1. 拉代码 + 装依赖
 
 ```sh
-git clone https://github.com/aa2246740/dsh-openslides.git
-cd dsh-openslides                        # 默认分支 main 就是正式版
+git clone https://github.com/aa2246740/dsh-slidestudio.git
+cd dsh-slidestudio                        # 默认分支 main 就是正式版
 npm install                              # 只装根目录；workspace 会自动链接 packages/*
 ```
 
-不需要在 `dsh-personal-slides/` 里再跑 pnpm——根 node_modules 的 workspace 链接会解析
-`@open-slidestudio/dsh-slides-host`。已编译产物（`packages/*/dist`、`dsh-personal-slides/lib`）
+不需要在 `dsh-slidestudio/` 里再跑 pnpm——根 node_modules 的 workspace 链接会解析
+`@open-slidestudio/dsh-slides-host`。已编译产物（`packages/*/dist`、`dsh-slidestudio/lib`）
 随分支一起提交，无需构建步骤。
 
 ## 2. 安装到正在运行的 Harness
 
-使用当前 profile 的插件管理器安装本仓库的 `dsh-personal-slides` 目录。
+使用当前 profile 的插件管理器安装本仓库的 `dsh-slidestudio` 目录。
 它现在声明了 `dsh.bundle`，安装时同时加载服务端和浏览器端。
 使用 dshx 时，例如：
 
 ```sh
-dshx plugin add "$PWD/dsh-personal-slides" --profile desktop --port <当前Host端口>
+dshx plugin add "$PWD/dsh-slidestudio" --profile desktop --port <当前Host端口>
 ```
 
 不要再给同一插件额外添加绝对文件路径的 insert patch；只挂载服务端文件不能证明客户端已安装。

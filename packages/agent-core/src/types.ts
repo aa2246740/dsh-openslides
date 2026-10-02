@@ -1,5 +1,5 @@
 /**
- * Agent harness types — provider-agnostic run model for Open SlideStudio.
+ * Agent harness types — provider-agnostic run model for DSH SlideStudio.
  */
 
 import type { Deck } from "@open-slidestudio/pptd";

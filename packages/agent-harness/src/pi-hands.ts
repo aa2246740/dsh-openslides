@@ -225,7 +225,7 @@ function repositoryRoot(): string {
     const root = path.resolve(candidate);
     if (fs.existsSync(path.join(root, marker))) return root;
   }
-  throw new Error(`Open SlideStudio repo root not found (looked for ${marker})`);
+  throw new Error(`DSH SlideStudio repo root not found (looked for ${marker})`);
 }
 
 export function hasExplicitUserDesign(brief: string): boolean {

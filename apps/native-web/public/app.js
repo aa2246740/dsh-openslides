@@ -4549,7 +4549,7 @@ function renderChrome() {
   const historyPreview = Boolean(previewVersion);
   $("doc-title").textContent = vm.title || t("未命名演示文稿");
   const chatTitle = $("chat-title");
-  if (chatTitle) chatTitle.textContent = vm.title || "Open SlideStudio";
+  if (chatTitle) chatTitle.textContent = vm.title || "DSH SlideStudio";
   $("page-count").textContent = vm.pageCount ? `${vm.pageIndex + 1} / ${vm.pageCount}` : t("准备中");
   $("btn-rail").classList.toggle("active", model.pageRailOpen);
   const meta = $("rail-meta");
@@ -8177,7 +8177,7 @@ function clipboardTokenFromHtml(html) {
 function newCanvasClipboardPayload() {
   const token = globalThis.crypto?.randomUUID?.() || `clipboard-${Date.now()}`;
   const elementIds = selectedIds();
-  return { token, elementIds, plain: t(`Open SlideStudio 对象（{p0} 个）`, { p0: elementIds.length }) };
+  return { token, elementIds, plain: t(`DSH SlideStudio 对象（{p0} 个）`, { p0: elementIds.length }) };
 }
 
 function sameElementIds(left, right) {
@@ -11360,7 +11360,7 @@ async function runEditorLaunch(launchId) {
   const brief = String(record.request.brief || "");
   const title = clipChromeText(brief.replace(/\s+/g, " ").trim(), 28) || t("新的演示文稿");
   $("doc-title").textContent = title;
-  document.title = `${title} · Open SlideStudio`;
+  document.title = `${title} · DSH SlideStudio`;
   document.querySelector(".app")?.classList.add("is-live-generation", "is-launching");
   setCover({ title: t("正在准备工作区"), detail: "", brief, steps: LAUNCH_STEPS, step: "intent", queue: null });
   const attempt = async () => {

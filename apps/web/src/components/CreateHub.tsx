@@ -37,8 +37,8 @@ export function CreateHub() {
   return (
     <div className="create-hub">
       <header className="create-hub__header">
-        <div className="create-hub__wordmark">Open SlideStudio</div>
-        <span className="chip chip-muted">Open SlideStudio · real PPTX</span>
+        <div className="create-hub__wordmark">DSH SlideStudio</div>
+        <span className="chip chip-muted">DSH SlideStudio · real PPTX</span>
       </header>
 
       <main className="create-hub__main">

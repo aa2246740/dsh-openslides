@@ -32,7 +32,7 @@ async function startFakeKernel(){
     const path=new URL(req.url,"http://x").pathname;
     const send=(obj)=>{res.writeHead(200,{"content-type":"application/json"});res.end(JSON.stringify(obj));};
     if(path==="/slides/catalog")return send(catalog);
-    if(path==="/slides/health")return send({ok:true,product:"Open SlideStudio",generateReady:true,selection:{providerId:"test",model:"cheap",ready:true},connection:{ready:true},capability:null,catalog:{},providers:[]});
+    if(path==="/slides/health")return send({ok:true,product:"DSH SlideStudio",generateReady:true,selection:{providerId:"test",model:"cheap",ready:true},connection:{ready:true},capability:null,catalog:{},providers:[]});
     if(path==="/slides/providers")return send({providers:[{id:"test",name:"Local",ready:true,models:["cheap"]}],connection:{ready:true}});
     if(path==="/slides/models")return send([{providerId:"test",providerName:"Local",ready:true,models:[{id:"cheap",name:"cheap",inputModalities:["text"]}],modelEfforts:{cheap:[]}}]);
     if(path.startsWith("/plugins/"))return send({ok:true,status:"signed-out",providers:[]});
@@ -89,7 +89,7 @@ async function mockKernelCatchAll(page){
     const path=new URL(route.request().url()).pathname;
     if(path==='/slides/catalog')return route.fulfill({json:TEST_CATALOG});
     if(path==='/slides/health'){
-      return route.fulfill({json:{ok:true,product:'Open SlideStudio',generateReady:true,selection:{providerId:'test',model:'cheap',ready:true},connection:{ready:true},capability:null,catalog:{},providers:[]}});
+      return route.fulfill({json:{ok:true,product:'DSH SlideStudio',generateReady:true,selection:{providerId:'test',model:'cheap',ready:true},connection:{ready:true},capability:null,catalog:{},providers:[]}});
     }
     if(path==='/slides/tool-settings')return route.fulfill({json:{ok:true,settings:{}}});
     return route.fulfill({json:{ok:true}});
@@ -166,7 +166,7 @@ test('Hub keeps an opened model panel, groups usable models and preserves exact 
     await page.route('**/slides/health**',route=>{
       const url=new URL(route.request().url());
       const providerId=url.searchParams.get('provider'),model=url.searchParams.get('model');
-      return route.fulfill({json:{ok:true,product:'Open SlideStudio',selection:{providerId,model,ready:true},
+      return route.fulfill({json:{ok:true,product:'DSH SlideStudio',selection:{providerId,model,ready:true},
         capability:{research:{configured:false},imageSearch:{configured:false},imageGenerate:{configured:false},vision:{mode:model==='vendor/vision'?'main-model':'none'}}}});
     });
     await page.goto(`${base}/`,{waitUntil:'domcontentloaded'});

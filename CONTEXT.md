@@ -1,10 +1,10 @@
-# Open SlideStudio
+# DSH SlideStudio
 
-Open SlideStudio is an independent, local-first AI presentation product. It exists to reproduce Kimi Slides' complete visual and interaction experience while owning its agent runtime, document model, editor, and export path.
+DSH SlideStudio is an independent, local-first AI presentation product. It exists to reproduce Kimi Slides' complete visual and interaction experience while owning its agent runtime, document model, editor, and export path.
 
 ## Product and acceptance
 
-**Open SlideStudio**:
+**DSH SlideStudio**:
 The independent product being shipped: a single-user, self-hosted AI presentation workspace with its own agent, editor, persistence, and export path.
 _Avoid_: OpenKimi wrapper, Kimi shell, slide demo
 
@@ -17,11 +17,11 @@ The first product carrier: a locally started web application used in the browser
 _Avoid_: web demo, hosted SaaS, desktop prerequisite
 
 **Kimi-aligned 1:1**:
-The completion gate: the full in-scope Parity Baseline is reproduced in visual treatment and behavior, including tooltips, micro-buttons, hover, focus, selected, disabled, loading, and error states. Open SlideStudio branding replaces Kimi trademarks.
+The completion gate: the full in-scope Parity Baseline is reproduced in visual treatment and behavior, including tooltips, micro-buttons, hover, focus, selected, disabled, loading, and error states. DSH SlideStudio branding replaces Kimi trademarks.
 _Avoid_: core-flow parity, capability-only parity, approximate shell
 
 **Parity Baseline**:
-A frozen, versioned capture of the official Kimi Slides surface against which one Open SlideStudio parity release is verified. Later Kimi changes create a new baseline rather than moving the existing completion gate.
+A frozen, versioned capture of the official Kimi Slides surface against which one DSH SlideStudio parity release is verified. Later Kimi changes create a new baseline rather than moving the existing completion gate.
 _Avoid_: current Kimi, latest UI, rolling target
 
 **Parity Exclusion**:
@@ -37,8 +37,8 @@ The official Kimi surface may be used only during development to capture behavio
 _Avoid_: production dependency, live CI dependency
 
 **Provider Connection**:
-The local user's direct authorization of an LLM supplier through an API key or a supplier-supported OAuth flow. Open SlideStudio does not require its own user account for the local-first product.
-_Avoid_: product login, Open SlideStudio account, tenant identity
+The local user's direct authorization of an LLM supplier through an API key or a supplier-supported OAuth flow. DSH SlideStudio does not require its own user account for the local-first product.
+_Avoid_: product login, DSH SlideStudio account, tenant identity
 
 **Normal Creation Path**:
 The user-facing route from the Create Hub through a Provider Connection and a real DSH Agent Run into a newly created PPTD Project opened in the Self Canvas. A CLI-only run does not satisfy this path.
@@ -113,7 +113,7 @@ The PowerPoint behavior that lets a user reopen and modify a chart's embedded da
 _Avoid_: flattened chart, chart screenshot
 
 **Self Canvas**:
-The native Open SlideStudio renderer and editor that reads and writes the PPTD Project directly.
+The native DSH SlideStudio renderer and editor that reads and writes the PPTD Project directly.
 _Avoid_: embedded office suite, official Kimi editor
 
 ## Interaction evidence

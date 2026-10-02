@@ -121,7 +121,7 @@ export async function ensureNativeWebSidecar(root) {
       // the same port would silently shadow the sidecar. Require the product
       // marker the sidecar reports in /api/health.
       const body = await res.json().catch(() => null);
-      if (body?.product !== "Open SlideStudio") {
+      if (body?.product !== "DSH SlideStudio") {
         throw new Error(
           `port ${EDITOR_PORT} is occupied by a foreign service ` +
             `(health.product=${JSON.stringify(body?.product ?? null)}). ` +

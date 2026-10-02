@@ -147,14 +147,14 @@ export async function exportDeckToPptx(
   const report = createReportBuilder();
   const pptx = createPptx();
 
-  pptx.title = deck.title || "Open SlideStudio Deck";
-  pptx.author = options.author ?? "Open SlideStudio";
-  pptx.company = options.company ?? "Open SlideStudio";
+  pptx.title = deck.title || "DSH SlideStudio Deck";
+  pptx.author = options.author ?? "DSH SlideStudio";
+  pptx.company = options.company ?? "DSH SlideStudio";
   pptx.subject =
     options.subject ??
     (deck.versionId
-      ? `Exported from Open SlideStudio (${deck.versionId})`
-      : "Exported from Open SlideStudio");
+      ? `Exported from DSH SlideStudio (${deck.versionId})`
+      : "Exported from DSH SlideStudio");
   pptx.revision = "1";
 
   configureLayout(pptx, deck);

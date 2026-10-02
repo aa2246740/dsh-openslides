@@ -63,7 +63,7 @@ export function assertIsolatedDshHome(home: string, opts: IsolatedHomeOpts = {})
   const userHome = path.resolve(opts.userDshHome ?? userDshHome());
   if (isPathInside(userHome, resolved) || isPathInside(resolved, userHome)) {
     throw new DshHomeIsolationError(
-      `DSH_HOME ${resolved} collides with the local DSH App home ${userHome}. Open SlideStudio must use <repo>/.dsh/home. Did not copy OAuth grants.`,
+      `DSH_HOME ${resolved} collides with the local DSH App home ${userHome}. DSH SlideStudio must use <repo>/.dsh/home. Did not copy OAuth grants.`,
     );
   }
   return resolved;

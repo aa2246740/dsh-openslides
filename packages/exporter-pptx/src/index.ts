@@ -2,7 +2,7 @@
  * @open-slidestudio/exporter-pptx
  *
  * PPTD → editable PPTX via pptxgenjs.
- * Product: Open SlideStudio.
+ * Product: DSH SlideStudio.
  */
 
 export {

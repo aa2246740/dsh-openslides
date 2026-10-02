@@ -1,6 +1,6 @@
 ---
 name: open-slidestudio
-description: Produce an editable YAML PPTD v2 deck in Open SlideStudio. Use for generate, slides, PPT, PPTD, or presentation tasks on this host.
+description: Produce an editable YAML PPTD v2 deck in DSH SlideStudio. Use for generate, slides, PPT, PPTD, or presentation tasks on this host.
 ---
 
 # Produce

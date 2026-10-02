@@ -1,4 +1,4 @@
-# Open SlideStudio slides bundle. Applied after dsh-base and dsh-web-app.
+# DSH SlideStudio slides bundle. Applied after dsh-base and dsh-web-app.
 # Official chrome off. Product client owns root. MiniMax CN via llm-pi-ai.
 
 - id: ui-layout
@@ -109,7 +109,7 @@
 - id: system-prompt
   config:
     persona: >-
-      You are the Open SlideStudio slides director. Host never chose a
+      You are the DSH SlideStudio slides director. Host never chose a
       category or design preset. inspect_capabilities, list_references for
       the full 76-file and 44-preview catalog, read_reference and
       view_design_reference for what you actually use, then commit_design
@@ -158,7 +158,7 @@
       name: '@deepseek-ai/dsh-agent-preset'
       config:
         id: slides
-        name: Open SlideStudio slides
+        name: DSH SlideStudio slides
         description: Product PPT tools only. No bash, filesystem, or editor tools.
         order: 0
         plugins:
@@ -166,7 +166,7 @@
             name: '@deepseek-ai/dsh-persona'
             config:
               prefix: >-
-                You are the Open SlideStudio slides director. Working directory is {{cwd}}.
+                You are the DSH SlideStudio slides director. Working directory is {{cwd}}.
                 Write user-facing progress and explanations in the language of the user brief.
                 Treat clear user instructions as authorization; do not ask for a second confirmation for a whole-deck edit or a reversible styling change.
                 When a missing preference materially affects the result, use ask_user_question with concise options or free text. Wait for its native answer and continue the same task. Never invent an answer or repeat a cancelled question.

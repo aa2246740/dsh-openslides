@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Offline smoke check for Open SlideStudio packages.
+ * Offline smoke check for DSH SlideStudio packages.
  *
  * Requires packages to be built (`npm run build` or at least the library workspaces).
  * Does NOT hit the network. Uses MockProvider for agent flow.
@@ -46,7 +46,7 @@ async function importPkg(name, relDist) {
   }
 }
 
-console.log("Open SlideStudio smoke check (offline)\n");
+console.log("DSH SlideStudio smoke check (offline)\n");
 
 // ── @open-slidestudio/pptd ──────────────────────────────────────────
 console.log("pptd");

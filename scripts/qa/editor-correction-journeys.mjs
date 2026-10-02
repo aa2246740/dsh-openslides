@@ -837,7 +837,7 @@ try {
     assert.equal(report.commandTrace.filter((command) => command === "pasteClipboard").length, beforeCommands.paste);
     assert.equal(report.commandTrace.filter((command) => command === "insert").length, beforeCommands.insert);
     assert.equal(after.elements.length, before.elements.length);
-    assert.equal(after.elements.some((element) => element.type === "text" && /Open SlideStudio 对象/.test(element.text || "")), false,
+    assert.equal(after.elements.some((element) => element.type === "text" && /DSH SlideStudio 对象/.test(element.text || "")), false,
       "expired internal marker must never become visible slide text");
     return { sourceId, toast: toastText, serverCommandDelta: 0, elementDelta: 0, markerLabelInserted: false };
   });
@@ -1189,7 +1189,7 @@ try {
     const eaFamilies = [...new Set(pairs.map((pair) => pair.split("|")[0]))];
     const latinFamilies = [...new Set(pairs.map((pair) => pair.split("|")[1]))];
     const fontState = await page.evaluate(async (wanted) => {
-      const sample = "OpenSlides 人类纠错 123";
+      const sample = "SlideStudio 人类纠错 123";
       const normalized = (family) => String(family).replace(/^['"]|['"]$/g, "");
       const result = [];
       for (const family of wanted) {
@@ -1234,7 +1234,7 @@ try {
     const metrics = await page.evaluate(() => {
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
-      const sample = "OpenSlides 人类纠错 123";
+      const sample = "SlideStudio 人类纠错 123";
       ctx.font = '24px "__OSS_Missing_Font__", sans-serif';
       const missing = ctx.measureText(sample).width;
       ctx.font = "24px sans-serif";

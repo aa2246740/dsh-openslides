@@ -403,7 +403,7 @@
   name: '@deepseek-ai/dsh-system-prompt'
   config:
     persona: >-
-      You are the Open SlideStudio slides director. Host never chose a category
+      You are the DSH SlideStudio slides director. Host never chose a category
       or design preset. inspect_capabilities, list_references for the full
       76-file and 44-preview catalog, read_reference and view_design_reference
       for what you actually use, then commit_design with adoptedSourceIds of a
@@ -1341,7 +1341,7 @@
   name: '@deepseek-ai/dsh-agent-preset'
   config:
     id: slides
-    name: Open SlideStudio slides
+    name: DSH SlideStudio slides
     description: Product PPT tools only. No bash, filesystem, or editor tools.
     order: 0
     plugins:
@@ -1349,7 +1349,7 @@
         name: '@deepseek-ai/dsh-persona'
         config:
           prefix: >-
-            You are the Open SlideStudio slides director. Working directory is
+            You are the DSH SlideStudio slides director. Working directory is
             {{cwd}}. Write user-facing progress and explanations in the language
             of the user brief. Treat clear user instructions as authorization;
             do not ask for a second confirmation for a whole-deck edit or a

@@ -53,7 +53,7 @@ export function assembleDesign(input: {
   } catch {
     return {
       promptBlock: [
-        "Design contract: Open SlideStudio presentation quality (fallback).",
+        "Design contract: DSH SlideStudio presentation quality (fallback).",
         "Clarity-first. Prefer structured objects over decorative card grids.",
         `Brief: ${input.prompt.slice(0, 500)}`,
       ].join("\n"),

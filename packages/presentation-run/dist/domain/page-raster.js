@@ -556,7 +556,7 @@ async function shotWithReuse(opts) {
         // Raster pages render another project in the shared editor process. Keep
         // their bootstrap /api/open request isolated so background QA cannot
         // replace the project currently shown in a user's browser tab.
-        await page.setExtraHTTPHeaders({ "X-OpenSlides-Project-View": "isolated" });
+        await page.setExtraHTTPHeaders({ "X-SlideStudio-Project-View": "isolated" });
         const url = `${opts.editorBaseUrl}/index.html?project=${encodeURIComponent(opts.projectRoot)}&page=${opts.pageIndex}&workspace=0&render=1`;
         await page.goto(url, { waitUntil: "networkidle", timeout: 30_000 });
         await page.waitForSelector("#slide .el", { timeout: 20_000 });

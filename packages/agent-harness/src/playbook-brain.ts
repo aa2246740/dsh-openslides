@@ -45,7 +45,7 @@ export type PlaybookBrain = {
 
 function buildSystemPrompt(bundle: PlaybookBundle): string {
   return [
-    "You compose an Open SlideStudio deck as JSON only.",
+    "You compose an DSH SlideStudio deck as JSON only.",
     "Prefer pages[].elements PPTD (text/shape/chart/table + bounds). role+bullets is fallback only.",
     "Disk format is YAML PPTD v2. Do not mention Kimi trademarks.",
     "Cover copy comes from the user brief (title / subtitle), never from the product name or design-system id.",

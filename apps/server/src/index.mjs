@@ -1,5 +1,5 @@
 /**
- * Open SlideStudio local API — real LLM generation + PPTX export.
+ * DSH SlideStudio local API — real LLM generation + PPTX export.
  * Default: http://127.0.0.1:8787
  */
 
@@ -231,7 +231,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`Open SlideStudio API http://${HOST}:${PORT}`);
+  console.log(`DSH SlideStudio API http://${HOST}:${PORT}`);
   console.log(`  GET  /api/health`);
   console.log(`  POST /api/generate   { prompt, modelId? }`);
   console.log(`  POST /api/export-pptx { deck }`);

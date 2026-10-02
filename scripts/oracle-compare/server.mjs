@@ -76,7 +76,7 @@ async function resolvePenpalUrl() {
       "https://www.kimi.com/neo-ppt/?sdkMode=ppt-editor&pptPlatform=neodeck-local",
       {
         headers: {
-          "User-Agent": "OpenSlideStudio-oracle-compare/0.1",
+          "User-Agent": "SlideStudio-oracle-compare/0.1",
         },
       },
     );

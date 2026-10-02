@@ -53,7 +53,7 @@ try {
   await page.waitForSelector("#brief");
   if ((await page.locator("#model-menu").count()) !== 0) fail("legacy model menu remains");
   const wordmark = await page.locator(".wordmark").innerText();
-  if (wordmark !== "Open SlideStudio") fail(`wordmark is ${wordmark}`);
+  if (wordmark !== "DSH SlideStudio") fail(`wordmark is ${wordmark}`);
   await page.screenshot({ path: OUT, fullPage: false });
   if (pageErrors.length) fail(`page errors: ${pageErrors.join(" | ")}`);
   console.log(

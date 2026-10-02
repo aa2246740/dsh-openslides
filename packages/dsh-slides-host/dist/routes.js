@@ -415,7 +415,7 @@ export function handleSlidesRequest(runtime, req, res) {
             const selectedModalities = modelInputModalities(runtime.dshHome, selectedProvider, selectedModel, modelCatalog);
             sendJson(res, 200, {
                 ok: true,
-                product: "Open SlideStudio",
+                product: "DSH SlideStudio",
                 kernel: "dsh",
                 minimaxReady: connection.ready,
                 generateReady: selectedReady && produceGates.ok,

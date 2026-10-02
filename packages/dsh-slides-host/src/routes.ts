@@ -518,7 +518,7 @@ export function handleSlidesRequest(
       );
       sendJson(res, 200, {
         ok: true,
-        product: "Open SlideStudio",
+        product: "DSH SlideStudio",
         kernel: "dsh",
         minimaxReady: connection.ready,
         generateReady: selectedReady && produceGates.ok,

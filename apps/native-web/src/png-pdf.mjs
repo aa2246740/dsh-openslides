@@ -177,7 +177,7 @@ export function buildPdfFromPngs(pages) {
     kidRefs.push(`${pageNum} 0 R`);
   }
   const infoNum = push(
-    `<< /Producer (Open SlideStudio) /CreationDate (D:${new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14)}Z) >>`,
+    `<< /Producer (DSH SlideStudio) /CreationDate (D:${new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14)}Z) >>`,
   );
   objects[pagesNum - 1] = Buffer.from(
     `<< /Type /Pages /Count ${images.length} /Kids [${kidRefs.join(" ")}] >>`,

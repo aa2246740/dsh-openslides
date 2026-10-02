@@ -13,13 +13,13 @@ const now = "2026-08-04T00:00:00.000Z";
 export function createSampleDeck(): Deck {
   return {
     id: "deck-sample-1",
-    title: "Open SlideStudio Sample",
+    title: "DSH SlideStudio Sample",
     aspectRatio: "16:9",
     versionId: "v1",
     createdAt: now,
     updatedAt: now,
     theme: {
-      name: "Open SlideStudio Neutral",
+      name: "DSH SlideStudio Neutral",
       colors: {
         background: "#FFFFFF",
         surface: "#FFFFFF",
@@ -79,7 +79,7 @@ export function createSampleDeck(): Deck {
                 align: "left",
                 runs: [
                   {
-                    text: "Open SlideStudio",
+                    text: "DSH SlideStudio",
                     fontSize: 44,
                     fontWeight: "bold",
                     color: "#111111",

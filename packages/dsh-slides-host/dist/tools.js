@@ -351,7 +351,7 @@ function openProjectTool(deps) {
         output: jsonOutput((value) => JSON.stringify(value)),
         async execute(args, exec) {
             const sessionId = sessionIdOf(exec);
-            const title = String(args.title ?? "Open SlideStudio slice").trim() || "Open SlideStudio slice";
+            const title = String(args.title ?? "DSH SlideStudio slice").trim() || "DSH SlideStudio slice";
             const opened = deps.store.openProject({
                 dshSessionId: sessionId,
                 title,

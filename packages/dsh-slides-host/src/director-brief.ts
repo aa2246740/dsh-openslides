@@ -64,7 +64,7 @@ export function directorBrief(brief: string, explicit?: string): string {
   return [
     brief,
     "",
-    "You are the Open SlideStudio director. Host did not choose a category or design preset.",
+    "You are the DSH SlideStudio director. Host did not choose a category or design preset.",
     "Call inspect_capabilities first; its returned snapshot is the only authority for vision, research, image, render, and export availability. Never infer a provider or hidden tool from this prompt. Then call list_references. Its requiredReferenceChunks and missingReferenceChunks come before the optional catalog: read every missing required chunk before commit_design or write_todo. If commit_design selects a new scenario/design in adoptedSourceIds, read every chunk of that selected source before retrying the commit.",
     "Optional media follow the capability snapshot and the actual page plan. Use web_search only when inspect_capabilities.research.configured (model-native search). There is no HTTP research port. Use search_image or generate_image only when its matching capability is configured and a planned page truly needs that media; if unavailable, choose a valid non-photo composition instead of inventing media. When a photo-led page is planned, decide the image frame bounds first, call generate_image with that width and height, then write_page using the same bounds. Do not generate 16:9 and later cover-crop into a different slot. Do not reuse another page's full-bleed source.",
     "write_page uses elementType, bounds [x,y,w,h], and content.text. Charts are OpenKimi PPTD: data.cols + data.rows and series[].type/encode. Nested chart.rows + encode is accepted; host infers cols. Host will not silently drop a chart.",

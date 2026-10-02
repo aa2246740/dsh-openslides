@@ -1,4 +1,4 @@
-Open SlideStudio pin of `@deepseek-ai/dsh-llm-pi-ai` 0.2.0-rc.2.
+DSH SlideStudio pin of `@deepseek-ai/dsh-llm-pi-ai` 0.2.0-rc.2.
 
 Rebased onto the kernel-matched release on 2026-09-24: the isolated DSH home
 resolves this adapter for every `llm-pi-ai` route, so the pin must track the
@@ -8,7 +8,7 @@ descriptors). The earlier 0.1.5 pin predated that contract and crashed inside
 
 Vendor patches on top of stock 0.2.0-rc.2, marked `VENDOR:` in `lib/index.js`.
 Upstream rc.2 added `normalizeContext`, mid-conversation system/tool
-descriptors, and a `mistral-conversations` entry; the three Open SlideStudio
+descriptors, and a `mistral-conversations` entry; the three DSH SlideStudio
 patches were re-applied on top of that base:
 
 1. `toPiReplayState` — `default: return { type: "text" }` so unknown future

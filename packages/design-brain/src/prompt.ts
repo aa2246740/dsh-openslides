@@ -39,7 +39,7 @@ export function assembleDesignSystemPrompt(contract: DesignContract): string {
     ``,
     `You are composing **editable presentation structure** (PPTD elements), not bitmaps.`,
     `Follow this contract exactly. Do not invent a conflicting visual system.`,
-    `Product context: Open SlideStudio (multi-model). Never hardcode a single LLM vendor.`,
+    `Product context: DSH SlideStudio (multi-model). Never hardcode a single LLM vendor.`,
     ``,
     `## Intent`,
     contract.intent,

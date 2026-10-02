@@ -1,6 +1,6 @@
 /**
  * @open-slidestudio/agent-core
- * Provider-agnostic agent harness for Open SlideStudio.
+ * Provider-agnostic agent harness for DSH SlideStudio.
  */
 
 export type {

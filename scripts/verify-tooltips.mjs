@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Full static-chrome tooltip audit (Open SlideStudio).
+ * Full static-chrome tooltip audit (DSH SlideStudio).
  *
  * Enumerates EVERY title= / data-tip= / aria-label= in
  * apps/native-web/public/index.html, resolves the expected tooltip text

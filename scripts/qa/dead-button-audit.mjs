@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dead-button dictionary audit (Open SlideStudio).
+ * Dead-button dictionary audit (DSH SlideStudio).
  *
  * Compares every clickable control id used by the UI against the
  * allowedControlIds whitelist (dead-button ban, AGENTS.md hard rule):

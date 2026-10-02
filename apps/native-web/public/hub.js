@@ -1530,7 +1530,7 @@ async function refreshHealth() {
   } catch {
     data = await fetch(nativeApi("/api/health")).then((r) => r.json()).catch(() => ({}));
     if (!healthRequestGate.isCurrent(request, currentHealthSelection())) return data;
-    serverDshReady = data.product === "Open SlideStudio";
+    serverDshReady = data.product === "DSH SlideStudio";
     serverCapability = null;
     serverMinimaxReady = false;
     piProductLoggedIn = false;
@@ -1547,7 +1547,7 @@ async function refreshHealth() {
     setModelChip(model || "AI Agent");
     return data;
   }
-  serverDshReady = data.product === "Open SlideStudio";
+  serverDshReady = data.product === "DSH SlideStudio";
   serverPiAvailable = false;
   const selection = data.selection || {};
   const offer = currentPiOffer();

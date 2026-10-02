@@ -2,7 +2,7 @@
 
 ## Mission
 
-Build a real product, not a pixel-clone of Kimi branding. Reuse **interaction patterns and acceptance criteria** from `_reference/Kimi_Slides_PRD.md` and `FRAME_BY_FRAME_ANALYSIS.md`. Product name is **Open SlideStudio**.
+Build a real product, not a pixel-clone of Kimi branding. Reuse **interaction patterns and acceptance criteria** from `_reference/Kimi_Slides_PRD.md` and `FRAME_BY_FRAME_ANALYSIS.md`. Product name is **DSH SlideStudio**.
 
 ## Non-negotiables
 

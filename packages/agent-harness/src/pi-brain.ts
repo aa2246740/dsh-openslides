@@ -233,7 +233,7 @@ function buildPrompt(
       ]
     : [];
   return [
-    "You are Pi producing an Open SlideStudio deck.",
+    "You are Pi producing an DSH SlideStudio deck.",
     "Follow the host skill open-slidestudio (SKILL.md already loaded). That is the produce process.",
     "Read _agent/capability.md and _agent/brief.txt.",
     "Call list_references, then read every required original OpenKimi chunk with read_reference. Next call view_design_reference and inspect the actual preview image.",

@@ -48,7 +48,7 @@ const exitState = watchExit(child);
 try {
   const healthRes = await waitHttpOk(`${DSH_BASE}/slides/health`, 60_000, "DSH", exitState);
   const health = await healthRes.json();
-  if (health.product !== "Open SlideStudio") {
+  if (health.product !== "DSH SlideStudio") {
     throw new Error(`unexpected health product: ${JSON.stringify(health)}`);
   }
   if (health.generateReady !== true || health.produceGates?.ok !== true) {

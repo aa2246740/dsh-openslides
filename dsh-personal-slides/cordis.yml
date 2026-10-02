@@ -1,5 +1,0 @@
-# portable overlay: relative name only. --patch resolves against the profile
-# directory, so cold-boot through `dshx start` / `dshx verify-boot`, not raw pnpm dsh.
-- insert:
-    - id: dsh-openslides
-      name: './src/dsh-personal-slides.ts'

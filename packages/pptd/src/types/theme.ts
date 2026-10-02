@@ -36,7 +36,7 @@ export type ThemeTokens = {
 };
 
 export const DEFAULT_THEME: ThemeTokens = {
-  name: "Open SlideStudio Neutral",
+  name: "DSH SlideStudio Neutral",
   colors: {
     background: "#F6F6F6",
     surface: "#FFFFFF",

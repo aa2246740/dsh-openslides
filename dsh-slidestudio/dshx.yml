@@ -1,0 +1,5 @@
+id: dsh-slidestudio
+entry: src/dsh-slidestudio.ts
+marker: "[my-plugins/dsh-slidestudio] loaded"
+kind: client
+profile: web

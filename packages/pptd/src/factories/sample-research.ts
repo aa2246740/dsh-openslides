@@ -134,7 +134,7 @@ function titleSlide(): Slide {
       textEl(
         { x: 120, y: 460, width: 1200, height: 60, zIndex: 2, name: "subtitle" },
         [
-          para("Strategy briefing · Open SlideStudio sample deck", {
+          para("Strategy briefing · DSH SlideStudio sample deck", {
             fontSize: 24,
             color: "#A8C0D8",
           }),
@@ -480,7 +480,7 @@ export function createSampleResearchDeck(title = "Global EV Market Outlook 2026"
     updatedAt: ts,
     meta: {
       source: "sampleResearchDeck",
-      product: "Open SlideStudio",
+      product: "DSH SlideStudio",
     },
   };
 }

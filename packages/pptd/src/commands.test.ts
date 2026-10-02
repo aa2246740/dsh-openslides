@@ -68,7 +68,7 @@ describe("createSampleResearchDeck", () => {
   it("builds a multi-slide research deck that passes schema + invariants", () => {
     const deck = createSampleResearchDeck();
     assert.ok(deck.slides.length >= 5);
-    assert.equal(deck.meta?.product, "Open SlideStudio");
+    assert.equal(deck.meta?.product, "DSH SlideStudio");
     assert.doesNotMatch(JSON.stringify(deck), /kimi/i);
 
     const parsed = parseDeck(deck);

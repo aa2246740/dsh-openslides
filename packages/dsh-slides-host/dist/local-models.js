@@ -557,7 +557,7 @@ export async function assertMimoDesktopGateway(destHome, fetchImpl = fetch) {
         }
     })();
     if (!reachable) {
-        throw new Error("MiMo 桌面端引擎不可达：请确认 Xiaomi MiMo 应用已启动并登录（本地引擎端口随会话变化，Open SlideStudio 会在生成前自动发现）。打开 App 后重试即可。");
+        throw new Error("MiMo 桌面端引擎不可达：请确认 Xiaomi MiMo 应用已启动并登录（本地引擎端口随会话变化，DSH SlideStudio 会在生成前自动发现）。打开 App 后重试即可。");
     }
 }
 function chmodOwnerOnlyFile(file) {

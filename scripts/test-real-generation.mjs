@@ -60,7 +60,7 @@ async function existingSlidesHealth() {
     const res = await fetch(`${DSH_BASE}/slides/health`);
     if (!res.ok) return false;
     const body = await res.json();
-    return body.product === "Open SlideStudio";
+    return body.product === "DSH SlideStudio";
   } catch {
     return false;
   }
@@ -87,8 +87,8 @@ try {
     await waitHttpOk(`${DSH_BASE}/slides/health`, 60_000, "DSH", dshExit);
   }
   const health = await fetch(`${DSH_BASE}/slides/health`).then((res) => res.json());
-  if (health.product !== "Open SlideStudio") {
-    throw new Error(`slides health is not Open SlideStudio: ${JSON.stringify(health)}`);
+  if (health.product !== "DSH SlideStudio") {
+    throw new Error(`slides health is not DSH SlideStudio: ${JSON.stringify(health)}`);
   }
   if (!health.minimaxReady) {
     throw new Error("the selected MiniMax generation route is not ready");

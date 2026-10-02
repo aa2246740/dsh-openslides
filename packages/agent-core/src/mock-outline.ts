@@ -151,7 +151,7 @@ function chineseGenericOutline(title: string, prompt: string): DeckOutline {
         recipeHint: "cover-hero",
         claim: claimSeed,
         title: claimSeed,
-        subtitle: "Open SlideStudio · 决策材料",
+        subtitle: "DSH SlideStudio · 决策材料",
         focus: "封面主张",
         notes: prompt.slice(0, 240),
       },

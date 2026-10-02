@@ -71,7 +71,7 @@ export type DeckOutline = {
   slides: OutlineSlide[];
 };
 
-export const OUTLINE_SYSTEM_PROMPT = `You are the content composer for Open SlideStudio.
+export const OUTLINE_SYSTEM_PROMPT = `You are the content composer for DSH SlideStudio.
 You produce structured CONTENT and narrative INTENT for a design-brain compiler.
 You do NOT choose final pixel geometry — the design brain selects recipes and layout.
 Return ONLY valid JSON (no markdown) matching this schema:

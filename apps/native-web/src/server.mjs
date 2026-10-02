@@ -2642,7 +2642,7 @@ const server = http.createServer(async (req, res) => {
       };
       return json(res, 200, {
         ok: true,
-        product: "Open SlideStudio",
+        product: "DSH SlideStudio",
         kimiRuntime: false,
         kernel: "dsh",
         checkoutRoot: ROOT,
@@ -4556,7 +4556,7 @@ const server = http.createServer(async (req, res) => {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   server.listen(PORT, "127.0.0.1", () => {
-    console.log(`Open SlideStudio  http://127.0.0.1:${PORT}/`);
+    console.log(`DSH SlideStudio  http://127.0.0.1:${PORT}/`);
     console.log(`创建 Hub 是默认首页。编辑器: http://127.0.0.1:${PORT}/index.html`);
     console.log(`Default project: ${DEFAULT_PROJECT}`);
     console.log(`Zero Kimi iframe/CDN in this shell.`);

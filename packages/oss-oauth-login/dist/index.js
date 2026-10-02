@@ -1,5 +1,5 @@
 /**
- * Open SlideStudio OAuth wrapper around dsh-oauth-login.
+ * DSH SlideStudio OAuth wrapper around dsh-oauth-login.
  * Separate plugin id and credential filename so it cannot overwrite DSH App grants.
  */
 import path from "node:path";

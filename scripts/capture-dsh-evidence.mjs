@@ -19,8 +19,8 @@ const projectRoot = marker.projectRoot;
 if (!sessionId) throw new Error("marker has no sessionId");
 
 const health = await fetch(`${BASE}/slides/health`).then((res) => res.json());
-if (health.product !== "Open SlideStudio") {
-  throw new Error(`not Open SlideStudio: ${JSON.stringify(health)}`);
+if (health.product !== "DSH SlideStudio") {
+  throw new Error(`not DSH SlideStudio: ${JSON.stringify(health)}`);
 }
 const snap = await fetch(`${BASE}/slides/state/${sessionId}`).then((res) => res.json());
 const absProject = projectRoot ? path.resolve(projectRoot) : "";
@@ -52,7 +52,7 @@ try {
   await page.goto(`${BASE}/?session=${sessionId}`, { waitUntil: "domcontentloaded" });
   await new Promise((resolve) => setTimeout(resolve, 1500));
   const uniqueText = await page.locator("body").innerText();
-  if (!/Open SlideStudio/.test(uniqueText)) throw new Error("unique-root missing Open SlideStudio");
+  if (!/DSH SlideStudio/.test(uniqueText)) throw new Error("unique-root missing DSH SlideStudio");
   if (/DeepSeek Harness|AppFrame|dsh-web-app/i.test(uniqueText)) {
     throw new Error("DSH default chrome visible on unique-root");
   }
@@ -64,7 +64,7 @@ try {
   await page.goto(`${BASE}/app/hub.html`, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("#brief");
   const title = await page.title();
-  if (!/Open SlideStudio/.test(title)) throw new Error(`hub title ${title}`);
+  if (!/DSH SlideStudio/.test(title)) throw new Error(`hub title ${title}`);
   await page.screenshot({
     path: path.join(artifacts, `hub-${stamp}-minimax-m3.png`),
     fullPage: false,

@@ -28,7 +28,7 @@ window.__ModuleLoader__.load({
       ".oss-receipts{font-size:13px;line-height:1.5;white-space:pre-wrap}" +
       "@media (prefers-reduced-motion:reduce){.oss-root *{transition:none!important;animation:none!important}}";
 
-    var PRODUCT_TITLE = "Open SlideStudio";
+    var PRODUCT_TITLE = "DSH SlideStudio";
 
     if (typeof document !== "undefined" && !document.querySelector("style[data-plugin-css='open-slidestudio-root']")) {
       var tag = document.createElement("style");
@@ -76,7 +76,7 @@ window.__ModuleLoader__.load({
         className: "oss-error",
         role: "alert",
         "data-state": "boot-failure",
-        children: ["Open SlideStudio failed to boot. ", String(message)],
+        children: ["DSH SlideStudio failed to boot. ", String(message)],
       });
     }
 
@@ -289,7 +289,7 @@ window.__ModuleLoader__.load({
         className: "oss-root",
         "data-state": phase,
         children: [
-          jsx.jsx("div", { className: "oss-head", children: "Open SlideStudio" }),
+          jsx.jsx("div", { className: "oss-head", children: "DSH SlideStudio" }),
           jsx.jsxs("div", {
             className: "oss-main",
             children: [
@@ -382,7 +382,7 @@ window.__ModuleLoader__.load({
       var entries = ctx.slots.entries("root") || [];
       if (entries.length > 0) {
         throw new Error(
-          "boot-failure: root already has " + entries.length + " registrant(s); Open SlideStudio must be the only root",
+          "boot-failure: root already has " + entries.length + " registrant(s); DSH SlideStudio must be the only root",
         );
       }
     }

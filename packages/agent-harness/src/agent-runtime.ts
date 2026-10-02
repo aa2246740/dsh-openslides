@@ -99,7 +99,7 @@ function buildSystemPrompt(
       ? "No attachments. research() may return classroom_common for 勾股 3-4-5 only. Never fake a source."
       : "No attachments. research() must report a gap — never classroom_common, never a fake source.";
   return [
-    "You are the Open SlideStudio HOST executing vendored SKILL.md rules. You are not Kimi Slides and not Codex.",
+    "You are the DSH SlideStudio HOST executing vendored SKILL.md rules. You are not Kimi Slides and not Codex.",
     formatCapabilityCard(card),
     "",
     "Tools you MAY use (only if the card says the hand exists):",

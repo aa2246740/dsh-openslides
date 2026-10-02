@@ -157,7 +157,7 @@ export function recoverGenerateCheckpoint(root: string): AgentCheckpoint | undef
       turnsUsed: 0,
       maxTurns: 10,
       pausedAt: new Date().toISOString(),
-      reason: "Recovered from the durable Open SlideStudio run ledger after an interrupted provider session.",
+      reason: "Recovered from the durable DSH SlideStudio run ledger after an interrupted provider session.",
       kind: "transient",
     };
   } catch {

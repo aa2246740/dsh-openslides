@@ -390,7 +390,7 @@ export function compileOutlineToDeckDetailed(
     createdAt: ts,
     updatedAt: ts,
     meta: {
-      product: "Open SlideStudio",
+      product: "DSH SlideStudio",
       generator: "design-brain-compose",
       audience: outline.audience ?? "",
       designTheme: composed.contract.themeId,

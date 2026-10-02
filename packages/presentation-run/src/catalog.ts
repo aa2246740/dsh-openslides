@@ -49,7 +49,7 @@ export function resolveRepoRoot(start = process.cwd()): string {
   for (const candidate of candidates) {
     if (fs.existsSync(path.join(candidate, marker))) return path.resolve(candidate);
   }
-  throw new Error(`Open SlideStudio repo root not found (looked for ${marker})`);
+  throw new Error(`DSH SlideStudio repo root not found (looked for ${marker})`);
 }
 
 function sourceManifestPath(repoRoot: string): string {

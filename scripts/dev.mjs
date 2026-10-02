@@ -24,7 +24,7 @@ function run(name, cmd, args) {
   return child;
 }
 
-console.log("Open SlideStudio dev (LEGACY stack — product path is `npm start`, Hub on :13080)");
+console.log("DSH SlideStudio dev (LEGACY stack — product path is `npm start`, Hub on :13080)");
 console.log("  API  http://127.0.0.1:8787");
 console.log("  Web  http://127.0.0.1:5173");
 

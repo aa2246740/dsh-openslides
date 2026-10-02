@@ -30,7 +30,7 @@ export function resolveRepoRoot(start = process.cwd()) {
         if (fs.existsSync(path.join(candidate, marker)))
             return path.resolve(candidate);
     }
-    throw new Error(`Open SlideStudio repo root not found (looked for ${marker})`);
+    throw new Error(`DSH SlideStudio repo root not found (looked for ${marker})`);
 }
 function sourceManifestPath(repoRoot) {
     return path.join(repoRoot, "packages", "agent-harness", "reference", "openkimi-source-manifest.v1.json");

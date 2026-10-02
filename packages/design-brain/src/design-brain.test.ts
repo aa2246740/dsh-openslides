@@ -63,7 +63,7 @@ describe("assembleDesignSystemPrompt", () => {
     assert.match(prompt, /#0B3D5C/i);
     assert.match(prompt, /chart-focus/);
     assert.match(prompt, /Anti-slop — MUST/);
-    assert.match(prompt, /Open SlideStudio/);
+    assert.match(prompt, /DSH SlideStudio/);
     assert.doesNotMatch(prompt, /\bKIMI\b/i);
   });
 

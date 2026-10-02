@@ -301,7 +301,7 @@ function titleSlide(title: string, subtitle: string, theme: ThemeTokens): Slide 
       y: 960,
       w: 800,
       h: 40,
-      text: "Open SlideStudio · Structured deck",
+      text: "DSH SlideStudio · Structured deck",
       fontSize: 16,
       color: theme.colors.muted,
       z: 3,

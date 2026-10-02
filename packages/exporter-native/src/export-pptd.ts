@@ -2293,7 +2293,7 @@ export async function exportProjectToPptx(
   const pptx = createPptx();
   pptx.defineLayout({ name: "PPTD", width: layout.w, height: layout.h });
   pptx.layout = "PPTD";
-  pptx.author = "Open SlideStudio native exporter";
+  pptx.author = "DSH SlideStudio native exporter";
   pptx.title = project.presentation.title ?? "Deck";
 
   const degradations: Degradation[] = [];

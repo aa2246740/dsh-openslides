@@ -10,7 +10,7 @@ import * as PiAiPlugin from "@deepseek-ai/dsh-llm-pi-ai";
 
 const SYNTHETIC_TOOL = {
   name: "write_page",
-  description: "Synthetic contract fixture. No OpenSlides product prompt is used.",
+  description: "Synthetic contract fixture. No SlideStudio product prompt is used.",
   parameters: {
     type: "object",
     properties: {

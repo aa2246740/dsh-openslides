@@ -22,7 +22,7 @@ async function request(pathname, init) {
 }
 
 const health = await request("/slides/health");
-if (!health.response.ok || health.body.product !== "Open SlideStudio") {
+if (!health.response.ok || health.body.product !== "DSH SlideStudio") {
   fail(`slides health failed: ${health.response.status} ${JSON.stringify(health.body)}`);
 }
 if (health.body.kernel !== "dsh") fail("product kernel is not dsh");
@@ -49,7 +49,7 @@ try {
   await page.goto(`${BASE}${HUB}`, { waitUntil: "networkidle" });
   await page.waitForSelector("#brief");
   const title = await page.title();
-  if (!/Open SlideStudio/.test(title)) fail(`browser title is not Open SlideStudio: ${title}`);
+  if (!/DSH SlideStudio/.test(title)) fail(`browser title is not DSH SlideStudio: ${title}`);
   if ((await page.locator('iframe[src*="kimi" i]').count()) !== 0) fail("Kimi iframe found");
   const label = (await page.locator("#model-label").innerText()).trim();
   // The kernel is multi-provider by design (AGENTS.md non-negotiable 4), so the
