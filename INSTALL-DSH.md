@@ -1,88 +1,94 @@
-# 在 DSH 0.2.0-rc.2 上安装「演示文稿」（DSH SlideStudio）
+# 安装与运行 DSH SlideStudio
 
-把这个仓库跑成 DSH 插件后，「演示文稿」会出现在你的 DSH 里：
-装了 dsh-personal（Personal 入口）就在 Personal 侧栏；没装就在主导航出现同名顶层入口。
+## 官方安装方式
 
-要求：Node ≥ 22.19，DSH `0.2.0-rc.2`（本仓库 devDependencies 已固定该版本，无需另外安装内核）。
+桌面端打开 **插件 → 添加插件**，输入 `dsh-slidestudio`，安装后点击 **立即启用**。
 
-## 0. 构建与安装候选包
-
-`dsh-slidestudio-<version>.tgz` 包含编辑器、生产依赖和设计资源。
-浏览器渲染运行时单独管理：使用 Playwright 1.61.1、Chromium Headless Shell 1228。
-默认读取 `~/.codex/playwright-runtime/runtime.mjs`，其他部署路径通过
-`SLIDESTUDIO_PLAYWRIGHT_RUNTIME` 指定；缺失或版本不符时应停止渲染验收。
-构建脚本不会安装、复制或升级浏览器。
+Web profile 使用：
 
 ```sh
-cd dsh-slidestudio
-node scripts/release.mjs
+dsh plugin --profile web add dsh-slidestudio
 ```
 
-输出在 `.local/release/`，包含 tgz 和 SHA256SUMS。脚本还会把最终 tgz
-解包到临时目录，验证生产依赖完整、生成检查通过，以及实际 PPTX 导出。
-这些检查不代替桌面端、Web 端的真实模型与界面验收，候选包不自动发布。
+也可安装 [GitHub Release](https://github.com/aa2246740/dsh-slidestudio/releases) 中的 `.tgz`；将文件绝对路径填入同一输入框。包名、npm 名、插件 ID 均为 `dsh-slidestudio`，展示名为 **DSH SlideStudio**。
 
-在 **DSH 设置 → 插件 → 添加插件** 中选择通过验收的 tgz。
-包内 `dsh.bundle` 声明负责激活，不要重复手动挂载同一插件。
-安装后检查实际页面、模型列表、生成和下载；是否需要刷新或重启应以当前
-Host 的安装结果为准。新版本的发布状态以 Release 与验收报告为准。
+预编译包通过 `dsh.bundle.patch` 激活服务端和客户端，无需安装时构建，也不要再手动添加重复 patch。约定来自官方[发布指南](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/develop/basic/publish.zh.md)与[插件管理器](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/client/ui-plugin-manager/README.zh.md)。
 
-下面是从源码运行的开发路径。
+要求 Node.js `^22.19.0 || >=24.0.0`、DSH `>=0.2.0-rc.2 <0.3.0-0`。Personal 可选；使用时需 `>=0.2.8 <0.3.0`。安装 Personal 后从其侧栏进入；未安装时从主导航进入。
 
-## 1. 拉代码 + 装依赖
+## 渲染运行时
+
+PPT 页面渲染要求 **Playwright 1.61.1、Chromium Headless Shell 1228**。插件包不含浏览器；npm 安装只完成插件安装，不会自动准备浏览器。
+
+默认使用 `~/.codex/playwright-runtime/runtime.mjs`，该模块需提供 `launchPinnedChromium` 和 `verifyPinnedRuntime`。其他部署位置设置：
+
+```sh
+export SLIDESTUDIO_PLAYWRIGHT_RUNTIME=/absolute/path/to/runtime.mjs
+```
+
+在启动 DSH 的同一环境中检查已有运行时：
+
+```sh
+node --input-type=module -e 'import { homedir } from "node:os"; import { pathToFileURL } from "node:url"; const p = process.env.SLIDESTUDIO_PLAYWRIGHT_RUNTIME || homedir() + "/.codex/playwright-runtime/runtime.mjs"; const r = await import(pathToFileURL(p)); console.log(await r.verifyPinnedRuntime());'
+```
+
+文件缺失或检查失败时，先由运行环境维护者提供匹配的运行时。不要用系统 Chrome 替代。当前发布包没有面向无运行时机器的自动浏览器安装流程。
+
+## 配置模型
+
+在 **DSH 设置 → 模型** 中完成模型配置。SlideStudio 的模型选择器读取当前 Harness 的目录和凭据，不另建一套模型配置。在插件中点击设置会打开 DSH 设置；关闭后返回原入口。
+
+## 数据位置
+
+- 新安装：`$DSH_HOME/data/dsh-slidestudio/workspace/output/dsh-slices/` 保存生成项目，`output/attachments/` 保存上传材料。
+- 未指定 `DSH_HOME` 时，使用当前 Harness profile 的 Home，通常是 `~/.dsh`。
+- 已连接的源码工作区：保留原项目位置，避免复制整份仓库。
+- 位置记录：`$DSH_HOME/data/dsh-slidestudio/workspace.json`。
+- 自定义位置：在启动 Host 前设置绝对路径 `SLIDESTUDIO_DATA_DIR`。该目录成为后续安装复用的项目位置。
+
+卸载插件不会清理上述固定目录。位置记录指向已不存在的目录时，插件会报错，需恢复目录或明确设置新的数据目录。
+
+## 旧版本迁移
+
+**0.2.0 和旧名 `dsh-openslides` 可能把项目保存在插件包目录。卸载前先迁移数据。**
+
+1. 找到旧安装中含有 `output/dsh-slices` 的目录。
+2. 将其中的 `output/` 保留到插件安装目录之外的固定位置，例如 `~/SlideStudio-data/output/`；保留旧数据直到新入口验证完成。
+3. 设置 `SLIDESTUDIO_DATA_DIR` 为固定目录的绝对路径（上例为 `/Users/你的用户名/SlideStudio-data`），让当前 Host 读取该配置。
+4. 通过插件管理器卸载旧包、安装 `dsh-slidestudio` 并启用，确认历史稿件能够打开、编辑和导出。
+
+已经用本版本连接过的源码工作区，会记录原目录；后续改为 npm 安装可继续读取它，不用搬动原稿。
+
+## 从源码开发
 
 ```sh
 git clone https://github.com/aa2246740/dsh-slidestudio.git
-cd dsh-slidestudio                        # 默认分支 main 就是正式版
-npm install                              # 只装根目录；workspace 会自动链接 packages/*
+cd dsh-slidestudio
+npm ci
+npm run build:native
 ```
 
-不需要在 `dsh-slidestudio/` 里再跑 pnpm——根 node_modules 的 workspace 链接会解析
-`@open-slidestudio/dsh-slides-host`。已编译产物（`packages/*/dist`、`dsh-slidestudio/lib`）
-随分支一起提交，无需构建步骤。
+客户端编译还需插件目录中的开发依赖及 dshx 的 `externalClientBundle` 适配器。设置 `DSHX_HARNESS` 为含 `tools/dshx/src/client-build.js` 的 Harness 路径，在插件目录安装开发依赖后执行 `npm run build --prefix dsh-slidestudio`。官方 Harness 源码不需要修改。
 
-## 2. 安装到正在运行的 Harness
+从本地源码链接切换到 npm 包时，当前 Host 可能仍缓存旧模块。安装后核对实际运行路径；若仍是旧源码，正常退出并重新打开 DSH，再检查项目与生成。桌面端卸载本地链接偶尔会留下同名软链接，应确认它已不在 profile 配置中且只指向旧源码，再由维护者处理；不要删除源码或项目目录。
 
-使用当前 profile 的插件管理器安装本仓库的 `dsh-slidestudio` 目录。
-它现在声明了 `dsh.bundle`，安装时同时加载服务端和浏览器端。
-使用 dshx 时，例如：
+在当前 Harness 的插件管理器中添加本仓库的 `dsh-slidestudio/` 绝对路径。不要向同一 Home 启动第二个 Host。
+
+## 构建发布包
+
+完成上面的构建环境后，在仓库根目录运行：
 
 ```sh
-dshx plugin add "$PWD/dsh-slidestudio" --profile desktop --port <当前Host端口>
+npm run release:package
 ```
 
-不要再给同一插件额外添加绝对文件路径的 insert patch；只挂载服务端文件不能证明客户端已安装。
-已有旧版手工挂载时，先通过插件管理器停用旧入口，保留原配置备份，再检查新入口的实际加载状态。
+产物位于 `dsh-slidestudio/.local/release/`，包含 `.tgz` 和 `SHA256SUMS`。脚本检查最终包的生产依赖、生成资源、形状资源和实际可编辑 PPTX 导出，临时解包目录会自动清理。
 
-## 3. 入口与资源
-
-装了 `dsh-personal` 就从 Personal →「演示文稿」进入；没装时会出现独立的「演示文稿」导航入口。
-Personal 是可选依赖。两种入口都使用当前 Harness 的模型服务和凭据解析。
-
-资源默认从插件所在仓库查找，不依赖启动目录，也不需要设置 `OPEN_SLIDESTUDIO_ROOT`。
+发布前还需在真实 Harness 中检查双入口、模型同步、生成、设置跳转、下载以及升级后的项目保留。自动回归使用模拟模型边界，不能代替真实模型验收。
 
 | 环境变量 | 作用 |
 | --- | --- |
-| `SLIDESTUDIO_SKILL_ROOT` | 可选，覆盖设计资源目录；仓库内有效目录为 `vendor/open-kimi-ppt/skill-1.2.0/skills/open-kimi-ppt` |
-| `SLIDES_EDITOR_PORT` | 编辑器 sidecar 端口，可选，默认 56200 |
-
-需要冷启动测试时请使用临时 `DSH_HOME`，不要向正在使用的真实 Home 启动第二个 Host。
-安装完成后还需检查当前页面、模型列表、生成和导出；文件安装或 HTTP 200 都不等于功能验收通过。
-
-## 4. 配模型（走 DSH 官方设置页，插件内没有模型配置页）
-
-设置 → 模型 → 自定义模型 API。例如智谱中国 Coding Plan：
-
-- API 端点：`https://open.bigmodel.cn/api/coding/paas/v4`
-- 模型：`glm-5.3`
-
-保存后模型选择器立即可用（内核实时刷新，不用重启）。
-
-## 5. 已验证
-
-- 双入口：装/不装 dsh-personal 都实测通过
-- 真实生成：智谱 glm-5.3 端到端跑通（写稿→渲染→审校→可编辑 PPTX 导出）
-- 中英双语：跟随 DSH 设置里的 Language，入口名「演示文稿 / Slides」、界面双语
-- 回归：28/28 功能特性自动化全绿（Chromium 真实驱动）
-
-细节与限制见 `CLOUD-DELIVERY.md`（§十五生产修复、§十六模型配置统一）。
+| `SLIDESTUDIO_DATA_DIR` | 固定项目目录，需绝对路径 |
+| `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` | 已准备好的指定浏览器运行时模块 |
+| `SLIDES_EDITOR_PORT` | 编辑器本地端口，默认 `56200` |
+| `SLIDESTUDIO_SKILL_ROOT` | 可选，覆盖设计资源目录 |

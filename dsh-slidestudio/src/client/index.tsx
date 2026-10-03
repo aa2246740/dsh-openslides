@@ -25,7 +25,7 @@ type SlotsService = {
 
 type ShortcutCatalogRow = {
   id: string
-  binding: { code: string; secondCode?: string; modifiers: readonly string[] } | null
+  aria?: string
 }
 
 type ShortcutsService = {
@@ -50,24 +50,39 @@ declare module '@deepseek-ai/cordis' {
   }
 }
 
-/** Replay a registered shortcut command through the real keydown dispatch path. */
-function dispatchShortcut(ctx: ClientContext, commandId: string): void {
+/** Use the Host's rendered settings control on Web and native Desktop alike.
+ * Desktop ignores synthetic DOM shortcut events. RC2 exposes no public command
+ * invocation API, so use its slot/ARIA controls without touching private stores.
+ */
+function activateSettingsControl(ctx: ClientContext): boolean {
+  const trigger = document.querySelector('[data-slot="sidebar.settings"] [data-slot="settings.trigger"]')
+    ?.closest('button')
+  if (trigger && !trigger.disabled) {
+    trigger.click()
+    return true
+  }
+  const launcher = document.querySelector<HTMLButtonElement>(
+    '[data-slot="sidebar.settings"] [data-slot="settings.launcher"] button[aria-haspopup="menu"]',
+  )
+  if (!launcher || launcher.disabled) return false
+  if (launcher.getAttribute('aria-expanded') !== 'true') {
+    launcher.click()
+    return false // React mounts the portal menu before the next poll.
+  }
   const shortcuts = ctx.get('shortcuts') as ShortcutsService | undefined
-  const entry = shortcuts?.catalog.getSnapshot().find((row) => String(row.id) === commandId)
-  const binding = entry?.binding && entry.binding.secondCode === undefined ? entry.binding : null
-  const macos = /mac|iphone|ipad/iu.test(navigator.platform)
-  const code = binding?.code ?? 'Comma'
-  const modifiers = new Set(binding?.modifiers ?? (macos ? ['alt', 'meta'] : ['alt', 'control']))
-  document.body.dispatchEvent(new KeyboardEvent('keydown', {
-    code,
-    key: ',',
-    bubbles: true,
-    cancelable: true,
-    ctrlKey: modifiers.has('control'),
-    altKey: modifiers.has('alt'),
-    shiftKey: modifiers.has('shift'),
-    metaKey: modifiers.has('meta'),
-  }))
+  const aria = shortcuts?.catalog.getSnapshot().find(row => String(row.id) === 'settings.open')?.aria
+  const matches = [...document.querySelectorAll<HTMLButtonElement>('[role="menu"] button[role="menuitem"]')]
+    .filter(button => {
+      if (button.disabled) return false
+      if (aria && button.getAttribute('aria-keyshortcuts') === aria) return true
+      // The user may unbind the command; the official zh/en menu remains usable.
+      const label = button.cloneNode(true) as HTMLElement
+      label.querySelectorAll('[aria-hidden="true"]').forEach(node => node.remove())
+      return ['设置', 'Settings'].includes(label.textContent?.trim() ?? '')
+    })
+  if (matches.length !== 1) return false
+  matches[0].click()
+  return true
 }
 
 /** The hub inside the iframe follows DSH's own Language setting. */
@@ -131,20 +146,19 @@ function settingsUiMounted(): boolean {
  * unless the user navigated elsewhere in the meantime.
  */
 function openDshSettings(ctx: ClientContext, source: MessageEventSource | null, origin: string): void {
+  const notify = (type: string) => {
+    if (source && 'postMessage' in source) (source as Window).postMessage({ type }, origin)
+  }
+  notify('oss:dsh-settings-accepted')
   // Personal 0.2.8 retains its page in a native modal. Release that modal while
   // the Host owns Settings, then restore the same iframe after Settings closes.
   const resumePersonal = (ctx.get('personal') as PersonalRegistry | undefined)?.suspend?.()
   if (settingsUiMounted()) {
-    // Ack immediately: we take over from here (any dialog that owns the layer,
-    // onboarding included, is already a settings-surface flow).
-    if (source && 'postMessage' in source) {
-      (source as Window).postMessage({ type: 'oss:dsh-settings-opened' }, origin)
-    }
-    driveSettingsOpen(ctx, resumePersonal ?? null)
+    driveSettingsOpen(ctx, resumePersonal ?? null, notify)
     return
   }
   const layout = ctx.get('layout') as LayoutService | undefined
-  if (!layout) { resumePersonal?.(); return }
+  if (!layout) { resumePersonal?.(); notify('oss:dsh-settings-failed'); return }
   const previousPanel = layout.panelInfo?.getSnapshot().activePanelId ?? null
   layout.selectPanel(null)
   // Fresh signal: aborted by any later selectPanel, so a user-driven
@@ -158,7 +172,7 @@ function openDshSettings(ctx: ClientContext, source: MessageEventSource | null, 
       // Panel unregistered meanwhile (e.g. Personal unloaded); stay put.
     }
     resumePersonal?.()
-  })
+  }, notify)
 }
 
 /**
@@ -169,7 +183,7 @@ function openDshSettings(ctx: ClientContext, source: MessageEventSource | null, 
  * user finally sees closes. `finish` (restore) is only meaningful after a
  * navigation; in-place callers pass null.
  */
-function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null): void {
+function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null, notify: (type: string) => void): void {
   let finished = false
   let opened = false
   let needDispatch = true
@@ -180,10 +194,12 @@ function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null): voi
     window.clearInterval(timer)
     window.clearTimeout(deadline)
     finish?.()
+    if (!opened) notify('oss:dsh-settings-failed')
   }
   const timer = window.setInterval(() => {
     waited += 250
     if (settingsModalOpen()) {
+      if (!opened) notify('oss:dsh-settings-opened')
       opened = true
       return
     }
@@ -195,15 +211,14 @@ function driveSettingsOpen(ctx: ClientContext, finish: (() => void) | null): voi
     // then re-arm the dispatch (a blocked dispatch must be retried).
     if (otherDialogOpen()) {
       needDispatch = true
+      waited = 0
       return
     }
     if (needDispatch && waited >= 400) {
-      needDispatch = false
-      dispatchShortcut(ctx, 'settings.open')
-      return
+      needDispatch = !activateSettingsControl(ctx)
     }
     // Dispatch produced nothing and the layer is empty — don't strand the user.
-    if (!needDispatch && waited >= 10_000) done()
+    if (waited >= 10_000) done()
   }, 250)
   const deadline = window.setTimeout(done, 600_000)
   ctx.effect(() => done)
@@ -232,10 +247,19 @@ function SlidesEntryIcon({ size = 16 }: { size?: number }) {
 
 const PANEL = 'slides'
 
+/** Main panels must reserve the official desktop window-chrome strip. */
+function StandaloneSlidesPage() {
+  return (
+    <div style={{ height: '100%', boxSizing: 'border-box', paddingTop: 'var(--dsh-frame-top-clearance, 0px)' }}>
+      <SlidesPage />
+    </div>
+  )
+}
+
 /** Standalone mode: 演示文稿 sits in the official sidebar panel list itself. */
 function registerStandalone(ctx: ClientContext): () => void {
   const stops = [
-    ctx.slots.inject('main', () => ctx.slots.register({ name: 'main', key: PANEL }, SlidesPage)),
+    ctx.slots.inject('main', () => ctx.slots.register({ name: 'main', key: PANEL }, StandaloneSlidesPage)),
     ctx.slots.inject('sidebar.panellist', () =>
       ctx.slots.register(
         { name: 'sidebar.panellist', id: PANEL, order: -9, label: () => slideTitle() },

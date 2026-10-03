@@ -1,7 +1,8 @@
 # Live generation controls
 
 While a run is live the panel is locked (`#work-chat.is-live-generation`), the canvas is read-only and the
-composer is the only control. Driver id `generation-live` (`drivers/assistant.mjs`), session bound with
+composer accepts steer/stop while the title-bar AI button can collapse and restore the panel.
+Driver id `generation-live` (`drivers/assistant.mjs`), session bound with
 `&live=1&session=verify-session`. The run itself is faked: the driver writes the events the panel renders.
 
 ## What a user does

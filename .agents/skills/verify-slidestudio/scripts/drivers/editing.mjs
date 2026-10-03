@@ -66,12 +66,16 @@ export const features = [
       rec.check("bold toggle is in the inspector", (await bold.count()) === 1);
       const beforeStyle = JSON.stringify(byId(deck, "slogan"));
       const seenBefore = rec.commands.length;
+      const boldDone = waitForCommand(page, "setBold");
       await bold.click();
+      await boldDone;
       rec.check("bold changed the element on disk", await rec.until(() => JSON.stringify(byId(deck, "slogan")) !== beforeStyle), `commands: ${rec.commands.slice(seenBefore).join(",")}`);
       const size = page.locator("#ctx-fontsize");
       if (await size.count()) {
+        const sizeDone = waitForCommand(page, "setTextStyle");
         await size.fill("31");
-        await size.dispatchEvent("change");
+        await size.press("Tab");
+        await sizeDone;
         rec.check("font size 31 persisted", await rec.until(() => /fontSize\W+31/.test(JSON.stringify(byId(deck, "slogan")))), JSON.stringify(byId(deck, "slogan").content).slice(0, 160));
       } else rec.check("font size input exists", false, "#ctx-fontsize missing");
 

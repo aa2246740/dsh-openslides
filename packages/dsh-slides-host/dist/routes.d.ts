@@ -12,6 +12,7 @@ export type SlidesHostRuntime = {
     questions?: AssistantQuestions;
     store: SliceSessionStore;
     workspaceRoot: string;
+    dataRoot?: string;
     dshHome: string;
     presentation: PresentationRun;
     agentBusy: (sessionId: string) => boolean;

@@ -101,7 +101,7 @@ async function selectedAttachments(runtime, ids) {
     const resolved = await (runtime.resolveAttachments ?? resolveEditorAttachments)(ids);
     if (resolved.length !== ids.length)
         throw new Error("attachment resolver did not return every selected file");
-    const expectedStoreId = inputSha256(path.resolve(runtime.workspaceRoot, "output", "attachments"));
+    const expectedStoreId = inputSha256(path.resolve(runtime.dataRoot ?? runtime.workspaceRoot, "output", "attachments"));
     const checked = resolved.map((attachment, index) => {
         const verified = verifiedAttachment(ids[index], { ...attachment });
         if (verified.storeId !== expectedStoreId)

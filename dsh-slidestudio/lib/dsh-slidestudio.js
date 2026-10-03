@@ -1,9 +1,55 @@
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { join, resolve } from "node:path";
+import { isAbsolute, join, resolve } from "node:path";
+import { homedir } from "node:os";
+import { get, request } from "node:http";
+import { setTimeout } from "node:timers/promises";
 import { apply as apply$1 } from "@open-slidestudio/dsh-slides-host";
-import { request } from "node:http";
+//#region lib/types/data-directory.js
+/** Persist the workspace outside the versioned package. A linked checkout keeps
+* its existing projects in place; later registry installs reuse that location.
+*/
+function resolveDataDirectory(productRoot, home, override) {
+	const stateRoot = join(home, "data", "dsh-slidestudio");
+	const pointer = join(stateRoot, "workspace.json");
+	let root = override?.trim() || void 0;
+	if (root && !isAbsolute(root)) throw new Error("SLIDESTUDIO_DATA_DIR must be an absolute path");
+	if (!root && existsSync(pointer)) {
+		const saved = JSON.parse(readFileSync(pointer, "utf8"));
+		if (typeof saved.root !== "string" || !isAbsolute(saved.root)) throw new Error(`Invalid SlideStudio workspace: ${pointer}`);
+		root = saved.root;
+		if (!existsSync(root)) throw new Error(`SlideStudio workspace is missing: ${root}. Restore it or set SLIDESTUDIO_DATA_DIR.`);
+	}
+	root ??= existsSync(join(productRoot, "output", "dsh-slices")) ? productRoot : join(stateRoot, "workspace");
+	root = resolve(root);
+	mkdirSync(root, { recursive: true });
+	mkdirSync(stateRoot, { recursive: true });
+	writeFileSync(pointer, `${JSON.stringify({
+		version: 1,
+		root
+	}, null, 2)}\n`, { mode: 384 });
+	return root;
+}
+//#endregion
+//#region lib/types/sidecar-ready.js
+/** Hold the first iframe request until the freshly spawned editor is listening. */
+async function waitForEditor(origin, timeoutMs = 15e3) {
+	const deadline = Date.now() + timeoutMs;
+	do {
+		if (await new Promise((resolve) => {
+			const request = get(`${origin}/api/health`, (response) => {
+				response.resume();
+				resolve(response.statusCode === 200);
+			});
+			request.setTimeout(Math.max(1, Math.min(500, deadline - Date.now())), () => request.destroy());
+			request.on("error", () => resolve(false));
+		})) return true;
+		if (Date.now() < deadline) await setTimeout(Math.min(100, deadline - Date.now()));
+	} while (Date.now() < deadline);
+	return false;
+}
+//#endregion
 //#region lib/types/dsh-slidestudio.js
 /** Cross-package Context shape; cordis is shared at runtime, types differ. */
 const applySlidesHostAny = apply$1;
@@ -78,7 +124,7 @@ function registerSlidesPreset(ctx) {
 	}));
 }
 /** Lazily spawns the editor sidecar on its own loopback port. */
-function startEditorSidecar(repoRoot) {
+function startEditorSidecar(repoRoot, dataRoot) {
 	const server = join(repoRoot, "apps/native-web/src/server.mjs");
 	if (!existsSync(server)) {
 		console.warn(`[dsh-slidestudio] editor sidecar not found at ${server}`);
@@ -89,7 +135,8 @@ function startEditorSidecar(repoRoot) {
 		env: {
 			...process.env,
 			PORT: String(EDITOR_PORT),
-			OPEN_SLIDESTUDIO_ROOT: repoRoot
+			OPEN_SLIDESTUDIO_ROOT: repoRoot,
+			SLIDESTUDIO_DATA_DIR: dataRoot
 		},
 		stdio: [
 			"ignore",
@@ -105,7 +152,7 @@ function startEditorSidecar(repoRoot) {
 	});
 	return child;
 }
-const HOP_HEADERS = new Set([
+const HOP_HEADERS = /* @__PURE__ */ new Set([
 	"connection",
 	"keep-alive",
 	"proxy-authenticate",
@@ -150,11 +197,18 @@ function apply(ctx) {
 	const checkoutRoot = fileURLToPath(new URL("../..", import.meta.url));
 	const repoRoot = resolve(existsSync(join(packageRoot, "apps/native-web/src/server.mjs")) ? packageRoot : checkoutRoot);
 	const editorOrigin = `http://127.0.0.1:${EDITOR_PORT}`;
+	const dataRoot = resolveDataDirectory(repoRoot, ctx.get("profileContext")?.home || process.env.DSH_HOME || join(homedir(), ".dsh"), process.env.SLIDESTUDIO_DATA_DIR);
 	registerSlidesPreset(ctx);
 	applySlidesHostAny(ctx, {
 		workspaceRoot: repoRoot,
+		dataRoot,
 		editorBaseUrl: editorOrigin,
 		personal: true
+	});
+	const sidecar = startEditorSidecar(repoRoot, dataRoot);
+	const editorReady = sidecar ? waitForEditor(editorOrigin) : Promise.resolve(false);
+	ctx.effect(() => () => {
+		if (sidecar && !sidecar.killed) sidecar.kill("SIGTERM");
 	});
 	ctx.effect(() => {
 		const connection = ctx.get("connection");
@@ -166,13 +220,19 @@ function apply(ctx) {
 		]) stops.push(ctx.webServer.register({
 			kind: "prefix",
 			path: prefix,
-			handler: (req, res) => {
+			handler: async (req, res) => {
 				const rejection = connection?.requestRejection?.(req);
 				if (rejection !== void 0) {
 					res.writeHead(rejection);
 					res.end("Access denied");
 					return;
 				}
+				if (!await editorReady) {
+					res.writeHead(503, { "content-type": "text/plain; charset=utf-8" });
+					res.end("SlideStudio editor could not start. Disable and enable the plugin to retry.");
+					return;
+				}
+				if (req.destroyed || res.destroyed) return;
 				const url = new URL(req.url ?? "/", "http://127.0.0.1");
 				req.url = `${prefix === "/app" ? url.pathname.slice(prefix.length) || "/" : url.pathname}${url.search}`;
 				proxyToSidecar(req, res, editorOrigin);
@@ -199,10 +259,6 @@ function apply(ctx) {
 		return () => {
 			for (const stop of stops) stop();
 		};
-	});
-	const sidecar = startEditorSidecar(repoRoot);
-	ctx.effect(() => () => {
-		if (sidecar && !sidecar.killed) sidecar.kill("SIGTERM");
 	});
 	console.log("[my-plugins/dsh-slidestudio] loaded");
 }

@@ -25,6 +25,7 @@ import { AttachmentStore, parseAttachmentBuffer, attachmentPublic, decodeAttachm
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../../..");
 loadRootEnv(ROOT);
+const DATA_ROOT = path.resolve(process.env.SLIDESTUDIO_DATA_DIR || ROOT);
 
 // Runtime packages must resolve to ONE copy each: bare `@open-slidestudio/*`
 // imports inside the packages always land on node_modules, so loading the
@@ -2049,7 +2050,7 @@ async function readGenerationActivity(native, root) {
     : activity.stages;
   return {
     ok: true,
-    project: { path: path.relative(ROOT, root), title, pageCount, pagePaths },
+    project: { path: path.relative(DATA_ROOT, root), title, pageCount, pagePaths },
     sessionId:
       boundSessionId ||
       nonEmptyString(inspection.contextEpochId) ||
@@ -2147,7 +2148,7 @@ function resolveOutputProject(root, raw) {
 /** Project dirs may live under the workspace or the OS temp dir (tests). */
 // Allowed roots must be canonicalized the same way candidates are (realpath),
 // otherwise macOS /var -> /private/var symlinks make tmpdir projects look foreign.
-const ALLOWED_PROJECT_ROOTS = [ROOT, os.tmpdir()].map((p) => {
+const ALLOWED_PROJECT_ROOTS = [ROOT, DATA_ROOT, os.tmpdir()].map((p) => {
   const resolved = path.resolve(p);
   try {
     return fs.existsSync(resolved) ? fs.realpathSync(resolved) : resolved;
@@ -2162,7 +2163,7 @@ function projectRootAllowed(candidate) {
   );
 }
 
-function resolveProjectPath(raw, workspaceRoot = ROOT, defaultProject = DEFAULT_PROJECT) {
+function resolveProjectPath(raw, workspaceRoot = DATA_ROOT, defaultProject = DEFAULT_PROJECT) {
   const requested = nonEmptyString(raw);
   if (!requested) return path.resolve(defaultProject);
   const candidates = path.isAbsolute(requested)
@@ -2170,6 +2171,7 @@ function resolveProjectPath(raw, workspaceRoot = ROOT, defaultProject = DEFAULT_
     : [
         path.resolve(workspaceRoot, requested),
         path.resolve(workspaceRoot, "fixtures", requested),
+        path.resolve(ROOT, "fixtures", requested),
         path.resolve(workspaceRoot, "output", requested),
       ];
   const resolved = candidates.find((candidate) => fs.existsSync(candidate)) ?? candidates[0];
@@ -2190,8 +2192,8 @@ function resolveProjectPath(raw, workspaceRoot = ROOT, defaultProject = DEFAULT_
   return resolved;
 }
 
-function discoverProjects(workspaceRoot = ROOT) {
-  const fixturesDir = path.join(workspaceRoot, "fixtures");
+function discoverProjects(workspaceRoot = DATA_ROOT) {
+  const fixturesDir = path.join(workspaceRoot === DATA_ROOT ? ROOT : workspaceRoot, "fixtures");
   const outputDir = path.join(workspaceRoot, "output");
   const scanRoots = [
     { root: fixturesDir, group: "fixture" },
@@ -2250,7 +2252,7 @@ function discoverProjects(workspaceRoot = ROOT) {
   return projects;
 }
 
-function deleteProject(workspaceRoot = ROOT, raw) {
+function deleteProject(workspaceRoot = DATA_ROOT, raw) {
   const abs = resolveOutputProject(workspaceRoot, raw);
   const stat = fs.lstatSync(abs);
   if (!stat.isDirectory() || stat.isSymbolicLink()) {
@@ -2283,7 +2285,7 @@ function retentionDaysFromEnv(env = process.env) {
  * .pptd/directory mtime is older than `days`. Whole directory goes, including
  * _agent rasters and exported pptx, so server disk stays bounded.
  */
-function sweepStaleProjects(workspaceRoot = ROOT, opts = {}) {
+function sweepStaleProjects(workspaceRoot = DATA_ROOT, opts = {}) {
   const days = opts.days ?? retentionDaysFromEnv(opts.env ?? process.env);
   const now = opts.now ?? Date.now();
   const deleted = [];
@@ -2333,7 +2335,7 @@ function startRetentionSweep() {
   }
   const run = () => {
     try {
-      const { deleted, errors } = sweepStaleProjects(ROOT, { days });
+      const { deleted, errors } = sweepStaleProjects(DATA_ROOT, { days });
       if (deleted.length) {
         console.log(`Retention: deleted ${deleted.length} stale project(s): ${deleted.join(", ")}`);
       }
@@ -2493,7 +2495,7 @@ function resolveHubCategory(body) {
   return mapHubCategory(body?.category);
 }
 
-const attachmentStore = new AttachmentStore(path.join(ROOT, "output", "attachments"));
+const attachmentStore = new AttachmentStore(path.join(DATA_ROOT, "output", "attachments"));
 const storeAttachment = (name, bytes) => attachmentStore.store(name, bytes);
 
 const DEMO_BRAND_FILES = [
@@ -2646,6 +2648,7 @@ const server = http.createServer(async (req, res) => {
         kimiRuntime: false,
         kernel: "dsh",
         checkoutRoot: ROOT,
+        dataRoot: DATA_ROOT,
         project: healthRoot,
         connected: Boolean(liveSessions.get(path.resolve(healthRoot))?.session),
         title,
@@ -3501,7 +3504,7 @@ const server = http.createServer(async (req, res) => {
         return json(res, 400, { error: "path required" });
       }
       try {
-        deleteProject(ROOT, target);
+        deleteProject(DATA_ROOT, target);
       } catch (error) {
         return json(res, 400, { error: error instanceof Error ? error.message : "无法删除该项目" });
       }
@@ -3592,7 +3595,7 @@ const server = http.createServer(async (req, res) => {
         return json(res, 403, { error: "src must be inside the workspace" });
       }
       if (!fs.existsSync(realAbs)) return json(res, 404, { error: `not found: ${src}` });
-      const dest = path.join(ROOT, "output", `img-${Date.now()}`);
+      const dest = path.join(DATA_ROOT, "output", `img-${Date.now()}`);
       fs.mkdirSync(path.join(dest, "media"), { recursive: true });
       const file = path.join(dest, "media", path.basename(realAbs));
       fs.copyFileSync(realAbs, file);
@@ -3672,7 +3675,7 @@ const server = http.createServer(async (req, res) => {
       const raw = String(url.searchParams.get("path") || "").trim();
       if (raw) {
         try {
-          root = resolveOutputProject(ROOT, raw);
+          root = resolveOutputProject(DATA_ROOT, raw);
         } catch (e) {
           return json(res, 400, { error: e instanceof Error ? e.message : String(e) });
         }

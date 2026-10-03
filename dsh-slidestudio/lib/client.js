@@ -10,23 +10,33 @@ window.__ModuleLoader__.load({
 		//#region src/client/index.tsx
 		const name = "dsh-slidestudio-client";
 		const inject = ["slots"];
-		/** Replay a registered shortcut command through the real keydown dispatch path. */
-		function dispatchShortcut(ctx, commandId) {
-			const entry = ctx.get("shortcuts")?.catalog.getSnapshot().find((row) => String(row.id) === commandId);
-			const binding = entry?.binding && entry.binding.secondCode === void 0 ? entry.binding : null;
-			const macos = /mac|iphone|ipad/iu.test(navigator.platform);
-			const code = binding?.code ?? "Comma";
-			const modifiers = new Set(binding?.modifiers ?? (macos ? ["alt", "meta"] : ["alt", "control"]));
-			document.body.dispatchEvent(new KeyboardEvent("keydown", {
-				code,
-				key: ",",
-				bubbles: true,
-				cancelable: true,
-				ctrlKey: modifiers.has("control"),
-				altKey: modifiers.has("alt"),
-				shiftKey: modifiers.has("shift"),
-				metaKey: modifiers.has("meta")
-			}));
+		/** Use the Host's rendered settings control on Web and native Desktop alike.
+		* Desktop ignores synthetic DOM shortcut events. RC2 exposes no public command
+		* invocation API, so use its slot/ARIA controls without touching private stores.
+		*/
+		function activateSettingsControl(ctx) {
+			const trigger = document.querySelector("[data-slot=\"sidebar.settings\"] [data-slot=\"settings.trigger\"]")?.closest("button");
+			if (trigger && !trigger.disabled) {
+				trigger.click();
+				return true;
+			}
+			const launcher = document.querySelector("[data-slot=\"sidebar.settings\"] [data-slot=\"settings.launcher\"] button[aria-haspopup=\"menu\"]");
+			if (!launcher || launcher.disabled) return false;
+			if (launcher.getAttribute("aria-expanded") !== "true") {
+				launcher.click();
+				return false;
+			}
+			const aria = ctx.get("shortcuts")?.catalog.getSnapshot().find((row) => String(row.id) === "settings.open")?.aria;
+			const matches = [...document.querySelectorAll("[role=\"menu\"] button[role=\"menuitem\"]")].filter((button) => {
+				if (button.disabled) return false;
+				if (aria && button.getAttribute("aria-keyshortcuts") === aria) return true;
+				const label = button.cloneNode(true);
+				label.querySelectorAll("[aria-hidden=\"true\"]").forEach((node) => node.remove());
+				return ["设置", "Settings"].includes(label.textContent?.trim() ?? "");
+			});
+			if (matches.length !== 1) return false;
+			matches[0].click();
+			return true;
 		}
 		/** The hub inside the iframe follows DSH's own Language setting. */
 		let currentLang = "zh";
@@ -75,15 +85,19 @@ window.__ModuleLoader__.load({
 		* unless the user navigated elsewhere in the meantime.
 		*/
 		function openDshSettings(ctx, source, origin) {
+			const notify = (type) => {
+				if (source && "postMessage" in source) source.postMessage({ type }, origin);
+			};
+			notify("oss:dsh-settings-accepted");
 			const resumePersonal = ctx.get("personal")?.suspend?.();
 			if (settingsUiMounted()) {
-				if (source && "postMessage" in source) source.postMessage({ type: "oss:dsh-settings-opened" }, origin);
-				driveSettingsOpen(ctx, resumePersonal ?? null);
+				driveSettingsOpen(ctx, resumePersonal ?? null, notify);
 				return;
 			}
 			const layout = ctx.get("layout");
 			if (!layout) {
 				resumePersonal?.();
+				notify("oss:dsh-settings-failed");
 				return;
 			}
 			const previousPanel = layout.panelInfo?.getSnapshot().activePanelId ?? null;
@@ -98,7 +112,7 @@ window.__ModuleLoader__.load({
 					layout.selectPanel(previousPanel);
 				} catch {}
 				resumePersonal?.();
-			});
+			}, notify);
 		}
 		/**
 		* Drive the settings dialog through its real open/close lifecycle:
@@ -108,7 +122,7 @@ window.__ModuleLoader__.load({
 		* user finally sees closes. `finish` (restore) is only meaningful after a
 		* navigation; in-place callers pass null.
 		*/
-		function driveSettingsOpen(ctx, finish) {
+		function driveSettingsOpen(ctx, finish, notify) {
 			let finished = false;
 			let opened = false;
 			let needDispatch = true;
@@ -119,10 +133,12 @@ window.__ModuleLoader__.load({
 				window.clearInterval(timer);
 				window.clearTimeout(deadline);
 				finish?.();
+				if (!opened) notify("oss:dsh-settings-failed");
 			};
 			const timer = window.setInterval(() => {
 				waited += 250;
 				if (settingsModalOpen()) {
+					if (!opened) notify("oss:dsh-settings-opened");
 					opened = true;
 					return;
 				}
@@ -132,14 +148,11 @@ window.__ModuleLoader__.load({
 				}
 				if (otherDialogOpen()) {
 					needDispatch = true;
+					waited = 0;
 					return;
 				}
-				if (needDispatch && waited >= 400) {
-					needDispatch = false;
-					dispatchShortcut(ctx, "settings.open");
-					return;
-				}
-				if (!needDispatch && waited >= 1e4) done();
+				if (needDispatch && waited >= 400) needDispatch = !activateSettingsControl(ctx);
+				if (waited >= 1e4) done();
 			}, 250);
 			const deadline = window.setTimeout(done, 6e5);
 			ctx.effect(() => done);
@@ -182,12 +195,23 @@ window.__ModuleLoader__.load({
 			});
 		}
 		const PANEL = "slides";
+		/** Main panels must reserve the official desktop window-chrome strip. */
+		function StandaloneSlidesPage() {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+				style: {
+					height: "100%",
+					boxSizing: "border-box",
+					paddingTop: "var(--dsh-frame-top-clearance, 0px)"
+				},
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(SlidesPage, {})
+			});
+		}
 		/** Standalone mode: 演示文稿 sits in the official sidebar panel list itself. */
 		function registerStandalone(ctx) {
 			const stops = [ctx.slots.inject("main", () => ctx.slots.register({
 				name: "main",
 				key: PANEL
-			}, SlidesPage)), ctx.slots.inject("sidebar.panellist", () => ctx.slots.register({
+			}, StandaloneSlidesPage)), ctx.slots.inject("sidebar.panellist", () => ctx.slots.register({
 				name: "sidebar.panellist",
 				id: PANEL,
 				order: -9,

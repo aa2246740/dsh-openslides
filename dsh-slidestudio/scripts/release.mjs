@@ -46,10 +46,12 @@ const stage = mkdtempSync(join(output, "stage-"));
 const pkg = join(stage, "package");
 mkdirSync(pkg, { recursive: true });
 
+const cleanRuntimeFile = src => !src.split(/[\\/]/).some(part =>
+  [".git", "node_modules", ".versions", "_agent", ".DS_Store"].includes(part));
 const copy = (rel, { filter } = {}) => {
   const from = join(repoRoot, rel);
   if (!existsSync(from)) throw new Error(`missing runtime input: ${rel}`);
-  cpSync(from, join(pkg, rel), { recursive: true, filter });
+  cpSync(from, join(pkg, rel), { recursive: true, filter: src => cleanRuntimeFile(src) && (!filter || filter(src)) });
 };
 
 copy("apps/native-web/src", {
@@ -70,7 +72,7 @@ copy("vendor/open-kimi-ppt/git-pre-wipe");
 copy("scripts/lib");
 copy("LICENSE");
 copy("fixtures/okp-yu7-ppt");
-for (const rel of ["lib", "src", "README.md", "dshx.yml", "cordis.yml"]) {
+for (const rel of ["lib", "locale", "README.md"]) {
   const from = join(pluginDir, rel);
   if (existsSync(from)) cpSync(from, join(pkg, rel), { recursive: true });
 }
@@ -132,7 +134,6 @@ const published = {
   dependencies: bundledVersions,
   files: [
     "lib",
-    "src",
     "apps",
     "packages",
     "vendor",
@@ -140,8 +141,7 @@ const published = {
     "LICENSE",
     "fixtures",
     "cordis.patch.yml",
-    "cordis.yml",
-    "dshx.yml",
+    "locale",
     "README.md",
   ],
   bundleDependencies: BUNDLED_NODE_MODULES,

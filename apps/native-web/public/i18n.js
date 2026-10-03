@@ -120,6 +120,7 @@ const EN = {
   "可选，如 grok-imagine-image-2.0": "Optional, e.g. grok-imagine-image-2.0",
   "还没有 API Key 提供方。": "No API-key providers yet.",
   "没有可用供应商，请稍后重试。": "No providers available — try again shortly.",
+  "无法打开 DSH 设置，请从工作空间的账号菜单打开设置。": "Could not open DSH Settings. Open Settings from the account menu in the Work space.",
   "无法读取设置": "Couldn't load settings",
   "无法读取供应商": "Couldn't load providers",
   "API 密钥已配置": "API key configured",

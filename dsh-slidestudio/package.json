@@ -1,14 +1,14 @@
 {
   "name": "dsh-slidestudio",
-  "version": "0.2.0",
-  "description": "Editable presentations for DeepSeek Harness, with optional Personal integration",
+  "version": "0.2.1",
+  "description": "DSH SlideStudio — AI presentations with editable PPTX export for DeepSeek Harness",
   "type": "module",
   "main": "lib/dsh-slidestudio.js",
   "types": "lib/types/dsh-slidestudio.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json && tsdown",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test:client": "node scripts/test-settings.mjs"
+    "test:client": "node --test scripts/test-settings.mjs scripts/test-data-directory.mjs scripts/test-sidecar-ready.mjs"
   },
   "exports": {
     ".": {
@@ -19,7 +19,8 @@
       "types": "./lib/types/client/index.d.ts",
       "default": "./lib/client.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
   },
   "dsh": {
     "client": {
@@ -36,7 +37,8 @@
     "lib/types/**/*.d.ts",
     "cordis.yml",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "locale/*.json"
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
@@ -48,7 +50,7 @@
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
     "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.3.0-0",
-    "dsh-personal": ">=0.2.5 <0.3.0"
+    "dsh-personal": ">=0.2.8 <0.3.0"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/cordis": {
@@ -78,5 +80,12 @@
   "homepage": "https://github.com/aa2246740/dsh-slidestudio#readme",
   "bugs": {
     "url": "https://github.com/aa2246740/dsh-slidestudio/issues"
-  }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "presentations",
+    "pptx",
+    "slidestudio"
+  ]
 }

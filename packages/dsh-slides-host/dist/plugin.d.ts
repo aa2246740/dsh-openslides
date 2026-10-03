@@ -20,17 +20,20 @@ export declare const name = "slides-host";
 export declare const inject: string[];
 export declare const Config: z<Schemastery.ObjectS<NoInfer<{
     workspaceRoot: z<string, string, "defined">;
+    dataRoot: z<string, string, "defined">;
     editorBaseUrl: z<string, string, "defined">;
     /** Mounted inside the user's own DSH Host as a Personal feature. */
     personal: z<boolean, boolean, "defined">;
 }>>, Schemastery.ObjectT<NoInfer<{
     workspaceRoot: z<string, string, "defined">;
+    dataRoot: z<string, string, "defined">;
     editorBaseUrl: z<string, string, "defined">;
     /** Mounted inside the user's own DSH Host as a Personal feature. */
     personal: z<boolean, boolean, "defined">;
 }>>, "plain">;
 export type SlidesHostConfig = {
     workspaceRoot?: string;
+    dataRoot?: string;
     editorBaseUrl?: string;
     personal?: boolean;
 };

@@ -24,10 +24,10 @@ and `PRODUCT GAP` lines. Evidence lands in `output/qa-verify-slidestudio/<run>/`
 after cleanup): `report.md`, `report.json`, `server.log`, and per feature `NN-name.png`,
 `commands.json`, `failure-N.png` on a crash.
 
-Prerequisite: the pinned browser (`npm run setup:browser` once). The runtime resolves through
-`SLIDESTUDIO_PLAYWRIGHT_RUNTIME`, then `.runtime/playwright/runtime.mjs`, then
-`~/.codex/playwright-runtime/runtime.mjs` (`scripts/lib/playwright-runtime-path.mjs`). Never use
-system Chrome.
+Prerequisite for Codex verification: the existing shared runtime at
+`~/.codex/playwright-runtime/runtime.mjs` (Playwright 1.61.1 / Chromium Headless Shell 1228).
+Set `SLIDESTUDIO_PLAYWRIGHT_RUNTIME` to that path if another local runtime exists.
+Do not install a project-local browser or fall back to system Chrome.
 
 ## RC2 isolation probe
 

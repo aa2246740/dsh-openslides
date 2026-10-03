@@ -4,21 +4,23 @@
   "status": "verified",
   "surface": "chrome.global",
   "title": "打开或收起 AI 工作区",
-  "description": "底部 AI 按钮打开或收起本地工作区；工作区头部关闭按钮提供明确恢复路径。",
+  "description": "标题栏 AI 助手按钮打开或收起工作区；生成期间保留恢复入口，重新打开后仍可停止任务。",
   "kimiUi": {
     "controlLabel": "AI / 收起 AI 工作区",
-    "location": "bottom insert toolbar and split workspace header",
+    "location": "title toolbar and split workspace header",
     "appearsWhen": "editor open"
   },
   "preconditions": {
     "fixtureId": "okp-yu7-ppt",
     "pageIndex": 0,
-    "selection": { "kind": "none" }
+    "selection": {
+      "kind": "none"
+    }
   },
   "action": {
     "type": "toggle",
     "steps": [
-      "Click the bottom AI button to open the split workspace",
+      "Click the title-bar AI button to open the split workspace",
       "Verify the workspace has an accessible close control",
       "Click the close control and verify the full editor width returns"
     ]
@@ -43,7 +45,8 @@
     "selfTestChecklist": [
       "AI button opens #work-chat",
       "chat-close is visible and accessible",
-      "chat-close hides #work-chat and returns focus to the AI button"
+      "chat-close hides #work-chat and returns focus to the AI button",
+      "While generating, both × and Escape keep the title-bar AI button visible; reopen and Stop remain usable"
     ]
   },
   "oracle": {
@@ -52,5 +55,5 @@
     "agent": "toolbar-repair",
     "sessionId": "editor-toolbar-actions"
   },
-  "updatedAt": "2026-08-23T00:00:00.000Z"
+  "updatedAt": "2026-10-03T01:00:00.000Z"
 }

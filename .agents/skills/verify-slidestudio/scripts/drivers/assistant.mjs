@@ -4,7 +4,7 @@
 // Replies are canned strings the driver wrote; none of this proves model quality or a real generation.
 import fs from "node:fs";
 import path from "node:path";
-import { REPO, fakeSession, newPage, openEditor, readManifest, sleep } from "../lib.mjs";
+import { REPO, fakeSession, newPage, openEditor, readManifest, manifestPath, editorUrl, sleep } from "../lib.mjs";
 
 const input = (page) => page.locator("#work-brief");
 const thread = (page) => page.locator("#editor-generation-event-list");
@@ -72,9 +72,39 @@ export const features = [
       await input(live).fill("");
       await sleep(200);
       rec.check("clearing the text restores stop", await live.locator("#work-form .composer-send").evaluate((n) => n.classList.contains("is-stopping")));
-      await rec.shot(live, "03-live-stop-button");
-      void s;
+      // Real regression: the live CSS used to hide the only reopen button.
+      await live.click("#chat-close");
+      rec.check("live × hides the panel but keeps its reopen button", await live.locator("#work-chat").isHidden() && await live.locator("#btn-sparkles").isVisible());
+      await live.click("#btn-sparkles");
+      await input(live).press("Escape");
+      rec.check("live Escape can be recovered without navigating away", await live.locator("#work-chat").isHidden() && await live.locator("#btn-sparkles").isVisible());
+      await rec.shot(live, "03-live-panel-collapsed");
+      await live.click("#btn-sparkles");
+      rec.check("reopened live panel retains the stop control", await live.locator("#work-chat").isVisible() && (await live.locator("#work-form .composer-send").getAttribute("data-control")) === "chrome.workspace.stop");
+      rec.check("live export stays unavailable", await live.locator("#btn-export").isHidden());
+      await live.click("#work-form .composer-send");
+      await rec.until(() => s.stops.length > 0, 5000);
+      rec.check("stop remains usable after reopening the panel", s.stops.length === 1);
+      await rec.shot(live, "04-live-stop-after-reopen");
       await live.__context.close();
+
+      // Fresh generation has no slide, so its canvas allowlist is empty.
+      const emptyDeck = ctx.deck("assistant-before-first-slide");
+      const emptyManifest = readManifest(emptyDeck);
+      fs.writeFileSync(manifestPath(emptyDeck), JSON.stringify({ ...emptyManifest, pages: [] }));
+      const empty = await newPage(ctx, rec);
+      const initial = await fakeSession(empty, { project: emptyDeck, pageCount: 0, pagePaths: [] });
+      initial.busy = true;
+      initial.phase = "generating";
+      await empty.goto(editorUrl(ctx, emptyDeck, `${sessionUrl}&live=1&session=verify-session`));
+      await empty.waitForFunction(() => document.querySelector("#work-form .composer-send")?.classList.contains("is-stopping"));
+      await empty.click("#chat-close");
+      rec.check("before the first slide the reopen button is visible and enabled", await empty.locator("#btn-sparkles").isVisible() && await empty.locator("#btn-sparkles").isEnabled());
+      await empty.click("#btn-sparkles");
+      await empty.click("#work-form .composer-send");
+      rec.check("before the first slide closing the panel does not lose Stop", await rec.until(() => initial.stops.length === 1));
+      await rec.shot(empty, "05-before-first-slide");
+      await empty.__context.close();
     },
   },
 

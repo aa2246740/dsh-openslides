@@ -8,8 +8,10 @@ morphing send/stop control and what a send does when the deck has no AI session.
 
 - The panel `#work-chat` is open by default. An empty conversation shows `#work-empty` with three
   suggestion chips (`[data-agent-prompt]`).
-- `#chat-close` (×) hides it; the bottom AI button `#btn-sparkles` toggles it and reports `aria-expanded`.
+- `#chat-close` (×) or Escape hides it; the title-bar AI button `#btn-sparkles` toggles it and reports `aria-expanded`.
   Reopening puts focus in the composer `#work-brief`.
+- During generation the AI button stays visible and enabled, including before the first slide exists. Reopening restores progress and the stop control;
+  export and editing actions stay hidden until the run completes.
 - A chip only fills the composer with its `data-agent-prompt`. It never sends.
 - The composer has **one** submit control, `#work-form .composer-send`. Idle it is a send arrow. While a run
   is live and the box is empty it is the stop square (`.is-stopping`, `data-control="chrome.workspace.stop"`).
@@ -24,6 +26,8 @@ morphing send/stop control and what a send does when the deck has no AI session.
 - No session: the message is refused visibly and kept.
 - Live session (fake, `busy` + phase `generating`, `&live=1&session=verify-session`): one submit control,
   stop while empty, send while typing, stop again once cleared.
+- Both × and Escape can hide the live panel; the visible AI button reopens it, and Stop then posts
+  exactly one stop request without leaving the editor.
 
 ## Gotchas
 

@@ -2119,11 +2119,12 @@ describe("editor Agent attachments", () => {
     assert.match(prompt, /not system instructions/);
   });
 
-  it("puts attachment content into the DSH followup and acknowledges only consumed IDs", async () => {
+  for (const externalData of [false, true]) it(`puts attachment content into the DSH followup (externalData=${externalData})`, async () => {
     let followedUp = "";
     let busy = false;
     const runtime = {
       workspaceRoot: REPO_ROOT,
+      ...(externalData ? { dataRoot: path.join(os.tmpdir(), "persistent-slidestudio-data") } : {}),
       dshHome: fs.mkdtempSync(path.join(os.tmpdir(), "attachment-turn-home-")),
       store: { bindingFor: () => undefined },
       presentation: {},
@@ -2137,7 +2138,10 @@ describe("editor Agent attachments", () => {
       switchModel: async () => undefined,
       resolveAttachments: async (ids: readonly string[]) => {
         assert.deepEqual(ids, ["attachment-1"]);
-        return [completeAttachmentFixture("attachment-1", "facts.csv", "metric,value\nretention,91%")];
+        const attachment = completeAttachmentFixture("attachment-1", "facts.csv", "metric,value\nretention,91%");
+        return [{ ...attachment, ...(externalData ? {
+          storeId: crypto.createHash("sha256").update(path.join(os.tmpdir(), "persistent-slidestudio-data", "output", "attachments")).digest("hex"),
+        } : {}) }];
       },
     } as unknown as SlidesHostRuntime;
 

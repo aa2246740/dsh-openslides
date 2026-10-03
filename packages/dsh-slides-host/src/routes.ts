@@ -64,6 +64,7 @@ export type SlidesHostRuntime = {
   questions?: AssistantQuestions;
   store: SliceSessionStore;
   workspaceRoot: string;
+  dataRoot?: string;
   dshHome: string;
   presentation: PresentationRun;
   agentBusy: (sessionId: string) => boolean;
@@ -187,7 +188,7 @@ export async function resolveEditorAttachments(
 async function selectedAttachments(runtime: SlidesHostRuntime, ids: readonly string[]): Promise<readonly EditorAttachment[]> {
   const resolved = await (runtime.resolveAttachments ?? resolveEditorAttachments)(ids);
   if (resolved.length !== ids.length) throw new Error("attachment resolver did not return every selected file");
-  const expectedStoreId = inputSha256(path.resolve(runtime.workspaceRoot, "output", "attachments"));
+  const expectedStoreId = inputSha256(path.resolve(runtime.dataRoot ?? runtime.workspaceRoot, "output", "attachments"));
   const checked = resolved.map((attachment, index) => {
     const verified = verifiedAttachment(ids[index]!, { ...attachment });
     if (verified.storeId !== expectedStoreId) throw new Error("attachment belongs to another upload store");

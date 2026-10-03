@@ -1,7 +1,7 @@
 {
   "name": "dsh-slidestudio",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "DSH SlideStudio — AI presentations for DeepSeek Harness",
   "type": "module",
   "workspaces": [
@@ -60,7 +60,8 @@
     "dev:web": "npm run dev -w @open-slidestudio/web",
     "dev:api": "npm run start -w @open-slidestudio/server",
     "generate": "node scripts/generate-pptx.mjs",
-    "qa:editor-human": "node scripts/qa/editor-human-audit.mjs && node scripts/qa/editor-agent-human-audit.mjs && node scripts/qa/editor-shell-human-audit.mjs && node scripts/qa/editor-remaining-boundaries.mjs"
+    "qa:editor-human": "node scripts/qa/editor-human-audit.mjs && node scripts/qa/editor-agent-human-audit.mjs && node scripts/qa/editor-shell-human-audit.mjs && node scripts/qa/editor-remaining-boundaries.mjs",
+    "release:package": "npm run build:native && npm run build --prefix dsh-slidestudio && node dsh-slidestudio/scripts/release.mjs"
   },
   "engines": {
     "node": ">=22.19.0"

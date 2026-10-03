@@ -1656,23 +1656,45 @@ function hideGotoModal() {
 document.getElementById("btn-settings")?.addEventListener("click", () => openHostSettings(() => showSettings(true)));
 document.getElementById("btn-goto-cancel")?.addEventListener("click", hideGotoModal);
 document.getElementById("btn-goto-dsh")?.addEventListener("click", () => {
-  let opened = false;
+  const button = document.getElementById("btn-goto-dsh");
+  if (button.disabled) return;
+  button.disabled = true;
+  let accepted = false;
+  const done = () => {
+    window.removeEventListener("message", onAck);
+    clearTimeout(timeout);
+    button.disabled = false;
+  };
   const onAck = (event) => {
-    if (event.origin === location.origin && event.data?.type === "oss:dsh-settings-opened") {
-      opened = true;
-      window.removeEventListener("message", onAck);
+    if (event.origin !== location.origin || event.source !== window.parent) return;
+    if (event.data?.type === "oss:dsh-settings-accepted") {
+      accepted = true;
       hideGotoModal();
+    } else if (event.data?.type === "oss:dsh-settings-opened") {
+      hideGotoModal();
+      done();
+    } else if (event.data?.type === "oss:dsh-settings-failed") {
+      hideGotoModal();
+      showToast(t("无法打开 DSH 设置，请从工作空间的账号菜单打开设置。"));
+      done();
     }
   };
   window.addEventListener("message", onAck);
-  window.parent.postMessage({ type: "oss:open-dsh-settings" }, location.origin);
-  setTimeout(() => {
-    window.removeEventListener("message", onAck);
-    if (!opened) {
+  const timeout = setTimeout(() => {
+    done();
+    if (!accepted) {
       hideGotoModal();
       showSettings(true);
     }
-  }, 600);
+  }, 610_000); // Host may wait for the user to finish an onboarding dialog.
+  window.parent.postMessage({ type: "oss:open-dsh-settings" }, location.origin);
+  setTimeout(() => {
+    if (!accepted && button.disabled) {
+      done();
+      hideGotoModal();
+      showToast(t("无法打开 DSH 设置，请从工作空间的账号菜单打开设置。"));
+    }
+  }, 1500);
 });
 document.getElementById("btn-settings-back")?.addEventListener("click", () => showSettings(false));
 

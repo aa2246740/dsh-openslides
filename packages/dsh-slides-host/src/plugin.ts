@@ -119,6 +119,7 @@ export const inject = ["tools", "webServer", "agents", "attachments", "llm"];
 
 export const Config = z.object({
   workspaceRoot: z.string().default(""),
+  dataRoot: z.string().default(""),
   editorBaseUrl: z.string().default("http://127.0.0.1:55200"),
   /** Mounted inside the user's own DSH Host as a Personal feature. */
   personal: z.boolean().default(false),
@@ -126,6 +127,7 @@ export const Config = z.object({
 
 export type SlidesHostConfig = {
   workspaceRoot?: string;
+  dataRoot?: string;
   editorBaseUrl?: string;
   personal?: boolean;
 };
@@ -146,6 +148,7 @@ export async function runModelSwitchTransaction(input: {
 
 export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
   const workspaceRoot = pathResolve(config.workspaceRoot?.trim() || process.cwd());
+  const dataRoot = pathResolve(config.dataRoot?.trim() || workspaceRoot);
   // Personal mode runs inside the user's own Host: the ambient DSH_HOME
   // (normally ~/.dsh) is the right home — it already holds the user's OAuth
   // grants and model catalog, so the isolation check must not reject it.
@@ -160,12 +163,12 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
     process.env.SLIDESTUDIO_EDITOR_URL ||
     "http://127.0.0.1:55200";
   process.env.SLIDESTUDIO_EDITOR_URL = editorBaseUrl;
-  process.env.OPEN_SLIDESTUDIO_ROOT = process.env.OPEN_SLIDESTUDIO_ROOT?.trim() || workspaceRoot;
+  process.env.OPEN_SLIDESTUDIO_ROOT = workspaceRoot;
   const playwrightRuntime = pinnedPlaywrightRuntimePath(process.env, { repoRoot: workspaceRoot });
   if (rasterRuntimeReady(process.env, playwrightRuntime)) {
     process.env.SLIDESTUDIO_PLAYWRIGHT_RUNTIME = playwrightRuntime;
   }
-  const store = new SliceSessionStore(workspaceRoot);
+  const store = new SliceSessionStore(dataRoot);
   store.rebuild();
   const presentation = createPresentationRun({
     repoRoot: workspaceRoot,
@@ -671,6 +674,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
     questions,
     store,
     workspaceRoot,
+    dataRoot,
     dshHome,
     presentation,
     agentBusy(sessionId) {
@@ -811,7 +815,7 @@ export function apply(ctx: Context, config: SlidesHostConfig = {}): void {
       handle.agent.followup(createUserMessage({
         content: [{ type: "text", text: initialMessage }], source: { kind: "user" },
       }));
-      return { sessionId, projectPath: pathRelative(workspaceRoot, projectRoot) };
+      return { sessionId, projectPath: pathRelative(dataRoot, projectRoot) };
     },
     async resumeAgent(sessionId) {
       assertHubProduceGatesReady(workspaceRoot);

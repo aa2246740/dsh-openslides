@@ -26,3 +26,5 @@ it; the committed text survives a reload; the element set is unchanged.
   expands it. With nothing selected the panel is hidden with width 0.
 - Blank-canvas click clears the selection; that is the commit gesture, not a bug.
 - Disk writes lag the response: poll (`rec.until`) instead of reading once.
+
+- Wait for the bold command response and repaint before filling the size field. Commit size with Tab; disk writes alone can precede the inspector refresh.

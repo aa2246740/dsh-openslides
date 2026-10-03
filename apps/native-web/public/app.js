@@ -4591,6 +4591,12 @@ function renderChrome() {
     if (btnEl.closest("#work-form, .assistant-question-card")) continue;
     const id = btnEl.getAttribute("data-control");
     if (!id) continue;
+    // The assistant is useful before the first slide exists. Its visibility
+    // toggle must not depend on the empty canvas's editing permissions.
+    if (id === "chrome.workspace.toggle") {
+      btnEl.disabled = false;
+      continue;
+    }
     let off = !allowed(id);
     if (historyPreview && ![
       "chrome.history.versions.open",
